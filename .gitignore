@@ -28,6 +28,15 @@
 *.opendb
 *.VC.db
 
+# Unity-independent .NET core: track project definitions, not compiled output.
+/src/**/bin/
+/src/**/obj/
+/tests/**/bin/
+/tests/**/obj/
+!ReCamp.Core.sln
+!src/ReCamp.Core/ReCamp.Core.csproj
+!tests/ReCamp.Core.Tests/ReCamp.Core.Tests.csproj
+
 # OS generated files
 .DS_Store
 .DS_Store?
