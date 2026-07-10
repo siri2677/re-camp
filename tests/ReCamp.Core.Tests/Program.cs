@@ -8,6 +8,7 @@ var tests = new (string Name, Action Run)[]
     ("player victory awards its enemy reward exactly once", VictoryClaimsRewardOnce),
     ("a surviving enemy damages the player and defeat cannot claim rewards", DefeatDoesNotClaimReward),
     ("save restores resources and persistent facility effects", SaveRestoresProgress),
+    ("service-ready repository versions saves and rejects stale writes", RepositoryVersionsSaves),
 };
 
 var failures = new List<string>();
@@ -119,7 +120,36 @@ static void SaveRestoresProgress()
     }
 }
 
+static void RepositoryVersionsSaves()
+{
+    var directory = Path.Combine(Path.GetTempPath(), $"recamp-saves-{Guid.NewGuid():N}");
+    try
+    {
+        var repository = new LocalJsonSaveRepository(directory);
+        var data = new GameSession().CreateSave();
+        var first = repository.SaveAsync("guest-001", data, expectedRevision: 0).GetAwaiter().GetResult();
+        var loaded = repository.LoadAsync("guest-001").GetAwaiter().GetResult();
+
+        Assert(first.Revision == 1, "first save should start at revision one");
+        Assert(loaded?.Revision == 1, "saved revision should load back");
+        AssertThrows<SaveConflictException>(
+            () => repository.SaveAsync("guest-001", data, expectedRevision: 0).GetAwaiter().GetResult(),
+            "stale writes should be rejected");
+    }
+    finally
+    {
+        if (Directory.Exists(directory)) Directory.Delete(directory, recursive: true);
+    }
+}
+
 static void Assert(bool condition, string message)
 {
     if (!condition) throw new InvalidOperationException(message);
+}
+
+static void AssertThrows<TException>(Action action, string message) where TException : Exception
+{
+    try { action(); }
+    catch (TException) { return; }
+    throw new InvalidOperationException(message);
 }
