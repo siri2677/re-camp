@@ -9,6 +9,8 @@ var tests = new (string Name, Action Run)[]
     ("a surviving enemy damages the player and defeat cannot claim rewards", DefeatDoesNotClaimReward),
     ("save restores resources and persistent facility effects", SaveRestoresProgress),
     ("service-ready repository versions saves and rejects stale writes", RepositoryVersionsSaves),
+    ("skill draft is deterministic and does not repeat selections", SkillDraftIsDeterministic),
+    ("active skills respect cooldown and passive skills stack by level", SkillRuntimeRules),
 };
 
 var failures = new List<string>();
@@ -140,6 +142,33 @@ static void RepositoryVersionsSaves()
     {
         if (Directory.Exists(directory)) Directory.Delete(directory, recursive: true);
     }
+}
+
+static void SkillDraftIsDeterministic()
+{
+    var loadout = new SkillLoadout(MvpSkills.Catalog);
+    var draft = new SkillDraftService();
+    var first = draft.CreateOffer(MvpSkills.Catalog, loadout, seed: 42);
+    var second = draft.CreateOffer(MvpSkills.Catalog, loadout, seed: 42);
+
+    Assert(first.Select(skill => skill.Id).SequenceEqual(second.Select(skill => skill.Id)), "same seed should produce the same offer");
+    Assert(first.Select(skill => skill.Id).Distinct().Count() == first.Count, "an offer must not repeat skills");
+    Assert(loadout.TrySelect(first[0].Id), "selected offer should be accepted");
+}
+
+static void SkillRuntimeRules()
+{
+    var loadout = new SkillLoadout(MvpSkills.Catalog);
+    Assert(loadout.TrySelect("SK001"), "passive skill should be selectable");
+    Assert(loadout.TrySelect("SK001"), "passive skill should level up");
+    Assert(Math.Abs(loadout.PassiveValue(SkillEffectType.AttackMultiplier) - 0.10) < 0.0001, "two passive levels should stack");
+
+    Assert(loadout.TrySelect("SK003"), "active skill should be selectable");
+    Assert(loadout.TryActivate("SK003", out var activation), "ready active skill should activate");
+    Assert(activation?.Cooldown == TimeSpan.FromSeconds(20), "active skill should use configured cooldown");
+    Assert(!loadout.TryActivate("SK003", out _), "active skill cannot activate during cooldown");
+    loadout.Tick(TimeSpan.FromSeconds(20));
+    Assert(loadout.TryActivate("SK003", out _), "active skill should be ready after cooldown");
 }
 
 static void Assert(bool condition, string message)
