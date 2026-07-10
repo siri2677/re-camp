@@ -16,6 +16,12 @@ Lobby -> StartRun -> Exploring -> CompleteRun -> Result -> ReturnToLobby
 - `PlayerStats`: receives persistent workshop and storage effects.
 - `BattleEncounter`: resolves a single attack exchange, victory/defeat, and one-time reward claiming.
 - `MvpEnemies`: exposes the three P0 enemy stat/reward definitions from the content table.
+- `SaveFileStore`: stores resource and facility progress in a versioned local JSON file.
+- `ExplorationResult`: freezes the current run's enemy count and rewards for the future result UI.
+
+## Persistence decision
+
+The MVP does not require a database. It is an offline, single-device game, so a JSON save file is the appropriate first implementation. Introduce a server database only when the project needs authenticated accounts, cross-device sync, rankings, purchases, or live operations.
 
 ## Unity integration later
 

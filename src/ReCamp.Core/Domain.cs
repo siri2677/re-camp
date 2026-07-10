@@ -23,6 +23,19 @@ public sealed class ResourceWallet
         foreach (var pair in cost) _amounts[pair.Key] -= pair.Value;
         return true;
     }
+
+    internal IReadOnlyDictionary<ResourceType, int> Snapshot() =>
+        new Dictionary<ResourceType, int>(_amounts);
+
+    internal void Restore(IReadOnlyDictionary<ResourceType, int> amounts)
+    {
+        foreach (var resource in Enum.GetValues<ResourceType>())
+        {
+            if (!amounts.TryGetValue(resource, out var amount) || amount < 0)
+                throw new ArgumentException("A save must include non-negative values for every resource.", nameof(amounts));
+            _amounts[resource] = amount;
+        }
+    }
 }
 
 public sealed record PlayerStats(int BaseMaxHealth, int BaseAttack)
@@ -38,6 +51,7 @@ public sealed record PlayerStats(int BaseMaxHealth, int BaseAttack)
 }
 
 public sealed record Enemy(string Id, int Health, IReadOnlyDictionary<ResourceType, int> Reward);
+public sealed record ExplorationResult(int DefeatedEnemies, IReadOnlyDictionary<ResourceType, int> Rewards);
 
 public sealed class BattleEncounter
 {
@@ -107,18 +121,26 @@ public sealed class CampFacility
     };
 
     public void Upgrade() => Level++;
+
+    internal void RestoreLevel(int level)
+    {
+        if (level < 0) throw new ArgumentOutOfRangeException(nameof(level));
+        Level = level;
+    }
 }
 
 public sealed class GameSession
 {
     private readonly Dictionary<FacilityType, CampFacility> _facilities = Enum.GetValues<FacilityType>()
         .ToDictionary(type => type, type => new CampFacility(type));
+    private readonly ResourceWallet _runRewards = new();
 
     public GameSession() => Player = new PlayerStats(BaseMaxHealth: 100, BaseAttack: 10);
     public RunState State { get; private set; } = RunState.Lobby;
     public PlayerStats Player { get; }
     public ResourceWallet Resources { get; } = new();
     public int DefeatedEnemies { get; private set; }
+    public ExplorationResult? LatestResult { get; private set; }
 
     public CampFacility Facility(FacilityType type) => _facilities[type];
 
@@ -126,13 +148,19 @@ public sealed class GameSession
     {
         if (State != RunState.Lobby) throw new InvalidOperationException("A run can only start from the lobby.");
         DefeatedEnemies = 0;
+        _runRewards.Restore(Enum.GetValues<ResourceType>().ToDictionary(resource => resource, _ => 0));
+        LatestResult = null;
         State = RunState.Exploring;
     }
 
     public void DefeatEnemy(Enemy enemy)
     {
         if (State != RunState.Exploring) throw new InvalidOperationException("Enemies can only be defeated while exploring.");
-        foreach (var reward in enemy.Reward) Resources.Add(reward.Key, reward.Value);
+        foreach (var reward in enemy.Reward)
+        {
+            Resources.Add(reward.Key, reward.Value);
+            _runRewards.Add(reward.Key, reward.Value);
+        }
         DefeatedEnemies++;
     }
 
@@ -150,10 +178,12 @@ public sealed class GameSession
         return true;
     }
 
-    public void CompleteRun()
+    public ExplorationResult CompleteRun()
     {
         if (State != RunState.Exploring) throw new InvalidOperationException("Only an active run can be completed.");
         State = RunState.Result;
+        LatestResult = new ExplorationResult(DefeatedEnemies, _runRewards.Snapshot());
+        return LatestResult;
     }
 
     public void ReturnToLobby()
@@ -170,5 +200,30 @@ public sealed class GameSession
         facility.Upgrade();
         Player.ApplyFacility(type);
         return true;
+    }
+
+    public GameSaveData CreateSave() => new(
+        Version: GameSaveData.CurrentVersion,
+        Resources: Resources.Snapshot(),
+        FacilityLevels: _facilities.ToDictionary(pair => pair.Key, pair => pair.Value.Level));
+
+    public static GameSession FromSave(GameSaveData save)
+    {
+        if (save.Version != GameSaveData.CurrentVersion)
+            throw new NotSupportedException($"Save version {save.Version} is not supported.");
+
+        var session = new GameSession();
+        session.Resources.Restore(save.Resources);
+
+        foreach (var type in Enum.GetValues<FacilityType>())
+        {
+            if (!save.FacilityLevels.TryGetValue(type, out var level) || level < 0)
+                throw new ArgumentException("A save must include non-negative levels for every facility.", nameof(save));
+
+            session.Facility(type).RestoreLevel(level);
+            for (var index = 0; index < level; index++) session.Player.ApplyFacility(type);
+        }
+
+        return session;
     }
 }
