@@ -13,6 +13,7 @@ var tests = new (string Name, Action Run)[]
     ("active skills respect cooldown and passive skills stack by level", SkillRuntimeRules),
     ("exploration emits scheduled waves and boss only once", ExplorationSchedulesSpawns),
     ("exploration separates extraction, defeat, and expiry", ExplorationTerminalStates),
+    ("run settlement awards rewards once using its outcome policy", RunSettlementAppliesOutcome),
 };
 
 var failures = new List<string>();
@@ -38,6 +39,7 @@ static void RunFlowAwardsRewards()
         [ResourceType.Rations] = 3,
     }));
     var result = session.CompleteRun();
+    session.SettleRun(RunOutcome.Extracted);
     session.ReturnToLobby();
 
     Assert(session.State == RunState.Lobby, "session should return to lobby");
@@ -80,7 +82,7 @@ static void VictoryClaimsRewardOnce()
     Assert(encounter.IsWon, "two attacks should defeat a 20 health enemy");
     Assert(session.TryClaimVictory(encounter), "victory should claim the reward");
     Assert(!session.TryClaimVictory(encounter), "reward cannot be claimed twice");
-    Assert(session.Resources[ResourceType.Scrap] == 5, "MVP enemy reward should be granted once");
+    Assert(session.Resources[ResourceType.Scrap] == 0, "rewards should remain pending until the run is settled");
     Assert(session.DefeatedEnemies == 1, "victory should count as one defeat");
 }
 
@@ -199,6 +201,24 @@ static void ExplorationTerminalStates()
     var expired = new ExplorationRun(MvpStages.AbandonedStreet);
     expired.Tick(TimeSpan.FromSeconds(300));
     Assert(expired.State == ExplorationState.Expired, "stage should expire at the time limit");
+}
+
+static void RunSettlementAppliesOutcome()
+{
+    var session = new GameSession();
+    session.StartRun();
+    session.DefeatEnemy(new Enemy("EN-REWARD", 1, new Dictionary<ResourceType, int>
+    {
+        [ResourceType.Scrap] = 11,
+        [ResourceType.Rations] = 3,
+    }));
+    session.CompleteRun();
+    var settlement = session.SettleRun(RunOutcome.Defeated, new SettlementPolicy(DefeatRetentionPercent: 50, ExpiryRetentionPercent: 75));
+
+    Assert(settlement.AwardedRewards[ResourceType.Scrap] == 5, "defeat settlement should use integer reward retention");
+    Assert(settlement.LostRewards[ResourceType.Scrap] == 6, "unretained reward should be reported separately");
+    Assert(session.Resources[ResourceType.Scrap] == 5, "only settled rewards should become permanent");
+    AssertThrows<InvalidOperationException>(() => session.SettleRun(RunOutcome.Defeated), "a run cannot be settled twice");
 }
 
 static void Assert(bool condition, string message)

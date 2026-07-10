@@ -3,6 +3,7 @@ namespace ReCamp.Core;
 public enum ResourceType { Scrap, Rations, DataFragment }
 public enum FacilityType { Generator, Workshop, RationStorage }
 public enum RunState { Lobby, Exploring, Result }
+public enum RunOutcome { Extracted, Defeated, Expired }
 
 public sealed class ResourceWallet
 {
@@ -52,6 +53,29 @@ public sealed record PlayerStats(int BaseMaxHealth, int BaseAttack)
 
 public sealed record Enemy(string Id, int Health, IReadOnlyDictionary<ResourceType, int> Reward);
 public sealed record ExplorationResult(int DefeatedEnemies, IReadOnlyDictionary<ResourceType, int> Rewards);
+public sealed record ExplorationSettlement(
+    RunOutcome Outcome,
+    IReadOnlyDictionary<ResourceType, int> AwardedRewards,
+    IReadOnlyDictionary<ResourceType, int> LostRewards);
+
+public sealed record SettlementPolicy(int DefeatRetentionPercent, int ExpiryRetentionPercent)
+{
+    public static SettlementPolicy Default { get; } = new(DefeatRetentionPercent: 50, ExpiryRetentionPercent: 75);
+
+    public void Validate()
+    {
+        if (DefeatRetentionPercent is < 0 or > 100) throw new ArgumentOutOfRangeException(nameof(DefeatRetentionPercent));
+        if (ExpiryRetentionPercent is < 0 or > 100) throw new ArgumentOutOfRangeException(nameof(ExpiryRetentionPercent));
+    }
+
+    public int RetentionPercent(RunOutcome outcome) => outcome switch
+    {
+        RunOutcome.Extracted => 100,
+        RunOutcome.Defeated => DefeatRetentionPercent,
+        RunOutcome.Expired => ExpiryRetentionPercent,
+        _ => throw new ArgumentOutOfRangeException(nameof(outcome)),
+    };
+}
 
 public sealed class BattleEncounter
 {
@@ -147,6 +171,7 @@ public sealed class GameSession
     public ResourceWallet Resources { get; } = new();
     public int DefeatedEnemies { get; private set; }
     public ExplorationResult? LatestResult { get; private set; }
+    public ExplorationSettlement? LatestSettlement { get; private set; }
 
     public CampFacility Facility(FacilityType type) => _facilities[type];
 
@@ -156,6 +181,7 @@ public sealed class GameSession
         DefeatedEnemies = 0;
         _runRewards.Restore(Enum.GetValues<ResourceType>().ToDictionary(resource => resource, _ => 0));
         LatestResult = null;
+        LatestSettlement = null;
         State = RunState.Exploring;
     }
 
@@ -164,7 +190,6 @@ public sealed class GameSession
         if (State != RunState.Exploring) throw new InvalidOperationException("Enemies can only be defeated while exploring.");
         foreach (var reward in enemy.Reward)
         {
-            Resources.Add(reward.Key, reward.Value);
             _runRewards.Add(reward.Key, reward.Value);
         }
         DefeatedEnemies++;
@@ -192,9 +217,32 @@ public sealed class GameSession
         return LatestResult;
     }
 
+    public ExplorationSettlement SettleRun(RunOutcome outcome, SettlementPolicy? policy = null)
+    {
+        if (State != RunState.Result) throw new InvalidOperationException("Only a completed run can be settled.");
+        if (LatestSettlement is not null) throw new InvalidOperationException("A run can only be settled once.");
+        policy ??= SettlementPolicy.Default;
+        policy.Validate();
+
+        var awarded = new Dictionary<ResourceType, int>();
+        var lost = new Dictionary<ResourceType, int>();
+        foreach (var resource in Enum.GetValues<ResourceType>())
+        {
+            var collected = _runRewards[resource];
+            var retained = collected * policy.RetentionPercent(outcome) / 100;
+            awarded[resource] = retained;
+            lost[resource] = collected - retained;
+            Resources.Add(resource, retained);
+        }
+
+        LatestSettlement = new ExplorationSettlement(outcome, awarded, lost);
+        return LatestSettlement;
+    }
+
     public void ReturnToLobby()
     {
         if (State != RunState.Result) throw new InvalidOperationException("Only a completed run can return to the lobby.");
+        if (LatestSettlement is null) throw new InvalidOperationException("A completed run must be settled before returning to the lobby.");
         State = RunState.Lobby;
     }
 
