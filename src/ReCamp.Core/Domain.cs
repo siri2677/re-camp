@@ -104,6 +104,12 @@ public static class MvpEnemies
         [ResourceType.Scrap] = 4,
         [ResourceType.DataFragment] = 1,
     });
+
+    public static Enemy CoreGuardian { get; } = new("EN004", 300, new Dictionary<ResourceType, int>
+    {
+        [ResourceType.Scrap] = 20,
+        [ResourceType.DataFragment] = 5,
+    });
 }
 
 public sealed class CampFacility

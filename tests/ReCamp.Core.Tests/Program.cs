@@ -11,6 +11,8 @@ var tests = new (string Name, Action Run)[]
     ("service-ready repository versions saves and rejects stale writes", RepositoryVersionsSaves),
     ("skill draft is deterministic and does not repeat selections", SkillDraftIsDeterministic),
     ("active skills respect cooldown and passive skills stack by level", SkillRuntimeRules),
+    ("exploration emits scheduled waves and boss only once", ExplorationSchedulesSpawns),
+    ("exploration separates extraction, defeat, and expiry", ExplorationTerminalStates),
 };
 
 var failures = new List<string>();
@@ -169,6 +171,34 @@ static void SkillRuntimeRules()
     Assert(!loadout.TryActivate("SK003", out _), "active skill cannot activate during cooldown");
     loadout.Tick(TimeSpan.FromSeconds(20));
     Assert(loadout.TryActivate("SK003", out _), "active skill should be ready after cooldown");
+}
+
+static void ExplorationSchedulesSpawns()
+{
+    var run = new ExplorationRun(MvpStages.AbandonedStreet);
+    var opening = run.Tick(TimeSpan.FromSeconds(1));
+    var firstWave = run.Tick(TimeSpan.FromSeconds(29));
+    var boss = run.Tick(TimeSpan.FromSeconds(210));
+    var afterBoss = run.Tick(TimeSpan.FromSeconds(1));
+
+    Assert(opening.Single().EnemyId == "EN001", "opening wave should spawn at second zero");
+    Assert(firstWave.Single().EnemyId == "EN002", "second wave should spawn at second 30");
+    Assert(boss.Single(request => request.Kind == SpawnKind.Boss).EnemyId == "EN004", "boss should spawn at its configured time");
+    Assert(afterBoss.All(request => request.Kind != SpawnKind.Boss), "boss must not spawn twice");
+}
+
+static void ExplorationTerminalStates()
+{
+    var run = new ExplorationRun(MvpStages.AbandonedStreet);
+    Assert(!run.TryExtract(), "extraction should be unavailable at the start");
+    run.Tick(TimeSpan.FromSeconds(120));
+    Assert(run.TryExtract(), "extraction should be available after its configured time");
+    Assert(run.State == ExplorationState.Extracted, "successful extraction should be terminal");
+    Assert(!run.MarkDefeated(), "a finished run cannot become defeated");
+
+    var expired = new ExplorationRun(MvpStages.AbandonedStreet);
+    expired.Tick(TimeSpan.FromSeconds(300));
+    Assert(expired.State == ExplorationState.Expired, "stage should expire at the time limit");
 }
 
 static void Assert(bool condition, string message)
