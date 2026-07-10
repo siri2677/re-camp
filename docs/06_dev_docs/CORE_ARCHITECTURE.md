@@ -14,6 +14,8 @@ Lobby -> StartRun -> Exploring -> CompleteRun -> Result -> ReturnToLobby
 - `ResourceWallet`: owns scrap, rations, and data fragments; it prevents unaffordable spending.
 - `CampFacility`: calculates the next upgrade cost for the generator, workshop, and ration storage.
 - `PlayerStats`: receives persistent workshop and storage effects.
+- `BattleEncounter`: resolves a single attack exchange, victory/defeat, and one-time reward claiming.
+- `MvpEnemies`: exposes the three P0 enemy stat/reward definitions from the content table.
 
 ## Unity integration later
 

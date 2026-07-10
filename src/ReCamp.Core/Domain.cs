@@ -39,6 +39,59 @@ public sealed record PlayerStats(int BaseMaxHealth, int BaseAttack)
 
 public sealed record Enemy(string Id, int Health, IReadOnlyDictionary<ResourceType, int> Reward);
 
+public sealed class BattleEncounter
+{
+    private bool _rewardClaimed;
+
+    public BattleEncounter(PlayerStats player, Enemy enemy)
+    {
+        Enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
+        PlayerHealth = player.MaxHealth;
+        EnemyHealth = enemy.Health;
+        PlayerAttack = player.Attack;
+    }
+
+    public Enemy Enemy { get; }
+    public int PlayerHealth { get; private set; }
+    public int PlayerAttack { get; }
+    public int EnemyHealth { get; private set; }
+    public bool IsWon => EnemyHealth == 0;
+    public bool IsLost => PlayerHealth == 0;
+    public bool IsComplete => IsWon || IsLost;
+    internal bool RewardClaimed => _rewardClaimed;
+
+    public void ResolvePlayerAttack(int enemyAttack)
+    {
+        if (enemyAttack < 0) throw new ArgumentOutOfRangeException(nameof(enemyAttack));
+        if (IsComplete) throw new InvalidOperationException("The encounter has already finished.");
+
+        EnemyHealth = Math.Max(0, EnemyHealth - PlayerAttack);
+        if (!IsWon) PlayerHealth = Math.Max(0, PlayerHealth - enemyAttack);
+    }
+
+    internal void MarkRewardClaimed() => _rewardClaimed = true;
+}
+
+public static class MvpEnemies
+{
+    public static Enemy ScavengerStalker { get; } = new("EN001", 20, new Dictionary<ResourceType, int>
+    {
+        [ResourceType.Scrap] = 5,
+    });
+
+    public static Enemy DashBug { get; } = new("EN002", 12, new Dictionary<ResourceType, int>
+    {
+        [ResourceType.Scrap] = 3,
+        [ResourceType.Rations] = 1,
+    });
+
+    public static Enemy SmokeDrone { get; } = new("EN003", 28, new Dictionary<ResourceType, int>
+    {
+        [ResourceType.Scrap] = 4,
+        [ResourceType.DataFragment] = 1,
+    });
+}
+
 public sealed class CampFacility
 {
     public CampFacility(FacilityType type) => Type = type;
@@ -81,6 +134,20 @@ public sealed class GameSession
         if (State != RunState.Exploring) throw new InvalidOperationException("Enemies can only be defeated while exploring.");
         foreach (var reward in enemy.Reward) Resources.Add(reward.Key, reward.Value);
         DefeatedEnemies++;
+    }
+
+    public BattleEncounter StartEncounter(Enemy enemy)
+    {
+        if (State != RunState.Exploring) throw new InvalidOperationException("Encounters can only start while exploring.");
+        return new BattleEncounter(Player, enemy);
+    }
+
+    public bool TryClaimVictory(BattleEncounter encounter)
+    {
+        if (State != RunState.Exploring || !encounter.IsWon || encounter.RewardClaimed) return false;
+        DefeatEnemy(encounter.Enemy);
+        encounter.MarkRewardClaimed();
+        return true;
     }
 
     public void CompleteRun()

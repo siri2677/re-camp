@@ -5,6 +5,8 @@ var tests = new (string Name, Action Run)[]
     ("run flow awards rewards and returns to lobby", RunFlowAwardsRewards),
     ("camp upgrade consumes resources and applies player stats", UpgradeAppliesStats),
     ("upgrade fails outside lobby or with insufficient resources", UpgradeGuards),
+    ("player victory awards its enemy reward exactly once", VictoryClaimsRewardOnce),
+    ("a surviving enemy damages the player and defeat cannot claim rewards", DefeatDoesNotClaimReward),
 };
 
 var failures = new List<string>();
@@ -56,6 +58,36 @@ static void UpgradeGuards()
     session.Resources.Add(ResourceType.Scrap, 10);
     session.StartRun();
     Assert(!session.TryUpgrade(FacilityType.Generator), "upgrade should fail during a run");
+}
+
+static void VictoryClaimsRewardOnce()
+{
+    var session = new GameSession();
+    session.StartRun();
+    var encounter = session.StartEncounter(MvpEnemies.ScavengerStalker);
+
+    encounter.ResolvePlayerAttack(enemyAttack: 5);
+    encounter.ResolvePlayerAttack(enemyAttack: 5);
+
+    Assert(encounter.IsWon, "two attacks should defeat a 20 health enemy");
+    Assert(session.TryClaimVictory(encounter), "victory should claim the reward");
+    Assert(!session.TryClaimVictory(encounter), "reward cannot be claimed twice");
+    Assert(session.Resources[ResourceType.Scrap] == 5, "MVP enemy reward should be granted once");
+    Assert(session.DefeatedEnemies == 1, "victory should count as one defeat");
+}
+
+static void DefeatDoesNotClaimReward()
+{
+    var session = new GameSession();
+    session.StartRun();
+    var enemy = new Enemy("EN-LETHAL", 100, new Dictionary<ResourceType, int> { [ResourceType.Scrap] = 50 });
+    var encounter = session.StartEncounter(enemy);
+
+    encounter.ResolvePlayerAttack(enemyAttack: 100);
+
+    Assert(encounter.IsLost, "lethal enemy attack should defeat the player");
+    Assert(!session.TryClaimVictory(encounter), "defeat must not claim an enemy reward");
+    Assert(session.Resources[ResourceType.Scrap] == 0, "defeat must not grant resources");
 }
 
 static void Assert(bool condition, string message)
