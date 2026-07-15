@@ -128,7 +128,7 @@ AI 이미지의 측면·후면은 구조적으로 일치하지 않을 수 있다
 
 - 캐릭터별 페이지를 분리한다.
 - 공통 컴포넌트로 제목, 팔레트, 승인 상태, 주석 영역을 관리한다.
-- WIP, Review, Approved 상태를 명확히 표시한다.
+- WIP, REVIEW, APPROVED 상태를 명확히 표시한다.
 - 최종 승인 프레임만 PNG/PDF로 Export하여 Git에 저장한다.
 - Figma 원본만 존재하고 Git에 기준 Export가 없는 상태를 허용하지 않는다.
 
@@ -170,7 +170,7 @@ Blender MCP는 다음 작업에 활용한다.
 ### 3D 검증 순서
 
 ```text
-캐릭터 시트 Approved
+캐릭터 시트 APPROVED
 → 저해상도 4~5등신 SD-lite Blockout
 → Unity 쿼터뷰 카메라 검증
 → 실루엣과 무기 크기 수정
@@ -241,7 +241,7 @@ CHARACTER_BIBLE.md
 → [일관성·대량 생성·정밀 수정이 병목일 때만 ComfyUI MCP 도입]
 → 사람이 얼굴·의상·무기 후보 선택
 → Figma 또는 동등한 편집 도구로 제작 시트 구성
-→ 디자인 리뷰와 Approved 처리
+→ 디자인 리뷰와 APPROVED 처리
 → Blender MCP로 4~5등신 SD-lite 3D Blockout
 → Unity 쿼터뷰 실루엣 테스트
 → 사람 또는 전문 작업자의 최종 모델 수정
@@ -298,7 +298,7 @@ all adult female, no male characters.
 ### Blender Blockout
 
 ```text
-Approved 캐릭터 시트를 기준으로 4~5등신 SD-lite 스타일라이즈드 Blockout을 만든다.
+APPROVED 캐릭터 시트를 기준으로 4~5등신 SD-lite 스타일라이즈드 Blockout을 만든다.
 공용 Humanoid 골격을 사용하고 쿼터뷰에서 머리, 상체, 무기가 식별되도록 한다.
 세부 장식보다 실루엣과 장비 크기를 우선한다.
 각 의상 파츠와 무기를 별도 Object로 분리하고 Pivot과 이름을 규칙에 맞춘다.

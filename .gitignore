@@ -64,3 +64,6 @@ sysinfo.txt
 /Assets/Settings/SampleSceneProfile.asset*
 /Assets/TutorialInfo.meta
 /Assets/TutorialInfo/
+
+# Superseded remote v001 art (invalid reference and non-LFS binary)
+/art_refs/art_direction/ReCamp_Character_Lineup.png
