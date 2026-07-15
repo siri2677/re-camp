@@ -1,0 +1,21 @@
+{
+  "name": "ReCamp.Tests.EditMode",
+  "rootNamespace": "ReCamp.Tests.EditMode",
+  "references": [
+    "ReCamp.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

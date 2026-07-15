@@ -16,6 +16,7 @@
 # Unity generated project files
 *.csproj
 *.sln
+*.slnx
 *.suo
 *.tmp
 *.user
@@ -53,3 +54,13 @@ sysinfo.txt
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+
+# Unity template and transient MCP bootstrap assets
+/Assets/InitTestScene*.unity*
+/Assets/Editor.meta
+/Assets/Readme.asset*
+/Assets/Scenes.meta
+/Assets/Scenes/SampleScene.unity*
+/Assets/Settings/SampleSceneProfile.asset*
+/Assets/TutorialInfo.meta
+/Assets/TutorialInfo/
