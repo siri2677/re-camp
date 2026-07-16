@@ -12,6 +12,7 @@
 | `sprint_backlog.md` | 현재부터 순서대로 처리할 통합 작업 목록 | 매 작업 시작 전 |
 | `art_production_roadmap.md` | 캐릭터·환경·UI·3D 아트 제작 단계 | 아트 단계 결정 |
 | `art_production_backlog.md` | 캐릭터 5명과 아트 자산의 세부 작업 ID | 아트 작업 시작·완료 시 |
+| `art_production_next_actions.md` | 현재 바로 실행할 아트 작업과 입력·결과물 | 아트 작업을 실제로 시작할 때 |
 
 ## 작업 기준 문서
 
@@ -23,20 +24,27 @@
 | MVP 범위 | `docs/01_game_design/MVP_SCOPE.md` |
 | 캐릭터 설정 | `docs/05_art_concept/CHARACTER_BIBLE.md` |
 | 공통 아트 방향 | `docs/05_art_concept/ART_DIRECTION.md` |
+| 아트 작업 시작 순서 | `docs/05_art_concept/ART_PRODUCTION_START_GUIDE.md` |
 | 아트 MCP 파이프라인 | `docs/05_art_concept/ART_PRODUCTION_MCP_GUIDE.md` |
+| ComfyUI 캐릭터 일관성 | `docs/05_art_concept/COMFYUI_CHARACTER_CONSISTENCY_SPEC.md` |
 | 아트 디렉터리·승인 규칙 | `docs/05_art_concept/ART_ASSET_STRUCTURE.md` |
+| 3D 캐릭터 수치 규격 | `docs/05_art_concept/CHARACTER_3D_SPEC.md` |
+| 애니메이션 규격 | `docs/05_art_concept/ANIMATION_GUIDE.md` |
+| Unity Import·Prefab 규격 | `docs/05_art_concept/UNITY_ART_IMPORT_GUIDE.md` |
+| 아트 파일명 규칙 | `docs/05_art_concept/ASSET_NAMING_GUIDE.md` |
 | 캐릭터·스킬·몬스터 수치 | `tables/` |
 
 ## 작업 진행 순서
 
 ```text
 1. sprint_backlog.md에서 가장 위의 Todo 또는 In Progress 작업 선택
-2. roadmap.md에서 해당 작업이 속한 마일스톤과 완료 기준 확인
-3. 관련 docs/와 tables/의 기준 확인
-4. 기능 또는 아트 작업 수행
-5. 테스트·리뷰·승인 기준 충족
-6. 작업 상태와 결과 링크를 planning 문서에 반영
-7. Git 커밋 또는 PR 생성
+2. 아트 작업이면 art_production_next_actions.md의 현재 실행 순서 확인
+3. roadmap.md에서 해당 작업이 속한 마일스톤과 완료 기준 확인
+4. 관련 docs/와 tables/의 기준 확인
+5. 기능 또는 아트 작업 수행
+6. 테스트·리뷰·승인 기준 충족
+7. 작업 상태와 결과 링크를 planning 문서에 반영
+8. Git 커밋 또는 PR 생성
 ```
 
 ## 상태 정의
@@ -78,3 +86,4 @@ PvP
 - 새 기능이나 아트 산출물을 추가하기 전에 반드시 Backlog ID를 먼저 등록한다.
 - 요구사항이 바뀌면 관련 `docs/`와 `planning/`을 같은 변경 범위에서 함께 수정한다.
 - `roadmap.md`는 방향과 완료 기준을 관리하고, 세부 구현 상태는 각 backlog에서 관리한다.
+- 초기 수치 규격은 실제 Unity·모바일 검증 전까지 `Review`로 취급하며 테스트 결과를 근거로 조정한다.
