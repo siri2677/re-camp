@@ -2,20 +2,19 @@
 
 ## 1. 목표
 
-Re:Camp의 아트 제작은 다음 순서로 진행한다.
-
 ```text
 5인 라인업 방향 통일
 → 제작 파이프라인 검증
 → 루나 2D Approved 제작 시트
 → 루나 3D 5~6등신 Blockout
-→ Coplay/Aura Unity Import·Prefab 공동 검증
+→ Coplay Unity Import·Prefab 검증
+→ Editor Script·Preset·수동 Unity QA
 → 루나 Character Proof
 → Portfolio Vertical Slice
 → 나머지 4명과 출시 콘텐츠 확장
 ```
 
-핵심은 캐릭터 수를 줄이는 것이 아니라 **루나에서 품질·비용·기술을 먼저 검증한 뒤 다섯 캐릭터에 안전하게 확장하는 것**이다.
+핵심은 루나에서 품질·비용·기술을 먼저 검증한 뒤 다섯 캐릭터에 확장하는 것이다.
 
 ## 2. 현재 비주얼 기준
 
@@ -36,12 +35,10 @@ Done — Direction Approved
 ### 완료 내용
 
 - 루나·미유·코코·이리스·노아 이름·역할 통일
-- 캐릭터별 대표 색상·무기·큰 실루엣 방향 설정
+- 캐릭터별 대표 색상·무기·큰 실루엣 설정
 - 2D 일반 등신 + 3D 5~6등신 방향 확정
 - 툰 셰이딩과 고정 쿼터뷰 확정
 - 통합 캐릭터 라인업 생성
-
-### 주의
 
 현재 라인업은 최종 제작 시트가 아니다. 개별 얼굴·헤어·의상·Turnaround는 캐릭터별 `APPROVED` 시트에서 확정한다.
 
@@ -54,17 +51,15 @@ Done — Direction Approved
 - `ART-PIPE-0103` Figma 제작 시트 Template
 - `ART-PIPE-0104` Blender MCP 소품 Export
 - `ART-PIPE-0105` Coplay FBX Import·Prefab 테스트
-- `ART-PIPE-0106` Aura FBX Import·Prefab 검증
-- `ART-PIPE-0107` 두 경로 비교와 역할 확정
+- `ART-PIPE-0106` Unity Import Preset·Validation Editor Tool
+- `ART-PIPE-0107` Inspector·Console·Prefab Diff·PlayMode QA
 - `ART-PIPE-0108` Git LFS·`art_source/` 구조
 
-### Coplay / Aura 원칙
+### 비용 원칙
 
-- 둘 다 프로젝트에 유지한다.
-- 동일한 FBX와 Texture를 사용해 Import 결과를 비교한다.
-- 한 Prefab을 동시에 수정하지 않는다.
-- 작업마다 Primary Tool을 정하고 다른 도구는 검증·보완으로 사용한다.
-- 최종 성공은 Unity Console, Prefab 구조, PlayMode로 판단한다.
+- 별도 월 구독이 필요한 도구는 필수 파이프라인에서 제외한다.
+- Aura AI는 체험 이후 유료 구조이므로 사용하지 않는다.
+- Coplay가 처리하지 못하는 작업은 Editor Script·Preset·수동 Unity 작업으로 보완한다.
 
 ### 완료 기준
 
@@ -73,13 +68,11 @@ Done — Direction Approved
 + Figma 시트 Export
 + Blender FBX Export
 + Coplay Import·Prefab 성공
-+ Aura Import·Prefab 검증 성공
-+ 결과 차이와 역할 문서화
++ Validation Tool 통과
++ 수동 Inspector·Console·PlayMode 검증
 ```
 
 ## A2. 루나 2D 제작 시트
-
-### 산출물
 
 - `ART-2D-1001` 전신 후보 3안
 - `ART-2D-1002` 얼굴·헤어 기준
@@ -92,34 +85,31 @@ Done — Direction Approved
 
 ### 완료 기준
 
-- 모든 시점에서 얼굴·헤어·후드·재킷·단검 구조가 일치
+- 모든 시점에서 얼굴·헤어·후드·재킷·단검 구조 일치
 - 정찰형 근접 딜러 역할이 외형에서 읽힘
-- 3D로 구현하기 어려운 장식이 정리됨
-- 고정 쿼터뷰에서 강조할 실루엣 요소가 명시됨
+- 3D 구현이 어려운 장식 정리
+- 쿼터뷰에서 강조할 실루엣 요소 명시
 
 ## A3. 루나 3D Blockout과 쿼터뷰 Proof
-
-### 작업
 
 - `ART-3D-2001` 3D Spec 리뷰
 - `ART-3D-2002` 공용 5~6등신 Base Mesh
 - `ART-3D-2003` 공용 Humanoid Rig 초안
 - `ART-3D-2004` 루나 Blockout
 - `ART-3D-2005` Coplay Import·Prefab
-- `ART-3D-2006` Aura Import·Prefab 검증
+- `ART-3D-2006` Import Validation Tool·수동 QA
 - `ART-3D-2007` Unity 실루엣 승인
 
 ### 검증
 
-- 후드·단검·머리·상체가 기본 전투 거리에서 보임
+- 후드·단검·머리·상체가 기본 거리에서 보임
 - 무기가 몸에 완전히 가려지지 않음
 - 5~6등신이 SD·치비로 보이지 않음
-- 공용 Animation Retargeting이 가능함
-- Material·Animator·Collider·Socket 구조가 재사용 가능함
+- Humanoid Animation Retargeting 가능
+- Material·Animator·Collider·Socket 구조 재사용 가능
+- Console Error와 Missing Reference 없음
 
 ## A4. 루나 Character Proof
-
-### 작업
 
 - 최종 모델·Retopology·UV
 - Texture·Toon Material
@@ -135,8 +125,8 @@ Done — Direction Approved
 - 2D와 3D가 같은 캐릭터로 인식됨
 - 쿼터뷰에서 매력과 역할이 전달됨
 - 공격·대시·스킬에서 관통이 치명적이지 않음
-- Windows 목표 성능을 유지함
-- 나머지 캐릭터에 재사용할 공용 기반이 승인됨
+- Windows 목표 성능 유지
+- 나머지 캐릭터에 재사용할 공용 기반 승인
 
 ## A5. Vertical Slice 환경·몬스터·소품
 
@@ -160,8 +150,6 @@ Done — Direction Approved
 - 중장갑형
 - 보스 1종
 
-상세 기준은 `ENVIRONMENT_AND_VFX_SPEC.md`를 따른다.
-
 ## A6. UI·VFX·연출
 
 ### UI
@@ -181,8 +169,6 @@ Done — Direction Approved
 - 자원 획득·귀환·캠프 성장
 - High·Medium·Low 품질 단계
 
-상세 카메라와 UI 기준은 `CAMERA_AND_UI_BASELINE.md`를 따른다.
-
 ## A7. 나머지 캐릭터 제작
 
 ### 시작 조건
@@ -192,20 +178,10 @@ Done — Direction Approved
 ### 순서
 
 ```text
-미유
-→ 코코
-→ 이리스
-→ 노아
+미유 → 코코 → 이리스 → 노아
 ```
 
-각 캐릭터는 다음을 제작한다.
-
-- 개별 2D Approved 제작 시트
-- 얼굴·헤어·의상·무기
-- 공용 Base Mesh·Rig·Shader 적용
-- 대표 Idle·기본 공격·스킬 3종·승리
-- 캐릭터별 VFX와 사운드
-- 선택·로비·전투 Prefab
+각 캐릭터는 개별 2D Approved 제작 시트, 얼굴·헤어·의상·무기, 공용 Base Mesh·Rig·Shader, 고유 공격·스킬·VFX, 선택·로비·전투 Prefab을 제작한다.
 
 ## A8. 출시 아트 확장
 
@@ -215,17 +191,16 @@ Done — Direction Approved
 - 캐릭터 친밀도·대화·로비 상호작용
 - Android 품질 단계
 - Store Key Art와 Trailer
-- 전체 라이선스·AI Metadata 검토
+- 라이선스·AI Metadata 검토
 
-## 3. 승인 Gate
+## 승인 Gate
 
 ```text
 Direction Approved
 → 2D Production Sheet Approved
 → 3D Blockout Approved
+→ Coplay Import + Unity Validation Approved
 → Character Proof Approved
 → Vertical Slice Approved
 → Full Production
 ```
-
-Gate를 건너뛰어 고비용 최종 제작으로 이동하지 않는다.
