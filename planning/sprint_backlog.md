@@ -11,10 +11,11 @@
 4. Camera Preset과 Scene Gray Box
 5. 완주 가능한 전투·자원·결과·캠프 루프
 6. ComfyUI·Figma·Blender 제작 파이프라인
-7. Coplay와 Aura FBX Import·Prefab 공동 테스트
-8. 루나 2D Approved 제작 시트
-9. 루나 3D Blockout과 쿼터뷰 검증
-10. 루나 Character Proof와 Vertical Slice
+7. Coplay FBX Import·Prefab 테스트
+8. Unity Import Preset·Validation Tool과 수동 QA
+9. 루나 2D Approved 제작 시트
+10. 루나 3D Blockout과 쿼터뷰 검증
+11. 루나 Character Proof와 Vertical Slice
 ```
 
 ## 2. 상태 규칙
@@ -37,13 +38,14 @@
 | PROJ-0008 | AI 생성 자산 Metadata Template | Medium | Ready | 도구·모델·Seed·수정·라이선스 양식 |
 | PROJ-0009 | 현재 기준 단일화 | High | Review | `CURRENT_PROJECT_BASELINE.md`와 문서 충돌 제거 |
 | PROJ-0010 | 중복 Backlog ID 제거 | High | Review | 모든 신규 계획이 Prefix 규칙 사용 |
-| PROJ-0011 | Draft PR #7 리뷰·병합 | High | Review | 문서 통합이 main 반영 |
+| PROJ-0011 | 유료 Aura 의존 제거 | High | Review | 모든 필수 계획이 Coplay·Editor Tool·수동 검수로 작동 |
+| PROJ-0012 | Draft PR #7 리뷰·병합 | High | Review | 문서 통합이 main 반영 |
 
 ### Sprint 0 종료 조건
 
 - 플랫폼·Unity·아트·MCP·범위가 한 기준으로 설명됨
-- Coplay와 Aura 모두 사용 대상으로 유지됨
-- `planning/` 문서의 작업 ID가 중복되지 않음
+- Aura가 필수 도구·선행 조건·완료 조건에 남아 있지 않음
+- `planning/` 작업 ID가 중복되지 않음
 
 ---
 
@@ -53,7 +55,7 @@
 
 | ID | 작업 | 우선순위 | 상태 | 선행 작업 | 완료 기준 |
 |---|---|---:|---|---|---|
-| DEV-0101 | Unity 6.3 LTS URP 프로젝트 생성 | High | Ready | PROJ-0011 | 프로젝트 실행 |
+| DEV-0101 | Unity 6.3 LTS URP 프로젝트 생성 | High | Ready | PROJ-0012 | 프로젝트 실행 |
 | DEV-0102 | Visible Meta Files·Force Text | High | Blocked | DEV-0101 | 설정과 Meta Git 반영 |
 | DEV-0103 | `Assets/_ReCamp` 구조 생성 | High | Blocked | DEV-0101 | Art·Scripts·Scenes·Prefabs 구조 |
 | DEV-0104 | Windows Build Target·해상도·Quality | High | Blocked | DEV-0101 | Windows 빌드 실행 |
@@ -76,8 +78,8 @@
 | ART-PIPE-0103 | Figma 캐릭터 제작 시트 Template | High | Ready | 없음 | 전신·표정·Turnaround·장비 Frame |
 | ART-PIPE-0104 | Blender MCP 소품 Export | High | Ready | 없음 | 단검 또는 테스트 소품 FBX |
 | ART-PIPE-0105 | Coplay FBX Import·Prefab 테스트 | High | Blocked | DEV-0101, ART-PIPE-0104 | Import·Material·Prefab·Scene 배치 |
-| ART-PIPE-0106 | Aura FBX Import·Prefab 검증 | High | Blocked | DEV-0101, ART-PIPE-0104 | 동일 FBX 검증 결과 기록 |
-| ART-PIPE-0107 | Coplay/Aura 결과 비교와 역할 확정 | High | Blocked | ART-PIPE-0105, ART-PIPE-0106 | Primary·Validator 역할과 제한 기록 |
+| ART-PIPE-0106 | Unity Import Preset·Validation Editor Tool | High | Blocked | DEV-0101, ART-PIPE-0104 | Scale·Rig·Material·Socket·Reference 검사 |
+| ART-PIPE-0107 | 수동 Unity Import·Prefab QA Report | High | Blocked | ART-PIPE-0105, ART-PIPE-0106 | Inspector·Console·Prefab Diff·PlayMode 기록 |
 | ART-PIPE-0108 | `art_source/`와 Git LFS 구조 | Medium | Blocked | DEV-0101, PROJ-0007 | 원본·Export 분리 |
 
 ### Sprint 1 종료 조건
@@ -89,7 +91,8 @@ Unity Clone 후 실행
 + ComfyUI 반복 생성
 + Figma Template
 + Blender FBX
-+ Coplay와 Aura Import·Prefab 공동 테스트
++ Coplay Import·Prefab
++ Editor Validation Tool과 수동 QA
 ```
 
 ---
@@ -125,7 +128,7 @@ Unity Clone 후 실행
 | CHR-PROT-0350 | 노아 가드·반격 최소 테스트 | Low | Blocked | CHR-PROT-0301, GAME-0212 |
 | CHR-PROT-0360 | 역할 중복·조작 비용 검토 | Medium | Blocked | CHR-PROT-0310~0350 |
 
-나머지 네 캐릭터 프로토타입은 Gray Box 완주 후에만 진행하며, 일정이 밀리면 루나를 제외하고 연기한다.
+나머지 네 캐릭터 프로토타입은 Gray Box 완주 후 진행하며 일정이 밀리면 루나를 제외하고 연기한다.
 
 ---
 
@@ -146,8 +149,8 @@ Unity Clone 후 실행
 | ART-3D-2003 | 공용 Humanoid Rig 초안 | High | Blocked | ART-3D-2002 |
 | ART-3D-2004 | 루나 3D Blockout | High | Blocked | ART-2D-1008, ART-3D-2002 |
 | ART-3D-2005 | Coplay Import·Prefab | High | Blocked | ART-3D-2004, ART-PIPE-0107 |
-| ART-3D-2006 | Aura Import·Prefab 검증 | High | Blocked | ART-3D-2004, ART-PIPE-0107 |
-| ART-3D-2007 | Unity 쿼터뷰 실루엣 승인 | High | Blocked | ART-3D-2005, ART-3D-2006, DEV-0106 |
+| ART-3D-2006 | Import·Prefab Validation Tool·수동 QA | High | Blocked | ART-3D-2005, ART-PIPE-0106 |
+| ART-3D-2007 | Unity 쿼터뷰 실루엣 승인 | High | Blocked | ART-3D-2006, DEV-0106 |
 
 ---
 
@@ -227,6 +230,7 @@ M5가 Approved된 후 활성화한다.
 
 - 새 작업은 구현 전에 ID와 완료 기준을 등록한다.
 - 결과 Commit·PR·파일·스크린샷을 작업 항목과 연결한다.
-- Coplay와 Aura 작업은 Primary Tool과 검증 Tool을 기록한다.
+- Coplay 작업은 자동화 범위와 수동 보완 범위를 기록한다.
+- 별도 유료 도구를 필수 선행 조건으로 두지 않는다.
 - 아트는 `APPROVED`가 아니면 최종 게임 자산으로 사용하지 않는다.
 - Scope 축소는 `planning/SCOPE_AND_RISK_RULES.md`를 따른다.
