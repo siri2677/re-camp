@@ -6,10 +6,10 @@
 
 - MCP는 제작 속도와 반복성을 높이지만 최종 미감과 승인 판단은 사람이 담당한다.
 - 한 번 생성한 결과를 최종 디자인으로 바로 사용하지 않는다.
-- 승인된 기준 이미지와 제작 시트가 없는 상태에서 고비용 최종 모델링을 시작하지 않는다.
-- 도구별 역할을 분리하고 같은 파일을 여러 MCP가 동시에 수정하지 않는다.
-- 원본·Export·Unity Asset·Metadata를 분리해 Git에서 추적한다.
+- 승인된 기준 이미지와 제작 시트 없이 고비용 최종 모델링을 시작하지 않는다.
+- 도구별 역할을 분리하고 원본·Export·Unity Asset·Metadata를 구분한다.
 - 자동화 성공은 Tool 응답이 아니라 실제 파일, Unity Console, Prefab 구조, PlayMode로 검증한다.
+- 별도 월 구독이 필요한 도구를 필수 선행 조건으로 두지 않는다.
 
 ## 2. 현재 도구 구성
 
@@ -18,26 +18,24 @@
 | ComfyUI Cloud MCP | 2D 캐릭터·환경·몬스터·VFX 후보 생성 | PNG, Workflow JSON, Metadata |
 | Figma Remote MCP | 캐릭터 제작 시트·UI Design System·리뷰 보드 | Figma Frame, PNG/PDF Export |
 | Blender MCP | 3D Blockout·소품·Rig·Animation·FBX Export 보조 | blend, FBX, Texture |
-| Coplay | Unity Scene·Prefab·Component·Material·Animator 반복 편집 | Prefab, Scene, Material, Animator |
-| Aura | Unity FBX/Texture Import와 Prefab·Material·Animator 구성 검증·보완 | Import 기록, Prefab 검증, 오류 목록 |
+| Coplay MCP | Unity Scene·Prefab·Component·Material·Animator 반복 편집 | Prefab, Scene, Material, Animator |
 | GitHub MCP | 문서·Branch·PR·승인 자산·작업 이력 | Commit, PR, Issue, Review 기록 |
 | 코드 에이전트 | C#·Importer·Shader 설정·검증 도구·테스트 | Source, Editor Tool, Test |
+| Unity 수동 검수 | Inspector·Console·Prefab Diff·PlayMode·Profiler | QA Report, Screenshot, Profiler Record |
 
-Coplay와 Aura는 **둘 다 사용한다.** 하나를 제거하거나 서로 완전히 대체하는 구조가 아니다.
+Aura AI는 1회성 무료 크레딧 이후 유료 사용이 필요한 구조이므로 기본 파이프라인에서 제외한다.
 
-## 3. 도입과 실행 순서
+## 3. 실행 순서
 
 ```text
 1. ComfyUI + Figma로 루나 기준 시트 제작 기반
 2. Blender로 단검 또는 소품 Export Proof
 3. Unity 6.3 LTS URP 프로젝트 생성
 4. Coplay로 Import·Prefab 자동화 Proof
-5. Aura로 동일 FBX Import·Prefab 검증 Proof
-6. 두 도구의 역할·제약 기록
+5. Import Preset·Validation Editor Tool 작성
+6. Inspector·Console·Prefab Diff·PlayMode 수동 QA
 7. 루나 3D Blockout과 Character Proof
 ```
-
-GitHub MCP는 전 단계의 문서·Commit·PR·Metadata 관리에 계속 사용한다.
 
 ## 4. ComfyUI Cloud MCP
 
@@ -47,31 +45,28 @@ GitHub MCP는 전 단계의 문서·Commit·PR·Metadata 관리에 계속 사용
 - 동일 캐릭터 얼굴·의상 변형
 - 표정·포즈·장비 후보
 - 폐허·캠프 Color Key
-- 몬스터와 보스 실루엣
+- 몬스터·보스 실루엣
 - VFX Concept Sheet
 
 ### 작업 흐름
 
 ```text
-CHARACTER_BIBLE 확인
+Character Bible 확인
 → 기준 Reference 선택
 → 고정 변수와 Seed 적용
 → 후보 3안 생성
 → 사람 리뷰
 → 선택 후보만 저장
-→ Figma 제작 시트로 정리
+→ Figma 제작 시트 정리
 ```
 
 ### 일관성 규칙
 
-- 다섯 캐릭터를 매번 한 장에서 새로 생성하지 않는다.
 - 캐릭터별 기준 이미지를 개별 Reference로 사용한다.
 - 얼굴·헤어·의상·무기·색상을 고정 변수로 관리한다.
 - Checkpoint, VAE, LoRA, Adapter, ControlNet, Seed, Sampler, CFG, 해상도를 기록한다.
-- 대량 후보를 모두 Git에 저장하지 않고 리뷰 가치가 있는 후보만 보관한다.
+- 대량 후보를 전부 Git에 저장하지 않는다.
 - 생성된 측면·후면을 구조 검증 없이 Turnaround로 승인하지 않는다.
-
-상세 기준은 `COMFYUI_CHARACTER_CONSISTENCY_SPEC.md`를 따른다.
 
 ## 5. Figma Remote MCP
 
@@ -83,27 +78,24 @@ CHARACTER_BIBLE 확인
 - UI Design System
 - 화면 Wireframe과 Flow
 - VFX·Skill Icon 보드
-- WIP / REVIEW / APPROVED 상태 표시
 
 ### 운영 규칙
 
 - 캐릭터별 Page와 Version을 분리한다.
-- 공통 Component로 제목·승인 상태·팔레트·주석을 관리한다.
-- Figma 원본만 존재하고 Git Export가 없는 상태를 Approved로 보지 않는다.
-- 승인 Frame만 PNG/PDF로 Export하고 Metadata를 함께 저장한다.
+- 공통 Component로 승인 상태·팔레트·주석을 관리한다.
+- Figma 원본만 있고 Git Export가 없으면 Approved로 보지 않는다.
+- 승인 Frame만 PNG/PDF로 Export하고 Metadata를 저장한다.
 
 ## 6. Blender MCP
 
 ### 우선 Proof
 
-완성 캐릭터보다 작은 자산으로 Export 규칙을 먼저 검증한다.
-
 ```text
-루나 에너지 단검
-또는 단순 캠프 소품
+루나 에너지 단검 또는 단순 캠프 소품
 → Scale·Axis·Pivot·Material Slot 확인
 → FBX Export
-→ Coplay/Aura Import Proof
+→ Coplay Import Proof
+→ Validation Tool·수동 QA
 ```
 
 ### 담당 범위
@@ -126,22 +118,7 @@ CHARACTER_BIBLE 확인
 - 표정 BlendShape
 - 물리 Bone
 
-### 3D 순서
-
-```text
-2D Approved 제작 시트
-→ 저해상도 Blockout
-→ Unity Camera·실루엣 검증
-→ 비율·무기·장식 수정
-→ 최종 모델·UV·Texture
-→ Rig·Weight·표정
-→ Animation
-→ 최종 Unity 검증
-```
-
-## 7. Coplay
-
-Coplay는 Unity Editor 내부의 반복 편집과 구조 생성을 우선 담당한다.
+## 7. Coplay MCP
 
 ### 담당 작업
 
@@ -152,152 +129,93 @@ Coplay는 Unity Editor 내부의 반복 편집과 구조 생성을 우선 담당
 - Collider·Hitbox·Socket 배치
 - Script와 ScriptableObject Reference 연결
 - Scene 배치와 반복 수정
-- 다수 GameObject·Component의 Batch 편집
+- 다수 GameObject·Component Batch 편집
 - 누락 Reference와 Console 오류 확인
-
-### 적합한 작업
-
-```text
-정의된 Spec을 여러 Asset에 동일 적용
-Prefab Template 생성
-Scene의 반복 배치·수정
-Component Property Batch Patch
-변경 후 Hierarchy·Reference 확인
-```
-
-## 8. Aura
-
-Aura는 동일한 Unity 통합 작업을 독립적으로 검증하고 Import·Prefab·Material·Animator 설정을 보완하는 경로로 사용한다.
-
-### 담당 작업
-
-- FBX·Texture Import 결과 검증
-- Scale·Axis·Rig·Avatar 오류 확인
-- Material·Shader·Texture 누락 확인
-- Prefab Hierarchy와 Component 구성 검증
-- Animator·Animation Clip 연결 확인
-- Missing Script·Missing Reference·Console Error 확인
-- Coplay 수행이 어려운 작업의 대체 또는 보완
 
 ### 운영 원칙
 
-Aura를 단순 읽기 전용으로 제한하지 않는다. 실제 수정에 사용할 수 있지만, 같은 자산을 Coplay가 수정 중일 때 동시에 수정하지 않는다.
+- 대상 Scene·Prefab·파일을 명확히 지정한다.
+- 여러 수정은 Batch Operation으로 묶는다.
+- 변경 후 전체 Hierarchy보다 Diff·Summary·Console을 확인한다.
+- Coplay가 지원하지 않는 Property는 Preset·Editor Script·수동 Inspector로 처리한다.
 
-## 9. Coplay / Aura 공동 Proof
+## 8. Unity Import Preset·Validation Tool
 
-### 테스트 입력
+반복 가능한 규칙은 Unity Editor 코드로 고정한다.
 
-```text
-동일 FBX
-동일 Texture
-동일 Unity 프로젝트
-동일 Import·Prefab Spec
-```
+### 자동 적용 후보
 
-### 테스트 단계
+- FBX Scale·Rig·Animation Import
+- Texture Type·sRGB·Max Size·Compression
+- Material 생성·Texture 연결
+- Prefab 기본 Hierarchy
+- Socket·Collider·LODGroup 생성
 
-```text
-1. 깨끗한 테스트 폴더 준비
-2. Coplay를 Primary로 Import·Prefab 구성
-3. 결과 Commit 또는 Diff 기록
-4. 원복 또는 별도 복제 폴더 준비
-5. Aura로 동일 테스트 수행·검증
-6. 두 결과의 차이와 수동 작업 기록
-7. 작업 종류별 Primary Tool 결정
-```
-
-### 비교 항목
-
-- 처리 가능한 Import Property
-- Material·Texture 연결 정확도
-- Humanoid Avatar 생성
-- Prefab Hierarchy
-- Animator·Clip 연결
-- Collider·Socket 배치
-- Reference 누락
-- Console Error
-- 생성 파일의 예측 가능성
-- Batch 작업 효율
-- 재실행 시 멱등성
-
-### 기록 Template
+### 자동 검사
 
 ```text
-Test Asset:
-Primary Tool:
-Validator Tool:
-Tool Version:
-Operations:
-Created/Modified Files:
-Succeeded:
-Failed:
-Manual Fix:
-Unity Console:
-Prefab Diff:
-Recommended Role:
+파일명·경로
+Scale Factor·Axis
+Rig Type·Avatar
+Material·Texture Missing
+Prefab 표준 Hierarchy
+필수 Component
+Collider·Hitbox·Socket
+Animator Controller
+LODGroup
+Missing Script·Reference
 ```
 
-## 10. Unity 통합 원칙
+검사 결과는 Console뿐 아니라 Text 또는 JSON Report로 저장한다.
 
-- Blender 원본을 Unity에서 직접 참조하지 않고 승인된 FBX Export를 사용한다.
-- Prefab 공통 Hierarchy를 먼저 확정한다.
-- 게임 규칙을 캐릭터별 MonoBehaviour에 중복 구현하지 않는다.
-- ReCamp.Core와 Adapter·Presentation 계층을 분리한다.
-- Import·Material·Animator 규칙은 Editor Script로 고정할 수 있으면 코드화한다.
-- 실제 Camera Preset에서 실루엣을 검증한다.
-- Windows에서 품질·성능을 먼저 측정하고 Android 품질 단계를 후속 검증한다.
+## 9. 수동 Unity QA
 
-## 11. GitHub MCP
+자동화 후 반드시 확인한다.
 
-### 담당 작업
+- Inspector Import Property
+- Console Error·Warning
+- Prefab Diff
+- Humanoid Avatar Configure
+- Animation·Collider·Reference PlayMode
+- Default Camera 실루엣
+- Profiler CPU·GPU·Memory
+- Material 미감과 관통
+
+## 10. GitHub MCP
 
 - 작업 ID와 Issue·PR 연결
 - Reference·Spec·Metadata 버전 관리
-- WIP·REVIEW·APPROVED 자산 변경 추적
-- Branch와 Draft PR 관리
+- WIP·REVIEW·APPROVED 자산 추적
 - Unity ProjectSettings·Package 변경 리뷰
-- Tool Proof 결과 기록
+- Coplay·Validation Tool·수동 QA 결과 기록
 
-### Branch 예시
+## 11. Token·Context 절감
 
-```text
-art/luna-concept
-art/luna-3d-proof
-art/environment-ruined-street
-art/ui-design-system
-feature/unity-project-setup
-feature/core-loop
-```
-
-## 12. Token·Context 절감 규칙
-
-MCP 호출은 필요한 정보만 조회한다.
-
-- 전체 Hierarchy보다 이름·Tag·Component Filter 사용
+- 전체 Hierarchy 대신 이름·Tag·Component Filter 사용
 - 여러 Component 수정은 Batch Operation으로 묶음
 - 변경 후 전체 Scene 대신 Diff·Summary 확인
 - 긴 Log는 Error·Warning과 관련 Stack만 요청
-- Skill에 반복 작업 순서와 기본 Property를 저장
-- C#·JSON·문서 파일 편집은 가능한 경우 직접 파일 작업 사용
-- Coplay와 Aura에 같은 Context를 중복 전달하지 않고 테스트 기록을 재사용
+- Skill에 반복 작업 순서와 기본 Property 저장
+- C#·JSON·문서는 직접 파일 작업 우선
+- 검증 결과를 Report로 저장해 같은 Context를 반복 전달하지 않음
 
-## 13. 전체 파이프라인
+## 12. 전체 파이프라인
 
 ```text
-CURRENT_PROJECT_BASELINE
+Current Project Baseline
 → Character Bible·Art Direction
 → ComfyUI 후보와 Metadata
 → Figma Approved 제작 시트
 → Blender Blockout·FBX
 → Camera Gray Box
 → Coplay Import·Prefab
-→ Aura 검증·보완
-→ 사람 Review
+→ Editor Preset·Validation Tool
+→ 수동 Unity QA
 → Character Proof
 → GitHub 승인 기록
 ```
 
-## 14. 인간 승인 Gate
+## 13. 인간 승인 Gate
 
 ### Gate A — 캐릭터 매력
 
@@ -313,10 +231,10 @@ CURRENT_PROJECT_BASELINE
 
 - 2D와 3D가 같은 캐릭터로 보이는가
 - 쿼터뷰에서 얼굴·상체·무기가 읽히는가
-- Coplay/Aura 결과가 재현 가능한가
+- Coplay 결과가 Preset·Validation Tool·수동 QA로 재현 가능한가
 
 ### Gate D — 성능과 출시
 
-- Windows 목표 성능을 유지하는가
-- Android 품질 단계로 확장 가능한가
-- 라이선스와 AI Metadata가 확인되는가
+- Windows 목표 성능 유지
+- Android 품질 단계 확장 가능
+- 라이선스와 AI Metadata 확인
