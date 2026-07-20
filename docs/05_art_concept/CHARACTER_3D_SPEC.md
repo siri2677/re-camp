@@ -1,59 +1,67 @@
 # Re:Camp Character 3D Spec
 
-이 문서는 Re:Camp의 3D 플레이어블 캐릭터 제작을 위한 초기 수치 기준이다. 루나 Character Proof와 실제 모바일 기기 테스트 결과에 따라 조정한다.
+> 상태: Review  
+> 승인 조건: 루나 Blockout·Coplay/Aura Import·고정 쿼터뷰·Windows 성능 검증
 
 ## 1. 목표
 
 ```text
 3D 5~6등신 스타일라이즈드 캐릭터
-+ 고정 쿼터뷰에서 명확한 실루엣
-+ 공용 Humanoid Rig와 공용 애니메이션
-+ 모바일 우선 성능
++ 고정 쿼터뷰의 명확한 실루엣
 + 2D 대표 일러스트와 동일한 캐릭터 인상
++ 공용 Humanoid Rig·Shader·Prefab
++ Windows 우선 품질
++ Android 확장 가능한 LOD·Texture·Physics
 ```
 
 ## 2. 좌표와 단위
 
-- Unity 1 Unit = 1 Meter
+- Unity 1 Unit = 1m
 - Up Axis: Y
-- Forward Axis: +Z
-- 캐릭터 발바닥 중심을 원점으로 사용
-- 모델의 정면은 +Z를 바라보도록 Export
-- Transform Scale은 `(1, 1, 1)`을 기준으로 한다
-- 캐릭터 전체 높이 초기 기준: 1.45m~1.65m
+- Forward: +Z 결과 확인
+- 발바닥 중심을 원점으로 사용
+- Transform Apply 후 Export
+- Unity Prefab Scale `(1,1,1)`
+- 캐릭터 높이 초기 기준: 1.45m~1.65m
 
-캐릭터별 키 차이는 허용하되 공용 애니메이션 재사용을 방해할 정도로 비율을 변경하지 않는다.
+캐릭터별 키 차이는 허용하되 공용 Animation Retargeting을 방해할 정도로 비율을 바꾸지 않는다.
 
-## 3. 비율 기준
+## 3. 비율
 
-| 항목 | 초기 기준 |
+| 항목 | 기준 |
 |---|---|
 | 등신 | 5~6등신 |
-| 머리 | 실제 비율보다 크게 강조 |
-| 손 | 무기와 상호작용이 보이도록 약간 크게 |
-| 발 | 이동 실루엣이 안정적으로 보이도록 약간 크게 |
-| 상체 | 쿼터뷰에서 얼굴·상체 장비가 보이도록 짧고 명확하게 |
-| 무기 | 화면 축소 시 역할이 구분되도록 현실 비율보다 10~25% 강조 가능 |
+| 머리 | 실사보다 크게, SD처럼 과장하지 않음 |
+| 손 | 무기와 상호작용이 보이도록 약간 강조 |
+| 발 | 이동 실루엣이 안정적으로 보이도록 약간 강조 |
+| 상체 | 쿼터뷰에서 얼굴·상체 장비가 읽히는 비율 |
+| 무기 | 현실 비율보다 10~25% 강조 가능 |
+
+금지:
+
+- 3~4등신 치비·SD 인게임 비율
+- 머리가 몸의 절반에 가까운 과장
+- Camera 기본 거리에서 무기와 역할이 보이지 않는 현실 비율 고집
 
 ## 4. 폴리곤 예산
 
-다음 값은 캐릭터 1명과 기본 장비를 포함한 초기 목표다.
+캐릭터 1명과 기본 장비 포함 초기 목표:
 
-| LOD | Triangle 목표 | 사용 범위 |
+| LOD | Triangle | 사용 |
 |---|---:|---|
-| LOD0 | 35,000~60,000 | 로비, 캐릭터 선택, 근접 연출 |
-| LOD1 | 18,000~35,000 | 일반 전투 기본 |
-| LOD2 | 8,000~15,000 | 멀리 있는 캐릭터, 저사양 기기 |
-| Shadow Proxy | 3,000~8,000 | 필요 시 단순 그림자 전용 |
+| LOD0 | 35k~60k | Character Select·Lobby·근접 연출 |
+| LOD1 | 18k~35k | 전투 기본 |
+| LOD2 | 8k~15k | 먼 거리·Android Low |
+| Shadow Proxy | 3k~8k | 필요 시 그림자 전용 |
 
-- 얼굴, 헤어, 손, 대표 장비에 우선 배분한다.
-- 보이지 않는 의상 내부 면은 제거한다.
-- 작은 장식은 Geometry 대신 Normal 또는 Texture로 표현한다.
-- 쿼터뷰에서 구분되지 않는 미세 장식은 삭제한다.
+- 얼굴·헤어·손·대표 장비에 우선 배분
+- 보이지 않는 내부 면 제거
+- 작은 장식은 Normal·Texture로 대체
+- 쿼터뷰에서 보이지 않는 장식 삭제
 
-## 5. Mesh 분리 기준
+## 5. Mesh 구성
 
-권장 Skinned Mesh 구성:
+권장:
 
 ```text
 Body
@@ -64,94 +72,89 @@ Outfit
 Equipment
 ```
 
-실제 Draw Call을 줄이기 위해 최종 빌드에서는 결합 가능성을 검토한다.
+분리 유지가 필요한 경우:
 
-분리 유지가 유리한 경우:
+- 얼굴 BlendShape
+- 눈 깜빡임·시선
+- 교체 가능한 무기
+- 별도 물리 파츠
+- 다른 Shader가 필요한 파츠
 
-- 표정 BlendShape가 필요한 얼굴
-- 눈 깜빡임과 시선 제어가 필요한 눈
-- 교체 가능한 헤어·의상·무기
-- 별도 물리 처리가 필요한 파츠
-- 서로 다른 셰이더가 필요한 파츠
+최종 Draw Call을 줄일 수 있는 결합 여부를 Character Proof에서 검토한다.
 
 ## 6. Material 예산
 
-| 항목 | 권장 슬롯 수 |
+| 항목 | Slot |
 |---|---:|
 | 얼굴·피부 | 1 |
 | 눈 | 1 |
 | 헤어 | 1 |
 | 의상·신체 | 1~2 |
-| 장비·발광 | 1 |
-| 캐릭터 전체 | 4~6 이하 목표 |
+| 장비·Emission | 1 |
+| 전체 | 4~6 이하 목표 |
 
-동일한 셰이더 기능을 사용하는 작은 파츠는 Texture Atlas로 묶는다.
+작은 파츠는 Texture Atlas와 공유 Material을 우선한다.
 
-## 7. Texture 기준
+## 7. Texture
 
-### 기본 해상도
-
-| 용도 | 원본 제작 | Unity 기본 |
+| 용도 | Source | Unity |
 |---|---:|---:|
-| 얼굴·신체·주요 의상 | 2048 | 2048 또는 1024 |
-| 헤어 | 2048 | 2048 또는 1024 |
+| 얼굴·신체·주요 의상 | 2048 | 1024~2048 |
+| 헤어 | 2048 | 1024~2048 |
 | 무기·대표 장비 | 1024~2048 | 1024 |
 | 소형 장식 | 512~1024 | 512 |
 | 눈 | 512~1024 | 512 |
 
-### 기본 맵
+기본 맵:
 
 ```text
 Base Color
 Normal
-Mask Map 또는 통합 채널 맵
+Mask Map
 Emission Mask
-Face Shadow/SDF Map(사용 시)
+Face Shadow / SDF Map 사용 시
 ```
 
-모바일에서는 맵 수를 늘리기보다 Mask 채널 통합을 우선한다.
+- Base Color·Emission: sRGB
+- Normal·Mask: Linear
+- Android에서는 Mask 채널 통합과 Max Size Override를 우선
 
-### 색상 공간
+## 8. 툰 셰이딩
 
-- Base Color, Emission: sRGB
-- Normal, Mask, Metallic/Roughness/AO: Linear
-- Normal Map은 Unity Import에서 Normal 타입으로 지정
+- 얼굴 그림자를 최소화하고 인상을 우선
+- 1~2단 명암
+- Outline은 거리 보정 적용
+- Rim Light는 배경 분리에 제한 사용
+- Emission은 무기·장비·Skill 활성 상태에 사용
+- 환경보다 캐릭터 명도·채도 대비를 높게 유지
+- Windows High와 Android Low에서 같은 캐릭터 인상이 유지되어야 함
 
-## 8. 툰 셰이딩 기준
-
-- 얼굴 그림자는 최소화하고 캐릭터 인상을 우선한다.
-- 1단 또는 2단 명암을 기본으로 한다.
-- Rim Light는 배경 분리에 필요한 범위에서 제한적으로 사용한다.
-- Outline은 모바일 화면에서 두께가 과도해지지 않도록 거리 보정을 적용한다.
-- Emission은 기능성 장비, 무기, 스킬 활성 상태에만 사용한다.
-- 배경보다 캐릭터의 명도·채도 대비가 높아야 한다.
-
-## 9. Rig 기준
+## 9. Rig
 
 - Unity Humanoid Avatar 호환
-- 공용 T-Pose 또는 A-Pose 사용
-- 캐릭터 간 Bone 이름과 기본 계층을 동일하게 유지
-- Root Bone을 명확히 분리
-- 이동은 기본적으로 In-place 애니메이션 사용
-- Root Motion은 연출 또는 특정 스킬에서만 선택적으로 사용
+- 공용 T-Pose 또는 A-Pose
+- 캐릭터 간 Bone 이름·계층 통일
+- Root Bone 명확히 분리
+- 기본 이동 In-place
+- Root Motion은 특정 연출·Skill에만 사용
 
-### 권장 Bone 범위
+초기 Bone 목표:
 
-| 구분 | 초기 목표 |
+| 구분 | 목표 |
 |---|---:|
 | Humanoid + Twist | 65~85 |
-| 얼굴 기본 Bone | 10~25 |
-| 헤어·의상 물리 Bone | 10~30 |
-| 전체 | 120 이하 목표 |
+| 얼굴 | 10~25 |
+| 헤어·의상 Physics | 10~30 |
+| 전체 | 120 이하 |
 
-물리 Bone 수는 저사양 기기에서 단계적으로 비활성화할 수 있어야 한다.
+Physics Bone은 High / Medium / Off로 단계 조정 가능해야 한다.
 
-## 10. 얼굴과 표정
+## 10. 얼굴·표정
 
-필수 표현:
+필수:
 
 ```text
-Blink Left / Right
+Blink L/R
 Eye Look
 Smile
 Angry
@@ -159,62 +162,82 @@ Sad
 Surprised
 Serious
 Embarrassed
-Mouth A/I/U/E/O 또는 최소 발화 세트
+Mouth A/I/U/E/O 또는 최소 발화 Set
 ```
 
-- BlendShape 수는 실제 사용되는 표정 중심으로 제한한다.
-- 초기 목표는 얼굴 BlendShape 20개 이하다.
-- 눈과 눈썹은 Bone 또는 BlendShape 중 한 방식을 공통 규격으로 선택한다.
-- 로비용 고품질 얼굴과 전투용 경량 얼굴을 분리할 수 있다.
+- 실제 사용하는 BlendShape 중심
+- 초기 목표 20개 이하
+- Lobby 고품질 얼굴과 Battle 경량 얼굴 분리 가능
+- Camera 기본 거리에서 표정이 안 보이는 경우 과도한 BlendShape 추가 금지
 
-## 11. 물리와 관통
+## 11. Physics와 관통
 
-- 머리카락과 의상 물리는 필수 파츠에만 적용한다.
-- 짧은 전투 세션에서 시각적 이득이 작은 파츠는 고정한다.
-- 무기, 팔, 몸통과 자주 충돌하는 장식은 디자인 단계에서 단순화한다.
-- 물리 품질은 High / Medium / Off 단계로 전환 가능해야 한다.
-- Collider 수를 최소화하고 큰 형태 중심으로 구성한다.
+- 헤어·의상 Physics는 대표 파츠에만 적용
+- 팔·무기·몸통과 자주 충돌하는 장식은 디자인 단계에서 단순화
+- Collider 수 최소화
+- High / Medium / Off 품질 단계
+- Physics를 꺼도 실루엣이 무너지지 않아야 함
 
 ## 12. LOD와 Culling
 
-- 모든 플레이어블 캐릭터는 LODGroup을 사용한다.
-- 전투 기본 거리는 LOD1을 기준으로 품질을 검수한다.
-- 얼굴 표정, 헤어 물리, 고해상도 그림자는 거리에 따라 비활성화한다.
-- 화면에서 매우 작아지면 Outline과 작은 Emission을 줄인다.
-- 장비와 실루엣이 LOD 전환 후에도 유지되는지 확인한다.
+- 모든 플레이어 캐릭터에 LODGroup
+- 전투 기본 거리는 LOD1 기준 검수
+- 거리별 얼굴 표정·Physics·추가 그림자 감소
+- LOD 전환 후 머리·무기·대표 실루엣 유지
+- Android Low에서 LOD2 사용 가능
 
-## 13. Export 규칙
+## 13. Export
 
 ```text
 Format: FBX
 Scale: 1.0
-Axis: Y Up / +Z Forward 기준으로 Unity 결과 확인
-Apply Transform: 완료
-Triangulate: Export 또는 Import 중 한 단계에서 일관되게 적용
-Animation: 모델과 분리 Export 권장
+Axis: Y Up / +Z Forward 결과 확인
+Apply Transform: Yes
+Triangulate: 한 단계에서 일관 적용
+Animation: Model과 분리 Export
+Embedded Texture: No
 Material: Unity에서 재구성
-Embedded Texture: 사용하지 않음
 ```
 
-Blender 원본과 Unity용 FBX Export를 같은 디렉터리에 혼합하지 않는다.
+## 14. Coplay / Aura Import Proof
 
-## 14. Unity 검증 체크리스트
+### Coplay
 
-- Humanoid Avatar가 오류 없이 생성되는가
-- 발바닥이 지면과 일치하는가
-- 공용 Idle/Run/Hit 애니메이션이 재생되는가
-- 손이 무기 Grip 위치와 맞는가
-- 쿼터뷰에서 얼굴·헤어·대표 장비가 보이는가
-- LOD 전환 시 실루엣이 급격히 변하지 않는가
-- Material과 Texture가 누락되지 않았는가
-- 전투 중 Draw Call과 Skinned Mesh 비용이 목표 기기에서 허용 가능한가
-- 물리 Bone을 끄더라도 치명적인 형태 붕괴가 없는가
+- FBX Import Property
+- Material·Texture 연결
+- Prefab Hierarchy
+- Animator·Collider·Socket
+- Scene 배치
 
-## 15. 루나 Character Proof 통과 기준
+### Aura
 
-- 고양이 후드와 에너지 단검이 전투 카메라에서 즉시 식별된다.
-- 2D 승인 시트와 얼굴·헤어·의상 인상이 일치한다.
-- LOD1 상태에서 전투 애니메이션과 VFX가 정상 동작한다.
-- 모바일 목표 기기에서 전투 캐릭터와 몬스터가 함께 등장해도 목표 프레임을 유지한다.
-- 헤어·후드·재킷·단검의 치명적 관통이 없다.
-- 루나를 복제해 다른 캐릭터 Blockout을 시작할 수 있는 공용 구조가 확정된다.
+- Scale·Axis·Rig·Avatar 검증
+- Material·Animator·Prefab 누락 확인과 보완
+- Missing Reference·Console Error
+
+같은 FBX를 별도 테스트 폴더 또는 원복 후 비교하며 결과를 `ART-PIPE-0105~0107`에 기록한다.
+
+## 15. Unity 검증
+
+- Humanoid Avatar 오류 없음
+- 발바닥과 지면 일치
+- 공용 Idle·Run·Hit·Down 재생
+- 손과 Weapon Grip 일치
+- Default Camera에서 얼굴·헤어·대표 장비 식별
+- 5~6등신이 치비로 보이지 않음
+- LOD 전환이 자연스러움
+- Material·Texture 누락 없음
+- Windows Target FPS 확인
+- Android Low 품질 확장 가능
+
+## 16. 루나 Character Proof
+
+통과 기준:
+
+- 고양이 후드와 에너지 단검이 기본 Camera에서 즉시 식별
+- 2D Approved 시트와 얼굴·헤어·의상 인상 일치
+- LOD1에서 Attack·Dash·Skill·VFX 정상
+- 손·무기·후드·재킷의 치명적 관통 없음
+- Windows 목표 성능 유지
+- Coplay와 Aura Import·Prefab 결과가 재현 가능
+- 다른 캐릭터 Blockout을 시작할 공용 구조 승인
