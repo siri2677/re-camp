@@ -10,8 +10,9 @@
 - Portfolio Vertical Slice와 Full Release 범위 분리
 - 루나 Character Proof 우선 제작 순서로 변경
 - 중복 아트 Backlog ID를 분야별 Prefix로 통합
-- ComfyUI Cloud·Figma Remote·Blender·Coplay·Aura·GitHub MCP 역할 정리
-- Coplay와 Aura를 모두 유지하고 동일 FBX Import·Prefab 공동 Proof 추가
+- ComfyUI Cloud·Figma Remote·Blender·Coplay·GitHub MCP 역할 정리
+- Aura AI의 1회성 체험 이후 유료 구조를 확인하고 필수 제작 파이프라인에서 제외
+- Unity 통합을 Coplay MCP + Import Preset·Validation Editor Tool + 수동 Unity QA로 통일
 - 환경 Modular·VFX·기술 성능·Scope Cut 기준 추가
 - README·AGENT·Project Overview·Game Concept·MVP·Roadmap·Backlog·아트 제작 문서 재정리
 
