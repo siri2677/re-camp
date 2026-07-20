@@ -1,8 +1,8 @@
 # Re:Camp Scope and Risk Rules
 
-> 목적: 포트폴리오 Vertical Slice를 끝내기 전에 장기 출시 범위로 확장되는 것을 방지한다.
+> 목적: Portfolio Vertical Slice를 끝내기 전에 장기 출시 범위로 확장되는 것을 방지한다.
 
-## 1. 완료 범위 구분
+## 1. 완료 범위
 
 ### Portfolio Vertical Slice
 
@@ -16,8 +16,6 @@
 + 저장·불러오기
 + 3~5분 핵심 루프
 ```
-
-이 범위를 실제 플레이 가능하고 영상으로 설명할 수 있으면 포트폴리오 1차 완료로 본다.
 
 ### Full Release
 
@@ -36,8 +34,6 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 
 ### Gate 1 — Unity 기반
 
-기한 기준보다 다음 결과를 우선한다.
-
 - 프로젝트 Clone 후 실행 가능
 - Scene 흐름 작동
 - Core 통합 방식 확정
@@ -47,11 +43,11 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 
 - 외부 Package 추가 중단
 - Core 통합 범위를 최소 Adapter로 축소
-- Scene과 전투 Gray Box부터 우선 완성
+- Scene과 전투 Gray Box 우선 완성
 
 ### Gate 2 — 전투 Gray Box
 
-- 이동·공격·적 추적·사망·보상·결과 정산이 작동
+- 이동·공격·적 추적·사망·보상·결과 정산 작동
 - 한 판을 끝까지 완주 가능
 
 실패 시:
@@ -64,12 +60,14 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 
 - 루나 Approved 제작 시트 확보
 - 5~6등신 Blockout이 쿼터뷰에서 식별됨
-- Coplay/Aura Import·Prefab 테스트 통과
+- Coplay Import·Prefab 테스트 통과
+- Unity Editor 검증 도구와 수동 Inspector·Console 검수 통과
 
 실패 시:
 
 - 의상 장식·물리 파츠 단순화
 - Base Mesh와 Rig 범위 축소
+- Import 규칙을 Preset 또는 Editor Script로 보완
 - 나머지 캐릭터 최종 제작 보류
 
 ### Gate 4 — Vertical Slice
@@ -82,14 +80,12 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 
 - 두 번째 환경과 나머지 캐릭터 제작 금지
 - 장비·친밀도·대화·추가 UI 제거
-- 한 개 스테이지의 품질 개선에 집중
+- 한 개 스테이지 품질 개선에 집중
 
 ## 3. 작업 시간 초과 시 축소 순서
 
-다음 순서로 제거하거나 후속 단계로 이동한다.
-
 ```text
-1. 추가 캐릭터의 최종 3D 모델
+1. 추가 캐릭터 최종 3D 모델
 2. 두 번째 스테이지
 3. 친밀도·개인 에피소드
 4. 복잡한 장비와 스킨
@@ -97,7 +93,7 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 6. 고급 물리·후처리·시네마틱
 ```
 
-다음 항목은 끝까지 유지한다.
+끝까지 유지:
 
 ```text
 루나 Character Proof
@@ -111,7 +107,7 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 
 ## 4. 아트 비용 제어
 
-- 루나가 Unity에서 승인되기 전 나머지 네 캐릭터의 최종 모델링을 시작하지 않는다.
+- 루나가 Unity에서 승인되기 전 나머지 네 캐릭터 최종 모델링을 시작하지 않는다.
 - 생성 이미지 후보를 대량으로 Git에 저장하지 않는다.
 - 쿼터뷰에서 보이지 않는 장식은 제거 또는 Texture로 대체한다.
 - 공용 Rig, Shader, Animator, Prefab, Base Mesh를 우선한다.
@@ -122,23 +118,35 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 
 ### ComfyUI
 
-- 모델·LoRA·Seed·Workflow를 기록하지 못하면 최종 후보로 승인하지 않는다.
-- 얼굴·의상 일관성이 낮으면 생성 횟수를 늘리기보다 기준 이미지를 수정한다.
+- Model·LoRA·Seed·Workflow를 기록하지 못하면 최종 후보로 승인하지 않는다.
+- 일관성이 낮으면 생성 횟수보다 기준 이미지를 수정한다.
 
 ### Figma
 
-- 원본만 존재하고 Git Export가 없으면 승인 완료로 보지 않는다.
+- 원본만 있고 Git Export가 없으면 승인 완료로 보지 않는다.
 
 ### Blender
 
-- 자동 생성 결과는 Retopology·UV·Weight·관통을 사람이 검수한다.
+- 자동 결과는 Retopology·UV·Weight·관통을 사람이 검수한다.
 
-### Coplay / Aura
+### Coplay MCP
 
-- 동일 Prefab을 동시에 수정하지 않는다.
-- 작업마다 Primary Tool을 지정한다.
-- 다른 도구는 검증 또는 실패 시 대체 경로로 사용한다.
-- 자동화 결과는 Git diff와 Unity Console로 검증한다.
+- 변경 전 대상 Scene·Prefab·파일을 명확히 지정한다.
+- 자동화 결과는 Git Diff, Unity Console, Prefab Diff, PlayMode로 검증한다.
+- 동일 작업을 반복하면 Editor Script 또는 Preset으로 승격한다.
+- 지원하지 않는 작업은 수동 Inspector 작업으로 전환한다.
+
+### Unity Editor Script·Preset
+
+- Import Property와 검증 규칙을 재현 가능하게 코드화한다.
+- 자동 생성 파일은 리뷰 가능한 텍스트 형태를 우선한다.
+- 검증 도구 자체에도 최소 EditMode Test를 둔다.
+
+### 유료 도구
+
+- 별도 월 구독이 필요한 도구는 필수 선행 조건으로 두지 않는다.
+- Aura AI는 체험 이후 유료 사용이 필요하므로 기본 파이프라인에서 제외한다.
+- 향후 무료 영구 플랜과 명확한 효율이 확인되면 선택 도구로만 재검토한다.
 
 ### GitHub
 
@@ -147,7 +155,7 @@ Full Release 범위는 Vertical Slice 승인 후 진행한다.
 
 ## 6. 변경 통제
 
-새 기능이나 아트 범위를 추가하려면 다음 내용을 먼저 기록한다.
+새 기능이나 아트 범위 추가 전 다음을 기록한다.
 
 ```text
 왜 필요한가
@@ -156,11 +164,10 @@ Vertical Slice에 직접 필요한가
 예상 제작 비용은 무엇인가
 제거할 기존 범위가 있는가
 완료 기준은 무엇인가
+무료 또는 기존 구독 범위에서 가능한가
 ```
 
-Vertical Slice와 직접 관련이 없고 기존 범위를 제거하지 않는 기능은 기본적으로 Backlog 후순위로 이동한다.
-
-## 7. 사용자 검증 기준
+## 7. 사용자 검증
 
 루나 Character Proof:
 
@@ -173,9 +180,7 @@ Vertical Slice:
 - 3~5분 플레이를 끝까지 이해하는가
 - 귀환 여부를 고민하게 되는가
 - 캠프 강화 후 다시 탐험하고 싶은가
-- 캐릭터와 전투에 긍정적인 첫인상을 받는가
-
-평가는 긍정 반응만 기록하지 않고 혼동 지점과 이탈 원인을 함께 기록한다.
+- 캐릭터와 전투에 긍정적 첫인상을 받는가
 
 ## 8. 상태 전환 규칙
 
@@ -183,4 +188,5 @@ Vertical Slice:
 - 실제 검증 전 수치 문서는 `Review`
 - 승인 이미지가 없으면 최종 모델링 `Blocked`
 - Unity 프로젝트가 없으면 Import·Prefab 테스트 `Blocked`
+- 유료 도구 구매를 기다리는 상태를 `Blocked` 원인으로 사용하지 않음
 - Vertical Slice 승인 전 장기 출시 범위는 `Todo` 또는 `Blocked`
