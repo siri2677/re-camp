@@ -4,7 +4,7 @@
 
 ## 상태
 
-`Todo`, `Ready`, `In Progress`, `Review`, `Blocked`, `Done`을 사용한다. 이미지·모델 자산은 별도로 `WIP`, `REVIEW`, `APPROVED`, `SUPERSEDED`, `ARCHIVE` 상태를 기록한다.
+`Todo`, `Ready`, `In Progress`, `Review`, `Blocked`, `Done`을 사용한다. 이미지·모델 자산은 `WIP`, `REVIEW`, `APPROVED`, `SUPERSEDED`, `ARCHIVE` 상태를 기록한다.
 
 ## ART-DIR. 방향과 관리
 
@@ -15,6 +15,7 @@
 | PROJ-0007 | Git LFS 아트 규칙 검증 | High | Ready | blend·fbx·psd·tga·exr 확인 |
 | PROJ-0008 | AI 생성 자산 Metadata Template | Medium | Ready | 도구·모델·Seed·입력·수정·라이선스 양식 |
 | PROJ-0009 | 현재 기준 문서 통합 | High | Review | 플랫폼·도구·범위 충돌 없음 |
+| PROJ-0011 | 유료 Aura 의존 제거 | High | Review | 필수 아트 파이프라인에서 Aura 참조 없음 |
 
 ## ART-PIPE. 제작 파이프라인
 
@@ -25,11 +26,11 @@
 | ART-PIPE-0103 | Figma 캐릭터 Sheet Template | High | Ready | 없음 | 전신·표정·Turnaround·장비·재질 Frame |
 | ART-PIPE-0104 | Blender MCP Export Proof | High | Ready | 없음 | 단검 또는 테스트 소품 FBX |
 | ART-PIPE-0105 | Coplay Import·Prefab Proof | High | Blocked | DEV-0101, ART-PIPE-0104 | Import·Material·Prefab·Scene 배치 |
-| ART-PIPE-0106 | Aura Import·Prefab Validation | High | Blocked | DEV-0101, ART-PIPE-0104 | 동일 FBX 결과와 오류 기록 |
-| ART-PIPE-0107 | Coplay/Aura 역할·차이 정리 | High | Blocked | ART-PIPE-0105, ART-PIPE-0106 | Primary·Validator 역할과 제한 확정 |
+| ART-PIPE-0106 | Unity Import Preset·Validation Editor Tool | High | Blocked | DEV-0101, ART-PIPE-0104 | Scale·Rig·Material·Socket·Reference 자동 검사 |
+| ART-PIPE-0107 | 수동 Unity Import·Prefab QA | High | Blocked | ART-PIPE-0105, ART-PIPE-0106 | Inspector·Console·Prefab Diff·PlayMode Report |
 | ART-PIPE-0108 | `art_source/` 구조 생성 | Medium | Blocked | DEV-0101, PROJ-0007 | 원본·Export·Workflow 분리 |
 
-### Coplay/Aura Proof 테스트 항목
+### Import·Prefab Proof 체크
 
 ```text
 FBX Scale·Axis
@@ -42,7 +43,8 @@ Collider·Hitbox·Socket
 Scene 배치
 Missing Reference
 Console Error
-Git Diff
+Prefab Diff
+PlayMode
 ```
 
 ## ART-2D-10. 루나
@@ -70,8 +72,6 @@ Git Diff
 | ART-2D-1401 | 노아 단독 전신 방향 | Medium | Ready | 대형 방패·방호 장비·안정적 실루엣 |
 | ART-2D-1501 | 5인 신장·색상·실루엣 비교 | Medium | Todo | 같은 세계관과 역할 구분 |
 
-나머지 네 명의 최종 제작 시트는 `ART-3D-2020` 루나 Character Proof 승인 후 활성화한다.
-
 ## ART-3D. 루나 Character Proof
 
 | ID | 작업 | 우선순위 | 상태 | 선행 작업 | 완료 기준 |
@@ -81,8 +81,8 @@ Git Diff
 | ART-3D-2003 | 공용 Humanoid Rig 초안 | High | Blocked | ART-3D-2002 | Unity Avatar 생성 |
 | ART-3D-2004 | 루나 저해상도 Blockout | High | Blocked | ART-2D-1008, ART-3D-2002 | 후드·단검·비율 확인 가능 |
 | ART-3D-2005 | Coplay Import·Prefab | High | Blocked | ART-3D-2004, ART-PIPE-0107 | Prefab·Material·Animator 구성 |
-| ART-3D-2006 | Aura Import·Prefab 검증 | High | Blocked | ART-3D-2004, ART-PIPE-0107 | Import 차이와 오류 기록 |
-| ART-3D-2007 | 쿼터뷰 실루엣 승인 | High | Blocked | ART-3D-2005, ART-3D-2006, DEV-0106 | 기본 거리에서 후드·단검 식별 |
+| ART-3D-2006 | Validation Tool·수동 Unity QA | High | Blocked | ART-3D-2005, ART-PIPE-0106 | Import·Reference·Console·PlayMode 통과 |
+| ART-3D-2007 | 쿼터뷰 실루엣 승인 | High | Blocked | ART-3D-2006, DEV-0106 | 기본 거리에서 후드·단검 식별 |
 | ART-3D-2010 | 최종 모델·Retopology·UV | High | Blocked | ART-3D-2007 | 승인 시트와 일치 |
 | ART-3D-2011 | Texture·Material·Toon Shader | High | Blocked | ART-3D-2010 | 얼굴·헤어·의상·장비 표현 |
 | ART-3D-2012 | Rig·Weight·BlendShape | High | Blocked | ART-3D-2011 | 기본 동작·표정에서 치명적 변형 없음 |
@@ -146,7 +146,9 @@ ART-VFX-5001 공통 VFX 언어
 
 ## 운영 원칙
 
-- Coplay와 Aura 결과를 비교하되 동일 Prefab 동시 수정 금지
+- Coplay 결과는 Validation Tool과 수동 Unity QA로 검증한다.
+- 반복 Import·검사 규칙은 Editor Script 또는 Preset으로 코드화한다.
+- 별도 유료 도구를 필수 선행 조건으로 두지 않는다.
 - 루나 Proof 전 나머지 캐릭터 최종 제작 금지
 - 승인된 자산만 최종 빌드에 사용
 - 모든 결과에 파일 경로·도구·버전·검증·Commit을 기록
