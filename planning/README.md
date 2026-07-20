@@ -63,6 +63,7 @@
 | `ART-ENV-` | 환경·몬스터·소품 | `ART-ENV-3001` |
 | `ART-UI-` | UI Design·Export | `ART-UI-4001` |
 | `ART-VFX-` | VFX·Feedback | `ART-VFX-5001` |
+| `TEST-` | 기능·아트·성능 검증 | `TEST-4001` |
 | `VS-` | Vertical Slice 통합 | `VS-6001` |
 | `PROD-` | 출시 범위 확장 | `PROD-7001` |
 | `REL-` | QA·최적화·배포 | `REL-8001` |
