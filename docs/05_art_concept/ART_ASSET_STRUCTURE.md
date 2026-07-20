@@ -6,69 +6,27 @@
 
 ```text
 art_refs/
-├── README.md
 ├── art_direction/
-│   ├── ReCamp_Character_Lineup.png
-│   ├── ReCamp_Art_Direction_Board.png
-│   ├── ReCamp_Color_Palette.png
-│   └── archive/
 ├── characters/
 │   ├── luna/
-│   │   ├── concept/
-│   │   ├── turnaround/
-│   │   ├── expressions/
-│   │   ├── equipment/
-│   │   ├── material/
-│   │   ├── 3d_reference/
-│   │   └── archive/
 │   ├── miyu/
 │   ├── coco/
 │   ├── iris/
 │   └── noah/
 ├── environments/
-│   ├── ruined_street/
-│   ├── camp/
-│   ├── abandoned_lab/
-│   └── archive/
 ├── monsters/
-│   ├── normal/
-│   └── bosses/
 ├── props/
-│   ├── camp_facilities/
-│   ├── weapons/
-│   ├── drones/
-│   ├── loot/
-│   └── environment/
 ├── ui/
-│   ├── design_system/
-│   ├── lobby/
-│   ├── battle/
-│   ├── skill_select/
-│   ├── result/
-│   └── camp/
 └── vfx/
-    ├── common/
-    ├── luna/
-    ├── enemies/
-    └── system/
 ```
 
 ## 2. 제작 원본
 
-Unity 프로젝트 생성 후 다음 구조를 사용한다.
-
 ```text
 art_source/
 ├── comfyui_workflows/
-│   ├── characters/
-│   ├── environments/
-│   └── vfx/
 ├── figma_exports/
 ├── blender/
-│   ├── characters/
-│   ├── environments/
-│   ├── monsters/
-│   └── props/
 ├── textures/
 └── metadata/
 ```
@@ -80,11 +38,6 @@ art_source/
 ```text
 Assets/_ReCamp/Art/
 ├── Characters/
-│   ├── Models/
-│   ├── Textures/
-│   ├── Materials/
-│   ├── Prefabs/
-│   └── Portraits/
 ├── Environments/
 ├── Monsters/
 ├── Props/
@@ -123,17 +76,9 @@ Assets/_ReCamp/Art/
 | `SUPERSEDED` | 새 승인본으로 대체 | 신규 작업 금지 |
 | `ARCHIVE` | 폐기·기록 보존 | 금지 |
 
-### 통합 라인업 상태
+`ReCamp_Character_Lineup.png`는 `Direction Approved`다. 역할·대표 색상·무기·큰 실루엣에만 사용하며 최종 얼굴·Turnaround·3D 모델링 기준으로 직접 사용하지 않는다.
 
-`ReCamp_Character_Lineup.png`는 `Direction Approved`다.
-
-- 역할·대표 색상·무기·큰 실루엣 참고 가능
-- 최종 얼굴·의상·Turnaround·3D 제작 기준으로 직접 사용 불가
-- 개별 `APPROVED` 제작 시트가 추가되면 해당 시트를 우선
-
-## 6. 캐릭터 필수 산출물
-
-루나 Character Proof:
+## 6. 루나 필수 산출물
 
 ```text
 Luna_KeyArt_APPROVED_v###.png
@@ -147,22 +92,14 @@ Luna_MaterialPalette_APPROVED_v###.png
 Luna_3DNotes_APPROVED_v###.png
 ```
 
-나머지 네 캐릭터는 루나 Proof 전까지 단독 전신 방향과 3D 위험 요소만 저장한다. 최종 제작 시트는 Proof 이후 제작한다.
+나머지 네 캐릭터는 루나 Proof 전까지 단독 전신 방향과 3D 위험 요소만 저장한다.
 
 ## 7. 파일명
 
-공통 Reference:
+Reference:
 
 ```text
 PascalCase_AssetType_Status_v###.ext
-```
-
-예시:
-
-```text
-Luna_KeyArt_REVIEW_v003.png
-Luna_Turnaround_APPROVED_v005.png
-RuinedStreet_ColorKey_REVIEW_v002.png
 ```
 
 Unity Asset:
@@ -177,8 +114,6 @@ PRP_Camp_Generator.fbx
 VFX_Luna_CrossFang.prefab
 UI_Battle_SkillFrame.png
 ```
-
-세부 Prefix는 `ASSET_NAMING_GUIDE.md`를 따른다.
 
 ## 8. Source와 Export
 
@@ -202,8 +137,6 @@ Blender 원본을 Unity가 직접 참조하지 않고 승인된 FBX를 사용한
 
 ## 9. Git LFS
 
-권장 대상:
-
 ```text
 *.psd
 *.kra
@@ -215,11 +148,9 @@ Blender 원본을 Unity가 직접 참조하지 않고 승인된 FBX를 사용한
 *.mp4
 ```
 
-PNG는 크기와 변경 빈도에 따라 결정한다. 대량 생성 후보를 모두 Git에 넣지 않는다.
+대량 생성 후보를 모두 Git에 넣지 않는다.
 
 ## 10. AI 생성 Metadata
-
-AI 생성 Reference에는 최소 다음을 기록한다.
 
 ```text
 Asset Name:
@@ -237,26 +168,25 @@ License / Usage Restriction:
 Reviewer:
 ```
 
-상업 사용 조건을 확인하지 못한 생성물은 최종 게임 자산으로 사용하지 않는다.
-
-## 11. Coplay / Aura 결과 기록
-
-Unity 자동화 작업에는 다음을 기록한다.
+## 11. Unity 자동화·검증 기록
 
 ```text
 Task ID:
 Asset:
-Primary Tool: Coplay 또는 Aura
-Validator Tool: Coplay 또는 Aura
+Automation Tool: Coplay 또는 Editor Script
 Operations:
 Created / Modified Files:
+Validation Tool Result:
+Inspector Review:
 Console Result:
 Prefab Diff:
+PlayMode Result:
+Profiler Result:
 Manual Fix:
 Approved Result:
 ```
 
-한 자산을 두 도구가 동시에 수정하지 않는다.
+Aura AI는 체험 이후 유료 사용이 필요한 구조이므로 기본 기록 대상과 필수 승인 도구에서 제외한다.
 
 ## 12. 리뷰 체크리스트
 
@@ -287,5 +217,6 @@ Approved Result:
 - 파일명·디렉터리 준수
 - Review 또는 Approved 상태 표시
 - 관련 Backlog ID 연결
-- Unity 자산은 Coplay/Aura 또는 수동 Import 검증 기록
+- Unity 자산은 Coplay 또는 Editor Script 실행 기록 보유
+- Validation Tool·수동 Unity QA 기록 보유
 - Commit·PR 연결
