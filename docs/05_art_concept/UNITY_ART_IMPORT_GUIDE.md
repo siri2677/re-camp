@@ -1,18 +1,22 @@
 # Re:Camp Unity Art Import Guide
 
-이 문서는 Re:Camp 아트 자산을 Unity 프로젝트에 가져오고 Prefab·Material·Animator로 구성하는 초기 기준을 정의한다.
+이 문서는 Re:Camp 아트 자산을 Unity 6.3 LTS URP 프로젝트에 가져오고 Material·Animator·Prefab으로 구성하는 기준을 정의한다.
 
-## 1. 기본 프로젝트 기준
+## 1. 프로젝트 기준
 
-- Unity LTS 사용
-- URP 기반 렌더링
+- Unity 6.3 LTS
+- URP
 - Color Space: Linear
-- Visible Meta Files 활성화
+- Visible Meta Files
 - Asset Serialization: Force Text
-- 모바일 우선 품질 설정
-- 아트 자산은 `Assets/_ReCamp/Art/` 아래에서 관리
+- 1차 품질 기준: Windows PC
+- 2차 품질 기준: Android
+- 아트 자산: `Assets/_ReCamp/Art/`
+- 원본 파일: `art_source/`
 
-## 2. Unity 아트 디렉터리
+원본 `.blend`, PSD, Figma 원본, ComfyUI Workflow는 Unity `Assets/`에 넣지 않는다.
+
+## 2. Unity 디렉터리
 
 ```text
 Assets/_ReCamp/Art/
@@ -31,129 +35,151 @@ Assets/_ReCamp/Art/
 └── Animations/
 ```
 
-원본 `.blend`, PSD, Figma 원본, ComfyUI Workflow는 Unity `Assets/`에 넣지 않는다.
+## 3. Import 책임
 
-## 3. Texture Import 공통 규칙
+### 코드·Preset
 
-### 캐릭터·환경 3D Texture
+반복 가능한 Import Property는 가능한 경우 Unity Editor Script 또는 Preset으로 고정한다.
+
+### Coplay
+
+- Import Preset 적용
+- Material·Texture 연결
+- Prefab Hierarchy 생성
+- Animator·Collider·Socket·Reference 연결
+- Scene 배치와 Batch 수정
+
+### Aura
+
+- 동일 FBX·Texture Import 검증
+- Scale·Axis·Rig·Avatar 확인
+- Material·Animator·Prefab 누락 확인과 보완
+- Missing Reference·Console Error 검사
+- Coplay 자동화가 어려운 작업의 대체 경로
+
+Coplay와 Aura는 모두 수정 가능하지만 한 자산을 동시에 편집하지 않는다.
+
+## 4. Texture Import
+
+### 3D Texture
 
 | 항목 | 기준 |
 |---|---|
 | Texture Type | Default |
-| sRGB | Base Color/Emission만 활성화 |
-| Alpha Source | 필요한 Texture만 활성화 |
-| Generate Mip Maps | 기본 활성화 |
-| Max Size | 512~2048, 용도별 결정 |
-| Wrap Mode | 일반 Texture는 Repeat, Atlas는 Clamp 검토 |
-| Filter Mode | Bilinear 기본 |
-| Aniso Level | 환경 바닥·긴 표면만 선택 적용 |
+| sRGB | Base Color·Emission만 활성 |
+| Mip Maps | 기본 활성 |
+| Max Size | 512~2048, 실제 표시 크기 기준 |
+| Wrap | 일반 반복 Texture는 Repeat, Atlas는 Clamp 검토 |
+| Filter | Bilinear 기본 |
+| Aniso | 바닥·긴 표면에 제한 적용 |
 
-### Normal Map
+### Normal·Mask
 
-- Texture Type을 `Normal map`으로 지정한다.
-- Normal 품질 저하가 눈에 띄면 플랫폼 압축을 별도 조정한다.
-- 잘못된 색상 공간으로 Import되지 않았는지 확인한다.
+- Normal은 `Normal map` Type 사용
+- Normal, Mask, Metallic/Roughness/AO는 Linear
+- 채널 통합 Mask를 우선해 Texture 수를 줄임
 
-### UI와 2D 일러스트
+### UI·2D Illustration
 
 | 항목 | 기준 |
 |---|---|
 | Texture Type | Sprite (2D and UI) |
 | Sprite Mode | Single 또는 Multiple |
-| Mesh Type | Full Rect 기본, 필요한 경우 Tight |
-| Pixels Per Unit | UI에서는 기본값 유지, 월드 Sprite는 프로젝트 공통값 사용 |
-| Generate Mip Maps | 일반 UI는 비활성화 |
-| Wrap Mode | Clamp |
-| Alpha Is Transparency | 활성화 |
+| Mip Maps | 일반 UI 비활성 |
+| Wrap | Clamp |
+| Alpha Is Transparency | 활성 |
+| 9-Slice | Panel·Button에 Border 설정 |
 
-## 4. 이미지 용도별 초기 해상도
+## 5. 초기 해상도
 
-| 용도 | Unity Max Size 초기값 |
+| 용도 | Unity Max Size |
 |---|---:|
-| 캐릭터 전신 일러스트 | 2048 |
-| 캐릭터 초상화 | 1024 |
-| 캐릭터 선택 카드 | 1024 |
-| 스킬·아이템 아이콘 | 256 또는 512 |
-| 전투 HUD 아이콘 | 128 또는 256 |
-| 전체 화면 배경 | 2048 |
-| 9-Slice 패널 | 512 또는 1024 |
-| 3D 캐릭터 주요 Texture | 1024 또는 2048 |
-| 소형 소품 Texture | 512 또는 1024 |
+| 캐릭터 전신 Illustration | 2048 |
+| Portrait | 1024 |
+| Character Card | 1024 |
+| Skill·Item Icon | 256~512 |
+| Battle HUD Icon | 128~256 |
+| Full Screen Background | 2048 |
+| 9-Slice Panel | 512~1024 |
+| 3D Character Main Texture | 1024~2048 |
+| Prop Texture | 512~1024 |
 
-원본은 더 크게 보관할 수 있으나 빌드용 Import 크기는 실제 표시 크기를 기준으로 제한한다.
+## 6. 플랫폼 압축
 
-## 5. 플랫폼 압축 초기 기준
+### Windows
 
-### Android/iOS
+- BC 계열 기본 압축
+- 얼굴·UI·Normal의 품질 손실 별도 확인
+- 1920×1080을 기본 검수 해상도로 사용
 
-- ASTC를 우선 검토한다.
-- 캐릭터 얼굴·UI는 높은 품질 블록 크기를 사용한다.
-- 환경과 반복 소품은 더 강한 압축을 허용한다.
-- Alpha가 필요한 Texture와 불필요한 Texture를 분리한다.
+### Android
 
-### PC
+- ASTC 우선 검토
+- 얼굴·UI는 높은 품질 Block Size
+- 환경·반복 소품은 더 강한 압축 허용
+- Alpha 필요 Texture 분리
+- PC Vertical Slice 후 Override 확정
 
-- 플랫폼 기본 BC 계열 압축을 사용한다.
-- 캐릭터 얼굴, UI, Normal Map은 품질 손실을 별도 확인한다.
-
-플랫폼별 Override 값은 실제 기기 테스트 후 확정한다.
-
-## 6. FBX Import 기준
-
-### Model
+## 7. FBX Model Import
 
 | 항목 | 기준 |
 |---|---|
 | Scale Factor | 1 |
-| Convert Units | 결과를 확인해 일관되게 적용 |
-| Import BlendShapes | 얼굴·표정 모델만 활성화 |
-| Import Visibility | 비활성화 권장 |
-| Import Cameras/Lights | 비활성화 |
+| Model Forward | +Z 결과 확인 |
+| Up | Y |
+| Transform | Export 전 Apply |
+| BlendShapes | 얼굴 모델만 활성 |
+| Cameras / Lights | 비활성 |
 | Mesh Compression | Off 또는 Low부터 검증 |
-| Read/Write | 런타임 수정이 필요한 경우만 활성화 |
-| Optimize Mesh | 기본 활성화 검토 |
-| Generate Colliders | 사용하지 않고 별도 구성 |
+| Read / Write | 런타임 수정 필요 시만 |
+| Generate Colliders | 사용하지 않음 |
+| Embedded Texture | 사용하지 않음 |
+
+## 8. Rig·Animation
 
 ### Rig
 
-- 플레이어블 캐릭터: Humanoid
-- 일반 몬스터: Humanoid 또는 Generic
-- 장비·소품: None
-- 공용 Avatar 재사용 여부를 확인한다.
-- Avatar Configure에서 필수 Bone 매핑과 T-Pose를 검증한다.
+- 플레이어 캐릭터: Humanoid
+- Humanoid 재사용 시 Copy From Other Avatar 검토
+- 몬스터: Humanoid 또는 Generic
+- 소품: None
+- T-Pose/A-Pose와 Bone Mapping 검증
 
 ### Animation
 
-- 모델 FBX와 Animation FBX를 분리한다.
-- Loop Clip은 Loop Time과 Loop Pose를 검수한다.
-- Root Transform 설정은 In-place 이동 방식과 맞춘다.
-- 불필요한 Curve와 Scale Animation은 제거한다.
+- Model FBX와 Animation FBX 분리
+- 기본 이동은 In-place
+- Loop Time·Loop Pose를 Clip별 검수
+- Root Transform 설정을 코드 이동과 일치
+- 불필요한 Scale Curve 제거
+- Compression 이후 손·발·무기 변형 확인
 
-## 7. Material 구성
-
-권장 Material 분리:
+## 9. Material 구조
 
 ```text
 Face
 Eyes
 Hair
-Body/Outfit
-Equipment/Emission
+Body / Outfit
+Equipment / Emission
 ```
 
-- Embedded Material을 최종 기준으로 사용하지 않는다.
-- Unity Material을 명시적으로 생성하고 Texture를 연결한다.
-- 캐릭터 공용 Shader Variant 수를 최소화한다.
-- 캐릭터별 차이는 Material Property와 Texture로 표현한다.
-- 발광 강도, Outline 두께, Rim Light는 공용 범위를 사용한다.
+원칙:
 
-## 8. 캐릭터 Prefab 표준 구조
+- Embedded Material을 최종 사용하지 않음
+- Unity Material을 명시적으로 생성
+- 공용 Toon Shader Variant 최소화
+- 캐릭터 차이는 Texture와 Material Property로 표현
+- Outline·Rim·Emission은 공용 범위 사용
+- 환경보다 캐릭터 명도·채도 대비가 높아야 함
+
+## 10. 캐릭터 Prefab 표준
 
 ```text
 CHR_Luna_Prefab
 ├── VisualRoot
 │   ├── Model
-│   ├── WeaponSocket
+│   ├── WeaponSockets
 │   ├── VFXSockets
 │   └── PhysicsParts
 ├── GameplayRoot
@@ -167,16 +193,12 @@ CHR_Luna_Prefab
 └── Debug
 ```
 
-원칙:
+- 게임 규칙을 Prefab에 중복 구현하지 않음
+- 공용 Base Prefab 또는 공용 구성 규칙 사용
+- Collider·Hitbox는 Visual Mesh와 분리
+- 무기·VFX·Sound는 Socket과 Data Reference로 연결
 
-- 게임 규칙은 캐릭터 Prefab 내부에 중복 구현하지 않는다.
-- 캐릭터별 Prefab은 공용 Base Prefab 또는 공용 구성 규칙을 사용한다.
-- 무기·VFX·사운드는 Socket과 데이터 참조로 연결한다.
-- Collider와 Hitbox는 Visual Mesh와 분리한다.
-
-## 9. Socket 기준
-
-최소 Socket:
+## 11. 공용 Socket
 
 ```text
 Socket_Weapon_R
@@ -189,26 +211,18 @@ Socket_VFX_Foot
 Socket_CameraFocus
 ```
 
-캐릭터별 임의 이름을 만들지 않고 공용 이름을 우선 사용한다.
+캐릭터별 임의 이름보다 공용 이름을 우선한다.
 
-## 10. LODGroup 기준
+## 12. LOD·Physics
 
-- 캐릭터 Prefab에 LODGroup을 구성한다.
-- 전투 기본 카메라에서는 LOD1 품질을 기준으로 검수한다.
-- LOD 전환 시 머리·무기·대표 실루엣이 유지되어야 한다.
-- 저사양 품질에서는 얼굴 BlendShape, 물리 Bone, 추가 그림자를 단계적으로 줄인다.
+- 캐릭터 Prefab에 LODGroup 구성
+- 전투 기본 거리는 LOD1 품질 기준
+- LOD 전환 후 머리·무기·실루엣 유지
+- Android Low 품질에서 BlendShape·물리 Bone·그림자 감소
+- Physics 품질은 High / Medium / Off 단계
+- 관통이 잦은 작은 장식은 디자인 단계에서 단순화
 
-정확한 전환 비율은 실제 쿼터뷰 카메라 확정 후 조정한다.
-
-## 11. UI Import와 9-Slice
-
-- 둥근 패널과 버튼은 9-Slice Border를 설정한다.
-- 아이콘과 프레임을 하나의 이미지에 과도하게 합치지 않는다.
-- 반복 사용 아이콘은 Sprite Atlas로 묶는다.
-- UI Text는 이미지에 포함하지 않고 Unity UI Text로 관리한다.
-- 선택·비활성·위험 상태는 색상만이 아니라 외곽선·아이콘·명도 차이도 함께 사용한다.
-
-## 12. Sprite Atlas 기준
+## 13. UI·Sprite Atlas
 
 권장 Atlas:
 
@@ -217,68 +231,89 @@ UI_Common
 UI_Lobby
 UI_Battle
 UI_Result
-UI_Character
+UI_Camp
 Icons_Skills
-Icons_Items
+Icons_Resources
 ```
 
-- 서로 다른 화면에서 동시에 사용되지 않는 자산은 Atlas를 분리한다.
-- 대형 전신 일러스트와 작은 UI 아이콘을 같은 Atlas에 넣지 않는다.
-- 플랫폼별 Max Size와 압축 결과를 확인한다.
+- 대형 일러스트와 작은 Icon을 같은 Atlas에 넣지 않음
+- UI Text를 이미지에 포함하지 않음
+- 선택·비활성·위험 상태를 색상만으로 전달하지 않음
+- Windows Mouse·Gamepad Focus와 Android Touch 확장을 함께 고려
 
-## 13. VFX Import 기준
+## 14. VFX Import
 
-- 캐릭터별 색상 언어를 유지한다.
-- Particle Texture는 작은 Atlas로 묶는 것을 우선한다.
-- Overdraw가 큰 반투명 Particle을 제한한다.
-- VFX가 캐릭터 얼굴, 적, 위험 바닥 표시를 가리지 않도록 한다.
-- 모바일 품질에서 Particle 수, Trail 길이, Distortion을 낮출 수 있어야 한다.
+- 캐릭터별 색상·형태 언어 유지
+- Particle Texture Atlas 우선
+- 큰 반투명 Overdraw 제한
+- 적 위험 장판과 캐릭터 VFX 혼동 금지
+- VFX Pooling 사용
+- Android 품질에서 Particle·Trail·Distortion·Light 감소 가능
 
-## 14. Import 검증 순서
+## 15. Coplay / Aura 공동 Proof 절차
 
 ```text
-파일명과 경로 확인
-→ Texture/FBX Import 설정
-→ Material 생성
-→ Model과 Avatar 확인
-→ Animation 확인
-→ Prefab 구성
-→ 쿼터뷰 Scene 배치
-→ LOD·물리·VFX 확인
-→ 실제 기기 성능 확인
-→ Review 결과 기록
+1. Blender 테스트 FBX·Texture 준비
+2. 깨끗한 Coplay 테스트 폴더 생성
+3. Coplay로 Import·Material·Prefab·Scene 구성
+4. Unity Console·Prefab Diff·Screenshot 기록
+5. 원복 또는 별도 Aura 테스트 폴더 생성
+6. Aura로 동일 Import·Prefab 구성 또는 검증
+7. 결과 차이·수동 보정·지원 한계 기록
+8. 자산 유형별 Primary Tool 확정
 ```
 
-## 15. Coplay/Aura 또는 Unity MCP 자동화 범위
+테스트 ID:
 
-자동화하기 좋은 작업:
+- `ART-PIPE-0105`: Coplay Proof
+- `ART-PIPE-0106`: Aura Validation
+- `ART-PIPE-0107`: 비교와 역할 확정
 
-- 폴더 생성
+## 16. 루나 Blockout 절차
+
+```text
+Approved 2D Sheet
+→ Blender 5~6등신 Blockout
+→ Coplay Import·Prefab
+→ Aura 검증·보완
+→ Default Camera 배치
+→ 후드·단검·상체 식별성 확인
+→ Near·Far Camera 비교
+→ 수정 목록 승인
+```
+
+## 17. 자동화 가능 작업
+
+- 폴더와 Prefab 구조 생성
 - Import Preset 적용
-- Material 생성과 Texture 연결
-- Prefab 계층 생성
-- Animator Controller 연결
-- Collider·Socket 존재 여부 검사
-- 누락 참조와 Console 오류 확인
-- 테스트 Scene 배치와 스크린샷 저장
+- Material 생성·Texture 연결
+- Animator·Avatar 연결
+- Collider·Socket 존재 검사
+- Reference·Console Error 검사
+- Scene 배치
+- Screenshot·검증 Report 생성
 
-사람의 최종 검수가 필요한 작업:
+## 18. 사람 검수 필수
 
 - 얼굴과 캐릭터 매력
-- Material 미감
+- Toon Material 미감
+- 5~6등신 비율
 - 쿼터뷰 실루엣
-- 물리 관통
+- 손·무기·의상 관통
 - 공격 가독성과 타격감
-- 모바일 화면의 UI 가독성
+- Windows UI와 Android Touch 가독성
 
-## 16. 완료 체크리스트
+## 19. 완료 체크리스트
 
-- 소스 파일과 Export 파일이 분리되어 있는가
-- 파일명 규칙을 지키는가
-- Import 설정이 용도와 플랫폼에 맞는가
-- Material과 Texture 참조가 누락되지 않았는가
-- Humanoid Avatar와 공용 애니메이션이 정상인가
-- Prefab 계층과 Socket 이름이 공통 규칙과 일치하는가
-- 쿼터뷰에서 캐릭터 역할과 무기가 식별되는가
-- 실제 기기에서 메모리와 프레임 문제가 없는가
-- 승인 상태와 결과 경로가 Backlog에 기록되었는가
+- 원본과 Export가 분리됨
+- 파일명 규칙 준수
+- Import Property가 Preset 또는 기록으로 재현 가능
+- Material·Texture Reference 정상
+- Humanoid Avatar 정상
+- Animator·Clip 정상
+- Prefab Hierarchy와 Socket 정상
+- Coplay와 Aura 결과 기록 존재
+- 쿼터뷰에서 캐릭터 역할과 무기 식별
+- Windows 목표 성능 확인
+- Android 확장 설정 또는 연기 상태 기록
+- Backlog와 Commit·PR 연결
