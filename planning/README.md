@@ -49,8 +49,6 @@
 
 ## 4. 작업 ID 규칙
 
-중복 ID를 방지하기 위해 분야별 Prefix를 고정한다.
-
 | Prefix | 분야 | 예시 |
 |---|---|---|
 | `PROJ-` | 저장소·문서·운영 | `PROJ-0001` |
@@ -70,8 +68,6 @@
 
 ### 이전 ID 처리
 
-이 PR 이전 문서의 다음 ID는 폐기하고 새 Prefix로 통합한다.
-
 ```text
 ART-010x → ART-PIPE-010x
 ART-100x~140x → ART-2D-1xxx
@@ -81,7 +77,7 @@ UI ART-400x → ART-UI-400x
 VFX 작업 → ART-VFX-500x
 ```
 
-기존 Commit이나 PR의 과거 ID는 변경하지 않되, 신규 작업과 상태 갱신에는 새 ID만 사용한다.
+기존 Commit이나 PR의 과거 ID는 변경하지 않되 신규 작업에는 새 ID만 사용한다.
 
 ## 5. 상태 정의
 
@@ -94,7 +90,7 @@ VFX 작업 → ART-VFX-500x
 | `Blocked` | 선행 작업이나 결정 때문에 진행 불가 |
 | `Done` | 결과물·검증·링크가 모두 존재 |
 
-아트 자산 상태는 별도로 `WIP`, `REVIEW`, `APPROVED`, `SUPERSEDED`, `ARCHIVE`를 사용한다.
+아트 자산은 `WIP`, `REVIEW`, `APPROVED`, `SUPERSEDED`, `ARCHIVE`를 사용한다.
 
 ## 6. 현재 우선순위
 
@@ -104,21 +100,23 @@ VFX 작업 → ART-VFX-500x
 4. ReCamp.Core Unity 통합
 5. 완주 가능한 전투 Gray Box
 6. 루나 2D Approved 제작 시트
-7. 루나 3D Blockout과 Coplay/Aura Import·Prefab 검증
-8. 루나 Character Proof
-9. Portfolio Vertical Slice
-10. 나머지 캐릭터와 출시 콘텐츠
+7. 루나 3D Blockout과 Coplay Import·Prefab 검증
+8. Editor Script·Preset·수동 Unity 검증
+9. 루나 Character Proof
+10. Portfolio Vertical Slice
+11. 나머지 캐릭터와 출시 콘텐츠
 
-## 7. Coplay / Aura 운영 규칙
+## 7. Coplay 운영 규칙
 
-두 도구를 모두 사용한다.
+- Coplay MCP를 Unity 자동화의 기본 도구로 사용한다.
+- 작업 전 대상 Scene·Prefab·파일을 명확히 지정한다.
+- 동일 속성 반복 수정은 Batch Operation으로 묶는다.
+- 변경 후 전체 Scene보다 Diff·Summary·Console을 우선 확인한다.
+- 반복되는 Import·검증 규칙은 Unity Editor Script 또는 Preset으로 코드화한다.
+- Coplay가 지원하지 않는 작업은 수동 Inspector 작업으로 진행한다.
+- 성공 기준은 Tool 호출이 아니라 Unity Console, Prefab Diff, PlayMode, Profiler 결과다.
 
-- 작업마다 Primary Tool을 지정한다.
-- 동일 Scene·Prefab·Material을 두 도구가 동시에 수정하지 않는다.
-- Coplay는 Scene·Prefab·Component의 반복 편집과 Unity Editor 자동화를 우선 담당한다.
-- Aura는 FBX/Texture Import, Material·Animator·Prefab 구성 검증과 보완 경로로 사용한다.
-- 실제 지원 범위가 달라지면 테스트 결과를 기록하고 Primary 역할을 조정한다.
-- 성공 기준은 도구 호출 성공이 아니라 Unity Console, Prefab diff, PlayMode 결과다.
+Aura AI는 체험 이후 유료 사용이 필요한 구조이므로 필수 도구와 Backlog 선행 조건에서 제외한다.
 
 ## 8. 작업 진행 절차
 
@@ -134,8 +132,6 @@ VFX 작업 → ART-VFX-500x
 ```
 
 ## 9. 완료 기록
-
-각 작업에는 최소 다음을 남긴다.
 
 ```text
 작업 ID
@@ -154,4 +150,5 @@ Commit 또는 PR
 - Unity 프로젝트가 없으면 Import·Prefab 작업은 `Blocked`다.
 - 개별 Approved 제작 시트가 없으면 최종 캐릭터 모델링은 `Blocked`다.
 - Portfolio Vertical Slice 승인 전에는 장기 출시 자산을 대량 제작하지 않는다.
+- 별도 유료 도구를 필수 선행 조건으로 추가하지 않는다.
 - 완료 조건과 결과 링크가 없으면 `Done`으로 변경하지 않는다.
