@@ -1,162 +1,221 @@
 # Re:Camp Art Production Next Actions
 
-이 문서는 현재 시점에서 바로 시작할 아트 작업을 순서대로 정리한다. 장기 상태는 `art_production_backlog.md`에서 관리하고, 이 문서는 다음 실행 작업을 빠르게 선택하는 용도로 사용한다.
+이 문서는 지금 바로 실행할 아트 작업을 순서대로 정리한다. 장기 상태는 `art_production_backlog.md`에서 관리한다.
 
-## 현재 목표
+## 1. 현재 상태
 
 ```text
-통합 캐릭터 라인업 리뷰 완료
-→ 루나 기준 이미지를 반복 생성할 수 있는 파이프라인 구축
-→ 루나 2D 제작 시트 승인
-→ 3D Blockout
-→ Unity 쿼터뷰 가독성 검증
+5인 라인업: Direction Approved
+개별 캐릭터 제작 시트: 미승인
+Unity 프로젝트: 생성 전
+ComfyUI 반복 생성 Workflow: 미구축
+Blender FBX Proof: 미실행
+Coplay/Aura Import·Prefab Proof: Unity 프로젝트 대기
 ```
 
-## 실행 순서
+따라서 현재는 라인업을 다시 처음부터 검토하는 단계가 아니라 **루나 제작 기준과 도구 파이프라인을 실제 결과물로 전환하는 단계**다.
 
-| 순서 | 연계 ID | 작업 | 상태 | 결과물 |
+## 2. 즉시 실행 순서
+
+| 순서 | ID | 작업 | 상태 | 결과물 |
 |---:|---|---|---|---|
-| 1 | RC-0011 / ART-0003 | 통합 라인업 유지·수정 항목 결정 | Review | 캐릭터별 피드백 목록 |
-| 2 | ART-0101 | ComfyUI 캐릭터 생성 워크플로 구성 | Ready | Workflow JSON, 테스트 출력 |
-| 3 | ART-0102 | 루나 고정 변수와 메타데이터 적용 | Ready | 설정 YAML, 기준 프롬프트 |
-| 4 | ART-1001 | 루나 단독 전신 후보 3안 이상 제작 | Ready | REVIEW 후보 이미지 |
-| 5 | ART-1002 | 루나 얼굴·헤어 확정 | Todo | 얼굴 기준 이미지 |
-| 6 | ART-1003 | 루나 의상·실루엣 확정 | Todo | 전신 기준 이미지 |
-| 7 | ART-1004~1007 | Turnaround·표정·장비·재질 시트 | Todo | 제작 시트 세트 |
-| 8 | ART-1008 | 루나 2D 제작 시트 승인 | Todo | APPROVED 기준 시트 |
-| 9 | ART-2001 | 3D 수치 규격 리뷰 | Review | 승인된 3D Spec |
-| 10 | ART-2005 | 루나 3D Blockout | Todo | 저해상도 FBX |
-| 11 | ART-0105 / ART-2006 | Unity Import와 쿼터뷰 실루엣 테스트 | Blocked | Prefab, 테스트 스크린샷 |
+| 1 | PROJ-0007 | Git LFS 아트 규칙 검증 | Ready | 갱신된 `.gitattributes` 또는 검증 기록 |
+| 2 | PROJ-0008 | AI 생성 자산 Metadata Template | Ready | Markdown 또는 YAML Template |
+| 3 | ART-PIPE-0101 | ComfyUI 루나 반복 생성 Workflow | Ready | Workflow JSON·출력 3회 |
+| 4 | ART-PIPE-0102 | 루나 변수·Seed·Prompt·Metadata | Blocked | 설정 YAML·기준 Prompt |
+| 5 | ART-PIPE-0103 | Figma 캐릭터 Sheet Template | Ready | Export 가능한 제작 시트 Frame |
+| 6 | ART-PIPE-0104 | Blender 단검 또는 소품 FBX Proof | Ready | `.blend`와 `.fbx` |
+| 7 | DEV-0101 | Unity 6.3 LTS URP 프로젝트 생성 | Ready | Unity 프로젝트 |
+| 8 | DEV-0106 | Camera Preset 3종 Gray Box | Blocked | Near·Default·Far Screenshot |
+| 9 | ART-PIPE-0105 | Coplay Import·Prefab Proof | Blocked | 테스트 Prefab·기록 |
+| 10 | ART-PIPE-0106 | Aura Import·Prefab Validation | Blocked | 동일 FBX 검증 기록 |
+| 11 | ART-PIPE-0107 | Coplay/Aura 역할·차이 정리 | Blocked | Primary·Validator 운영 기준 |
+| 12 | ART-2D-1001 | 루나 전신 후보 3안 | Blocked | REVIEW 후보 이미지 |
+| 13 | ART-2D-1002~1008 | 루나 2D 제작 시트 | Blocked | APPROVED 제작 시트 |
+| 14 | ART-3D-2004 | 루나 3D Blockout | Blocked | 저해상도 FBX |
+| 15 | ART-3D-2005~2007 | Unity Import·쿼터뷰 검증 | Blocked | Prefab·Screenshot·Review 기록 |
 
-`ART-0105`와 `ART-2006`은 Unity 프로젝트 생성 작업 `DEV-0101` 이후 진행한다.
+## 3. 병렬로 가능한 방향 작업
 
-## 작업 1. 통합 라인업 리뷰
+다음은 Unity 프로젝트 생성과 별개로 시작할 수 있다.
+
+- `ART-ENV-3001` 버려진 거리 Color Key
+- `ART-ENV-3003` 캠프 Color Key
+- `ART-UI-4001` UI Design System
+- `ART-VFX-5001` 공통 VFX 언어
+- `ART-2D-1101~1401` 미유·코코·이리스·노아 단독 전신 방향
+
+단, 나머지 네 캐릭터의 최종 Turnaround·표정·3D 모델은 루나 Character Proof 이후로 보류한다.
+
+## 4. ComfyUI 루나 Workflow
 
 ### 입력
 
-- `art_refs/art_direction/ReCamp_Character_Lineup.png`
-- `docs/05_art_concept/ART_DIRECTION.md`
 - `docs/05_art_concept/CHARACTER_BIBLE.md`
+- `docs/05_art_concept/ART_DIRECTION.md`
+- `docs/05_art_concept/COMFYUI_CHARACTER_CONSISTENCY_SPEC.md`
+- `art_refs/art_direction/ReCamp_Character_Lineup.png`
 
-### 체크리스트
-
-- 5명의 얼굴과 헤어가 구분되는가
-- 대표 색상 3개가 캐릭터마다 구분되는가
-- 무기와 장비가 전투 역할을 표현하는가
-- 작은 화면에서 머리·상체·무기 실루엣이 구분되는가
-- 3D 구현이 어려운 장식이 과도하지 않은가
-
-### 완료 조건
+### 고정 요소
 
 ```text
-각 캐릭터에 대해 Keep / Revise 항목 작성
-+ 라인업 APPROVED 또는 재생성 결정
+얼굴 인상
+헤어 길이·색상·앞머리
+고양이 후드
+재킷과 하의 구조
+에너지 단검
+탐지 장치
+민트·크림·핑크 팔레트
+정찰형 근접 딜러 인상
 ```
 
-## 작업 2. ComfyUI 워크플로 구축
-
-### 입력
-
-- `COMFYUI_CHARACTER_CONSISTENCY_SPEC.md`
-- 승인 또는 REVIEW 상태의 루나 기준 이미지
-
-### 필수 기록
+### 기록
 
 ```text
 Checkpoint
 VAE
 LoRA와 Weight
-Reference Adapter 설정
-ControlNet 설정
+Reference Adapter
+ControlNet
 Seed
-Sampler/Scheduler
-Steps/CFG
+Sampler·Scheduler
+Steps·CFG
 해상도
 후처리
-라이선스 확인 결과
+Input Reference
+Human Edit
+License
 ```
 
-### 완료 조건
+### 완료 기준
 
-같은 얼굴·헤어·후드·재킷·단검 설정을 유지한 루나 전신 이미지를 3회 이상 반복 생성할 수 있다.
+같은 얼굴·헤어·후드·의상·단검을 유지한 루나 전신 이미지를 3회 이상 반복 생성한다.
 
-## 작업 3. 루나 후보 비교
+## 5. 루나 후보 3안
 
-후보마다 한 번에 하나 또는 두 개 요소만 변경한다.
+한 후보에서 너무 많은 요소를 동시에 바꾸지 않는다.
 
 ```text
-A안: 현재 통합 라인업 유지
+A안: 현재 라인업 방향 유지
 B안: 정찰 장비와 단검 기능성 강화
 C안: 고양이 후드와 캐릭터 매력 강화
 ```
 
-평가 기준:
+평가 항목:
 
-- 첫인상
-- 얼굴 기억성
-- 고양이 후드 식별성
-- 정찰형 근접 딜러 역할 전달
-- 3D 제작 가능성
-- 쿼터뷰 가독성
+- 첫인상과 얼굴 기억성
+- 5~6등신 3D 전환 가능성
+- 후드·단검 실루엣
+- 민트·크림·핑크 색상 균형
+- 정찰형 근접 역할 전달
+- 쿼터뷰에서 읽힐 큰 형태
 
-## 작업 4. 루나 제작 시트
+## 6. 루나 Approved 제작 시트
 
-필수 결과물:
+필수 산출물:
 
-- Key Art
-- Front / Side / Back
-- Turnaround
-- Expression Sheet 8종
-- Equipment Sheet
-- Material Palette
-- 3D Notes
+```text
+Key Art
+Front / Side / Back
+Turnaround
+Face Close-up
+Expression 8종
+Hair Structure
+Outfit Breakdown
+Energy Dagger / Scanner Sheet
+Material Palette
+Representative Poses
+3D Production Notes
+```
 
-파일명과 상태는 `ASSET_NAMING_GUIDE.md`와 `ART_ASSET_STRUCTURE.md`를 따른다.
+AI가 생성한 측면·후면을 그대로 승인하지 않고 Figma 또는 수작업으로 구조를 정리한다.
 
-## 작업 5. 3D Blockout과 Unity 테스트
+## 7. Blender Proof
 
-### 3D 입력 문서
+첫 테스트는 완성 캐릭터가 아니라 에너지 단검 또는 단순 소품을 사용한다.
 
-- `CHARACTER_3D_SPEC.md`
-- `ANIMATION_GUIDE.md`
-- 루나 APPROVED 제작 시트
+확인 항목:
 
-### Unity 입력 문서
+- Unity 기준 Scale·Axis
+- Pivot과 Transform
+- Material Slot
+- UV·Texture 경로
+- FBX Export 설정
+- 파일명 규칙
 
-- `UNITY_ART_IMPORT_GUIDE.md`
-- `ASSET_NAMING_GUIDE.md`
+## 8. Coplay / Aura 공동 Proof
 
-### 테스트 Scene에서 확인할 항목
+같은 FBX와 Texture를 각각의 경로로 테스트한다.
 
-- 쿼터뷰에서 후드와 단검이 보이는가
-- 일반 전투 거리에서 얼굴·상체 실루엣이 읽히는가
-- Run, Attack, Dash 포즈에서 무기가 몸에 가려지지 않는가
-- 배경보다 캐릭터의 명도와 채도 대비가 높은가
-- LOD1과 모바일 Texture 설정에서 품질이 허용 가능한가
+### Coplay
 
-## 새 문서 리뷰 작업
+- Import 설정
+- Material 연결
+- Prefab Hierarchy 생성
+- Component·Collider·Socket 배치
+- Scene 배치
 
-이번에 추가된 문서는 초기 기준이므로 실제 제작 테스트 후 승인한다.
+### Aura
 
-| 문서 | 초기 상태 | 승인 조건 |
-|---|---|---|
-| `ART_PRODUCTION_START_GUIDE.md` | Ready | 첫 2주 작업에 사용 가능 |
-| `COMFYUI_CHARACTER_CONSISTENCY_SPEC.md` | Ready | 루나 반복 생성 성공 |
-| `CHARACTER_3D_SPEC.md` | Review | Blockout과 모바일 테스트 통과 |
-| `ANIMATION_GUIDE.md` | Review | 공용 Rig와 루나 Clip 테스트 통과 |
-| `UNITY_ART_IMPORT_GUIDE.md` | Review | FBX·Texture·Prefab Import 성공 |
-| `ASSET_NAMING_GUIDE.md` | Ready | 신규 산출물에 적용 가능 |
+- Import 결과 검증
+- Material·Animator·Prefab 구성 검증 또는 보완
+- Missing Reference와 Console Error 확인
+- 동일 작업의 대체 가능 범위 확인
 
-## 작업 종료 시 기록
+### 비교 기록
 
-각 작업을 마치면 다음 내용을 Backlog 또는 PR에 기록한다.
+```text
+Primary Tool
+실행한 작업
+성공·실패 항목
+생성·수정된 파일
+Unity Console 결과
+Prefab Diff
+수동 수정 필요 항목
+다음 작업에서의 역할
+```
+
+한 Prefab을 두 도구가 동시에 수정하지 않는다.
+
+## 9. Camera Gray Box
+
+루나 Blockout 전에 Capsule과 임시 무기를 이용해 다음 Preset을 만든다.
+
+```text
+Near
+Default
+Far
+```
+
+확인 항목:
+
+- 캐릭터가 화면에서 차지하는 비율
+- 적·자원·이동 경로 가독성
+- 장애물 가림과 Fade 처리
+- Perspective와 Orthographic 비교
+- 5~6등신 캐릭터가 SD처럼 보이지 않는 거리
+
+## 10. 루나 Blockout 완료 기준
+
+- 전체 비율이 5~6등신으로 보임
+- 후드·단검·상체가 Default Camera에서 식별됨
+- Humanoid Avatar 생성 가능
+- 공용 Idle·Run을 적용할 수 있음
+- Coplay와 Aura Import 결과가 기록됨
+- 최종 모델링 전 수정 목록이 승인됨
+
+## 11. 작업 종료 기록
+
+각 작업 후 다음을 Backlog 또는 PR에 남긴다.
 
 ```text
 작업 ID
+상태
 결과 파일 경로
-사용 도구와 버전
+사용 도구·버전
+Primary / Validator Tool
 검증 방법
+Commit·PR
 남은 문제
-Review 또는 Approved 여부
 다음 작업
 ```
