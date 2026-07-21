@@ -17,6 +17,8 @@ Portfolio Vertical Slice는 다음을 검증하는 중간 단계다.
 - Android 실기기 성능·발열·메모리·Safe Area
 - 혼자 유지 가능한 콘텐츠와 업데이트 범위
 
+프로젝트 성공은 매출액보다 실제 완성·공개 배포와 포트폴리오 가치로 판단한다.
+
 ## 3. 기준 문서
 
 - `docs/00_project/CURRENT_PROJECT_BASELINE.md`
@@ -166,3 +168,9 @@ Android·PC 동시 정식 출시
 - 첫 실행·저장·설정·업데이트 흐름 검증
 - Closed Test 피드백 반영
 - Google Play 정식 배포 자료 준비
+
+### 프로젝트 성공
+
+- Google Play 또는 공개 APK로 실제 배포
+- 기획·아트·Unity·Touch UX·모바일 최적화·배포 과정을 포트폴리오로 설명 가능
+- 수익 규모와 무관하게 과도한 부채·외주·구독 없이 완성
