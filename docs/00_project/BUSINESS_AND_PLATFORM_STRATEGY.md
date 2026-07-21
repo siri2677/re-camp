@@ -1,0 +1,340 @@
+# Re:Camp Business and Platform Strategy
+
+> 기준일: 2026-07-21  
+> 상태: Active Planning Baseline  
+> 목적: 출시 플랫폼, 판매 방식, 스토어 비용, 손익분기 기준을 하나의 기준으로 관리한다.
+
+## 1. 최종 결정
+
+```text
+1차 상용 출시: Steam / Windows PC
+테스트·초기 배포: itch.io 무료 또는 제한 공개 빌드
+2차 PC 스토어: Epic Games Store, Steam 출시 안정화 후 검토
+2차 플랫폼: Google Play Android, PC판 검증 후 별도 출시 판단
+보류: Apple App Store iOS
+```
+
+Re:Camp의 최종 목표는 단순 포트폴리오가 아니라 **Steam에 판매 가능한 완성형 유료 게임 출시**다.
+
+Portfolio Vertical Slice는 최종 목표가 아니라 다음을 검증하는 중간 Gate다.
+
+```text
+Vertical Slice
+→ Steam Store Page·Demo 제작 가능성 검증
+→ Full Release 콘텐츠 제작
+→ Steam Windows 정식 출시
+→ Epic·Android 후속 확장 판단
+```
+
+## 2. Steam Windows를 1차 출시로 선택한 이유
+
+Re:Camp의 현재 설계:
+
+- 3D 고정 쿼터뷰 직접 조작
+- Keyboard/Mouse·Gamepad 조작
+- 5~6등신 스타일라이즈드 캐릭터
+- 한 판 3~5분이지만 여러 판을 이어 플레이하는 캠프 성장 구조
+- 싱글플레이와 로컬 저장
+- 가챠·광고·상점 결제·계정 서버 없음
+- 캐릭터 5명과 스테이지 2개를 포함하는 완성형 콘텐츠 목표
+
+이 구조는 짧은 한 판만 보면 모바일과 잘 맞지만, **현재 수익 구조는 모바일 F2P가 아니라 프리미엄 패키지 게임**에 가깝다.
+
+Steam이 유리한 이유:
+
+1. 별도 서버·결제 운영 없이 유료 패키지로 판매 가능
+2. Keyboard/Mouse·Gamepad와 고정 쿼터뷰 전투를 그대로 활용 가능
+3. 고품질 3D 캐릭터와 UI를 화면 크기 제약 없이 전달 가능
+4. 무료 Demo와 본편 판매를 분리할 수 있음
+5. 라이브 운영·광고·가챠 없이도 사업 구조가 성립함
+6. Android 기기 파편화·발열·터치 UI 대응을 첫 출시 전에 부담하지 않아도 됨
+
+### PC용 플레이 구조 보완
+
+한 판은 3~5분으로 유지하되 PC 플레이어가 한 세션을 너무 짧게 느끼지 않도록 다음 구조를 사용한다.
+
+```text
+1회 탐험: 3~5분
+1회 캠프 정비: 1~3분
+권장 플레이 세션: 탐험 3~6회, 약 20~40분
+```
+
+본편에서는 연속 탐험 동기와 장기 목표가 필요하다.
+
+- 캐릭터 해금
+- 캠프 시설 성장
+- 난이도 단계
+- 캐릭터별 빌드
+- 도전 목표와 업적
+- 스토리·관계 진행
+
+## 3. 판매 방식
+
+### Steam 본편
+
+```text
+판매 방식: 1회 구매 프리미엄 패키지
+기준 정가: 11,000원
+검토 범위: 9,900~13,500원
+출시 할인 가정: 10%
+출시 초기 실판매가 가정: 9,900원
+무료 Demo: 제공
+가챠·광고·유료 재화: 사용하지 않음
+```
+
+정가는 콘텐츠 분량, 외부 테스트의 플레이 시간, 캐릭터·환경 최종 품질을 확인한 후 확정한다.
+
+출시 시점에 Full Release 범위가 부족하면 가격을 올리기보다 콘텐츠를 보완하거나 Early Access 여부를 별도로 판단한다.
+
+### 후속 콘텐츠
+
+- 무료 밸런스·편의성 업데이트
+- 캐릭터·스테이지 추가는 본편 판매 성과 확인 후 결정
+- 유료 DLC는 본편이 완결된 상태에서만 검토
+- 본편의 핵심 성장이나 결말을 DLC로 분리하지 않음
+
+## 4. 스토어 비용 비교
+
+2026년 6월 평균 계획 환율 `1 USD = 1,529.4619 KRW`를 사용한다. 실제 결제 시 환율과 세금은 달라질 수 있다.
+
+| 플랫폼 | 등록·제출 비용 | 플랫폼 수수료 계획값 | 현재 용도 |
+|---|---:|---:|---|
+| Steam | 게임당 $100, 약 153,000원 | 소규모 매출 구간 30% 가정 | 1차 상용 출시 |
+| Epic Games Store | 게임당 $100, 약 153,000원, 회수 가능 | 2026년 제품당 연간 첫 순수익 $1M까지 0%, 이후 12% | Steam 안정화 후 2차 PC 출시 검토 |
+| Google Play | 개발자 계정 1회 $25, 약 38,000원 | 대한민국 현재 첫 $1M 15% Tier 기준, 제도 변경 일정 확인 필요 | Android 후속 출시 검토 |
+| Apple App Store | 연 $99, 약 151,000원 | Small Business 자격 시 15% | iOS 보류 |
+| itch.io | 계정·페이지 생성 무료 | 개발자가 0~100% 설정 + 결제 처리 비용 | Demo·Alpha·테스트 |
+
+### 공식 기준
+
+- Steam Direct Fee: 게임당 $100, 조정 총수익 $1,000 도달 후 회수 가능  
+  <https://partner.steamgames.com/doc/gettingstarted/appfee>
+- Epic Games Store: 게임당 회수 가능한 $100 제출비, 제품당 연간 첫 순수익 $1M까지 100% 개발자 수익, 이후 88/12  
+  <https://store.epicgames.com/distribution/>
+- Google Play: 1회 $25 등록비  
+  <https://support.google.com/googleplay/android-developer/answer/14659200>
+- Google Play Service Fee  
+  <https://support.google.com/googleplay/android-developer/answer/112622>
+- Apple Developer Program: 연 $99  
+  <https://developer.apple.com/programs/enroll/>
+- Apple Small Business Program: 유료 앱·IAP 15%  
+  <https://developer.apple.com/app-store/small-business-program/>
+- itch.io: 무료 등록과 Open Revenue Sharing  
+  <https://itch.io/docs/creators/faq>
+
+스토어 정책은 출시 준비 시 다시 확인한다.
+
+## 5. Steam 손익분기 모델
+
+### 기본 가정
+
+```text
+정가: 11,000원
+출시 할인: 10%
+초기 실판매가: 9,900원
+Steam 수수료 계획값: 30%
+수수료 차감 후: 약 6,930원
+환불·세금·지역 가격·추가 할인 반영 보수적 순수익: 1카피당 6,000원
+```
+
+`6,000원`은 회계 확정값이 아니라 사업 판단용 보수적 계획값이다. 실제 월별 Steam Report로 갱신한다.
+
+### 등록비 손익분기
+
+```text
+Steam Direct Fee 약 153,000원
+÷ 보수적 순수익 6,000원
+= 약 26카피
+```
+
+Steam Direct Fee 자체는 약 26카피에서 회수하는 것으로 계획한다. 다만 Valve의 실제 Fee 반환은 제품의 조정 총수익이 $1,000에 도달한 후 지급된다.
+
+### 프로젝트 비용별 손익분기
+
+| 회수 대상 비용 | 필요한 판매량 | 의미 |
+|---:|---:|---|
+| 1,000만원 | 약 1,667카피 | 외주·에셋·음원·마케팅 등 현금비용 중심 |
+| 3,000만원 | 약 5,000카피 | 중간 규모 제작비 회수 |
+| 4,600만원 | 약 7,667카피 | 현금 1,000만원 + 12개월 인건비 기회비용 3,600만원 예시 |
+
+### 사업 목표
+
+```text
+최소 상업 검증: 2,000카피
+현금비용 회수 목표: 2,000카피 내외
+Full Cost 손익분기 목표: 8,000카피
+안전한 성공 목표: 10,000카피 이상
+```
+
+비용이 증가하면 가격을 무조건 올리지 않고 Scope와 외주비를 먼저 조정한다.
+
+## 6. 플랫폼별 판단
+
+### Steam — 1차 출시
+
+**판정: 가장 적합**
+
+- 프리미엄 싱글플레이 구조와 일치
+- 서버와 F2P 운영이 필요 없음
+- PC 입력과 고품질 캐릭터 표현 활용
+- Demo → Wishlist → 본편 출시 흐름 구성 가능
+- 단점은 상대적으로 높은 수수료와 경쟁·마케팅 부담
+
+### itch.io — 테스트와 Demo
+
+**판정: 테스트에 가장 적합, 주력 매출 플랫폼은 아님**
+
+- 등록비 없음
+- 제한 공개·무료 Demo·Alpha 배포가 쉬움
+- 초기 외부 테스트와 포트폴리오 공유에 사용
+- 정식 상용 매출의 기준 플랫폼으로 사용하지 않음
+
+### Epic Games Store — 2차 PC 스토어
+
+**판정: 수익 배분은 매우 유리하지만 1차 출시 우선순위는 낮음**
+
+- 2026년 기준 제품당 연간 첫 순수익 $1M까지 플랫폼 수수료 0%
+- Steam Windows 빌드 안정화 후 추가 QA 비용이 낮다면 출시
+- 스토어 페이지·업적·빌드·패치·지원 채널의 추가 운영비를 먼저 산정
+- 1차 마케팅 메시지는 Steam으로 집중하고 Epic은 추가 판매 채널로 사용
+
+### Google Play Android — 후속 플랫폼
+
+**판정: 플레이 시간 구조는 적합하지만 현재 사업 모델에는 1차 출시로 부적합**
+
+유리한 요소:
+
+- 3~5분 탐험은 모바일 이용 시간과 잘 맞음
+- 등록비가 낮음
+- 가상 조이스틱으로 고정 쿼터뷰 조작 전환 가능
+
+불리한 요소:
+
+- 현재 기획은 F2P·광고·IAP·라이브 운영이 없음
+- 3D 캐릭터와 VFX의 기기별 최적화 필요
+- 화면 크기·발열·메모리·터치 UI 대응 필요
+- 신규 개인 개발자 계정은 Production 공개 전 12명 이상이 14일 연속 Opt-in한 Closed Test가 필요
+- 대한민국 Google Play 수수료 제도가 2026-12-31부터 변경될 예정이므로 출시 시점 재검토 필요
+
+Android 출시 조건:
+
+```text
+Steam Full Release 안정화
++ Android 기기별 성능 검증
++ Touch UI 완성
++ 유료 패키지 또는 무료 Demo + 1회 Unlock 모델 검증
++ 12명/14일 Closed Test 계획
++ 모바일 전용 고객 지원 비용 확인
+```
+
+모바일 출시를 위해 가챠나 광고를 새로 추가하지 않는다.
+
+### Apple App Store — 보류
+
+**판정: 초기 비용보다 유지·QA 비용 때문에 보류**
+
+- 연회비 발생
+- iOS Build·서명·TestFlight·기기 QA 필요
+- Android보다 추가 플랫폼 관리 비용이 큼
+- Steam과 Android 성과가 확인된 뒤 검토
+
+## 7. 플랫폼별 등록비 회수 예시
+
+| 플랫폼 | 판매 가정 | 보수적 1건 순수익 | 등록비 회수 판매량 |
+|---|---:|---:|---:|
+| Steam | 정가 11,000원, 초기 실판매 9,900원 | 6,000원 | 약 26카피 |
+| Epic | PC 실판매 9,900원 | 8,500원 | 약 18카피 |
+| Google Play | 유료 앱 6,900원 | 5,000원 | 약 8카피 |
+| Apple App Store | 유료 앱 6,900원 | 5,000원 | 매년 약 31카피 |
+
+등록비 회수량이 낮다고 플랫폼 전체 손익분기가 쉬운 것은 아니다. 모바일은 최적화·테스트·고객 획득·업데이트 대응 비용이 추가된다.
+
+## 8. 출시 단계
+
+### Stage 0 — 내부 개발
+
+- Windows 개발 빌드
+- Gray Box와 Character Proof
+- 내부 QA
+
+### Stage 1 — 외부 테스트
+
+- itch.io 제한 공개 또는 무료 Demo
+- Controller·Keyboard/Mouse·해상도·성능 테스트
+- 게임 세션과 재플레이 의향 확인
+
+### Stage 2 — Steam 사전 준비
+
+- Steam Direct 등록
+- Store Page
+- 무료 Demo
+- Screenshot·Trailer·Description·Localization
+- Crash·Save·Settings·Controller 검증
+
+### Stage 3 — Steam Full Release
+
+- 프리미엄 1회 구매
+- 출시 할인 10% 가정
+- Windows 정식 출시
+- 판매·환불·플레이 시간·리뷰 분석
+
+### Stage 4 — 확장 판단
+
+```text
+Steam 안정화
+→ Epic Games Store 추가 여부
+→ Android 유료 패키지 또는 1회 Unlock 테스트
+→ iOS 투자 여부
+```
+
+## 9. 출시 Gate
+
+### Store Page Gate
+
+- 게임의 최종 방향을 보여주는 Trailer·Screenshot 확보
+- 무료 Demo 일정이 현실적임
+- 가격 범위와 콘텐츠 범위가 일치함
+
+### Full Release Gate
+
+- 캐릭터 5명과 스테이지 2개 또는 동등한 반복 플레이 분량
+- 20~40분 권장 세션을 만드는 장기 성장·도전 구조
+- 저장·설정·Controller·해상도·Crash 대응
+- 외부 테스트에서 핵심 루프 이해와 재플레이 의향 확인
+- 예상 현금비용 손익분기 판매량이 현실적인 범위임
+
+### Android Port Gate
+
+- PC 출시 후 핵심 지표와 사용자 피드백 확인
+- Touch UI와 기기별 성능 기준 통과
+- 모바일용 과금 구조를 가챠·광고 없이 설명 가능
+- 업데이트와 고객 지원 비용 감당 가능
+
+## 10. 비용 기록
+
+다음 비용을 월별로 기록한다.
+
+```text
+스토어 등록·멤버십
+Unity·MCP·소프트웨어 구독
+외주 모델·Animation·UI·VFX·음원
+Asset Store 구매
+번역·등급·법무·세무
+테스트 기기
+Trailer·Store Art
+광고·Creator Key·행사
+실제 투입 시간의 기회비용
+```
+
+`planning/business_cost_log.md` 또는 Spreadsheet를 추가해 실제 비용과 예상 판매량을 월별로 갱신한다.
+
+## 11. 재검토 시점
+
+- Steam Store Page 등록 직전
+- Demo 공개 후
+- Full Release Scope Lock 시점
+- 가격 확정 직전
+- Steam 출시 30일 후
+- Epic 또는 Android Port 착수 전
+
+스토어 수수료·정책·환율은 각 재검토 시점에 공식 자료로 다시 확인한다.
