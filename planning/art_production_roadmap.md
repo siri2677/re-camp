@@ -2,29 +2,32 @@
 
 ## 1. 목표
 
+Re:Camp 아트 제작은 Android Landscape 실기기에서 캐릭터 매력과 전투 가독성을 검증하는 순서로 진행한다.
+
 ```text
 5인 라인업 방향 통일
 → 제작 파이프라인 검증
 → 루나 2D Approved 제작 시트
 → 루나 3D 5~6등신 Blockout
-→ Coplay Unity Import·Prefab 검증
-→ Editor Script·Preset·수동 Unity QA
+→ Coplay Unity Import·Prefab
+→ Editor Validation Tool
+→ Android 실기기 쿼터뷰 검증
 → 루나 Character Proof
-→ Portfolio Vertical Slice
-→ 나머지 4명과 출시 콘텐츠 확장
+→ Android Portfolio Vertical Slice
+→ 나머지 4명과 Full Release 콘텐츠
 ```
 
-핵심은 루나에서 품질·비용·기술을 먼저 검증한 뒤 다섯 캐릭터에 확장하는 것이다.
+핵심은 루나에서 품질·비용·기술을 먼저 검증한 뒤 안전하게 확장하는 것이다.
 
 ## 2. 현재 비주얼 기준
 
 - 대표 일러스트: 2D 일반 등신 서브컬쳐
 - 인게임 캐릭터: 3D 5~6등신 스타일라이즈드
 - Rendering: URP 툰 셰이딩
-- Camera: 고정 쿼터뷰
+- Camera: Android Landscape 고정 쿼터뷰
 - 환경: 자연에 잠식된 부드러운 포스트 아포칼립스
-- UI: 크림·라벤더·민트 기반, PC 우선 가독성
-- 플랫폼: Windows 우선, Android 후속
+- UI: 모바일 Touch 가독성 우선
+- 개발·검수: Windows Editor + Android 실기기
 
 ## A0. 방향 승인
 
@@ -35,7 +38,7 @@ Done — Direction Approved
 ### 완료 내용
 
 - 루나·미유·코코·이리스·노아 이름·역할 통일
-- 캐릭터별 대표 색상·무기·큰 실루엣 설정
+- 대표 색상·무기·큰 실루엣 방향 설정
 - 2D 일반 등신 + 3D 5~6등신 방향 확정
 - 툰 셰이딩과 고정 쿼터뷰 확정
 - 통합 캐릭터 라인업 생성
@@ -44,32 +47,24 @@ Done — Direction Approved
 
 ## A1. 제작 파이프라인
 
-### 작업
-
 - `ART-PIPE-0101` ComfyUI 반복 생성 Workflow
 - `ART-PIPE-0102` 캐릭터 변수·Seed·Metadata
-- `ART-PIPE-0103` Figma 제작 시트 Template
-- `ART-PIPE-0104` Blender MCP 소품 Export
-- `ART-PIPE-0105` Coplay FBX Import·Prefab 테스트
-- `ART-PIPE-0106` Unity Import Preset·Validation Editor Tool
-- `ART-PIPE-0107` Inspector·Console·Prefab Diff·PlayMode QA
+- `ART-PIPE-0103` Figma 제작 시트·Mobile UI Template
+- `ART-PIPE-0104` Blender 소품 Export Proof
+- `ART-PIPE-0105` Coplay FBX Import·Prefab Proof
+- `ART-PIPE-0106` Import Preset·Validation Editor Tool
+- `ART-PIPE-0107` Android 실기기 Art QA
 - `ART-PIPE-0108` Git LFS·`art_source/` 구조
 
-### 비용 원칙
-
-- 별도 월 구독이 필요한 도구는 필수 파이프라인에서 제외한다.
-- Aura AI는 체험 이후 유료 구조이므로 사용하지 않는다.
-- Coplay가 처리하지 못하는 작업은 Editor Script·Preset·수동 Unity 작업으로 보완한다.
-
-### 완료 기준
+완료 기준:
 
 ```text
 루나 기준 이미지 반복 생성
-+ Figma 시트 Export
++ Figma 제작 시트 Export
 + Blender FBX Export
-+ Coplay Import·Prefab 성공
-+ Validation Tool 통과
-+ 수동 Inspector·Console·PlayMode 검증
++ Coplay Import·Prefab
++ Validation Report
++ Android APK에서 Material·LOD·실루엣 확인
 ```
 
 ## A2. 루나 2D 제작 시트
@@ -83,31 +78,30 @@ Done — Direction Approved
 - `ART-2D-1007` 컬러·재질표·3D Notes
 - `ART-2D-1008` Approved 제작 시트
 
-### 완료 기준
+완료 기준:
 
 - 모든 시점에서 얼굴·헤어·후드·재킷·단검 구조 일치
 - 정찰형 근접 딜러 역할이 외형에서 읽힘
-- 3D 구현이 어려운 장식 정리
-- 쿼터뷰에서 강조할 실루엣 요소 명시
+- Android 쿼터뷰에서 강조할 요소 명시
+- 모바일 성능에 불필요한 장식 정리
 
-## A3. 루나 3D Blockout과 쿼터뷰 Proof
+## A3. 루나 3D Blockout과 Android Proof
 
 - `ART-3D-2001` 3D Spec 리뷰
 - `ART-3D-2002` 공용 5~6등신 Base Mesh
-- `ART-3D-2003` 공용 Humanoid Rig 초안
+- `ART-3D-2003` 공용 Humanoid Rig
 - `ART-3D-2004` 루나 Blockout
 - `ART-3D-2005` Coplay Import·Prefab
-- `ART-3D-2006` Import Validation Tool·수동 QA
-- `ART-3D-2007` Unity 실루엣 승인
+- `ART-3D-2006` Validation Tool·Android QA
+- `ART-3D-2007` 모바일 실루엣 승인
 
-### 검증
+검증:
 
-- 후드·단검·머리·상체가 기본 거리에서 보임
-- 무기가 몸에 완전히 가려지지 않음
-- 5~6등신이 SD·치비로 보이지 않음
-- Humanoid Animation Retargeting 가능
-- Material·Animator·Collider·Socket 구조 재사용 가능
-- Console Error와 Missing Reference 없음
+- 후드·단검·머리·상체가 Android 기본 거리에서 보임
+- 5~6등신이 SD처럼 보이지 않음
+- 공용 Animation Retargeting 가능
+- Material·Animator·Collider·Socket 재사용 가능
+- LOD1에서 목표 성능과 Memory 범위 확인
 
 ## A4. 루나 Character Proof
 
@@ -116,19 +110,19 @@ Done — Direction Approved
 - Rig·Weight·표정
 - 공용 Idle·Run·Hit·Down
 - 루나 Attack·Dash·Skill·Victory
-- 루나 VFX·사운드
-- 로비·전투 Prefab
-- 사용자 매력 테스트
+- 루나 VFX·사운드·진동 피드백
+- Lobby·Battle Prefab
+- Android 사용자 매력 테스트
 
-### 완료 기준
+완료 기준:
 
-- 2D와 3D가 같은 캐릭터로 인식됨
-- 쿼터뷰에서 매력과 역할이 전달됨
-- 공격·대시·스킬에서 관통이 치명적이지 않음
-- Windows 목표 성능 유지
-- 나머지 캐릭터에 재사용할 공용 기반 승인
+- 2D와 3D가 같은 캐릭터로 인식
+- 모바일 쿼터뷰에서 매력과 역할 전달
+- 공격·대시·스킬에서 치명적 관통 없음
+- 기준 기기 30 FPS와 품질 단계 검증
+- 공용 기반을 다른 캐릭터에 재사용 가능
 
-## A5. Vertical Slice 환경·몬스터·소품
+## A5. Android Vertical Slice 환경·몬스터·소품
 
 ### 버려진 거리
 
@@ -150,17 +144,20 @@ Done — Direction Approved
 - 중장갑형
 - 보스 1종
 
-## A6. UI·VFX·연출
+Android Low Profile에서도 이동 경로·위험·자원이 명확해야 한다.
+
+## A6. 모바일 UI·VFX·연출
 
 ### UI
 
-- Design System
+- Mobile UI Design System
 - Lobby·Exploration Ready
-- Battle HUD
+- Touch Battle HUD
 - Skill Select
 - Result
 - Camp Upgrade
 - Pause·Settings
+- Touch Tutorial
 
 ### VFX
 
@@ -173,34 +170,45 @@ Done — Direction Approved
 
 ### 시작 조건
 
-루나 Character Proof와 Portfolio Vertical Slice Approved
+루나 Character Proof와 Android Portfolio Vertical Slice Approved
 
 ### 순서
 
 ```text
-미유 → 코코 → 이리스 → 노아
+미유
+→ 코코
+→ 이리스
+→ 노아
 ```
 
-각 캐릭터는 개별 2D Approved 제작 시트, 얼굴·헤어·의상·무기, 공용 Base Mesh·Rig·Shader, 고유 공격·스킬·VFX, 선택·로비·전투 Prefab을 제작한다.
+각 캐릭터는 다음을 제작한다.
 
-## A8. 출시 아트 확장
+- 개별 2D Approved 제작 시트
+- 얼굴·헤어·의상·무기
+- 공용 Base Mesh·Rig·Shader 적용
+- 대표 Idle·기본 공격·스킬·승리
+- 캐릭터별 VFX·사운드
+- Lobby·Battle Prefab
+- Android 실기기 QA
 
-- 폐쇄된 연구소
-- 추가 몬스터 3종과 보스 1종
+## A8. Android Full Release 아트 확장
+
+- 폐쇄된 연구소 또는 동등한 두 번째 플레이 공간
+- 추가 몬스터 3종·보스 1종
 - 캠프 시설 4종 이상
 - 캐릭터 친밀도·대화·로비 상호작용
-- Android 품질 단계
-- Store Key Art와 Trailer
-- 라이선스·AI Metadata 검토
+- Android Store Icon·Screenshot·Trailer
+- 전체 라이선스·AI Metadata 검토
 
-## 승인 Gate
+## 3. 승인 Gate
 
 ```text
 Direction Approved
 → 2D Production Sheet Approved
 → 3D Blockout Approved
-→ Coplay Import + Unity Validation Approved
-→ Character Proof Approved
-→ Vertical Slice Approved
+→ Android Character Proof Approved
+→ Android Vertical Slice Approved
 → Full Production
 ```
+
+Gate를 건너뛰어 고비용 최종 제작으로 이동하지 않는다.
