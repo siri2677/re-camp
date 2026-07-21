@@ -50,7 +50,7 @@
 
 - 최종 목표가 Steam Windows 정식 출시로 명확함
 - Vertical Slice가 중간 Gate로 정의됨
-- Android가 자동 2차 개발이 아니라 Port Gate 대상임
+- Android가 자동 2차 개발이 아니라 Steam 출시 후 Port Gate 대상임
 - 플랫폼 비용과 손익분기 가정이 기록됨
 
 ---
