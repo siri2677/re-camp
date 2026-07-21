@@ -1,23 +1,21 @@
 # CHANGELOG
 
-## Unreleased — Steam Commercial Baseline Integration
+## Unreleased — Android Mobile-First Baseline
 
-- 프로젝트 최종 목표를 Steam Windows 프리미엄 정식 출시로 명확화
-- Portfolio Vertical Slice를 최종 결과물이 아닌 출시 검증 Gate로 재정의
-- itch.io 제한 테스트 → Steam Store Page·무료 Demo → Full Release → Steam 출시 순서 추가
-- Epic Games Store를 Steam 안정화 후 2차 PC Store로 설정
-- Android를 자동 2차 개발이 아닌 Steam 출시 후 Port Gate 대상으로 변경
-- iOS는 Steam·Android 성과 확인 후 투자 판단으로 보류
-- 기준 정가 11,000원, 출시 할인 10%, 보수적 순수익 6,000원/카피 계획값 추가
-- Steam Direct 등록비 상당액 약 26카피, 현금비용 1,000만원 BEP 약 1,667카피 계산
-- Steam Direct Fee의 실제 회수 지급 조건인 조정 총수익 $1,000 기준을 별도 명시
-- Full Cost 예시 4,600만원 BEP 약 7,667카피와 목표 8,000카피 설정
-- `BUSINESS_AND_PLATFORM_STRATEGY.md` 추가
-- `planning/business_cost_log.md` 추가
-- Steam Demo·Store Asset·Controller·Settings·Save·Crash Gate 추가
-- 한 판 3~5분, 권장 PC 세션 20~40분으로 플레이 시간 구조 보완
-- Roadmap·Sprint Backlog·MVP Scope·Technical Targets·Agent Guide 재구성
-- Steam·Google Play·Apple·Epic·itch.io의 공식 등록·수수료 문서를 기준으로 정책 재검토 시점 명시
+- 수익보다 게임 적합성·완성 가능성·포트폴리오 가치를 우선하도록 플랫폼 판단 기준 수정
+- 1차 제품 목표를 Google Play Android 정식 출시로 변경
+- 가로형 Landscape 모바일 게임을 제품 정체성으로 확정
+- Windows를 Unity 개발·디버그·자동 테스트·Profiler·포트폴리오 빌드로 분리
+- Steam을 Android 출시 후 선택적 PC 제품화 대상으로 변경
+- 권장 플레이 세션을 모바일 기준 5~15분으로 재정의
+- 가상 조이스틱·공격·대시·스킬 Touch UI와 Auto Aim 기준 추가
+- Android Back·Background/Resume·Safe Area·화면비 기준 추가
+- 30 FPS 기본·지원 기기 60 FPS 품질 단계로 기술 목표 수정
+- MVP·Vertical Slice·Roadmap·Sprint Backlog를 Android Build와 실기기 검증 중심으로 재구성
+- APK 외부 테스트 → Google Play Closed Test → Android Full Release 출시 흐름 추가
+- 수익·손익분기를 필수 성공 조건에서 제외하고 비용 통제 참고값으로 변경
+- `business_cost_log.md`를 프로젝트 완주 비용 관리 중심으로 재작성
+- 모바일 출시를 위해 가챠·강제 광고·유료 재화 중심 설계를 추가하지 않도록 유지
 
 ## Unreleased — Production Baseline Integration
 
