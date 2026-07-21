@@ -38,7 +38,7 @@ Windows 개발·디버그
 | Steam | Android 출시 후 별도 PC 제품화 검토 |
 | iOS | Android 안정화 후 검토 |
 
-Windows는 PC 게임을 먼저 만들기 위한 플랫폼이 아니라 Unity Editor, 자동 테스트, Profiler, 아트 검수와 포트폴리오 촬영을 위한 개발 기준입니다.
+**Windows는 1차 출시 플랫폼이 아닙니다.** Unity Editor, 자동 테스트, Profiler, 아트 검수와 포트폴리오 촬영을 위한 개발·QA 기반입니다.
 
 ## Technology
 
