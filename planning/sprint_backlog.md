@@ -7,18 +7,18 @@
 ```text
 1. 통합 문서 PR 리뷰·병합
 2. Unity 6.3 LTS URP 프로젝트 생성
-3. ReCamp.Core Unity Adapter 확정
-4. Camera Preset과 Scene Gray Box
-5. 완주 가능한 전투·자원·결과·캠프 루프
-6. ComfyUI·Figma·Blender·Coplay 파이프라인
-7. 루나 2D Approved 제작 시트
-8. 루나 3D Blockout과 Character Proof
-9. Portfolio Vertical Slice
-10. itch.io 외부 테스트
-11. Steam Store Page·무료 Demo
-12. Full Release 콘텐츠
-13. Steam Windows 정식 출시
-14. Epic·Android 후속 판단
+3. Android Build Support·Landscape·Safe Area
+4. ReCamp.Core Unity Adapter
+5. Camera Preset·Scene Gray Box
+6. Android Touch Prototype과 완주 가능한 핵심 루프
+7. ComfyUI·Figma·Blender·Coplay 파이프라인
+8. 루나 2D Approved 제작 시트
+9. 루나 3D Blockout·Character Proof
+10. Android Portfolio Vertical Slice
+11. APK 외부 테스트
+12. Google Play Closed Test
+13. Android Full Release
+14. Windows·Steam·iOS 후속 판단
 ```
 
 ## 2. 상태 규칙
@@ -27,7 +27,7 @@
 
 ---
 
-## Sprint 0. 기준·사업·저장소
+## Sprint 0. 기준·플랫폼·저장소
 
 | ID | 작업 | 우선순위 | 상태 | 완료 기준 |
 |---|---|---:|---|---|
@@ -42,20 +42,20 @@
 | PROJ-0009 | 프로젝트 기준 단일화 | High | Review | Baseline과 문서 충돌 제거 |
 | PROJ-0010 | 중복 Backlog ID 제거 | High | Review | Prefix 규칙 통일 |
 | PROJ-0011 | 유료 Aura 의존 제거 | High | Review | Coplay·Editor Tool·수동 QA로 작동 |
-| PROJ-0012 | 플랫폼·수익 모델·손익분기 전략 | High | Review | Steam 1차 출시·가격·BEP 문서화 |
+| PROJ-0012 | Android 우선 플랫폼 전략 | High | Review | 수익보다 제품 적합성·완성도 우선 |
 | PROJ-0013 | Draft PR #7 리뷰·병합 | High | Review | 통합 내용 main 반영 |
-| PROJ-0014 | 실제 비용 기록 방식 생성 | Medium | Review | `planning/business_cost_log.md` 존재 |
+| PROJ-0014 | 실제 비용 기록 방식 | Low | Review | 비용은 Scope 통제 참고값으로만 사용 |
 
 ### Sprint 0 종료 조건
 
-- 최종 목표가 Steam Windows 정식 출시로 명확함
-- Vertical Slice가 중간 Gate로 정의됨
-- Android가 자동 2차 개발이 아니라 Steam 출시 후 Port Gate 대상임
-- 플랫폼 비용과 손익분기 가정이 기록됨
+- 최종 1차 제품 목표가 Google Play Android로 명확함
+- Windows가 개발·QA 플랫폼으로 구분됨
+- Vertical Slice가 Android 출시 검증 Gate로 정의됨
+- 수익·손익분기가 필수 성공 조건에서 제외됨
 
 ---
 
-## Sprint 1. Unity 프로젝트와 제작 파이프라인
+## Sprint 1. Unity·Android 기반과 제작 파이프라인
 
 ### Unity 기반
 
@@ -64,17 +64,20 @@
 | DEV-0101 | Unity 6.3 LTS URP 프로젝트 생성 | High | Ready | PROJ-0013 | 프로젝트 실행 |
 | DEV-0102 | Visible Meta Files·Force Text | High | Blocked | DEV-0101 | 설정·Meta 반영 |
 | DEV-0103 | `Assets/_ReCamp` 구조 | High | Blocked | DEV-0101 | Art·Scripts·Scenes·Prefabs |
-| DEV-0104 | Windows Build Target·해상도·Quality | High | Blocked | DEV-0101 | Windows Build 실행 |
-| DEV-0105 | Input System PC Control Scheme | High | Blocked | DEV-0101 | Keyboard/Mouse·Gamepad |
-| DEV-0106 | Camera Preset 3종 Gray Box | High | Blocked | DEV-0103 | Near·Default·Far 비교 |
-| DEV-0107 | ReCamp.Core PR #6 리뷰 | High | Review | 없음 | Core 코드·테스트 확인 |
-| DEV-0108 | Core Assembly·Adapter 방식 | High | Blocked | DEV-0101, DEV-0107 | Unity 비종속 구조 |
-| DEV-0109 | 기본 Scene 5종 | High | Blocked | DEV-0103 | Bootstrap·Title·Lobby·Battle·Result |
-| DEV-0110 | SceneLoader·GameManager | High | Blocked | DEV-0108, DEV-0109 | Scene 전환 |
-| DEV-0111 | EditMode·PlayMode Test | High | Blocked | DEV-0103 | 테스트 실행 |
-| DEV-0112 | Core·Unity CI | Medium | Blocked | DEV-0111 | PR 자동 테스트 |
-| DEV-0113 | Build Version·Channel 구조 | Medium | Blocked | DEV-0104 | Dev·Demo·Release 구분 |
-| DEV-0114 | Save Path·Migration 기반 | High | Blocked | DEV-0108 | 버전 포함 Save |
+| DEV-0104 | Android Build Support·SDK·Target | High | Blocked | DEV-0101 | Android Build 가능 |
+| DEV-0105 | Landscape·Orientation·Safe Area | High | Blocked | DEV-0104 | 화면 회전·Cutout 대응 |
+| DEV-0106 | Input System Touch Control Scheme | High | Blocked | DEV-0101 | Touch Action 동작 |
+| DEV-0107 | Windows Debug Control Scheme | Medium | Blocked | DEV-0101 | Keyboard/Mouse·Gamepad |
+| DEV-0108 | Camera Preset 3종 Gray Box | High | Blocked | DEV-0103 | Near·Default·Far 비교 |
+| DEV-0109 | ReCamp.Core PR #6 리뷰 | High | Review | 없음 | Core 코드·테스트 확인 |
+| DEV-0110 | Core Assembly·Adapter 방식 | High | Blocked | DEV-0101, DEV-0109 | Unity 비종속 구조 |
+| DEV-0111 | 기본 Scene 5종 | High | Blocked | DEV-0103 | Bootstrap·Title·Lobby·Battle·Result |
+| DEV-0112 | SceneLoader·GameManager | High | Blocked | DEV-0110, DEV-0111 | Scene 전환 |
+| DEV-0113 | EditMode·PlayMode Test | High | Blocked | DEV-0103 | 테스트 실행 |
+| DEV-0114 | Core·Unity CI | Medium | Blocked | DEV-0113 | PR 자동 테스트 |
+| DEV-0115 | URP Low·Medium·High Profile | High | Blocked | DEV-0104 | 품질 단계 전환 |
+| DEV-0116 | Save Path·Migration 기반 | High | Blocked | DEV-0110 | 버전 포함 Save |
+| DEV-0117 | 첫 Android APK Build | High | Blocked | DEV-0104~0106, DEV-0111 | 기준 기기에서 실행 |
 
 ### 아트 파이프라인
 
@@ -82,33 +85,47 @@
 |---|---|---:|---|---|---|
 | ART-PIPE-0101 | ComfyUI 반복 생성 Workflow | High | Ready | PROJ-0005 | 루나 일관성 출력 3회 |
 | ART-PIPE-0102 | 캐릭터 변수·Seed·Metadata | High | Blocked | ART-PIPE-0101, PROJ-0008 | YAML·Prompt·Workflow |
-| ART-PIPE-0103 | Figma 제작 시트 Template | High | Ready | 없음 | 필수 Frame |
+| ART-PIPE-0103 | Figma 제작 시트·모바일 UI Template | High | Ready | 없음 | 캐릭터 Frame·Touch UI Frame |
 | ART-PIPE-0104 | Blender 소품 Export | High | Ready | 없음 | 단검 또는 소품 FBX |
 | ART-PIPE-0105 | Coplay Import·Prefab Proof | High | Blocked | DEV-0101, ART-PIPE-0104 | Material·Prefab·Scene |
 | ART-PIPE-0106 | Import Preset·Validation Editor Tool | High | Blocked | DEV-0101, ART-PIPE-0104 | Scale·Rig·Socket·Reference 검사 |
-| ART-PIPE-0107 | 수동 Unity QA Report | High | Blocked | ART-PIPE-0105, ART-PIPE-0106 | Inspector·Console·PlayMode |
+| ART-PIPE-0107 | Android 실기기 Art QA Report | High | Blocked | ART-PIPE-0105, ART-PIPE-0106, DEV-0117 | Inspector·Console·APK 결과 |
 | ART-PIPE-0108 | `art_source/`·Git LFS 구조 | Medium | Blocked | DEV-0101, PROJ-0007 | 원본·Export 분리 |
 
 ---
 
-## Sprint 2. 완주 가능한 Gray Box
+## Sprint 2. 완주 가능한 Gray Box와 Touch Prototype
+
+### 핵심 루프
 
 | ID | 작업 | 우선순위 | 상태 | 선행 작업 |
 |---|---|---:|---|---|
-| GAME-0201 | Lobby → Battle 진입 | High | Blocked | DEV-0110 |
-| GAME-0202 | Player 이동·Camera 추적 | High | Blocked | DEV-0105, DEV-0106 |
+| GAME-0201 | Lobby → Battle 진입 | High | Blocked | DEV-0112 |
+| GAME-0202 | Player 이동·Camera 추적 | High | Blocked | DEV-0106~0108 |
 | GAME-0203 | 기본 공격·Hitbox·Damageable | High | Blocked | GAME-0202 |
-| GAME-0204 | Enemy 추적 AI | High | Blocked | DEV-0109 |
+| GAME-0204 | Enemy 추적 AI | High | Blocked | DEV-0111 |
 | GAME-0205 | EnemySpawner·Wave | High | Blocked | GAME-0204 |
 | GAME-0206 | 적 사망·보상 1회 지급 | High | Blocked | GAME-0203, GAME-0205 |
 | GAME-0207 | 자원 드롭·획득 | High | Blocked | GAME-0206 |
-| GAME-0208 | 귀환·사망·시간 만료 | High | Blocked | GAME-0202, DEV-0108 |
+| GAME-0208 | 귀환·사망·시간 만료 | High | Blocked | GAME-0202, DEV-0110 |
 | GAME-0209 | Result 정산 | High | Blocked | GAME-0207, GAME-0208 |
 | GAME-0210 | Camp 시설 강화 | High | Blocked | GAME-0209 |
-| GAME-0211 | Save·Load | High | Blocked | DEV-0114, GAME-0210 |
+| GAME-0211 | Save·Load | High | Blocked | DEV-0116, GAME-0210 |
 | GAME-0212 | Result → Lobby → 재탐험 | High | Blocked | GAME-0211 |
-| GAME-0213 | Scene 흐름 PlayMode Test | High | Blocked | GAME-0212, DEV-0111 |
-| GAME-0214 | 전투·보상·저장 Test | High | Blocked | GAME-0211, DEV-0111 |
+| GAME-0213 | Scene 흐름 PlayMode Test | High | Blocked | GAME-0212, DEV-0113 |
+| GAME-0214 | 전투·보상·저장 Test | High | Blocked | GAME-0211, DEV-0113 |
+
+### Android UX
+
+| ID | 작업 | 우선순위 | 상태 | 선행 작업 |
+|---|---|---:|---|---|
+| MOB-0251 | 가상 조이스틱 | High | Blocked | DEV-0106, GAME-0202 |
+| MOB-0252 | 공격·대시·스킬 Touch Button | High | Blocked | GAME-0203 |
+| MOB-0253 | Auto Aim·대상 보정 | High | Blocked | GAME-0203, GAME-0204 |
+| MOB-0254 | Android Back·Pause | High | Blocked | DEV-0112 |
+| MOB-0255 | Background·Resume | High | Blocked | DEV-0112 |
+| MOB-0256 | Safe Area·화면비 | High | Blocked | DEV-0105 |
+| MOB-0257 | APK 성능·발열·Memory 측정 | High | Blocked | DEV-0117, GAME-0212 |
 
 ### 캐릭터 역할 프로토타입
 
@@ -120,9 +137,9 @@
 | CHR-PROT-0330 | 코코 회복·보호막 최소 테스트 | Low | Blocked |
 | CHR-PROT-0340 | 이리스 차지 사격 최소 테스트 | Low | Blocked |
 | CHR-PROT-0350 | 노아 가드·반격 최소 테스트 | Low | Blocked |
-| CHR-PROT-0360 | 역할 중복·조작 비용 검토 | Medium | Blocked |
+| CHR-PROT-0360 | 모바일 조작 비용·역할 중복 검토 | Medium | Blocked |
 
-나머지 네 캐릭터 테스트는 Gray Box 완주 후 진행하며 일정이 밀리면 연기한다.
+나머지 4명은 Android 핵심 루프 완주 후에만 진행하며 일정이 밀리면 연기한다.
 
 ---
 
@@ -143,8 +160,8 @@
 | ART-3D-2003 | 공용 Humanoid Rig | High | Blocked |
 | ART-3D-2004 | 루나 3D Blockout | High | Blocked |
 | ART-3D-2005 | Coplay Import·Prefab | High | Blocked |
-| ART-3D-2006 | Validation Tool·수동 QA | High | Blocked |
-| ART-3D-2007 | 쿼터뷰 실루엣 승인 | High | Blocked |
+| ART-3D-2006 | Validation Tool·Android QA | High | Blocked |
+| ART-3D-2007 | 모바일 쿼터뷰 실루엣 승인 | High | Blocked |
 
 ---
 
@@ -159,12 +176,12 @@
 | ART-3D-2014 | 루나 고유 Animation | High | Blocked |
 | ART-VFX-5001 | 공통 VFX 언어 | High | Ready |
 | ART-VFX-5002 | 루나 공격·스킬 VFX | High | Blocked |
-| TEST-4001 | 관통·가독성·성능 | High | Blocked |
+| TEST-4001 | 관통·모바일 가독성·성능 | High | Blocked |
 | TEST-4002 | 루나 매력 사용자 테스트 | High | Blocked |
 
 ---
 
-## Sprint 5. Portfolio Vertical Slice
+## Sprint 5. Android Portfolio Vertical Slice
 
 | ID | 작업 | 우선순위 | 상태 |
 |---|---|---:|---|
@@ -175,102 +192,60 @@
 | ART-ENV-3005 | 일반 몬스터 3종 | High | Blocked |
 | ART-ENV-3006 | 보스 1종 | High | Blocked |
 | ART-ENV-3007 | 자원·상자·소품 | Medium | Blocked |
-| ART-UI-4001 | UI Design System | High | Ready |
-| ART-UI-4002 | Lobby | High | Blocked |
-| ART-UI-4003 | Battle HUD | High | Blocked |
+| ART-UI-4001 | Mobile UI Design System | High | Ready |
+| ART-UI-4002 | Lobby·Exploration Ready | High | Blocked |
+| ART-UI-4003 | Touch Battle HUD | High | Blocked |
 | ART-UI-4004 | Skill Select | High | Blocked |
 | ART-UI-4005 | Result | High | Blocked |
 | ART-UI-4006 | Camp Upgrade | High | Blocked |
 | ART-UI-4007 | Pause·Settings | Medium | Blocked |
-| ART-VFX-5003 | 적 위험·피격·사망 | High | Blocked |
-| ART-VFX-5004 | 자원·귀환·성장 | Medium | Blocked |
-| ART-VFX-5005 | VFX 품질·성능 | High | Blocked |
+| ART-UI-4008 | Touch Tutorial | High | Blocked |
+| ART-VFX-5003 | 적 위험·피격·사망 VFX | High | Blocked |
+| ART-VFX-5004 | 자원·귀환·성장 VFX | Medium | Blocked |
+| ART-VFX-5005 | Android VFX 품질 단계 | High | Blocked |
 | VS-6001 | 전체 Scene·Prefab 통합 | High | Blocked |
 | VS-6002 | 저장·튜토리얼·설정 | High | Blocked |
-| VS-6003 | 사운드·음악 | Medium | Blocked |
-| VS-6004 | 성능·메모리·로딩 | High | Blocked |
-| VS-6005 | 외부 플레이 테스트 | High | Blocked |
-| VS-6006 | Screenshot·Video | Medium | Blocked |
+| VS-6003 | 사운드·진동·음악 | Medium | Blocked |
+| VS-6004 | Android 성능·Memory·발열 | High | Blocked |
+| VS-6005 | APK 외부 플레이 테스트 | High | Blocked |
+| VS-6006 | 포트폴리오 영상·Screenshot | Medium | Blocked |
 
 ---
 
-## Sprint 6. itch.io 테스트와 Steam Demo
+## Sprint 6. Google Play Closed Test
 
-| ID | 작업 | 우선순위 | 상태 |
-|---|---|---:|---|
-| TEST-6101 | itch.io 제한 공개 Build | High | Blocked |
-| TEST-6102 | 설치·첫 실행·입력·해상도 QA | High | Blocked |
-| TEST-6103 | Session Length·재플레이 조사 | High | Blocked |
-| TEST-6104 | Crash·Save·진행 불가 수집 | High | Blocked |
-| REL-6101 | Steam Direct 등록 | Medium | Blocked |
-| REL-6102 | Steam Store Page 초안 | High | Blocked |
-| REL-6103 | Capsule·Screenshot·Description | High | Blocked |
-| REL-6104 | Trailer 1차 | High | Blocked |
-| REL-6105 | Steam 무료 Demo | High | Blocked |
-| REL-6106 | Demo 종료·Wishlist Flow | Medium | Blocked |
-| REL-6107 | Controller·Settings·Save QA | High | Blocked |
-| REL-6108 | 가격·비용·BEP 갱신 | High | Blocked |
+- `REL-7001` App ID·Version·Signing
+- `REL-7002` Closed Test 후보 Build
+- `REL-7003` 설치·업데이트·삭제·재설치
+- `REL-7004` Store Listing·아이콘·Screenshot
+- `REL-7005` 개인정보·권한·콘텐츠 등급
+- `REL-7006` 기기 호환성·화면비 Matrix
+- `REL-7007` Crash·Save·Background·Back 회귀 테스트
+- `REL-7008` 테스트 피드백·재플레이 의향 분석
+- `REL-7009` Full Release Scope Lock
 
----
+## Sprint 7. Android Full Release
 
-## Sprint 7. Steam Full Release 콘텐츠
+- `PROD-8001~8004` 미유·코코·이리스·노아 최종 제작
+- `PROD-8005` 두 번째 스테이지 또는 동등한 반복 분량
+- `PROD-8006` 추가 몬스터 3종·보스 1종
+- `PROD-8007` 캠프 시설 4종 이상
+- `PROD-8008` 캐릭터 해금·친밀도·대화
+- `PROD-8009` 난이도·도전·반복 목표
+- `REL-8101` Release Candidate
+- `REL-8102` Google Play 정식 공개
+- `REL-8103` 출시 후 Patch·지원
 
-| ID | 작업 | 우선순위 | 상태 |
-|---|---|---:|---|
-| PROD-7001 | 미유 최종 2D·3D | High | Blocked |
-| PROD-7002 | 코코 최종 2D·3D | High | Blocked |
-| PROD-7003 | 이리스 최종 2D·3D | High | Blocked |
-| PROD-7004 | 노아 최종 2D·3D | High | Blocked |
-| PROD-7005 | 두 번째 스테이지 또는 동등 콘텐츠 | High | Blocked |
-| PROD-7006 | 추가 일반 적 3종·보스 1종 | High | Blocked |
-| PROD-7007 | 캠프 시설 4종 이상 | Medium | Blocked |
-| PROD-7008 | 캐릭터 해금·친밀도 | Medium | Blocked |
-| PROD-7009 | 대화·로비 상호작용 | Medium | Blocked |
-| PROD-7010 | 난이도·도전·업적 | High | Blocked |
-| PROD-7011 | 20~40분 세션 구조 검증 | High | Blocked |
-| PROD-7012 | Tutorial·Accessibility·Localization | High | Blocked |
+## Sprint 8. 후속 플랫폼
 
----
+- `PORT-9001` Windows itch.io Demo
+- `PORT-9002` Steam PC 제품화 검토
+- `PORT-9003` iOS Build·TestFlight 검토
 
-## Sprint 8. Steam Release Candidate
+## 운영 원칙
 
-| ID | 작업 | 우선순위 | 상태 |
-|---|---|---:|---|
-| REL-8001 | 전체 회귀 테스트 | High | Blocked |
-| REL-8002 | Save Migration·손상 복구 | High | Blocked |
-| REL-8003 | Windows 성능·장시간 테스트 | High | Blocked |
-| REL-8004 | CPU·GPU·Memory·GC 최적화 | High | Blocked |
-| REL-8005 | Controller·해상도·접근성 | High | Blocked |
-| REL-8006 | Rig·관통·Animation 폴리시 | Medium | Blocked |
-| REL-8007 | WIP Asset 제거 | High | Blocked |
-| REL-8008 | License·AI Metadata | High | Blocked |
-| REL-8009 | Store Page·Trailer·Localization | High | Blocked |
-| REL-8010 | 정가·출시 할인 확정 | High | Blocked |
-| REL-8011 | Release Candidate 승인 | High | Blocked |
-| REL-8012 | Steam Windows 정식 출시 | High | Blocked |
-| REL-8013 | 출시 30일 판매·환불·리뷰 분석 | High | Blocked |
-
----
-
-## Sprint 9. 후속 플랫폼
-
-| ID | 작업 | 우선순위 | 상태 |
-|---|---|---:|---|
-| PORT-9001 | Epic Store 추가 비용·QA 평가 | Low | Blocked |
-| PORT-9002 | Epic Windows Build·Store Page | Low | Blocked |
-| PORT-9010 | Android 사업·과금 모델 재검토 | Low | Blocked |
-| PORT-9011 | Touch UI·Auto Aim | Low | Blocked |
-| PORT-9012 | Android 성능·기기 QA | Low | Blocked |
-| PORT-9013 | Google Play 12명·14일 Closed Test | Low | Blocked |
-| PORT-9014 | Android 출시 여부 최종 판단 | Low | Blocked |
-| PORT-9020 | iOS 투자 여부 평가 | Low | Blocked |
-
-## Backlog 운영 규칙
-
-- 새 작업은 구현 전에 ID와 완료 기준 등록
-- 결과 Commit·PR·파일·스크린샷 연결
-- 실제 현금비용과 투입 시간을 월별 기록
-- Steam Demo 전 Store 수수료·정책·환율 재확인
-- 가격보다 콘텐츠와 Scope를 먼저 조정
-- Android는 Steam 출시 후 Port Gate를 통과해야 시작
-- Scope 축소는 `planning/SCOPE_AND_RISK_RULES.md`를 따른다.
+- 수익 목표보다 완성·배포와 모바일 품질을 우선한다.
+- 실제 Android Build가 없으면 모바일 작업을 Done으로 처리하지 않는다.
+- PC에서만 좋은 UI·성능은 승인 기준이 아니다.
+- Vertical Slice 승인 전 Full Release 최종 자산을 대량 제작하지 않는다.
+- 결과 Commit·PR·APK·Profiler·실기기 기록을 작업과 연결한다.
