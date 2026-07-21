@@ -1,20 +1,34 @@
 # CHANGELOG
 
-## Unreleased — Current Baseline Integration
+## Unreleased — Steam Commercial Baseline Integration
+
+- 프로젝트 최종 목표를 Steam Windows 프리미엄 정식 출시로 명확화
+- Portfolio Vertical Slice를 최종 결과물이 아닌 출시 검증 Gate로 재정의
+- itch.io 제한 테스트 → Steam Store Page·무료 Demo → Full Release → Steam 출시 순서 추가
+- Epic Games Store를 Steam 안정화 후 2차 PC Store로 설정
+- Android를 자동 2차 개발이 아닌 Steam 출시 후 Port Gate 대상으로 변경
+- iOS는 Steam·Android 성과 확인 후 투자 판단으로 보류
+- 기준 정가 11,000원, 출시 할인 10%, 보수적 순수익 6,000원/카피 계획값 추가
+- Steam Direct Fee 회수 약 26카피, 현금비용 1,000만원 BEP 약 1,667카피 계산
+- Full Cost 예시 4,600만원 BEP 약 7,667카피와 목표 8,000카피 설정
+- `BUSINESS_AND_PLATFORM_STRATEGY.md` 추가
+- `planning/business_cost_log.md` 추가
+- Steam Demo·Store Asset·Controller·Settings·Save·Crash Gate 추가
+- 한 판 3~5분, 권장 PC 세션 20~40분으로 플레이 시간 구조 보완
+- Roadmap·Sprint Backlog·MVP Scope·Technical Targets·Agent Guide 재구성
+
+## Unreleased — Production Baseline Integration
 
 - 프로젝트 단일 기준 문서 `CURRENT_PROJECT_BASELINE.md` 추가
-- 플랫폼을 Windows PC 우선, Android 후속 확장으로 통일
 - Unity 6.3 LTS·URP·Input System 기준 명시
 - 2D 일반 등신 대표 일러스트 + 3D 5~6등신 스타일라이즈드 인게임 방향 통일
 - 고정 쿼터뷰 Camera·UI 기준 추가
-- Portfolio Vertical Slice와 Full Release 범위 분리
 - 루나 Character Proof 우선 제작 순서로 변경
 - 중복 아트 Backlog ID를 분야별 Prefix로 통합
 - ComfyUI Cloud·Figma Remote·Blender·Coplay·GitHub MCP 역할 정리
-- Aura AI의 1회성 체험 이후 유료 구조를 확인하고 필수 제작 파이프라인에서 제외
+- Aura AI의 체험 이후 유료 구조를 확인하고 필수 제작 파이프라인에서 제외
 - Unity 통합을 Coplay MCP + Import Preset·Validation Editor Tool + 수동 Unity QA로 통일
 - 환경 Modular·VFX·기술 성능·Scope Cut 기준 추가
-- README·AGENT·Project Overview·Game Concept·MVP·Roadmap·Backlog·아트 제작 문서 재정리
 
 ## 0.0.1 — Initial Setup
 
