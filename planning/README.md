@@ -13,7 +13,16 @@
 6. tables/와 APPROVED art_refs/
 ```
 
-## 2. 계획 문서
+## 2. 최종 목표
+
+```text
+최종 제품: Steam Windows 프리미엄 게임 정식 출시
+현재 Gate: Unity 기반·Gray Box·루나 Character Proof
+중간 Gate: Portfolio Vertical Slice·Steam 무료 Demo
+후속 확장: Epic Games Store·Google Play Android
+```
+
+## 3. 계획 문서
 
 | 문서 | 역할 |
 |---|---|
@@ -25,7 +34,7 @@
 | `art_production_backlog.md` | 아트 세부 작업과 상태 |
 | `art_production_next_actions.md` | 지금 바로 수행할 아트 작업 |
 
-## 3. 분야별 기준 문서
+## 4. 분야별 기준 문서
 
 | 분야 | 기준 문서 |
 |---|---|
@@ -48,7 +57,7 @@
 | 기술·성능·Steam Build | `docs/06_dev_docs/TECHNICAL_TARGETS.md` |
 | 구현 데이터 | `tables/` |
 
-## 4. 작업 ID 규칙
+## 5. 작업 ID 규칙
 
 | Prefix | 분야 | 예시 |
 |---|---|---|
@@ -70,7 +79,7 @@
 
 기존 Commit이나 PR의 과거 ID는 변경하지 않되 신규 작업에는 새 ID만 사용한다.
 
-## 5. 상태 정의
+## 6. 상태 정의
 
 | 상태 | 의미 |
 |---|---|
@@ -83,7 +92,7 @@
 
 아트 자산은 `WIP`, `REVIEW`, `APPROVED`, `SUPERSEDED`, `ARCHIVE`를 사용한다.
 
-## 6. 현재 우선순위
+## 7. 현재 우선순위
 
 1. 문서 기준·플랫폼·손익분기 통합
 2. Unity 6.3 LTS URP 프로젝트
@@ -100,7 +109,7 @@
 13. Steam Windows 정식 출시
 14. Epic·Android Port 판단
 
-## 7. 플랫폼 운영 원칙
+## 8. 플랫폼 운영 원칙
 
 - 1차 상용 출시는 Steam Windows다.
 - itch.io는 Alpha·제한 공개·설치 Test에 사용한다.
@@ -109,7 +118,7 @@
 - iOS는 Android와 PC 성과 확인 후 검토한다.
 - 모바일 선출시를 위해 가챠·광고·F2P 라이브 운영을 추가하지 않는다.
 
-## 8. 사업 기록 원칙
+## 9. 사업 기록 원칙
 
 다음을 실제 값으로 기록한다.
 
@@ -127,7 +136,7 @@ Full Cost 손익분기 판매량
 
 가격과 손익분기는 Steam Demo·Scope Lock·출시 직전에 다시 계산한다.
 
-## 9. Coplay 운영 규칙
+## 10. Coplay 운영 규칙
 
 - Coplay MCP를 Unity 자동화 기본 도구로 사용한다.
 - 대상 Scene·Prefab·파일을 명확히 지정한다.
@@ -136,7 +145,7 @@ Full Cost 손익분기 판매량
 - 성공 기준은 Tool 호출이 아니라 Console·Prefab Diff·PlayMode·Profiler다.
 - Aura AI는 유료 의존 문제로 필수 도구에서 제외한다.
 
-## 10. 작업 진행 절차
+## 11. 작업 진행 절차
 
 ```text
 1. sprint_backlog.md에서 가장 위의 Ready 작업 선택
@@ -150,7 +159,7 @@ Full Cost 손익분기 판매량
 9. 다음 작업의 Blocked/Ready 갱신
 ```
 
-## 11. 계획 갱신 원칙
+## 12. 계획 갱신 원칙
 
 - Baseline·Business Strategy·Roadmap·Backlog가 충돌하면 같은 PR에서 함께 수정한다.
 - 실제 검증 전 수치 Spec은 `Review`로 유지한다.
