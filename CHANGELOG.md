@@ -10,6 +10,7 @@
 - iOS는 Steam·Android 성과 확인 후 투자 판단으로 보류
 - 기준 정가 11,000원, 출시 할인 10%, 보수적 순수익 6,000원/카피 계획값 추가
 - Steam Direct 등록비 상당액 약 26카피, 현금비용 1,000만원 BEP 약 1,667카피 계산
+- Steam Direct Fee의 실제 회수 지급 조건인 조정 총수익 $1,000 기준을 별도 명시
 - Full Cost 예시 4,600만원 BEP 약 7,667카피와 목표 8,000카피 설정
 - `BUSINESS_AND_PLATFORM_STRATEGY.md` 추가
 - `planning/business_cost_log.md` 추가
