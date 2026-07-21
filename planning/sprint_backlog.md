@@ -44,7 +44,7 @@
 | PROJ-0011 | 유료 Aura 의존 제거 | High | Review | Coplay·Editor Tool·수동 QA로 작동 |
 | PROJ-0012 | 플랫폼·수익 모델·손익분기 전략 | High | Review | Steam 1차 출시·가격·BEP 문서화 |
 | PROJ-0013 | Draft PR #7 리뷰·병합 | High | Review | 통합 내용 main 반영 |
-| PROJ-0014 | 실제 비용 기록 방식 생성 | Medium | Todo | Cost Log 또는 Spreadsheet 경로 |
+| PROJ-0014 | 실제 비용 기록 방식 생성 | Medium | Review | `planning/business_cost_log.md` 존재 |
 
 ### Sprint 0 종료 조건
 
