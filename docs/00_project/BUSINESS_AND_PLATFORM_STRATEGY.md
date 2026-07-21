@@ -101,28 +101,11 @@ Steam이 유리한 이유:
 |---|---:|---:|---|
 | Steam | 게임당 $100, 약 153,000원 | 소규모 매출 구간 30% 가정 | 1차 상용 출시 |
 | Epic Games Store | 게임당 $100, 약 153,000원, 회수 가능 | 2026년 제품당 연간 첫 순수익 $1M까지 0%, 이후 12% | Steam 안정화 후 2차 PC 출시 검토 |
-| Google Play | 개발자 계정 1회 $25, 약 38,000원 | 대한민국 현재 첫 $1M 15% Tier 기준, 제도 변경 일정 확인 필요 | Android 후속 출시 검토 |
-| Apple App Store | 연 $99, 약 151,000원 | Small Business 자격 시 15% | iOS 보류 |
-| itch.io | 계정·페이지 생성 무료 | 개발자가 0~100% 설정 + 결제 처리 비용 | Demo·Alpha·테스트 |
+| Google Play | 개발자 계정 1회 $25, 약 38,000원 | 현재 15% Tier 계획값, 출시 시점 정책 재확인 | Android 후속 출시 검토 |
+| Apple App Store | 연 $99, 약 151,000원 | Small Business 자격 시 15% 계획값 | iOS 보류 |
+| itch.io | 계정·페이지 생성 무료 | 개발자가 Revenue Share 설정 + 결제 처리 비용 | Demo·Alpha·테스트 |
 
-### 공식 기준
-
-- Steam Direct Fee: 게임당 $100, 조정 총수익 $1,000 도달 후 회수 가능  
-  <https://partner.steamgames.com/doc/gettingstarted/appfee>
-- Epic Games Store: 게임당 회수 가능한 $100 제출비, 제품당 연간 첫 순수익 $1M까지 100% 개발자 수익, 이후 88/12  
-  <https://store.epicgames.com/distribution/>
-- Google Play: 1회 $25 등록비  
-  <https://support.google.com/googleplay/android-developer/answer/14659200>
-- Google Play Service Fee  
-  <https://support.google.com/googleplay/android-developer/answer/112622>
-- Apple Developer Program: 연 $99  
-  <https://developer.apple.com/programs/enroll/>
-- Apple Small Business Program: 유료 앱·IAP 15%  
-  <https://developer.apple.com/app-store/small-business-program/>
-- itch.io: 무료 등록과 Open Revenue Sharing  
-  <https://itch.io/docs/creators/faq>
-
-스토어 정책은 출시 준비 시 다시 확인한다.
+스토어 정책은 출시 준비 시 각 공식 문서에서 다시 확인한다.
 
 ## 5. Steam 손익분기 모델
 
@@ -147,7 +130,7 @@ Steam Direct Fee 약 153,000원
 = 약 26카피
 ```
 
-Steam Direct Fee 자체는 약 26카피에서 회수하는 것으로 계획한다. 다만 Valve의 실제 Fee 반환은 제품의 조정 총수익이 $1,000에 도달한 후 지급된다.
+Steam Direct Fee 자체는 약 26카피 판매 수익에 해당한다. 다만 Valve의 실제 Fee 회수 지급은 제품의 조정 총수익이 $1,000에 도달한 후 이루어진다.
 
 ### 프로젝트 비용별 손익분기
 
@@ -178,7 +161,7 @@ Full Cost 손익분기 목표: 8,000카피
 - 서버와 F2P 운영이 필요 없음
 - PC 입력과 고품질 캐릭터 표현 활용
 - Demo → Wishlist → 본편 출시 흐름 구성 가능
-- 단점은 상대적으로 높은 수수료와 경쟁·마케팅 부담
+- 단점은 수수료와 경쟁·마케팅 부담
 
 ### itch.io — 테스트와 Demo
 
@@ -195,7 +178,7 @@ Full Cost 손익분기 목표: 8,000카피
 
 - 2026년 기준 제품당 연간 첫 순수익 $1M까지 플랫폼 수수료 0%
 - Steam Windows 빌드 안정화 후 추가 QA 비용이 낮다면 출시
-- 스토어 페이지·업적·빌드·패치·지원 채널의 추가 운영비를 먼저 산정
+- Store Page·Achievement·Build·Patch·지원 채널의 추가 운영비 산정
 - 1차 마케팅 메시지는 Steam으로 집중하고 Epic은 추가 판매 채널로 사용
 
 ### Google Play Android — 후속 플랫폼
@@ -214,7 +197,7 @@ Full Cost 손익분기 목표: 8,000카피
 - 3D 캐릭터와 VFX의 기기별 최적화 필요
 - 화면 크기·발열·메모리·터치 UI 대응 필요
 - 신규 개인 개발자 계정은 Production 공개 전 12명 이상이 14일 연속 Opt-in한 Closed Test가 필요
-- 대한민국 Google Play 수수료 제도가 2026-12-31부터 변경될 예정이므로 출시 시점 재검토 필요
+- Google Play 수수료 제도가 변경 중이므로 실제 Port 착수·출시 시 공식 정책 재검토 필요
 
 Android 출시 조건:
 
@@ -231,7 +214,7 @@ Steam Full Release 안정화
 
 ### Apple App Store — 보류
 
-**판정: 초기 비용보다 유지·QA 비용 때문에 보류**
+**판정: 초기 등록비보다 지속적인 멤버십·Build·QA 비용 때문에 보류**
 
 - 연회비 발생
 - iOS Build·서명·TestFlight·기기 QA 필요
@@ -291,9 +274,9 @@ Steam 안정화
 
 ### Store Page Gate
 
-- 게임의 최종 방향을 보여주는 Trailer·Screenshot 확보
-- 무료 Demo 일정이 현실적임
-- 가격 범위와 콘텐츠 범위가 일치함
+- 최종 방향을 보여주는 Trailer·Screenshot
+- 무료 Demo 일정
+- 가격과 콘텐츠 범위 일치
 
 ### Full Release Gate
 
@@ -301,18 +284,18 @@ Steam 안정화
 - 20~40분 권장 세션을 만드는 장기 성장·도전 구조
 - 저장·설정·Controller·해상도·Crash 대응
 - 외부 테스트에서 핵심 루프 이해와 재플레이 의향 확인
-- 예상 현금비용 손익분기 판매량이 현실적인 범위임
+- 예상 현금비용 손익분기 판매량이 현실적임
 
 ### Android Port Gate
 
-- PC 출시 후 핵심 지표와 사용자 피드백 확인
-- Touch UI와 기기별 성능 기준 통과
-- 모바일용 과금 구조를 가챠·광고 없이 설명 가능
+- PC 출시 후 핵심 지표와 사용자 피드백
+- Touch UI와 기기별 성능
+- 모바일 과금 구조를 가챠·광고 없이 설명 가능
 - 업데이트와 고객 지원 비용 감당 가능
 
 ## 10. 비용 기록
 
-다음 비용을 월별로 기록한다.
+다음 비용을 월별 기록한다.
 
 ```text
 스토어 등록·멤버십
@@ -326,13 +309,13 @@ Trailer·Store Art
 실제 투입 시간의 기회비용
 ```
 
-`planning/business_cost_log.md` 또는 Spreadsheet를 추가해 실제 비용과 예상 판매량을 월별로 갱신한다.
+실제 값은 `planning/business_cost_log.md`에서 관리한다.
 
 ## 11. 재검토 시점
 
 - Steam Store Page 등록 직전
 - Demo 공개 후
-- Full Release Scope Lock 시점
+- Full Release Scope Lock
 - 가격 확정 직전
 - Steam 출시 30일 후
 - Epic 또는 Android Port 착수 전
