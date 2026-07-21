@@ -136,6 +136,8 @@ Full Cost 손익분기 판매량
 
 가격과 손익분기는 Steam Demo·Scope Lock·출시 직전에 다시 계산한다.
 
+Steam Direct Fee는 게임당 $100이며, 등록비와 동일한 계획 순수익 규모와 Valve의 실제 회수 지급 조건을 구분한다. 실제 Fee 회수는 제품 조정 총수익 $1,000 도달 후다.
+
 ## 10. Coplay 운영 규칙
 
 - Coplay MCP를 Unity 자동화 기본 도구로 사용한다.
