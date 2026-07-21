@@ -3,6 +3,7 @@
 ## Unreleased — Android Mobile-First Baseline
 
 - 수익보다 게임 적합성·완성 가능성·포트폴리오 가치를 우선하도록 플랫폼 판단 기준 수정
+- 이전 Steam-first 판단이 상업 손익을 과도하게 반영했다고 보고 Android-first로 교정
 - 1차 제품 목표를 Google Play Android 정식 출시로 변경
 - 가로형 Landscape 모바일 게임을 제품 정체성으로 확정
 - Windows를 Unity 개발·디버그·자동 테스트·Profiler·포트폴리오 빌드로 분리
