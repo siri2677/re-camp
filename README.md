@@ -28,58 +28,47 @@ Gray Box MVP
 
 Portfolio Vertical Slice는 최종 결과물이 아니라 정식 출시 가능성을 검증하는 중간 Gate입니다.
 
-## Current Status
+## Platform Strategy
+
+| 구분 | 기준 |
+|---|---|
+| 1차 개발 | Windows PC |
+| 1차 상용 출시 | Steam Windows |
+| 테스트 배포 | itch.io 제한 공개·무료 Demo |
+| 2차 PC 스토어 | Epic Games Store, Steam 안정화 후 검토 |
+| 후속 플랫폼 | Google Play Android, PC판 성과 확인 후 Port Gate |
+| iOS | 초기 범위 제외 |
+| 판매 방식 | 프리미엄 1회 구매 |
+
+Steam을 우선하는 이유는 PC 자체가 아니라, Re:Camp가 서버·F2P·광고·가챠 없이 완결 가능한 프리미엄 패키지 구조이기 때문입니다.
+
+## Business Baseline
+
+현재 계획값:
 
 ```text
-기획·제작·플랫폼·손익분기 기준 통합 Review
-→ 5인 캐릭터 라인업 Direction Approved
-→ Unity 프로젝트·Core 통합 준비
-→ 루나 Character Proof용 아트 파이프라인 구축
-→ 실제 Unity Vertical Slice 제작 전 단계
+Steam 기준 정가: 11,000원
+가격 검토 범위: 9,900~13,500원
+출시 할인 가정: 10%
+보수적 1카피 순수익 계획값: 6,000원
+최소 상업 검증: 2,000카피
+Full Cost 손익분기 목표: 약 8,000카피
+안전한 성공 목표: 10,000카피 이상
 ```
 
-현재 통합 라인업은 최종 캐릭터 제작 시트나 3D 모델이 아닙니다.
+이 수치는 회계 확정값이 아니라 Scope·외주비·마케팅비를 판단하기 위한 계획값이며 실제 비용과 판매 Report로 갱신합니다.
 
-## Platform and Business
+## Technology
 
 | 항목 | 기준 |
 |---|---|
-| Primary Commercial Launch | Steam / Windows PC |
-| Test Distribution | itch.io 제한 공개·무료 Demo |
-| Secondary PC Store | Epic Games Store, Steam 안정화 후 검토 |
-| Secondary Platform | Google Play Android, Steam 출시 후 검토 |
-| iOS | 보류 |
-| Business Model | 프리미엄 1회 구매 |
-| Price Baseline | 11,000원, 검토 범위 9,900~13,500원 |
-| Launch Discount Assumption | 10% |
 | Unity | Unity 6.3 LTS |
 | Render Pipeline | URP |
 | Input | Unity Input System |
 | Camera | 고정 쿼터뷰 |
+| PC Input | Keyboard/Mouse + Gamepad |
+| Android Input | 후속 Port에서 Touch UI |
 | Save | 로컬 저장 |
-
-Steam을 선택한 이유는 PC 자체보다 Re:Camp가 서버·F2P·광고·가챠 없이 완결 가능한 유료 패키지 구조이기 때문입니다.
-
-## Break-even Planning
-
-```text
-Steam 기준 정가: 11,000원
-출시 실판매가 가정: 9,900원
-보수적 1카피 순수익: 6,000원
-Steam Direct 등록비 상당액: 약 26카피
-현금비용 1,000만원 손익분기: 약 1,667카피
-Full Cost 예시 4,600만원 손익분기: 약 7,667카피
-```
-
-Steam Direct 등록비와 같은 금액을 순수익으로 회수하는 데 약 26카피가 필요하다는 계획 계산입니다. Valve가 등록비를 실제 지급액에서 돌려주는 조건은 조정 총수익 $1,000 도달입니다.
-
-목표:
-
-- 최소 상업 검증: 2,000카피
-- Full Cost 손익분기: 8,000카피
-- 안전한 성공 목표: 10,000카피 이상
-
-이 값은 초기 계획 가정입니다. 실제 비용·가격·환불·지역별 판매·스토어 정산 자료로 계속 갱신합니다.
 
 ## Visual Direction
 
@@ -104,7 +93,7 @@ Steam Direct 등록비와 같은 금액을 순수익으로 회수하는 데 약 
 → 재탐험
 ```
 
-한 판은 3~5분이지만 PC 본편에서는 탐험 3~6회와 캠프 정비를 묶어 약 20~40분 플레이 세션을 목표로 합니다.
+한 번의 탐험은 3~5분이지만 PC 본편에서는 탐험 3~6회와 캠프 정비를 묶어 약 20~40분의 권장 세션을 구성합니다.
 
 ## Portfolio Vertical Slice
 
@@ -120,45 +109,49 @@ Steam Direct 등록비와 같은 금액을 순수익으로 회수하는 데 약 
 | 플레이 시간 | 탐험 3~5분 |
 | 저장 | 로컬 저장 |
 
-## Steam Full Release
+## Steam Full Release Target
 
 - 플레이어블 캐릭터 5명
 - 스테이지 2개 이상 또는 동등한 반복 플레이 분량
 - 일반 몬스터 6종 이상
 - 보스 2종 이상
 - 캠프 시설 4종 이상
-- 캐릭터 해금·친밀도·대화
+- 캐릭터 해금·친밀도·대화·로비 상호작용
 - 난이도·도전·업적
-- Controller·Keyboard/Mouse·해상도·설정·Save·Crash 대응
-- Steam Store Page·무료 Demo·Screenshot·Trailer
+- Controller·해상도·설정·저장·Crash 대응
+- Steam Store Page·무료 Demo·Trailer·Screenshot
 
-## Character Production Order
+## Production Order
 
 ```text
 5인 라인업 방향 승인
-→ 루나 2D 제작 시트
-→ 루나 3D 5~6등신 Blockout
-→ Coplay MCP Unity Import·Prefab 테스트
-→ Unity Inspector·Console·PlayMode 수동 검증
-→ 고정 쿼터뷰 실루엣 검증
-→ 루나 Character Proof와 Vertical Slice
-→ Steam Demo
-→ 나머지 4명과 Full Release 콘텐츠
+→ Unity Camera·Gray Box
+→ ComfyUI·Figma·Blender 파이프라인
+→ 루나 2D Approved 제작 시트
+→ 루나 3D Blockout
+→ Coplay Unity Import·Prefab 테스트
+→ Import Validation Tool·수동 QA
+→ 루나 Character Proof
+→ Portfolio Vertical Slice
+→ itch.io 외부 테스트
+→ Steam Store Page·무료 Demo
+→ Full Release 콘텐츠
+→ Steam Windows 정식 출시
 ```
 
-## MCP and Production Tools
+## Production Tools
 
 | 도구 | 역할 |
 |---|---|
 | ComfyUI Cloud MCP | 2D 캐릭터·환경·몬스터·VFX 후보 생성 |
 | Figma Remote MCP | 캐릭터 제작 시트와 UI Design System |
 | Blender MCP | 3D Blockout·모델·Rig·Animation·FBX Export 보조 |
-| Coplay MCP | Unity Scene·Prefab·Component·Material·Animator 자동화 |
+| Coplay MCP | Unity Import·Scene·Prefab·Component·Material·Animator 자동화 |
 | GitHub MCP | 문서·브랜치·PR·승인 자산 관리 |
-| Unity Editor Script·Preset | 반복 Import·검증 규칙 코드화 |
-| Unity 수동 검수 | Inspector·Console·Prefab Diff·PlayMode·Profiler |
+| Unity Editor Tool | Import Preset·Validation·반복 검사 |
+| Unity 수동 QA | Inspector·Console·Prefab Diff·PlayMode·Profiler |
 
-Aura AI는 체험 이후 유료 사용이 필요한 구조이므로 기본 파이프라인에서 제외합니다.
+Aura AI는 체험 이후 별도 비용이 발생하므로 필수 제작 파이프라인에서 제외합니다.
 
 ## Start Here
 
@@ -179,12 +172,11 @@ PvP
 길드
 실시간 계정 서버
 가챠
-상점 결제·광고
+광고
+유료 재화
 오픈월드
 캐릭터별 완전 고유 골격
 복잡한 의상 교체
 대량 시네마틱
 풀 보이스
-유료 Aura AI 의존 파이프라인
-모바일 선출시용 F2P·광고·라이브 운영 전환
 ```
