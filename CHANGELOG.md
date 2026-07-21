@@ -15,6 +15,7 @@
 - MVP·Vertical Slice·Roadmap·Sprint Backlog를 Android Build와 실기기 검증 중심으로 재구성
 - APK 외부 테스트 → Google Play Closed Test → Android Full Release 출시 흐름 추가
 - 수익·손익분기를 필수 성공 조건에서 제외하고 비용 통제 참고값으로 변경
+- 무료 완성형 배포도 허용하고 프로젝트 성공으로 인정
 - `business_cost_log.md`를 프로젝트 완주 비용 관리 중심으로 재작성
 - 모바일 출시를 위해 가챠·강제 광고·유료 재화 중심 설계를 추가하지 않도록 유지
 
