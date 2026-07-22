@@ -1,225 +1,170 @@
 # Re:Camp
 
-Re:Camp는 멸망한 세계에서 생존자 캠프를 성장시키기 위해 위험 구역을 탐험하고 자원을 회수하는 **5분 생존 로그라이트 RPG**입니다.
+Re:Camp는 멸망 이후 자연에 잠식된 위험 구역을 3~5분 동안 탐험하고 자원을 회수해 캠프를 성장시키는 **가로형 모바일 3D 고정 쿼터뷰 로그라이트 RPG**입니다.
 
-## Project Status
+## Current Baseline
 
-현재 단계는 **초기 개발 세팅 / MVP 설계 / 통합 아트 방향 확정 단계**입니다.
+- `docs/00_project/CURRENT_PROJECT_BASELINE.md`
+- `docs/00_project/BUSINESS_AND_PLATFORM_STRATEGY.md`
 
-개발과 아트 작업은 반드시 `planning/`의 실행 계획을 기준으로 진행합니다.
+문서가 충돌하면 위 순서로 우선합니다.
 
-## Platform
+## Product Goal
 
-- Mobile First
-- Android / iOS
-- PC 확장 가능
+최종 1차 목표는 **Google Play Android 정식 출시**입니다.
 
-## Genre
+```text
+Windows 개발·디버그
+→ Android Touch·Landscape Gray Box
+→ 루나 Character Proof
+→ Android Portfolio Vertical Slice
+→ APK 외부 테스트
+→ Google Play Closed Test
+→ Android Full Release
+→ Windows·Steam·iOS 후속 판단
+```
 
-- 로그라이트
-- 생존 RPG
-- 탐험/귀환 구조
-- 거점 성장
-- 서브컬쳐 캐릭터 수집/성장
+수익은 핵심 성공 기준이 아닙니다. 실제 완성·배포, 모바일 플레이 적합성, 캐릭터 매력, 포트폴리오 가치와 유지 가능한 Scope를 우선하며 무료 출시도 성공으로 인정합니다.
+
+## Platform Strategy
+
+| 구분 | 기준 |
+|---|---|
+| 1차 제품 플랫폼 | Google Play Android |
+| 화면 | 가로형 Landscape |
+| 개발·디버그 | Windows PC |
+| 외부 테스트 | APK 제한 배포·Google Play Closed Test |
+| PC 공개 빌드 | itch.io 또는 포트폴리오용 Windows Demo |
+| Steam | Android 출시 후 별도 PC 제품화 검토 |
+| iOS | Android 안정화 후 검토 |
+
+**Windows는 1차 출시 플랫폼이 아닙니다.** Unity Editor, 자동 테스트, Profiler, 아트 검수와 포트폴리오 촬영을 위한 개발·QA 기반입니다.
+
+## Technology
+
+| 항목 | 기준 |
+|---|---|
+| Unity | Unity 6.3 LTS |
+| Render Pipeline | URP |
+| Input | Unity Input System |
+| Camera | 고정 쿼터뷰 |
+| Android Input | 가상 조이스틱·공격·대시·스킬 Touch UI |
+| PC Input | 개발·QA용 Keyboard/Mouse·Gamepad Adapter |
+| Save | 로컬 저장 |
+
+## Visual Direction
+
+```text
+2D 일반 등신 서브컬쳐 대표 일러스트
++ 3D 5~6등신 스타일라이즈드 인게임 캐릭터
++ 툰 셰이딩
++ 자연에 잠식된 부드러운 포스트 아포칼립스
++ 캐릭터보다 낮은 채도와 밀도의 환경
+```
 
 ## Core Loop
 
 ```text
-탐험 준비
+로비
+→ 탐험 준비
 → 위험 구역 진입
-→ 몬스터 전투
-→ 자원 획득
-→ 스킬 선택
-→ 귀환 또는 사망
-→ 캠프 성장
+→ 전투·자원 획득·스킬 선택
+→ 귀환 또는 사망·시간 만료
+→ 결과 정산
+→ 캠프 시설 강화
 → 재탐험
 ```
 
-## MVP Goal
-
-첫 번째 목표는 **전투 1판이 완전히 돌아가는 MVP**를 만드는 것입니다.
-
 ```text
-캐릭터가 움직인다
-→ 몬스터가 등장한다
-→ 공격으로 몬스터를 처치한다
-→ 자원을 획득한다
-→ 귀환·사망·시간 만료로 전투를 종료한다
-→ 결과 화면에서 보상을 정산한다
-→ 로비로 돌아와 다시 탐험한다
+1회 탐험: 3~5분
+캠프 정비: 1~3분
+권장 모바일 세션: 약 5~15분
 ```
 
-## Repository Structure
+## Android Portfolio Vertical Slice
+
+| 항목 | 범위 |
+|---|---|
+| 캐릭터 | 루나 1명 |
+| 스테이지 | 버려진 거리 1개 |
+| 일반 몬스터 | 3종 |
+| 보스 | 1종 |
+| 스킬 | 약 6개 |
+| 캠프 시설 | 발전기·작업대·식량 창고 |
+| UI | Touch Battle HUD·스킬 선택·결과·캠프 강화 |
+| 플레이 시간 | 탐험 3~5분 |
+| 저장 | 로컬 저장 |
+| 검증 | APK·Safe Area·발열·메모리·30/60 FPS 품질 단계 |
+
+## Android Full Release Target
+
+- 플레이어블 캐릭터 5명
+- 스테이지 2개 이상 또는 동등한 반복 분량
+- 일반 몬스터 6종 이상
+- 보스 2종 이상
+- 캠프 시설 4종 이상
+- 캐릭터 해금·친밀도·대화
+- 난이도·도전·반복 목표
+- 첫 실행·튜토리얼·설정·저장 안정성
+- 다양한 화면비·기기 등급·발열·메모리 대응
+- Google Play 테스트·스토어 자료
+
+## Production Order
 
 ```text
-re-camp/
-├── Assets/                  # Unity 게임 자산과 런타임 코드
-├── Packages/                # Unity 패키지 설정
-├── ProjectSettings/         # Unity 프로젝트 설정
-├── planning/                # 개발·아트 실행 계획과 작업 상태
-├── docs/                    # 게임·아트·기술의 상세 기준 문서
-├── tables/                  # 구현에 사용하는 데이터와 수치 표
-├── art_refs/                # 승인 상태가 표시된 이미지 레퍼런스
-├── README.md                # 프로젝트 전체 안내와 문서 진입점
-├── AGENT.md                 # AI 에이전트와 개발 운영 규칙
-├── CHANGELOG.md             # 주요 변경 내역
-├── .gitignore
-└── .gitattributes
+5인 라인업 방향 승인
+→ Windows Unity 개발 기반
+→ Android Landscape·Touch Gray Box
+→ ComfyUI·Figma·Blender 파이프라인
+→ 루나 2D Approved 제작 시트
+→ 루나 3D Blockout
+→ Coplay Import·Prefab
+→ Validation Tool·Android 실기기 QA
+→ 루나 Character Proof
+→ Android Vertical Slice
+→ Closed Test
+→ Android Full Release
 ```
 
-## Project Documents
+## Production Tools
 
-문서와 레퍼런스는 다음 네 디렉터리를 중심으로 관리합니다.
+| 도구 | 역할 |
+|---|---|
+| ComfyUI Cloud MCP | 2D 캐릭터·환경·몬스터·VFX 후보 |
+| Figma Remote MCP | 캐릭터 제작 시트·모바일 UI Design System |
+| Blender MCP | 3D Blockout·모델·Rig·Animation·FBX Export |
+| Coplay MCP | Unity Import·Scene·Prefab·Component 자동화 |
+| GitHub MCP | 문서·브랜치·PR·승인 자산 관리 |
+| Unity Editor Tool | Import Preset·Validation·반복 검사 |
+| Unity 수동 QA | Android 실기기·Inspector·Console·PlayMode·Profiler |
 
-| 디렉터리 | 역할 | 주요 내용 |
-|---|---|---|
-| `planning/` | 무엇을 어떤 순서로 진행할지 관리 | 전체 로드맵, Sprint Backlog, 아트 로드맵, 작업 상태와 선행 조건 |
-| `docs/` | 게임과 아트를 어떤 기준으로 만들지 정의 | 게임 콘셉트, MVP, 코어 루프, 캐릭터 설정, 아트 방향, 제작 규격 |
-| `tables/` | 구현에 필요한 데이터와 수치를 요약 | 캐릭터, 스킬, 몬스터, 아이템, 스테이지, 캠프 시설 데이터 |
-| `art_refs/` | 실제 이미지와 시각적 기준을 보관 | 캐릭터 라인업, 개별 캐릭터 시트, 환경, UI, VFX 레퍼런스 |
+Aura AI는 체험 이후 별도 비용이 발생하므로 필수 파이프라인에서 제외합니다.
 
-### 1. `planning/` — 실행 계획의 단일 진입점
-
-개발 또는 아트 작업을 시작할 때 가장 먼저 확인합니다.
+## Start Here
 
 ```text
-planning/
-├── README.md
-├── roadmap.md
-├── sprint_backlog.md
-├── art_production_roadmap.md
-└── art_production_backlog.md
+1. docs/00_project/CURRENT_PROJECT_BASELINE.md
+2. docs/00_project/BUSINESS_AND_PLATFORM_STRATEGY.md
+3. planning/sprint_backlog.md
+4. planning/roadmap.md
+5. 관련 Spec
+6. tables/와 APPROVED art_refs/
 ```
 
-- `planning/README.md`: 계획 문서 사용 방법과 상태·우선순위 규칙
-- `planning/roadmap.md`: 개발·아트·출시 전체 마일스톤
-- `planning/sprint_backlog.md`: 현재부터 실제로 처리할 통합 작업 목록
-- `planning/art_production_roadmap.md`: 캐릭터·환경·UI·3D 아트 제작 단계
-- `planning/art_production_backlog.md`: 캐릭터 5명과 아트 자산의 세부 작업 ID
-
-### 2. `docs/` — 기획과 제작 기준
-
-`planning/`에서 선택한 작업을 어떤 기준으로 수행해야 하는지 확인합니다.
+## Out of Scope
 
 ```text
-docs/
-├── 00_project/
-│   └── PROJECT_OVERVIEW.md
-├── 01_game_design/
-│   ├── GAME_CONCEPT.md
-│   ├── MVP_SCOPE.md
-│   └── CORE_LOOP.md
-└── 05_art_concept/
-    ├── ART_DIRECTION.md
-    ├── CHARACTER_BIBLE.md
-    ├── ART_PRODUCTION_MCP_GUIDE.md
-    └── ART_ASSET_STRUCTURE.md
-```
-
-### 3. `tables/` — 구현 데이터
-
-상세 설정은 `docs/`를 기준으로 하고, 게임 구현에 사용하는 ID·역할·효과·수치는 `tables/`에서 관리합니다.
-
-```text
-tables/
-├── character_table.md
-├── skill_table.md
-├── enemy_table.md
-├── item_table.md
-├── stage_table.md
-└── camp_facility_table.md
-```
-
-### 4. `art_refs/` — 시각적 레퍼런스
-
-```text
-art_refs/
-├── README.md
-└── art_direction/
-    └── ReCamp_Character_Lineup.png
-```
-
-현재 라인업 이미지는 `REVIEW` 상태의 1차 통합 콘셉트입니다. 개별 캐릭터의 `APPROVED` 제작 시트가 추가되면 개별 승인본을 우선합니다.
-
-## Development Workflow
-
-```text
-1. planning/README.md에서 운영 규칙 확인
-2. planning/sprint_backlog.md에서 가장 위의 Ready 또는 Todo 작업 선택
-3. planning/roadmap.md에서 해당 마일스톤과 완료 기준 확인
-4. 관련 docs/와 tables/의 기준 확인
-5. 필요한 art_refs/ 이미지 확인
-6. 개발·아트 작업과 테스트·리뷰 수행
-7. planning/의 작업 상태와 결과 경로 갱신
-8. Git 커밋 또는 PR 생성
-```
-
-### 문서 우선순위
-
-충돌이 발생하면 다음 순서로 판단합니다.
-
-```text
-planning/의 현재 승인된 작업 범위와 상태
-→ docs/의 상세 기획·아트 기준
-→ tables/의 구현 데이터와 수치
-→ art_refs/의 APPROVED 이미지
-→ art_refs/의 REVIEW·WIP 이미지
-```
-
-단, 캐릭터 외형처럼 시각적 승인본이 핵심인 경우에는 개별 `APPROVED` 캐릭터 시트가 이전 텍스트와 통합 라인업 이미지보다 우선합니다.
-
-## Current Development Direction
-
-```text
-1. 통합 캐릭터 라인업 검토 및 수정 방향 확정
-2. Unity 프로젝트 생성과 Git 반영
-3. 기존 ReCamp.Core의 Unity 통합 방식 검증
-4. Lobby → Battle → Result → Lobby Gray Box 구현
-5. 캐릭터 5명 전투 프로토타입 구현
-6. 캐릭터 5명 단독 2D 콘셉트와 제작 시트 확정
-7. 루나 Character Proof와 Vertical Slice 제작
-8. 나머지 캐릭터·환경·UI·VFX 확장
-9. QA와 출시 준비
-```
-
-## Key Documents
-
-- `AGENT.md`: AI 에이전트와 개발 운영 가이드
-- `planning/README.md`: 계획 문서 진입점
-- `planning/sprint_backlog.md`: 현재 실행할 통합 작업 목록
-- `planning/roadmap.md`: 전체 개발·아트·출시 로드맵
-- `docs/00_project/PROJECT_OVERVIEW.md`: 프로젝트 개요
-- `docs/01_game_design/GAME_CONCEPT.md`: 게임 콘셉트
-- `docs/01_game_design/MVP_SCOPE.md`: MVP 범위
-- `docs/01_game_design/CORE_LOOP.md`: 핵심 플레이 루프
-- `docs/05_art_concept/ART_DIRECTION.md`: 공통 아트 방향
-- `docs/05_art_concept/CHARACTER_BIBLE.md`: 캐릭터 설정 단일 기준
-- `docs/05_art_concept/ART_PRODUCTION_MCP_GUIDE.md`: 아트 MCP 제작 흐름
-- `docs/05_art_concept/ART_ASSET_STRUCTURE.md`: 아트 디렉터리·승인·파일 규칙
-- `tables/`: 구현용 데이터 테이블
-- `art_refs/`: 이미지 레퍼런스
-
-## Branch Strategy
-
-```text
-main      : 안정된 데모와 승인된 문서·자산
- develop   : 개발 통합 브랜치
-feature/* : 기능 개발 브랜치
-art/*     : 아트 작업 브랜치
-fix/*     : 버그 수정 브랜치
-```
-
-## Commit Convention
-
-```text
-feat: 새로운 기능 추가
-fix: 버그 수정
-docs: 문서 수정
-style: 코드 포맷 수정
-refactor: 구조 개선
-test: 테스트 추가
-chore: 설정/빌드/기타 작업
-art: 아트 리소스 추가
-balance: 밸런스 수치 수정
-planning: 계획과 Backlog 수정
+멀티플레이
+PvP
+길드
+실시간 계정 서버
+가챠
+강제 광고
+유료 재화 중심 설계
+오픈월드
+캐릭터별 완전 고유 골격
+복잡한 의상 교체
+대량 시네마틱
+풀 보이스
+Android·PC 동시 정식 출시
 ```

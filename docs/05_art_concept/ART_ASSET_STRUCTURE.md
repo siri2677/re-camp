@@ -1,73 +1,41 @@
 # Re:Camp Art Asset Structure
 
-이 문서는 Re:Camp 아트 자산의 최종 디렉터리 구조, 파일명, 승인 상태, Git 관리 규칙을 정의한다.
+이 문서는 Re:Camp 아트 자산의 디렉터리, 승인 상태, 원본·Export 분리, Git 관리 규칙을 정의한다.
 
-## 1. 최종 디렉터리 구조
+## 1. 기준 구조
 
 ```text
 art_refs/
-├── README.md
 ├── art_direction/
-│   ├── ReCamp_Character_Lineup.png
-│   ├── ReCamp_Art_Direction_Board.png
-│   ├── ReCamp_Color_Palette.png
-│   └── archive/
 ├── characters/
 │   ├── luna/
-│   │   ├── concept/
-│   │   ├── turnaround/
-│   │   ├── expressions/
-│   │   ├── equipment/
-│   │   ├── 3d_reference/
-│   │   └── archive/
 │   ├── miyu/
 │   ├── coco/
 │   ├── iris/
 │   └── noah/
 ├── environments/
-│   ├── camp/
-│   ├── ruined_street/
-│   ├── contaminated_forest/
-│   ├── abandoned_lab/
-│   └── machine_graveyard/
 ├── monsters/
-│   ├── normal/
-│   └── bosses/
 ├── props/
-│   ├── camp_facilities/
-│   ├── weapons/
-│   ├── drones/
-│   ├── loot/
-│   └── environment/
 ├── ui/
-│   ├── design_system/
-│   ├── lobby/
-│   ├── battle/
-│   ├── result/
-│   └── character/
 └── vfx/
-    ├── common/
-    ├── luna/
-    ├── miyu/
-    ├── coco/
-    ├── iris/
-    └── noah/
+```
 
-docs/05_art_concept/
-├── ART_DIRECTION.md
-├── CHARACTER_BIBLE.md
-├── ART_PRODUCTION_MCP_GUIDE.md
-├── ART_ASSET_STRUCTURE.md
-├── CHARACTER_3D_SPEC.md
-├── ANIMATION_GUIDE.md
-└── ASSET_NAMING_GUIDE.md
+## 2. 제작 원본
 
+```text
 art_source/
+├── comfyui_workflows/
 ├── figma_exports/
 ├── blender/
 ├── textures/
-└── comfyui_workflows/
+└── metadata/
+```
 
+원본과 Unity용 Export를 같은 폴더에 혼합하지 않는다.
+
+## 3. Unity 아트 구조
+
+```text
 Assets/_ReCamp/Art/
 ├── Characters/
 ├── Environments/
@@ -80,111 +48,94 @@ Assets/_ReCamp/Art/
 └── Animations/
 ```
 
-`art_source/`와 `Assets/_ReCamp/Art/`는 Unity 프로젝트 생성 이후 추가한다.
+## 4. 기준 문서
 
-## 2. 문서별 역할
-
-| 문서 | 역할 |
+| 분야 | 문서 |
 |---|---|
-| ART_DIRECTION.md | 프로젝트 공통 비주얼 방향의 최종 기준 |
-| CHARACTER_BIBLE.md | 캐릭터 설정·외형·역할의 단일 기준 |
-| ART_PRODUCTION_MCP_GUIDE.md | MCP와 AI 도구 운영 방식 |
-| ART_ASSET_STRUCTURE.md | 디렉터리·상태·Git 관리 기준 |
-| CHARACTER_3D_SPEC.md | 폴리곤, 텍스처, Rig, LOD, 셰이더 규격 |
-| ANIMATION_GUIDE.md | 공용·고유 애니메이션과 파일 규격 |
-| ASSET_NAMING_GUIDE.md | Unity·Blender·이미지 파일명 규칙 |
+| 프로젝트 최신 기준 | `CURRENT_PROJECT_BASELINE.md` |
+| 공통 아트 | `ART_DIRECTION.md` |
+| 캐릭터 설정 | `CHARACTER_BIBLE.md` |
+| 제작 도구 | `ART_PRODUCTION_MCP_GUIDE.md` |
+| 제작 시작 | `ART_PRODUCTION_START_GUIDE.md` |
+| ComfyUI 일관성 | `COMFYUI_CHARACTER_CONSISTENCY_SPEC.md` |
+| 3D 캐릭터 | `CHARACTER_3D_SPEC.md` |
+| Animation | `ANIMATION_GUIDE.md` |
+| Unity Import | `UNITY_ART_IMPORT_GUIDE.md` |
+| 환경·VFX | `ENVIRONMENT_AND_VFX_SPEC.md` |
+| 이름 규칙 | `ASSET_NAMING_GUIDE.md` |
+| Camera·UI | `docs/04_ui_ux/CAMERA_AND_UI_BASELINE.md` |
+| 기술 예산 | `docs/06_dev_docs/TECHNICAL_TARGETS.md` |
 
-## 3. 캐릭터별 필수 산출물
+## 5. 승인 상태
 
-각 캐릭터는 최소 다음 산출물을 갖는다.
-
-```text
-[Character]_Key_Art.png
-[Character]_Front.png
-[Character]_Side.png
-[Character]_Back.png
-[Character]_Turnaround.png
-[Character]_Expression_Sheet.png
-[Character]_Equipment_Sheet.png
-[Character]_Material_Palette.png
-[Character]_3D_Notes.png
-```
-
-### 상태별 예시
-
-```text
-Luna_Key_Art_WIP_v001.png
-Luna_Key_Art_REVIEW_v003.png
-Luna_Key_Art_APPROVED_v005.png
-```
-
-Approved 이후 사소한 수정도 버전을 올린다.
-
-## 4. 승인 상태
-
-| 상태 | 의미 | 게임 제작 사용 |
+| 상태 | 의미 | 최종 게임 사용 |
 |---|---|---|
-| WIP | 작업 중, 구조와 색상이 변경될 수 있음 | 금지 |
-| REVIEW | 리뷰 후보, 피드백 대기 | Blockout 참고만 허용 |
-| APPROVED | 최종 기준으로 승인 | 허용 |
-| SUPERSEDED | 새로운 승인본으로 대체됨 | 신규 작업 금지 |
-| ARCHIVE | 폐기 또는 기록 보존 | 금지 |
+| `WIP` | 구조·색상 변경 가능 | 금지 |
+| `REVIEW` | 선택·피드백 대기 | Blockout 참고만 가능 |
+| `APPROVED` | 현재 최종 기준 | 허용 |
+| `SUPERSEDED` | 새 승인본으로 대체 | 신규 작업 금지 |
+| `ARCHIVE` | 폐기·기록 보존 | 금지 |
 
-파일 내부 또는 동반 Markdown에 상태, 버전, 담당자, 승인일을 기록한다.
+`ReCamp_Character_Lineup.png`는 `Direction Approved`다. 역할·대표 색상·무기·큰 실루엣에만 사용하며 최종 얼굴·Turnaround·3D 모델링 기준으로 직접 사용하지 않는다.
 
-## 5. 파일명 규칙
+## 6. 루나 필수 산출물
 
-### 공통
+```text
+Luna_KeyArt_APPROVED_v###.png
+Luna_Front_APPROVED_v###.png
+Luna_Side_APPROVED_v###.png
+Luna_Back_APPROVED_v###.png
+Luna_Turnaround_APPROVED_v###.png
+Luna_ExpressionSheet_APPROVED_v###.png
+Luna_EquipmentSheet_APPROVED_v###.png
+Luna_MaterialPalette_APPROVED_v###.png
+Luna_3DNotes_APPROVED_v###.png
+```
+
+나머지 네 캐릭터는 루나 Proof 전까지 단독 전신 방향과 3D 위험 요소만 저장한다.
+
+## 7. 파일명
+
+Reference:
 
 ```text
 PascalCase_AssetType_Status_v###.ext
 ```
 
-예시:
-
-```text
-Luna_ExpressionSheet_APPROVED_v003.png
-Miyu_CombatDrone_REVIEW_v002.png
-RuinedStreet_ColorKey_WIP_v004.png
-CampGenerator_Blockout_v001.blend
-```
-
-### Unity
+Unity Asset:
 
 ```text
 CHR_Luna_Model.fbx
 CHR_Luna_Prefab.prefab
-CHR_Luna_Mat_Body.mat
-CHR_Luna_Anim_Attack01.anim
-ENV_RuinedStreet_BuildingA.fbx
+MAT_Luna_Body.mat
+ANM_Luna_Attack_01.anim
+ENV_RuinedStreet_Building_A.fbx
 PRP_Camp_Generator.fbx
 VFX_Luna_CrossFang.prefab
-UI_Character_Select_Luna.png
+UI_Battle_SkillFrame.png
 ```
 
-## 6. 소스와 Export 분리
+## 8. Source와 Export
 
-### 소스 파일
+### Source
 
 - `.blend`
 - Figma 원본
-- ComfyUI workflow JSON
-- 고해상도 PSD·Krita 원본
-- Substance 원본
+- ComfyUI Workflow JSON
+- PSD·Krita·Substance 원본
+- 고해상도 Texture
 
-### Export 파일
+### Export
 
 - `.fbx`
 - `.png`
 - `.tga`
 - `.exr`
-- Unity용 압축 Texture
+- Unity Material·Prefab·Animation
 
-소스와 Export를 동일 디렉터리에 혼합하지 않는다.
+Blender 원본을 Unity가 직접 참조하지 않고 승인된 FBX를 사용한다.
 
-## 7. Git과 Git LFS
-
-Git LFS 대상 권장:
+## 9. Git LFS
 
 ```text
 *.psd
@@ -197,72 +148,75 @@ Git LFS 대상 권장:
 *.mp4
 ```
 
-PNG는 크기와 변경 빈도에 따라 LFS 적용 여부를 결정한다. 레퍼런스 PNG는 일반 Git으로 관리할 수 있지만 대형 원화 Export는 LFS 사용을 권장한다.
+대량 생성 후보를 모두 Git에 넣지 않는다.
 
-### 커밋 원칙
-
-- 승인되지 않은 대량 생성 이미지를 전부 Git에 넣지 않는다.
-- 후보 중 선택된 WIP와 승인본만 저장한다.
-- 한 커밋에는 하나의 목적을 유지한다.
-- 최종 승인본을 교체할 때 기존 파일을 `archive/`로 이동한다.
-- 라이선스와 생성 도구 정보를 동반 문서에 기록한다.
-
-## 8. AI 생성 자산 메타데이터
-
-AI로 생성한 레퍼런스에는 다음 정보를 기록한다.
+## 10. AI 생성 Metadata
 
 ```text
 Asset Name:
-Character/Environment:
+Task ID:
 Purpose:
 Status:
 Generated Date:
-Tool/Model:
+Tool / Model:
 Workflow Version:
 Seed:
 Input References:
+Prompt Variables:
 Human Edits:
-Usage Restriction:
+License / Usage Restriction:
 Reviewer:
 ```
 
-모델·서비스 약관과 상업적 사용 조건을 확인하지 않은 이미지는 출시 자산으로 사용하지 않는다.
+## 11. Unity 자동화·검증 기록
 
-## 9. 리뷰 체크리스트
+```text
+Task ID:
+Asset:
+Automation Tool: Coplay 또는 Editor Script
+Operations:
+Created / Modified Files:
+Validation Tool Result:
+Inspector Review:
+Console Result:
+Prefab Diff:
+PlayMode Result:
+Profiler Result:
+Manual Fix:
+Approved Result:
+```
+
+Aura AI는 체험 이후 유료 사용이 필요한 구조이므로 기본 기록 대상과 필수 승인 도구에서 제외한다.
+
+## 12. 리뷰 체크리스트
 
 ### 캐릭터
 
-- 얼굴과 헤어가 기준 이미지와 일치하는가
-- 캐릭터별 실루엣과 색상이 구분되는가
-- 무기·장비 구조가 모든 시점에서 일관적인가
-- 3D 모델링과 애니메이션이 가능한 구조인가
-- 쿼터뷰에서 머리·상체·무기가 식별되는가
+- 얼굴·헤어·의상·무기가 Approved 시트와 일치
+- 5~6등신 유지
+- 쿼터뷰에서 머리·상체·무기 식별
+- 3D·Rig·Animation 가능 구조
+- 작은 장식과 물리 비용 통제
 
 ### 환경
 
-- 캐릭터보다 시각적 밀도와 채도가 낮은가
-- 이동 가능 영역과 위험 영역이 구분되는가
-- 자원과 상호작용 오브젝트가 보이는가
-- 부드러운 포스트 아포칼립스 톤을 유지하는가
+- 캐릭터보다 낮은 채도와 밀도
+- 이동·위험·상호작용 영역 구분
+- Modular 규칙과 Pivot·Collision 준수
 
-### UI/VFX
+### UI·VFX
 
-- 모바일에서 텍스트와 버튼이 읽히는가
-- 캐릭터별 색상 언어가 일관적인가
-- VFX가 캐릭터와 적을 가리지 않는가
-- 공격, 회복, 보호막, 위험 피드백이 즉시 구분되는가
+- Windows 1920×1080에서 읽힘
+- Android 변환 가능 Layout
+- 적 위험과 캐릭터 VFX 혼동 없음
+- VFX가 캐릭터·적·자원을 가리지 않음
 
-## 10. 현재 저장소 적용 범위
+## 13. 완료 조건
 
-현재 커밋에서는 다음을 우선 적용한다.
-
-```text
-art_refs/art_direction/ReCamp_Character_Lineup.png
-docs/05_art_concept/ART_DIRECTION.md
-docs/05_art_concept/CHARACTER_BIBLE.md
-docs/05_art_concept/ART_PRODUCTION_MCP_GUIDE.md
-docs/05_art_concept/ART_ASSET_STRUCTURE.md
-art_refs/README.md
-```
-
-향후 캐릭터별 Approved 시트가 추가되면 통합 라인업 이미지보다 개별 Approved 시트를 우선한다.
+- 결과물과 Metadata 존재
+- 파일명·디렉터리 준수
+- Review 또는 Approved 상태 표시
+- 관련 Backlog ID 연결
+- Unity 자산은 Coplay 또는 Editor Script 실행 기록 보유
+- Validation Tool·수동 Unity QA 기록 보유
+- Commit·PR 연결

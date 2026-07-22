@@ -1,657 +1,341 @@
-# AGENT.md
+# Re:Camp Agent Development Guide
 
-## Re:Camp Development Guide
+이 문서는 Re:Camp 저장소에서 사람과 AI Agent가 동일한 기준으로 개발·아트·출시 작업을 수행하기 위한 운영 규칙이다.
 
-이 문서는 Re:Camp 프로젝트 개발을 시작하기 위한 저장소 구성, Unity 프로젝트 구조, 브랜치 전략, 개발 순서, 데이터 관리 방식, GitHub 운영 규칙을 정의한다.
-
----
-
-## 1. 프로젝트 운영 방향
-
-Re:Camp는 초기 MVP 단계이므로 GitHub 단일 저장소로 관리한다.
+## 1. 최우선 기준
 
 ```text
-GitHub 단일 저장소
-= Unity 프로젝트
-+ 기획 문서
-+ 개발 문서
-+ 데이터 테이블
-+ 아트 레퍼런스
-+ 일정 관리
+1. docs/00_project/CURRENT_PROJECT_BASELINE.md
+2. docs/00_project/BUSINESS_AND_PLATFORM_STRATEGY.md
+3. planning/sprint_backlog.md
+4. planning/roadmap.md
+5. 관련 분야별 Spec
+6. tables/와 APPROVED art_refs/
 ```
 
-초기에는 저장소를 여러 개로 나누지 않는다.
+문서가 충돌하면 위 순서를 우선한다. 플랫폼·Scope 변경 시 관련 문서를 같은 PR에서 갱신한다.
+
+## 2. 프로젝트·출시 기준
+
+| 항목 | 기준 |
+|---|---|
+| 최종 1차 목표 | Google Play Android 정식 출시 |
+| 제품 형태 | 가로형 모바일 3D 쿼터뷰 로그라이트 RPG |
+| 개발·디버그 | Windows PC |
+| 현재 Gate | Android 기반 → Touch Prototype → Character Proof |
+| 중간 Gate | Android Portfolio Vertical Slice·Closed Test |
+| 후속 플랫폼 | Windows Demo·Steam·iOS |
+| Unity | Unity 6.3 LTS |
+| Render Pipeline | URP |
+| Input | Unity Input System |
+| Camera | 고정 쿼터뷰 |
+| 캐릭터 | 2D 일반 등신 + 3D 5~6등신 스타일라이즈드 |
+| Save | 로컬 저장 |
+
+수익은 필수 성공 기준이 아니다. 완성·배포, 모바일 적합성, 캐릭터 매력, 포트폴리오 가치와 유지 가능한 Scope를 우선한다.
+
+## 3. 출시 단계
 
 ```text
-비추천 초기 구조
-
-re-camp-client
-re-camp-docs
-re-camp-art
-re-camp-backend
+Windows Editor Gray Box
+→ Android Touch Prototype
+→ 루나 Character Proof
+→ Android Portfolio Vertical Slice
+→ APK 외부 테스트
+→ Google Play Closed Test
+→ Android Full Release
+→ Windows·Steam·iOS 후속 판단
 ```
 
-위와 같이 나누면 초기 개발 단계에서 관리 비용이 증가한다.  
-현재 단계에서는 기획, 코드, 데이터, 아트 레퍼런스를 하나의 저장소에서 함께 추적하는 것이 가장 안정적이다.
+Vertical Slice는 최종 제품이 아니라 Android 출시 가능성을 검증하는 중간 Gate다.
 
----
+## 4. 범위
 
-## 2. 추천 저장소 구조
+### Android Portfolio Vertical Slice
+
+```text
+루나 1명
++ 버려진 거리 1개
++ 일반 몬스터 3종
++ 보스 1종
++ 캠프 시설 3종
++ Touch HUD·스킬 선택·결과·캠프 강화
++ 로컬 저장
++ 3~5분 탐험·귀환·성장 루프
++ Android APK 실기기 검증
+```
+
+### Android Full Release
+
+```text
+캐릭터 5명
++ 스테이지 2개 이상 또는 동등한 반복 분량
++ 일반 몬스터 6종 이상
++ 보스 2종 이상
++ 캠프 시설 4종 이상
++ 캐릭터 해금·친밀도·대화
++ 난이도·도전·반복 목표
++ Touch Tutorial·Settings·Save·Lifecycle
++ 기기 품질 단계·화면비·발열·Memory 대응
++ Google Play 정식 공개
+```
+
+## 5. 비용 기준
+
+비용은 완주 가능성을 보호하기 위해 기록한다.
+
+- 판매량 목표를 작업 완료 조건으로 두지 않는다.
+- 무료 출시도 성공으로 인정한다.
+- 손익분기는 외주·구독·마케팅 지출이 과도한지 판단하는 참고값이다.
+- 실제 비용과 투입 시간은 `planning/business_cost_log.md`에 기록한다.
+
+## 6. 저장소 구조
 
 ```text
 re-camp/
-├── Assets/
-│   └── _ReCamp/
-│       ├── Art/
-│       │   ├── Characters/
-│       │   ├── Environments/
-│       │   ├── UI/
-│       │   └── VFX/
-│       ├── Audio/
-│       │   ├── BGM/
-│       │   └── SFX/
-│       ├── Prefabs/
-│       │   ├── Player/
-│       │   ├── Enemies/
-│       │   ├── UI/
-│       │   ├── Items/
-│       │   └── Stage/
-│       ├── Scenes/
-│       │   ├── 00_Bootstrap.unity
-│       │   ├── 01_Title.unity
-│       │   ├── 02_Lobby.unity
-│       │   ├── 03_Battle.unity
-│       │   └── 04_Result.unity
-│       ├── Scripts/
-│       │   ├── Core/
-│       │   ├── GameFlow/
-│       │   ├── Player/
-│       │   ├── Enemy/
-│       │   ├── Combat/
-│       │   ├── Skill/
-│       │   ├── Item/
-│       │   ├── Camp/
-│       │   ├── UI/
-│       │   ├── Data/
-│       │   ├── Save/
-│       │   └── Utils/
-│       ├── ScriptableObjects/
-│       │   ├── Characters/
-│       │   ├── Skills/
-│       │   ├── Enemies/
-│       │   ├── Items/
-│       │   └── Stages/
-│       └── Resources/
-│
+├── Assets/_ReCamp/
+│   ├── Art/
+│   ├── Audio/
+│   ├── Prefabs/
+│   ├── Scenes/
+│   ├── Scripts/
+│   ├── ScriptableObjects/
+│   └── Tests/
 ├── Packages/
 ├── ProjectSettings/
-│
-├── docs/
-│   ├── 00_project/
-│   ├── 01_game_design/
-│   ├── 02_system_design/
-│   ├── 03_content_design/
-│   ├── 04_ui_ux/
-│   ├── 05_art_concept/
-│   ├── 06_dev_docs/
-│   ├── 07_balance/
-│   ├── 08_qa/
-│   └── 09_portfolio/
-│
-├── tables/
-│   ├── character_table.md
-│   ├── skill_table.md
-│   ├── enemy_table.md
-│   ├── item_table.md
-│   ├── stage_table.md
-│   └── camp_facility_table.md
-│
 ├── planning/
-│   ├── roadmap.md
-│   ├── milestone.md
-│   ├── sprint_backlog.md
-│   └── task_board_rule.md
-│
+├── docs/
+├── tables/
 ├── art_refs/
-│   ├── character/
-│   ├── background/
-│   ├── ui/
-│   └── moodboard/
-│
+├── art_source/
 ├── README.md
 ├── AGENT.md
-├── CHANGELOG.md
-├── .gitignore
-└── .gitattributes
+└── CHANGELOG.md
 ```
 
----
+`art_source/`는 Blender·Figma Export 원본·ComfyUI Workflow·고해상도 Texture를 Unity `Assets/`와 분리해 관리한다.
 
-## 3. Unity 내부 구조 원칙
+## 7. Unity 구조 원칙
 
-Unity의 `Assets` 폴더 안에는 프로젝트 전용 루트 폴더를 만든다.
+- 프로젝트 전용 자산은 `Assets/_ReCamp/`에 둔다.
+- 외부 Asset과 직접 제작 자산을 섞지 않는다.
+- 게임 규칙은 `ReCamp.Core` 또는 Unity 비종속 계층에 유지한다.
+- MonoBehaviour는 Input·Scene·Animation·VFX·UI·Adapter 역할을 담당한다.
+- Touch·Keyboard·Gamepad Input Adapter를 분리한다.
+- Android Lifecycle을 게임 규칙과 분리한다.
+- ScriptableObject는 설정 데이터와 Presentation 참조에 사용한다.
+- 게임 규칙을 Prefab·Animation Event·UI에 중복 구현하지 않는다.
+
+## 8. Scene 기준
 
 ```text
-Assets/_ReCamp/
+00_Bootstrap
+01_Title
+02_Lobby
+03_Battle
+04_Result
 ```
 
-이렇게 구성하는 이유는 외부 에셋과 프로젝트 자체 리소스가 섞이는 것을 막기 위해서다.
+Camp Upgrade는 초기에는 Lobby 내부 UI로 유지한다.
 
-예를 들어 Asset Store 에셋을 추가하면 다음처럼 들어올 수 있다.
+## 9. 기술 설정
 
-```text
-Assets/SomeAssetPack/
-Assets/TextMesh Pro/
-Assets/Plugins/
-Assets/_ReCamp/
-```
+필수:
 
-이때 직접 제작한 파일은 전부 `_ReCamp` 안에 유지한다.
+- Unity 6.3 LTS
+- URP
+- Linear Color Space
+- Visible Meta Files
+- Force Text
+- Input System
+- TextMesh Pro
+- Unity Test Framework
+- Android Build Support
 
----
+검토 후 도입:
 
-## 4. 브랜치 전략
+- Cinemachine
+- AI Navigation
+- Addressables
 
-### 4.1 개인 개발 기준 최소 전략
+필요성이 확인되지 않은 Package와 Store SDK를 미리 추가하지 않는다.
 
-혼자 개발할 경우에는 아래 구조만으로도 충분하다.
+## 10. 입력·플랫폼
 
-```text
-main
-feature/*
-```
+### Android
 
-예시:
+- Landscape 고정
+- 좌측 가상 조이스틱
+- 우측 공격·대시·스킬 Button
+- Auto Aim 또는 대상 보정
+- Safe Area·Android Back·Background/Resume
+- 30 FPS 기본·지원 기기 60 FPS 선택
 
-```text
-main
-feature/core-loop
-feature/player-movement
-feature/enemy-spawn
-feature/battle-ui
-feature/camp-system
-```
+### Windows
 
-### 4.2 포트폴리오 및 협업 고려 전략
+- Unity 개발·QA·Profiler·자동 테스트
+- Keyboard/Mouse·Gamepad Debug Adapter
+- 포트폴리오 Video·Screenshot
+- 필요 시 itch.io Demo
 
-포트폴리오와 추후 협업 가능성까지 고려하면 아래 구조를 권장한다.
+Windows 결과만으로 모바일 작업을 승인하지 않는다.
 
-```text
-main
-develop
-feature/*
-fix/*
-release/*
-```
+### Steam·iOS
 
-| 브랜치 | 역할 |
+- Android Full Release 안정화 후 별도 제품화 비용과 유지보수 영향을 평가한다.
+
+## 11. 제작 도구 역할
+
+### ComfyUI Cloud MCP
+
+- 2D 캐릭터·환경·몬스터·VFX 후보
+- Workflow·Seed·Model·Metadata 기록
+
+### Figma Remote MCP
+
+- 캐릭터 Approved 제작 시트
+- Mobile UI Design System·Wireframe
+- Android 화면비·Safe Area·Touch 영역
+
+### Blender MCP
+
+- 3D Blockout·소품·Rig·Animation·FBX Export 보조
+- 얼굴·Retopology·UV·Weight·관통은 사람 검수
+
+### Coplay MCP
+
+- Unity Scene·Prefab·Component·Material·Animator Batch 편집
+- Import 설정·Reference 연결·Scene 배치
+
+### GitHub MCP
+
+- Branch·Commit·PR·Issue
+- 문서·Backlog·승인 자산·출시 이력
+
+### Unity Editor Script·Preset
+
+- Import Property 고정
+- Material·Texture 연결 자동화
+- Prefab·Socket·Collider·Missing Reference 검사
+
+### Unity 수동 검수
+
+- Inspector·Console·Prefab Diff
+- PlayMode·Profiler
+- Android APK·실기기 입력·가독성·발열·Memory
+
+Aura AI는 체험 이후 유료 사용이 필요한 구조이므로 필수 도구에서 제외한다.
+
+## 12. Coplay 운영 규칙
+
+- 대상 Scene·Prefab·파일을 명확히 지정한다.
+- 가능한 작업은 Batch Operation으로 묶는다.
+- 변경 후 Diff·Summary·Console을 확인한다.
+- 반복 Import·검증은 Editor Script 또는 Preset으로 승격한다.
+- 성공 여부는 Android APK·Unity Console·Prefab Diff·PlayMode로 판단한다.
+
+## 13. 작업 ID
+
+| Prefix | 분야 |
 |---|---|
-| `main` | 안정된 데모 버전 |
-| `develop` | 개발 통합 브랜치 |
-| `feature/*` | 기능 개발 |
-| `fix/*` | 버그 수정 |
-| `release/*` | 데모 배포 준비 |
+| `PROJ-` | 문서·저장소·플랫폼 기준 |
+| `DEV-` | Unity·Build·기술 기반 |
+| `GAME-` | 게임 루프 |
+| `MOB-` | Android Touch·Lifecycle·기기 검증 |
+| `CHR-PROT-` | 캐릭터 플레이 프로토타입 |
+| `ART-PIPE-` | 아트 파이프라인 |
+| `ART-2D-` | 캐릭터 2D |
+| `ART-3D-` | 캐릭터 3D |
+| `ART-ENV-` | 환경·몬스터·소품 |
+| `ART-UI-` | 모바일 UI |
+| `ART-VFX-` | VFX |
+| `TEST-` | 내부·외부 검증 |
+| `VS-` | Android Vertical Slice |
+| `REL-` | Closed Test·Store·QA·출시 |
+| `PROD-` | Android Full Release 콘텐츠 |
+| `PORT-` | Windows·Steam·iOS 후속 Port |
 
-현재 Re:Camp에서는 아래 전략을 기본으로 한다.
-
-```text
-main
-develop
-feature/*
-```
-
-예시:
-
-```text
-main
-develop
-feature/project-setup
-feature/core-loop
-feature/player-controller
-feature/enemy-system
-feature/skill-system
-feature/camp-system
-```
-
----
-
-## 5. 커밋 메시지 규칙
-
-커밋 메시지는 다음 타입을 사용한다.
+## 14. Branch 전략
 
 ```text
-feat: 새로운 기능 추가
-fix: 버그 수정
-docs: 문서 수정
-style: 코드 포맷 수정
-refactor: 구조 개선
-test: 테스트 추가
-chore: 설정/빌드/기타 작업
-art: 아트 리소스 추가
-balance: 밸런스 수치 수정
+main       안정된 APK·Demo·Release와 승인 문서·자산
+agent/*    ChatGPT·Codex 작업
+feature/*  기능 개발
+art/*      아트 작업
+fix/*      버그 수정
+release/*  Closed Test·Android Release 준비
 ```
 
-예시:
+## 15. 코드 작업 순서
 
 ```text
-feat: 플레이어 이동 시스템 구현
-feat: 기본 공격 판정 추가
-docs: MVP 범위 문서 작성
-art: 루나 캐릭터 콘셉트 이미지 추가
-balance: 몬스터 체력 수치 조정
-refactor: 전투 상태 관리 구조 분리
+Backlog ID 확인
+→ 관련 Core·Spec 확인
+→ 최소 구현
+→ EditMode·PlayMode Test
+→ Windows Editor 검증
+→ Android APK 실기기 검증
+→ Console·Profiler 확인
+→ Backlog 상태·결과 링크
+→ Commit·PR
 ```
 
----
-
-## 6. Unity Git 설정
-
-Unity에서 아래 설정을 적용한다.
+## 16. 아트 작업 순서
 
 ```text
-Edit
-→ Project Settings
-→ Editor
+Direction Approved
+→ ComfyUI 후보·Metadata
+→ Figma Approved 제작 시트
+→ Blender Blockout·FBX
+→ Coplay Import·Prefab
+→ Editor Script·Preset 검증
+→ Android Camera·실기기 Review
+→ 최종 모델·Rig·Animation
+→ Character Proof
 ```
 
-설정값:
+루나 Proof 전 나머지 캐릭터 최종 모델을 대량 제작하지 않는다.
+
+## 17. 출시 작업 순서
 
 ```text
-Version Control Mode: Visible Meta Files
-Asset Serialization Mode: Force Text
+Android Vertical Slice 승인
+→ APK 제한 테스트
+→ 설치·입력·Save·Lifecycle QA
+→ Google Play Closed Test
+→ Full Release 콘텐츠 Scope Lock
+→ Release Candidate
+→ Store Listing·아이콘·Screenshot·Trailer
+→ Android 정식 공개
+→ 30일 운영 결과 분석
 ```
 
-이 설정은 Unity의 `.meta` 파일을 Git으로 관리하고, Scene/Prefab 변경사항을 텍스트 기반으로 추적하기 위해 필요하다.
-
----
-
-## 7. Git LFS 설정
-
-Unity 프로젝트는 이미지, 사운드, FBX, PSD 같은 바이너리 파일이 많으므로 Git LFS 사용을 권장한다.
-
-### 7.1 LFS 관리 대상
-
-```text
-*.png
-*.jpg
-*.jpeg
-*.psd
-*.fbx
-*.wav
-*.mp3
-*.ogg
-*.mp4
-*.mov
-*.blend
-*.ai
-*.clip
-```
-
-### 7.2 .gitattributes 예시
-
-```text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
-*.psd filter=lfs diff=lfs merge=lfs -text
-*.fbx filter=lfs diff=lfs merge=lfs -text
-*.blend filter=lfs diff=lfs merge=lfs -text
-*.wav filter=lfs diff=lfs merge=lfs -text
-*.mp3 filter=lfs diff=lfs merge=lfs -text
-*.ogg filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
-*.mov filter=lfs diff=lfs merge=lfs -text
-```
-
-대용량 원본 PSD, 영상, 미사용 리소스는 저장소에 바로 넣지 않는다.  
-초기에는 실제 사용 리소스와 문서 중심으로 관리한다.
-
----
-
-## 8. Unity용 .gitignore 기준
-
-Unity에서 Git에 올리지 않을 항목은 다음과 같다.
-
-```text
-Library/
-Temp/
-Obj/
-Build/
-Builds/
-Logs/
-UserSettings/
-.vs/
-.idea/
-```
-
-반드시 Git에 포함해야 하는 항목:
-
-```text
-Assets/
-Packages/
-ProjectSettings/
-*.meta
-README.md
-AGENT.md
-docs/
-tables/
-planning/
-```
-
----
-
-## 9. Issue 및 Milestone 구성
-
-### 9.1 Milestone
-
-```text
-M0. 프로젝트 세팅
-M1. 코어 루프 프로토타입
-M2. MVP 완성
-M3. 데모 완성
-M4. 포트폴리오 빌드
-```
-
-### 9.2 Issue Label
-
-```text
-type: feature
-type: bug
-type: docs
-type: art
-type: balance
-type: qa
-priority: high
-priority: medium
-priority: low
-system: combat
-system: exploration
-system: ui
-system: camp
-system: data
-```
-
----
-
-## 10. 첫 번째 개발 목표
-
-처음에는 전체 게임을 만들려고 하지 않는다.  
-가장 먼저 전투 1판이 완전히 돌아가게 만든다.
-
-```text
-캐릭터가 움직인다
-몬스터가 나온다
-공격이 된다
-몬스터가 죽는다
-자원을 얻는다
-결과 화면으로 간다
-다시 로비로 돌아온다
-```
-
-이것이 Re:Camp의 첫 번째 완성 단위다.
-
----
-
-## 11. 개발 Phase
-
-### Phase 0. 프로젝트 세팅
-
-```text
-1. GitHub 저장소 생성
-2. Unity 프로젝트 생성
-3. .gitignore 추가
-4. .gitattributes 추가
-5. Git LFS 설정
-6. README.md 추가
-7. docs/ 폴더 추가
-8. main / develop 브랜치 생성
-```
-
-### Phase 1. Unity 기본 구조
-
-```text
-1. Bootstrap Scene 생성
-2. Title Scene 생성
-3. Lobby Scene 생성
-4. Battle Scene 생성
-5. Result Scene 생성
-6. Scene 이동 구조 구현
-7. GameManager 생성
-8. UIManager 생성
-9. SaveManager 생성
-```
-
-### Phase 2. 플레이어 조작
-
-```text
-1. PlayerController 구현
-2. 이동 입력 처리
-3. 모바일 가상 조이스틱 적용
-4. 캐릭터 애니메이션 연결
-5. 카메라 추적 구현
-6. 체력 UI 연결
-```
-
-### Phase 3. 전투 기본
-
-```text
-1. 기본 공격 구현
-2. 적 피격 처리
-3. 적 사망 처리
-4. 데미지 표시
-5. 쿨타임 처리
-6. 피격 이펙트 적용
-```
-
-### Phase 4. 몬스터 시스템
-
-```text
-1. EnemyController 구현
-2. 플레이어 추적 AI
-3. 몬스터 스폰 시스템
-4. 몬스터 체력/공격력 데이터화
-5. 웨이브 생성
-6. 보스 몬스터 기본 구조
-```
-
-### Phase 5. 탐험/보상 루프
-
-```text
-1. 자원 드랍
-2. 자원 획득 처리
-3. 탐험 제한 시간
-4. 귀환 버튼
-5. 사망 처리
-6. 결과 화면
-7. 획득 보상 정산
-```
-
-### Phase 6. 성장 시스템
-
-```text
-1. 캐릭터 레벨업
-2. 스킬 선택
-3. 스킬 강화
-4. 캠프 시설 업그레이드
-5. 저장/불러오기
-```
-
----
-
-## 12. C# 코드 구조
-
-초기 C# 스크립트는 다음 구조를 기준으로 작성한다.
-
-```text
-Scripts/
-├── Core/
-│   ├── GameManager.cs
-│   ├── SceneLoader.cs
-│   └── ServiceLocator.cs
-│
-├── GameFlow/
-│   ├── GameState.cs
-│   ├── BattleState.cs
-│   └── ResultState.cs
-│
-├── Player/
-│   ├── PlayerController.cs
-│   ├── PlayerStats.cs
-│   └── PlayerAttack.cs
-│
-├── Enemy/
-│   ├── EnemyController.cs
-│   ├── EnemySpawner.cs
-│   └── EnemyStats.cs
-│
-├── Combat/
-│   ├── Damageable.cs
-│   ├── DamageData.cs
-│   └── HitDetector.cs
-│
-├── Skill/
-│   ├── SkillBase.cs
-│   ├── SkillManager.cs
-│   └── SkillData.cs
-│
-├── Item/
-│   ├── DropItem.cs
-│   └── ItemData.cs
-│
-├── Camp/
-│   ├── CampManager.cs
-│   └── CampFacilityData.cs
-│
-├── UI/
-│   ├── UIManager.cs
-│   ├── LobbyUI.cs
-│   ├── BattleUI.cs
-│   └── ResultUI.cs
-│
-├── Data/
-│   ├── CharacterData.cs
-│   ├── EnemyData.cs
-│   ├── StageData.cs
-│   └── GameDatabase.cs
-│
-└── Save/
-    ├── SaveManager.cs
-    └── SaveData.cs
-```
-
----
-
-## 13. 데이터 관리 방식
-
-초기 MVP에서는 `ScriptableObject` 기반 데이터 관리를 사용한다.
-
-대상 데이터:
-
-```text
-CharacterData
-SkillData
-EnemyData
-ItemData
-StageData
-CampFacilityData
-```
-
-### CharacterData 예시
-
-```csharp
-using UnityEngine;
-
-[CreateAssetMenu(menuName = "ReCamp/Data/Character")]
-public class CharacterData : ScriptableObject
-{
-    public string characterId;
-    public string displayName;
-    public int maxHp;
-    public float moveSpeed;
-    public int attackPower;
-    public Sprite portrait;
-}
-```
-
-초기에는 ScriptableObject가 가장 빠르다.  
-데이터가 많아지면 CSV, Google Sheet, JSON 방식으로 확장한다.
-
----
-
-## 14. 초기 작업 순서
-
-```text
-1. 저장소 생성
-2. Unity에서 ReCamp 프로젝트 생성
-3. Unity 프로젝트 폴더에 .gitignore 추가
-4. Git LFS 초기화
-5. README.md 추가
-6. docs/와 tables/ 추가
-7. 첫 커밋 생성
-8. develop 브랜치 생성
-9. M0 프로젝트 세팅 Issue 생성
-10. feature/project-setup 브랜치에서 작업 시작
-```
-
-첫 커밋 예시:
-
-```text
-chore: initialize ReCamp Unity project
-```
-
-문서 커밋 예시:
-
-```text
-docs: add initial game design documents
-```
-
-개발 시작 커밋 예시:
-
-```text
-feat: add bootstrap scene flow
-```
-
----
-
-## 15. 최종 개발 방향
-
-```text
-저장소:
-GitHub 단일 저장소
-
-브랜치:
-main / develop / feature/*
-
-문서:
-docs/에 기획서와 개발 문서 보관
-
-데이터:
-tables/에는 md 테이블
-Unity 내부에는 ScriptableObject
-
-아트:
-art_refs/에는 레퍼런스
-Assets/_ReCamp/Art에는 실제 사용 리소스
-
-개발 목표:
-전투 1판이 완전히 돌아가는 MVP부터 구현
-```
-
----
-
-## 16. Re:Camp 초기 개발 순서
-
-```text
-1. 저장소 세팅
-2. Unity 프로젝트 세팅
-3. 씬 흐름 구성
-4. 플레이어 이동
-5. 몬스터 스폰
-6. 기본 전투
-7. 자원 획득
-8. 결과 화면
-9. 캠프 성장
-10. 저장 기능
-```
-
-이 순서대로 개발하면 기획서에서 실제 구현까지 자연스럽게 이어진다.
+## 18. Git·Asset 규칙
+
+- `.meta` 파일 Commit
+- `Library`, `Temp`, `Logs`, `obj`, `Build` 제외
+- 대형 원본은 Git LFS 확인
+- WIP와 APPROVED 파일을 같은 이름으로 덮어쓰지 않음
+- 원본과 Export 분리
+- AI 생성 자산에 Tool·Model·Seed·Input·Human Edit·License 기록
+
+## 19. 테스트 원칙
+
+- Core 규칙은 Unity 비종속 Test 우선
+- Scene 흐름은 PlayMode Test
+- Save·Reward·Camp Upgrade 자동 Test
+- Touch Input·Pause·Resume·중복 보상 Test
+- 실제 APK가 없으면 모바일 기능을 Done으로 처리하지 않음
+- Profiler 측정 없이 성능 작업을 Done으로 처리하지 않음
+
+## 20. 범위 통제
+
+상세 기준은 `planning/SCOPE_AND_RISK_RULES.md`를 따른다.
+
+Android Vertical Slice 승인 전 시작하지 않는다.
+
+- 나머지 4명 최종 모델
+- 두 번째 스테이지 최종 환경
+- 친밀도·개인 에피소드
+- 복잡한 장비·스킨
+- Steam·iOS 동시 출시 작업
