@@ -1,4 +1,4 @@
-namespace ReCamp.Core
+namespace ReCamp.Runtime
 {
     public enum RunState
     {

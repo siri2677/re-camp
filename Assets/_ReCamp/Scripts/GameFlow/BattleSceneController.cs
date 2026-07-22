@@ -1,7 +1,7 @@
 using System.Collections;
 using ReCamp.Camp;
 using ReCamp.Combat;
-using ReCamp.Core;
+using ReCamp.Runtime;
 using ReCamp.Item;
 using ReCamp.Player;
 using UnityEngine;

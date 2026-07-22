@@ -10,17 +10,22 @@ namespace ReCamp.Tests.PlayMode
 {
     public sealed class CampRewardPersistenceRuntimeTests
     {
-        private const string CampSaveKey = "ReCamp.CampSave.v1";
+        private const string LegacyCampSaveKey = "ReCamp.CampSave.v1";
+        private const string CampSaveKey = "ReCamp.CampSave.v2";
 
         private GameObject campObject;
-        private bool hadOriginalSave;
-        private string originalSave;
+        private bool hadOriginalLegacySave;
+        private bool hadOriginalCurrentSave;
+        private string originalLegacySave;
+        private string originalCurrentSave;
 
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            hadOriginalSave = PlayerPrefs.HasKey(CampSaveKey);
-            originalSave = hadOriginalSave ? PlayerPrefs.GetString(CampSaveKey) : null;
+            hadOriginalLegacySave = PlayerPrefs.HasKey(LegacyCampSaveKey);
+            originalLegacySave = hadOriginalLegacySave ? PlayerPrefs.GetString(LegacyCampSaveKey) : null;
+            hadOriginalCurrentSave = PlayerPrefs.HasKey(CampSaveKey);
+            originalCurrentSave = hadOriginalCurrentSave ? PlayerPrefs.GetString(CampSaveKey) : null;
 
             foreach (var camp in Object.FindObjectsByType<CampManager>(
                          FindObjectsInactive.Include,
@@ -40,7 +45,8 @@ namespace ReCamp.Tests.PlayMode
                 workbenchLevel = 1,
                 foodStorageLevel = 1,
             };
-            PlayerPrefs.SetString(CampSaveKey, JsonUtility.ToJson(seed));
+            PlayerPrefs.DeleteKey(CampSaveKey);
+            PlayerPrefs.SetString(LegacyCampSaveKey, JsonUtility.ToJson(seed));
             PlayerPrefs.Save();
         }
 
@@ -54,9 +60,18 @@ namespace ReCamp.Tests.PlayMode
                 yield return null;
             }
 
-            if (hadOriginalSave)
+            if (hadOriginalLegacySave)
             {
-                PlayerPrefs.SetString(CampSaveKey, originalSave);
+                PlayerPrefs.SetString(LegacyCampSaveKey, originalLegacySave);
+            }
+            else
+            {
+                PlayerPrefs.DeleteKey(LegacyCampSaveKey);
+            }
+
+            if (hadOriginalCurrentSave)
+            {
+                PlayerPrefs.SetString(CampSaveKey, originalCurrentSave);
             }
             else
             {
@@ -95,6 +110,7 @@ namespace ReCamp.Tests.PlayMode
             Assert.That(persisted.generatorLevel, Is.EqualTo(2));
             Assert.That(persisted.workbenchLevel, Is.EqualTo(1));
             Assert.That(persisted.foodStorageLevel, Is.EqualTo(1));
+            Assert.That(PlayerPrefs.HasKey(CampSaveKey), Is.True, "v1 data should be migrated to the v2 key.");
         }
     }
 }

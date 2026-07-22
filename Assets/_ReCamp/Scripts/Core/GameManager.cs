@@ -5,7 +5,7 @@ using ReCamp.GameFlow;
 using ReCamp.Item;
 using UnityEngine;
 
-namespace ReCamp.Core
+namespace ReCamp.Runtime
 {
     public sealed class GameManager : MonoBehaviour
     {

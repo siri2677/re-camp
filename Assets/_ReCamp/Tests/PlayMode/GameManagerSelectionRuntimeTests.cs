@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using ReCamp.Camp;
-using ReCamp.Core;
+using ReCamp.Runtime;
 using ReCamp.Data;
 using UnityEngine;
 using UnityEngine.TestTools;

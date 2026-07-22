@@ -1,12 +1,7 @@
 {
-  "name": "ReCamp.Runtime",
-  "rootNamespace": "ReCamp",
-  "references": [
-    "Unity.InputSystem",
-    "UnityEngine.UI",
-    "ReCamp.UnityAdapter",
-    "ReCamp.Domain"
-  ],
+  "name": "ReCamp.UnityAdapter",
+  "rootNamespace": "ReCamp.UnityAdapter",
+  "references": ["ReCamp.Domain"],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

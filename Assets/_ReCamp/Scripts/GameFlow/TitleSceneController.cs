@@ -1,4 +1,4 @@
-using ReCamp.Core;
+using ReCamp.Runtime;
 using UnityEngine;
 
 namespace ReCamp.GameFlow

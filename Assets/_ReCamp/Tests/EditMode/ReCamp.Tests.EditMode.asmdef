@@ -2,7 +2,9 @@
   "name": "ReCamp.Tests.EditMode",
   "rootNamespace": "ReCamp.Tests.EditMode",
   "references": [
-    "ReCamp.Runtime"
+    "ReCamp.Runtime",
+    "ReCamp.Domain",
+    "ReCamp.UnityAdapter"
   ],
   "includePlatforms": [
     "Editor"
