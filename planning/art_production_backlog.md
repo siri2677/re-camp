@@ -8,7 +8,7 @@
 |---|---|---:|---|---|
 | ART-0001 | 통합 Art Direction | High | Done | 2D 일반 등신·3D 4~5등신 SD-lite·쿼터뷰 문서화 |
 | ART-0002 | 성인 여성 5인 Character Bible | High | Done | 캐릭터·테이블 설정 일치 |
-| ART-0003 | 성인 여성 5인·남성향 라인업 `REVIEW v003` | High | Review | 원본 전투 콘셉트 기반 교정 완료, 사람 승인 필요 |
+| ART-0003 | 성인 여성 5인·남성향 라인업 `REVIEW v003` | High | Review | Gate A `FAIL` 권고 기록; 역할 모티프·얼굴·실루엣 교정 후 사람 재검토 |
 | ART-0004 | MCP 제작·승인 가이드 | High | Done | 도구 역할과 승인 절차 정의 |
 | ART-0005 | 자산 구조·상태·이름 규칙 | High | Done | WIP/REVIEW/APPROVED와 경로 정의 |
 | ART-0006 | AI 생성 메타데이터 양식 | Medium | Done | 도구·모델·Seed·입력·수정·권리 기록 |
@@ -20,13 +20,15 @@
 | ID | 작업 | 우선순위 | 상태 | 완료 기준 |
 |---|---|---:|---|---|
 | ART-0101 | 현재 이미지 생성 도구 기반 반복 워크플로 | High | Review | 원본 앵커와 전원 성인 여성 회귀 조건으로 반복 가능 |
-| ART-0102 | 도구 비종속 캐릭터 앵커·메타데이터 규칙 | High | Todo | 얼굴·헤어·의상·색상 고정 항목 정의 |
-| ART-0103 | Figma 캐릭터 제작 시트 템플릿 | High | Ready | 전신·표정·Turnaround·장비·팔레트 프레임 완성 |
-| ART-0104 | Blender MCP 소품 생성·FBX Export | Medium | Blocked | 런타임 연결 후 테스트 소품 저장·Export 성공 |
-| ART-0105 | FBX Import·Material·Prefab 테스트 | Medium | Todo | 테스트 FBX가 Unity Prefab으로 동작 |
+| ART-0102 | 도구 비종속 캐릭터 앵커·메타데이터 규칙 | High | Done | `CHARACTER_ANCHOR_SPEC.md`에 얼굴·헤어·실루엣·의상·장비·팔레트와 회귀 조건 확정 |
+| ART-0103 | Figma 캐릭터 제작 시트 템플릿 | High | Review | `CHARACTER_SHEET_TEMPLATE_SPEC.md`·6-Frame SVG 완료, Figma Import·Component·Export 검증 필요 |
+| ART-0104 | Blender MCP 소품 생성·FBX Export | Medium | Ready | ART-0109 명명 규격으로 테스트 소품 저장·Export 성공 |
+| ART-0105 | FBX Import·Material·Prefab 테스트 | Medium | Todo | ART-0104·0109 결과가 Unity Prefab으로 동작 |
 | ART-0106 | `art_source/` 디렉터리 | Medium | Done | figma_exports·blender·textures·comfyui_workflows 존재 |
-| ART-0107 | Gate A/B/C 리뷰 체크리스트 | High | Ready | 모든 Review 자산에 같은 체크리스트 적용 |
+| ART-0107 | Gate A/B/C 리뷰 체크리스트 | High | Done | `ART_REVIEW_CHECKLIST.md`를 모든 Review 자산의 공통 판정표로 사용 |
 | ART-0108 | ComfyUI·ComfyUI MCP 고정 워크플로 | Low | Deferred | 대량 일관성·정밀 인페인팅·고정 Seed/LoRA/ControlNet/IP-Adapter가 병목일 때만 Ready |
+| ART-0109 | `ASSET_NAMING_GUIDE.md` | High | Done | 이미지·Blender·FBX·Unity·Prefab·Material·Socket 이름과 버전·Export·GUID 규칙 확정 |
+| ART-0110 | `ANIMATION_GUIDE.md` | Medium | Done | 공용/전용 상태·in-place·Animator·Event·Socket·파일·Import·Gate 규칙 확정 |
 
 로컬 모델 보유, GPU 준비, ComfyUI 설치는 현재 완료 조건이나 개발 선행 조건이 아니다.
 
@@ -106,7 +108,7 @@
 
 | ID | 작업 | 상태 | 선행 조건 | 완료 기준 |
 |---|---|---|---|---|
-| ART-2001 | `CHARACTER_3D_SPEC.md` | Todo | ART-1008 | 비율·폴리곤·Texture·Rig·LOD·Shader 규격 확정 |
+| ART-2001 | `CHARACTER_3D_SPEC.md`·Unity Presentation 계약 | Todo | ART-1008 | 비율·성능 예산·Rig·LOD·Shader와 Character ID→Prefab/Portrait/Icon/VFX 연결 규격 확정 |
 | ART-2002 | 공용 4~5등신 SD-lite Base Mesh | Todo | ART-2001 | 5명에게 재사용 가능한 베이스 |
 | ART-2003 | 공용 Humanoid Rig | Todo | ART-2002 | Unity Humanoid Avatar 정상 생성 |
 | ART-2004 | 공용 Toon Shader·Material 규칙 | Todo | Unity 기반 | 얼굴·눈·헤어·의상 슬롯 규칙 확정 |
@@ -114,7 +116,7 @@
 | ART-2006 | 루나 Unity Gate C | Todo | ART-2005, ART-0105 | 얼굴·후드·단검 식별성 승인 |
 | ART-2007 | 루나 최종 모델·Texture | Todo | ART-2006 | Approved 2D 시트와 일치 |
 | ART-2008 | Rig·Weight·표정 | Todo | ART-2007 | 기본 동작과 표정의 치명적 변형 없음 |
-| ART-2009 | 대표 애니메이션 | Todo | ART-2008 | Idle·Run·Attack·Dash·Skill·Hit·Victory |
+| ART-2009 | 대표 애니메이션 | Todo | ART-2008, ART-0110 | Idle·Run·Attack·Dash·Skill·Hit·Victory |
 | ART-2010 | VFX·사운드·Prefab 통합 | Todo | ART-2009 | 로비·선택·전투 정상 동작 |
 | ART-2011 | 타깃 사용자 매력 검증 | Todo | ART-2010 | 평가와 개선점 기록 |
 
@@ -147,7 +149,7 @@
 |---|---|---|---|
 | ART-4001 | UI Design System | Todo | 버튼·패널·폰트·간격·컬러 토큰 정의 |
 | ART-4002 | 로비·캐릭터 선택 UI | Todo | 5명 정보와 매력이 명확히 전달됨 |
-| ART-4003 | 전투 HUD·스킬 선택 UI | Todo | PC 가독성, 모바일 확장성 확보 |
+| ART-4003 | 전투 HUD·스킬 선택 UI | Todo | Android Landscape Touch·Safe Area 가독성 확보, Windows 개발 입력 회귀 없음 |
 | ART-4004 | 결과·캠프 강화 UI | Todo | 보상과 성장 피드백 명확 |
 | ART-4005 | 캐릭터별 VFX 언어 시트 | Todo | 5명의 색상과 형태 언어 구분 |
 | ART-4006 | 로고·스토어 Key Art | Todo | 캐릭터 중심 메시지 전달 |

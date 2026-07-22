@@ -4,15 +4,17 @@
 
 ## 작업 시작 순서
 
-1. `sprint_backlog.md`의 현재 P0 실행 큐를 확인한다.
-2. 첫 `Ready` 또는 `In Progress` 항목 하나를 선택한다.
-3. 작업 ID와 완료 조건을 확인한 뒤 필요한 `docs/`·`tables/` 문서만 읽는다.
-4. 기능·아트·최소 관련 문서를 함께 갱신한다.
-5. Unity 작업은 compile, `_ReCamp` Console, EditMode/PlayMode 결과를 남긴다.
-6. 아트는 사람 승인 전까지 `APPROVED`로 표시하지 않는다.
+1. 제품·플랫폼·비주얼 방향이 필요한 작업은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`를 확인한다.
+2. `sprint_backlog.md`의 현재 P0 실행 큐를 확인한다.
+3. 첫 `In Progress`, 없으면 첫 `Ready` 항목 하나를 선택한다.
+4. 작업 ID와 완료 조건을 확인한 뒤 필요한 `docs/`·`tables/` 문서만 읽는다.
+5. 기능·아트·최소 관련 문서를 함께 갱신한다.
+6. Unity 작업은 compile, `_ReCamp` Console, EditMode/PlayMode 결과를 남긴다.
+7. 아트는 사람 승인 전까지 `APPROVED`로 표시하지 않는다.
 
 ## 고정 제품 방향
 
+- 1차 제품 목표는 Google Play Android 가로형 출시이며 Windows는 개발·자동 테스트 기준이다.
 - 플레이어블 로스터는 루나·미유·코코·이리스·노아, 성인 여성 5명으로 구성한다.
 - 타깃은 남성향 서브컬처이며, 캐릭터의 매력과 역할 구분을 우선한다.
 - 2D는 일반 등신, 3D는 4~5등신 SD-lite 스타일을 사용한다.
@@ -26,6 +28,7 @@
 
 | 문서 | 역할 | 확인 시점 |
 |---|---|---|
+| `docs/00_project/CURRENT_PROJECT_BASELINE.md` | 제품·플랫폼·비주얼·현재 Gate의 단일 기준 | 방향 충돌 또는 큰 단계 결정 |
 | `roadmap.md` | 개발·아트·출시 마일스톤과 승인 게이트 | 큰 단계와 우선순위 결정 |
 | `sprint_backlog.md` | 실제 작업 순서와 상태의 단일 기준 | 매 작업 시작 전 |
 | `IMPLEMENTATION_STATUS.md` | 계획 ID와 로컬 구현·검증 근거 대응표 | 구현·검증 후 |
@@ -37,12 +40,19 @@
 
 | 분야 | 기준 문서 |
 |---|---|
+| 현재 프로젝트 기준 | `docs/00_project/CURRENT_PROJECT_BASELINE.md` |
 | 게임 콘셉트 | `docs/01_game_design/GAME_CONCEPT.md` |
 | MVP 범위 | `docs/01_game_design/MVP_SCOPE.md` |
 | 캐릭터 설정 | `docs/05_art_concept/CHARACTER_BIBLE.md` |
+| 캐릭터 제작 앵커 | `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md` |
+| 캐릭터 제작 시트 템플릿 | `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md` |
+| 아트 Gate 리뷰 | `docs/05_art_concept/ART_REVIEW_CHECKLIST.md` |
+| 현재 5인 라인업 판정 | `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md` |
 | 공통 아트 방향 | `docs/05_art_concept/ART_DIRECTION.md` |
 | 아트 MCP 파이프라인 | `docs/05_art_concept/ART_PRODUCTION_MCP_GUIDE.md` |
 | 아트 디렉터리·승인 규칙 | `docs/05_art_concept/ART_ASSET_STRUCTURE.md` |
+| 아트 자산·Export 명명 계약 | `docs/05_art_concept/ASSET_NAMING_GUIDE.md` |
+| 공용·캐릭터 Animation 계약 | `docs/05_art_concept/ANIMATION_GUIDE.md` |
 | 캐릭터·스킬·몬스터 수치 | `tables/` |
 
 ## 상태

@@ -37,8 +37,9 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 
 - v001: `Invalid` — 거의 빈 이미지, LFS raw blob
 - v002: `Rejected` — 전원 여성 조건 누락, 원본 이미지 미참조
-- v003: 원본 전투 콘셉트와 전원 성인 여성 조건으로 교정, 사람 Review 대기
-- 실루엣·색상·무기와 남성향 매력 적합성 사람 승인 필요
+- v003: 원본 전투 콘셉트와 전원 성인 여성 조건으로 교정했으나 Gate A `FAIL` 권고, 상태는 `REVIEW` 유지
+- 루나↔코코 의료 모티프, 미유↔이리스 색, 코코↔노아 방패 인상과 5인 얼굴·실루엣 차별화 수정 필요
+- 캐릭터별 WIP의 흑백 실루엣·128px 얼굴·저채도 비교 후 사람 승인 필요
 
 ## A1. 반복 가능한 파이프라인 — In Progress
 
@@ -48,11 +49,15 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 - `art_source/`와 Unity Art 구조
 - 생성 메타데이터 companion 규칙
 - WIP / REVIEW / APPROVED 승인 흐름
+- 5인 도구 비종속 캐릭터 앵커·회귀 규칙
+- 캐릭터·환경·UI/VFX Gate A/B/C 공통 리뷰 체크리스트
+- 캐릭터 제작 시트 6-Frame 규격과 Figma import용 SVG v001
+- 이미지→Blender→Unity 자산·Export·LOD·Socket·GUID 명명 규격
+- 공용·5인 고유 Motion, Animator, Event·장비·Unity Import 규격
 
 ### 남은 작업
 
-- 현재 이미지 생성 도구용 캐릭터 앵커·입력 참조 규칙
-- Figma 제작 시트 템플릿
+- Figma 실제 Import·Component Clone·PNG/PDF Export와 사람 사용성 검토
 - Blender MCP 소품 Export와 저장 규칙
 - FBX → Unity Import·Material·Prefab 테스트
 - ComfyUI 고정 워크플로는 `Deferred`
@@ -96,10 +101,12 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 
 ## A4. 공용 3D 기반 — Todo
 
+- Character ID별 Visual Prefab·Portrait·Icon·VFX·Audio를 분리 연결하는 Unity Presentation 정의
+- 기능 Root 아래 교체 가능한 `CharacterVisual` Prefab과 장비·VFX 소켓 계약
 - 공용 4~5등신 SD-lite Base Mesh와 Humanoid 호환 Rig
 - 얼굴·눈·헤어·의상 Toon Shader와 Material 슬롯 규칙
 - 공용 Animator와 Idle·Walk·Run·Hit·Down 애니메이션
-- 물리 본·Collider·폴리곤·Texture·LOD 규칙
+- 목표 기기·프레임과 물리 본·Collider·폴리곤·Texture·LOD·VFX 예산
 - Unity 캐릭터 Prefab 템플릿
 
 루나에서 검증된 구조로 다른 캐릭터 Blockout을 만들고 공용 이동·피격 애니메이션을 재사용할 수 있어야 한다.
@@ -134,7 +141,7 @@ Gray Box 환경
 - 둥근 패널·얇은 외곽선·가벼운 글래스 기반 Design System
 - 타이틀·로비·캐릭터 선택·정보·친밀도·대화
 - 전투 HUD·스킬 선택·결과·정산·캠프 강화
-- PC 가독성 우선, 모바일 터치 확장성 유지
+- Android Landscape Touch·Safe Area 가독성을 제품 기준으로 하고 Windows Editor 입력을 개발·QA용으로 유지
 
 ### 캐릭터 VFX 언어
 

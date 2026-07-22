@@ -17,7 +17,8 @@ APPROVED 개별 캐릭터 제작 시트
 ## 현재 기준 파일
 
 - `moodboard/battle_vertical_slice_concept.png`: 기존 원본 전투 콘셉트. 캐릭터 감성, SD 비율, 쿼터뷰, 환경, 색 대비의 `PRIMARY REVIEW` 앵커다.
-- `art_direction/ReCamp_CharacterLineup_REVIEW_v003.png`: 원본을 참조해 전원 성인 여성 5인과 4~4.5등신 SD-lite 방향을 교정한 파생 `REVIEW` 라인업이다.
+- `art_direction/ReCamp_CharacterLineup_REVIEW_v003.png`: 원본을 참조해 전원 성인 여성 5인과 4~4.5등신 SD-lite 방향을 교정한 파생 `REVIEW` 라인업이다. Gate A 자동 리뷰 권고는 `FAIL`이며 사람 재검토가 남았다.
+- `art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md`: 모티프 충돌·얼굴·실루엣 수정 지시와 Unity 적용 제한을 기록한다.
 - `art_direction/ReCamp_CharacterLineup_REJECTED_v002.png`: 남성 캐릭터가 포함되고 원본 계보를 따르지 않은 실패 기록이다. 제작 레퍼런스로 사용하지 않는다.
 - 각 이미지의 `*.metadata.md`: 생성 도구, 입력 레퍼런스, 프롬프트, 판정과 사용 제한을 기록한다.
 

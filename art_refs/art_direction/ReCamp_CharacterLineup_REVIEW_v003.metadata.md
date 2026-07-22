@@ -53,6 +53,20 @@ Constraints: no men, boys, male-presenting or androgynous characters; no childre
 - 공용 Humanoid 호환을 위해 팔·다리 길이를 어느 정도 보정할지
 - 루나의 단검, 미유의 드론, 코코의 의료 방패, 이리스의 장총, 노아의 대형 방패를 3D 제작 가능한 구조로 단순화할지
 
+## Automated Gate Review — 2026-07-19
+
+- Review Record: `ReCamp_CharacterLineup_REVIEW_v003.review.md`
+- Reviewer: Codex assistant review recommendation
+- Gate A Decision: `FAIL`
+- Asset Status: `REVIEW` 유지
+- Human Approval: `Pending`
+- 3D SD-lite 방향 후보: `CONDITIONAL`
+- 2D 일반 등신 제작 시트, Gate B, Gate C: 현재 사용 불가 또는 `NOT TESTED`
+
+주요 차단 항목은 루나의 의료 십자가가 코코의 전용 모티프를 침범하는 점, 미유·이리스의
+보라 계열 중첩, 코코·노아의 방패 인상 중첩, 5인의 얼굴·체형·표정 차이가 작은 점이다.
+수정본은 통합 이미지를 바로 고정하지 않고 캐릭터별 WIP에서 먼저 검증한다.
+
 ## Usage Restriction
 
 - 캐릭터 방향 비교와 Luna 개별 WIP 제작의 참고로만 사용

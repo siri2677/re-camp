@@ -13,12 +13,18 @@
 
 | 순서 | ID | 작업 | 상태 | 다음 완료 조건 |
 |---:|---|---|---|---|
-| 1 | RC-0011 | 성인 여성 5인·남성향 통합 라인업 `REVIEW v003` 검토 | Review | 원본 앵커·전원 성인 여성·SD-lite 교정본 사람 승인 |
-| 2 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
-| 3 | DEV-0108~0109 | Unity 비종속 Core 호환성·중복 규칙 검토와 경계 결정 | Ready | 공유 Assembly 또는 Adapter 구조 결정 |
-| 4 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
-| 5 | ART-0103 | Figma 캐릭터 제작 시트 템플릿 | Ready | 필수 2D 산출물 프레임과 승인 필드 완성 |
-| 6 | ART-1001~1401 | 성인 여성 5명 단독 전신 WIP 후보 | Ready | 원본 앵커·Character Bible 기반 후보와 메타데이터 |
+| 1 | DEV-0113 | 기존 비종속 Core 통합 | In Progress | 탐험·스킬 command/event를 portable domain과 Unity Presentation 경계에 연결 |
+| 2 | DEV-0115 | Android Landscape·Safe Area 기준 | Review | Landscape 고정, 기존 SafeArea 구현의 종횡비·Cutout 자동 테스트와 실기기 확인 |
+| 3 | DEV-0116 | Android Touch 조작·HUD | Ready | 이동·공격·능력·귀환 On-screen 입력과 PC 개발 입력의 병행 계약 구현 |
+| 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity Hub에서 AndroidPlayer·SDK·NDK·OpenJDK 설치 후 Android Target 전환 |
+| 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
+| 6 | RC-0011 | 성인 여성 5인·남성향 통합 라인업 `REVIEW v003` 검토 | Review | Gate A `FAIL` 권고의 역할 모티프·얼굴·실루엣 수정 후 사람 재검토 |
+| 7 | ART-0103 | Figma 캐릭터 제작 시트 템플릿 | Review | SVG의 실제 Figma Import·Component Clone·PNG/PDF Export와 사람 사용성 검토 |
+| 8 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
+| 9 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
+| 10 | ART-1001·1101·1201·1301·1401 | 성인 여성 5명 단독 전신 WIP 후보 | Ready | 원본 앵커·Character Bible 기반 후보와 메타데이터 |
+| 11 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
+| 12 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
 
 ## Sprint 0. 저장소·기획·아트 방향
 
@@ -34,8 +40,9 @@
 | RC-0004 | Unity `.gitignore` | High | Done | 생성 디렉터리 제외 |
 | RC-0005 | Git LFS 규칙 | High | Done | PNG·FBX·BLEND·KRA·TGA·EXR 속성 검증 |
 | RC-0006~0010 | 게임 기획·테이블·아트 가이드·실행 계획 | High | Done | `docs/`, `tables/`, `planning/` 기준 |
-| RC-0011 | 통합 캐릭터 라인업 교정 시안 | High | Review | v002 REJECTED, 성인 여성 5인·남성향 v003 사람 승인 필요 |
+| RC-0011 | 통합 캐릭터 라인업 교정 시안 | High | Review | v002 REJECTED, v003 Gate A `FAIL` 권고 기록; 캐릭터별 교정 WIP와 사람 승인 필요 |
 | RC-0012 | LFS 규칙과 현재 아트 구조 검증 | High | Done | `git check-attr` 검증 |
+| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | `CURRENT_PROJECT_BASELINE.md`에 Android-first 제품 목표와 검증된 Unity·아트 상태 확정 |
 
 ### 완료 기준
 
@@ -47,31 +54,38 @@
 
 | ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
 |---|---|---:|---|---|
-| DEV-0101 | Unity 버전 확정 및 프로젝트 생성 | High | Review | 로컬 `6000.5.3f1` 동작, 버전 정책 최종 표기 남음 |
+| DEV-0101 | Unity 버전 확정 및 프로젝트 생성 | High | Done | `CURRENT_PROJECT_BASELINE.md`와 `ProjectVersion.txt`에 `6000.5.3f1` 확정 |
 | DEV-0102 | Visible Meta Files·Force Text | High | Done | `m_SerializationMode: 2` 확인 |
 | DEV-0103 | `Assets/_ReCamp` 구조 | High | Done | Scenes, Scripts, Art, Prefabs, Captures 존재 |
 | DEV-0104 | `Assets`, `Packages`, `ProjectSettings`, `.meta` Git 반영 | High | Review | 저장소 반영 후 별도 clone-open 검증 남음 |
 | DEV-0105 | 기본 Scene 5개 | High | Done | Bootstrap·Title·Lobby·Battle·Result 존재 |
 | DEV-0106 | SceneLoader | High | Done | Scene 이름 매핑과 흐름 검증 |
 | DEV-0107 | GameManager·서비스 초기화 | High | Done | 지속 인스턴스와 CampManager 동작 |
-| DEV-0108 | Core 런타임 호환성 검토 | High | Ready | 비종속 Core와 Unity 규칙 비교 필요 |
-| DEV-0109 | Core 공유·Assembly·Adapter 결정 | High | Todo | DEV-0108 선행 |
+| DEV-0108 | Core 런타임 호환성 검토 | High | Done | 원격 `ReCamp.Core`와 Unity 구현의 API·의존성·규칙 차이를 감사 문서에 기록 |
+| DEV-0109 | Core 공유·Assembly·Adapter 결정 | High | Done | 원격 원본 직접 병합 대신 portable domain + Unity adapter 경계 확정 |
 | DEV-0110 | Core 상태를 Unity Presentation에 연결 | High | Review | 현재 기능 동작, 중복 규칙 정리 필요 |
-| DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 23/23, PlayMode 18/18 통과 |
+| DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 25/25, PlayMode 18/18 통과 |
 | DEV-0112 | Core·Unity CI | Medium | Todo | 로컬 테스트 기준선 존재 |
-| DEV-0113 | 기존 비종속 Core 통합 | High | Ready | 별도 Core 브랜치 검토 필요 |
+| DEV-0113 | 기존 비종속 Core 통합 | High | In Progress | domain 캠프·저장 포트와 v1→v2 migration 검증 완료, 탐험·스킬 포트 남음 |
+| DEV-0114 | Android Build Support·SDK·NDK·OpenJDK | High | Blocked | 설치된 Unity `6000.5.3f1`에 `PlaybackEngines/AndroidPlayer` 없음; Unity Hub Module 설치와 Android Target 전환 필요 |
+| DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | `BattleHudController`에 `Screen.safeArea` 대응은 있으나 Auto Rotation이 모든 방향 허용; Landscape 고정·종횡비/Cutout 테스트·실기기 확인 필요 |
+| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Ready | 현재 전투 이동·능력·귀환이 `Keyboard.current` 직접 입력; Touch 이동·공격·능력·귀환 UI와 입력 계약 필요 |
+| DEV-0117 | Android App ID·Build Profile·첫 APK/실기기 Smoke | High | Blocked | Application Identifier가 Unity 템플릿 기본값이며 DEV-0114~0116, 배포 식별자 결정, 테스트 기기 필요 |
 
 ### 아트 파이프라인 병행
 
 | ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
 |---|---|---:|---|---|
 | ART-0101 | 현재 이미지 도구 기반 반복 워크플로 | High | Review | v002 실패 원인 기록, 원본 앵커·전원 성인 여성 회귀 규칙 보강 |
-| ART-0102 | 도구 비종속 일관성 변수·메타데이터 | High | Review | 공통 양식 완료, 캐릭터 앵커 변수 남음 |
-| ART-0103 | Figma 제작 시트 템플릿 | High | Ready | 템플릿 구성 필요 |
-| ART-0104 | Blender MCP 연결·소품 Export | Medium | Blocked | Blender 런타임 소켓 미검증 |
-| ART-0105 | FBX Import·Material·Prefab | Medium | Todo | ART-0104 선행 |
+| ART-0102 | 도구 비종속 일관성 변수·메타데이터 | High | Done | `CHARACTER_ANCHOR_SPEC.md`에 5인 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
+| ART-0103 | Figma 제작 시트 템플릿 | High | Review | 6-Frame 규격·import용 SVG 완료, 실제 Figma Import·Clone·Export 검증 남음 |
+| ART-0104 | Blender MCP 연결·소품 Export | Medium | Ready | ART-0109 규격을 적용한 테스트 소품·Socket의 `.blend`→FBX Export 검증 |
+| ART-0105 | FBX Import·Material·Prefab | Medium | Todo | ART-0104·0109 선행 |
 | ART-0106 | `art_source/` 구조 | Medium | Done | 소스 하위 구조 존재 |
+| ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 | High | Done | `ART_REVIEW_CHECKLIST.md`에 범위별 판정·증거·승인 규칙 확정 |
 | ART-0108 | ComfyUI·ComfyUI MCP 고정 워크플로 | Low | Deferred | 대량 일관성·정밀 인페인팅이 실제 병목일 때 재평가 |
+| ART-0109 | 아트 자산·Export 명명 규격 | High | Done | `ASSET_NAMING_GUIDE.md`에 이미지→Blender→Unity 이름·버전·LOD·Socket·GUID 규칙 확정 |
+| ART-0110 | 공용·캐릭터 Animation 규격 | Medium | Done | `ANIMATION_GUIDE.md`에 5인 Clip·in-place·Animator·Event·장비·Import·Gate 규칙 확정 |
 
 ## Sprint 2. Scene 흐름과 Gray Box 전투
 
@@ -149,7 +163,7 @@
 
 | ID 범위 | 작업 | 상태 |
 |---|---|---|
-| ART-2001~2004 | 3D 규격·4~5등신 Base Mesh·Rig·Toon 규칙 | Todo |
+| ART-2001~2004 | 3D 규격·Unity Presentation 계약·4~5등신 Base Mesh·Rig·Toon 규칙 | Todo |
 | ART-2005~2006 | 루나 Blockout·Unity 쿼터뷰 Gate C | Todo |
 | ART-2007~2010 | 최종 모델·Rig·표정·애니메이션·VFX·Prefab | Todo |
 | ART-2011 | 타깃 사용자 매력 검증 | Todo |

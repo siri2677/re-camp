@@ -1,5 +1,8 @@
 # PROJECT_OVERVIEW.md
 
+현재 제품·플랫폼·비주얼·검증 단계의 단일 기준은 `CURRENT_PROJECT_BASELINE.md`다. 이 문서는
+프로젝트 소개와 MVP 개요만 설명하며 상태표나 별도 실행 순서를 관리하지 않는다.
+
 ## 프로젝트명
 
 Re:Camp
@@ -10,7 +13,8 @@ Re:Camp는 멸망한 세계에서 생존자 캠프를 성장시키기 위해 위
 
 ## 프로젝트 목적
 
-- Unity 기반 모바일 로그라이트 RPG MVP 개발
+- Google Play Android를 1차 제품 목표로 하는 Unity 모바일 로그라이트 RPG 개발
+- Windows Unity Editor 기반 개발·자동 테스트와 Android APK·실기기 검증 분리
 - 직접 조작 기반의 탐험/전투/귀환 루프 검증
 - 서브컬쳐풍 캐릭터와 부드러운 포스트 아포칼립스 감성 확립
 - 포트폴리오 및 확장 가능한 게임 IP 기반 마련

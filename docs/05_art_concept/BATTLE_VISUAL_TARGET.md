@@ -2,16 +2,19 @@
 
 ## 문서 역할
 
-이 문서는 현재 Unity Gray Box의 카메라·전투 공간·가독성 기준을 기록한다. 캐릭터 외형의 단일 기준은 `ART_DIRECTION.md`와 `CHARACTER_BIBLE.md`다.
+이 문서는 현재 Unity Gray Box의 카메라·전투 공간·가독성 기준을 기록한다. 캐릭터 설정은
+`CHARACTER_BIBLE.md`, 고정·가변 외형은 `CHARACTER_ANCHOR_SPEC.md`, 세부 제작 기준은 사람
+승인을 받은 개별 캐릭터 시트가 소유한다.
 
 ## 기준 자료와 상태
 
 | 자료 | 상태 | 사용 범위 |
 |---|---|---|
-| `art_refs/moodboard/battle_vertical_slice_concept.png` | PRIMARY REVIEW | 기존 원본 전투 콘셉트. 폐허 구도·쿼터뷰·색 대비·여성 주인공의 화면 존재감을 우선 참고하되 세부 제작 시트는 아님 |
+| `art_refs/moodboard/battle_vertical_slice_concept.png` | PRIMARY ANCHOR / REVIEW | 기존 원본 전투 콘셉트. 폐허 구도·쿼터뷰·색 대비·여성 주인공의 화면 존재감을 우선 참고하되 세부 제작 시트는 아님 |
 | `Assets/_ReCamp/Captures/battle_quarter_view_hud.png` | REVIEW | Unity Gray Box 카메라·HUD·경계 기능 검증 |
 | 원격 `art_refs/art_direction/ReCamp_Character_Lineup.png` | INVALID | 거의 빈 이미지로 확인돼 모든 제작 기준에서 제외 |
 | `art_refs/art_direction/ReCamp_CharacterLineup_REJECTED_v002.png` | REJECTED | 전원 여성 조건 누락, 노아가 남성으로 생성됨, 원본 이미지와 다른 신규 계열 |
+| `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.png` | REVIEW / Gate A `FAIL` 권고 | 성인 여성 5인·SD-lite 계열은 유효하나 역할 모티프·얼굴·실루엣 교정과 사람 재검토 필요 |
 
 ## 유지하는 화면 언어
 
@@ -45,14 +48,12 @@
 - 재사용 기준: Orthographic 구도, 폐허 가장자리 배치, 자원·적·플레이어 대비, HUD 밀도, 부드러운 포스트 아포칼립스 톤
 - 출시 자산 사용: 미승인
 
-## 다음 시각 작업
+## 현재 판정과 실행 연결
 
-1. 잘못된 혼성 라인업 v002를 `REJECTED`로 보존하고 제작 기준에서 제외한다.
-2. 원본 전투 콘셉트를 명시적 입력 레퍼런스로 사용한 성인 여성 5인·남성향 라인업 `REVIEW v003`을 검토한다. 생성과 메타데이터 기록은 완료됐다.
-3. 도구·모델·날짜·입력 참조·사람 수정·사용 제한 메타데이터를 기록한다.
-4. 사람 검토로 5명 얼굴·체형·실루엣·노출도·색상·무기 수정 방향을 확정한다.
-5. 루나 단독 전신 후보와 얼굴·의상·에너지 단검 후보를 만든다.
-6. 루나 Approved 제작 시트 이후 원본 전투 콘셉트 계열의 4~5등신 SD-lite Blender Blockout을 만든다.
-7. 현재 Unity Battle에서 크기·피벗·무기 가독성·Toon Material을 검증한다.
+- v002는 `REJECTED`로 보존하며 재사용하지 않는다.
+- v003 생성·metadata·Gate A 리뷰 기록은 완료됐고 현재 판정은 `REVIEW / FAIL 권고`다.
+- 역할 모티프·얼굴·실루엣 교정은 캐릭터별 WIP와 128px 얼굴·흑백 실루엣 증거에서 수행한다.
+- 사람 승인 전에는 v003 또는 파생 자산을 `APPROVED`나 최종 모델링 시트로 사용하지 않는다.
+- 가변 작업 순서와 상태는 이 문서에서 관리하지 않고 `planning/sprint_backlog.md`만 따른다.
 
 기존 Gray Box는 폐기하지 않는다. 아트 승인을 기다리는 동안 자동 테스트와 5인 전투 프로토타입의 기능 기반으로 유지한다.

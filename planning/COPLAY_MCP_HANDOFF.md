@@ -71,6 +71,15 @@ Verified on 2026-07-14:
 - Direct `03_Battle` Play Mode verified the runtime HUD/canvas, `05:00` countdown, Luna's scan state, and forced `TimeExpired` resolution with `_ReCamp` Console errors at 0.
 - Full scene transitions and result settlement still rely on the 2026-07-13 manual Play Mode regression and should receive deeper automated coverage later.
 
+Verified on 2026-07-19:
+
+- Unity `6000.5.3f1` was launched directly and reconnected as `re-camp@f2ed6dca` on port `6401`.
+- `Assets/_ReCamp/Editor/ReCampMcpAutoConnect.cs` now starts the stdio bridge once per Editor session when automatic registration is missing.
+- The portable `ReCamp.Domain` and `ReCamp.UnityAdapter` assemblies compiled with `_ReCamp` Console errors at 0.
+- EditMode tests: 25 passed, 0 failed, 0 skipped. PlayMode tests: 18 passed, 0 failed, 0 skipped.
+- Contract coverage now includes Food↔Rations mapping, domain facility save restoration, and PlayerPrefs v1→v2 migration.
+- The active Editor scene was restored to `Assets/_ReCamp/Scenes/03_Battle.unity`.
+
 Important limitation:
 
 - `codex exec` has a known issue where MCP action calls can fail with
@@ -141,42 +150,18 @@ Visual references:
 - `art_refs/moodboard/battle_vertical_slice_concept.png`
 - `Assets/_ReCamp/Captures/battle_quarter_view_hud.png`
 
-## Next Development Priorities
+## Execution Source
 
-The user's latest direction supersedes the mixed-gender lineup and the remote 5-to-6-head interpretation. The current production target is:
+이 문서는 Unity MCP 연결·복구·회귀 절차만 소유한다. 제품 방향과 실행 우선순위를 여기에서
+중복 관리하지 않는다.
 
-```text
-2D normal-proportion illustrations of five adult women for a male-oriented subculture RPG
-+ 3D stylized 4-to-5-head SD-lite in-game characters matching the original battle concept
-+ toon-shaded overgrown ruins
-+ orthographic quarter-view camera
-+ XZ ground-plane gameplay
-+ 2D UGUI
-```
+- 제품·플랫폼·비주얼·현재 Gate: `docs/00_project/CURRENT_PROJECT_BASELINE.md`
+- 현재 실행 순서와 상태: `planning/sprint_backlog.md`
+- 구현·테스트 근거: `planning/IMPLEMENTATION_STATUS.md`
+- v003 캐릭터 판정: `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md`
 
-The primitive Unity player remains a functional Gray Box proxy only. `art_refs/moodboard/battle_vertical_slice_concept.png` is the original visual anchor for the female-player feel, environment composition, palette, camera, and readability. Exact face, body, costume, weapon, and 3D topology still require Approved production sheets.
-
-Current priorities:
-
-1. Keep the renamed mixed-gender `REJECTED v002` as audit evidence. The all-adult-female, male-oriented, 4-to-4.5-head SD-lite `REVIEW v003` and metadata now exist; review it against `battle_vertical_slice_concept.png` and do not auto-approve it.
-2. Keep the 23 EditMode and 18 PlayMode tests green; add a single full Scene transition/drop/settlement integration test.
-3. Review the Unity-independent Core and decide the Runtime Assembly/Adapter boundary.
-4. Tune the five role prototypes in longer battles; add Miyu manual targeting and Coco status cleanse only after their shared systems exist.
-5. Replace ability Gray Box feedback with approved VFX and balance after the role test pass.
-6. When Luna's Approved 2D production sheet is ready, verify Blender runtime MCP with a neutral prop export before the final character Blockout.
-7. Manually regress real WASD/arrow input and character facing, then profile the representative Battle scene.
-
-Known art blocker:
-
-- `origin/main:art_refs/art_direction/ReCamp_Character_Lineup.png` is visually invalid (nearly all black) and was committed as a raw PNG despite the LFS rule.
-- It must not be used as a modeling reference or marked Approved.
-
-See:
-
-- `planning/milestone.md`
-- `planning/roadmap.md`
-- `planning/sprint_backlog.md`
-- `docs/05_art_concept/PRODUCTION_DIRECTION.md`
+MCP 작업을 재개할 때는 위 실행 큐에서 선택된 ID만 수행하고, 이 문서의 연결 절차와 검증
+명령을 적용한다. 테스트 개수·다음 작업·아트 승인 상태를 이 파일에 다시 복사하지 않는다.
 
 ## ComfyUI / ComfyUI MCP
 

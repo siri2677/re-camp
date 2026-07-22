@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160">
+  <defs>
+    <style>
+      .bg { fill:#0e171a; }
+      .board { fill:#172327; stroke:#36585a; stroke-width:3; }
+      .panel { fill:#223439; stroke:#42696a; stroke-width:2; }
+      .slot { fill:#17272b; stroke:#6d9b97; stroke-width:2; stroke-dasharray:12 10; }
+      .mint { fill:#69d8bd; }
+      .coral { fill:#ef857a; }
+      .amber { fill:#e9b44c; }
+      .txt { fill:#f2f0e9; font-family:Arial,'Noto Sans KR',sans-serif; }
+      .sub { fill:#afc1bd; font-family:Arial,'Noto Sans KR',sans-serif; }
+      .tiny { font-size:19px; }
+      .small { font-size:23px; }
+      .body { font-size:27px; }
+      .title { font-size:38px; font-weight:700; }
+      .hero { font-size:52px; font-weight:700; }
+      .center { text-anchor:middle; dominant-baseline:middle; }
+      .line { stroke:#547c7b; stroke-width:2; }
+      .guide { stroke:#95b9b4; stroke-width:2; stroke-dasharray:8 8; opacity:.55; }
+      .chip { stroke:#d8e4df; stroke-width:2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="3840" height="2160"/>
+  <text class="txt hero" x="48" y="66">Re:Camp Character Production Sheet — REVIEW TEMPLATE v001</text>
+  <text class="sub body" x="3792" y="62" text-anchor="end">2D NORMAL PROPORTION · 3D NOTES 4–5 HEAD ONLY · HUMAN APPROVAL PENDING</text>
+
+  <!-- FRAME 01 -->
+  <g id="FRAME_01_Identity_KeyArt" transform="translate(40 100)">
+    <rect class="board" width="1200" height="920" rx="20"/>
+    <rect class="mint" width="1200" height="74" rx="20"/>
+    <text class="txt title" x="28" y="50" fill="#102023">01 · IDENTITY / KEY ART</text>
+    <text class="txt small" x="1172" y="48" text-anchor="end" fill="#102023">STATUS: REVIEW</text>
+    <rect class="panel" x="26" y="94" width="1148" height="76" rx="12"/>
+    <text class="txt small" x="48" y="125">ID: CH___   NAME: __________   SHEET: v___   OWNER: ________</text>
+    <text class="sub tiny" x="48" y="154">Scope: 2D Normal Proportion · Updated: YYYY-MM-DD · Reviewer: Pending</text>
+    <rect class="slot" x="28" y="194" width="550" height="650" rx="14"/>
+    <text class="sub body center" x="303" y="500">FULL BODY / KEY ART</text>
+    <text class="sub small center" x="303" y="538">head and feet visible · neutral baseline</text>
+    <line class="guide" x1="52" y1="800" x2="554" y2="800"/>
+    <rect class="panel" x="602" y="194" width="572" height="156" rx="14"/>
+    <text class="txt body" x="626" y="230">ROLE / PERSONALITY</text>
+    <text class="sub small" x="626" y="268">Role: __________________________</text>
+    <text class="sub small" x="626" y="304">Keywords: ______________________</text>
+    <rect class="panel" x="602" y="370" width="572" height="212" rx="14"/>
+    <text class="txt body" x="626" y="406">ANCHOR SUMMARY</text>
+    <text class="sub small" x="626" y="446">Signature 1: ___________________</text>
+    <text class="sub small" x="626" y="482">Secondary 1: ___________________</text>
+    <text class="sub small" x="626" y="518">Secondary 2: ___________________</text>
+    <text class="sub tiny" x="626" y="554">LOCKED / CONTROLLED / FORBIDDEN IDs</text>
+    <rect class="panel" x="602" y="602" width="572" height="242" rx="14"/>
+    <text class="txt body" x="626" y="638">SOURCE LINKS / COLLISION WARNINGS</text>
+    <text class="sub tiny" x="626" y="678">Character Bible: __________________________</text>
+    <text class="sub tiny" x="626" y="710">Anchor Spec: _____________________________</text>
+    <text class="sub tiny" x="626" y="742">Metadata / Review: _______________________</text>
+    <text class="coral small" x="626" y="790">Do not insert v003 as approved art.</text>
+    <text class="sub tiny" x="626" y="820">Cross-character motif risk: ________________</text>
+  </g>
+
+  <!-- FRAME 02 -->
+  <g id="FRAME_02_Turnaround" transform="translate(1320 100)">
+    <rect class="board" width="1200" height="920" rx="20"/>
+    <rect class="mint" width="1200" height="74" rx="20"/>
+    <text class="txt title" x="28" y="50" fill="#102023">02 · TURNAROUND</text>
+    <text class="txt small" x="1172" y="48" text-anchor="end" fill="#102023">REFERENCE ≠ APPROVAL</text>
+    <rect class="panel" x="26" y="94" width="1148" height="62" rx="12"/>
+    <text class="sub small" x="48" y="134">Same scale · same baseline · asymmetry and equipment orientation fixed</text>
+    <g transform="translate(28 180)">
+      <rect class="slot" width="350" height="620" rx="14"/>
+      <rect class="slot" x="382" width="350" height="620" rx="14"/>
+      <rect class="slot" x="764" width="350" height="620" rx="14"/>
+      <text class="txt body center" x="175" y="40">FRONT</text>
+      <text class="txt body center" x="557" y="40">SIDE</text>
+      <text class="txt body center" x="939" y="40">BACK</text>
+      <line class="guide" x1="18" y1="570" x2="1096" y2="570"/>
+      <line class="guide" x1="175" y1="70" x2="175" y2="585"/>
+      <line class="guide" x1="557" y1="70" x2="557" y2="585"/>
+      <line class="guide" x1="939" y1="70" x2="939" y2="585"/>
+      <text class="sub small center" x="175" y="325">2D NORMAL</text>
+      <text class="sub small center" x="557" y="325">PROPORTION</text>
+      <text class="sub small center" x="939" y="325">STRUCTURE</text>
+    </g>
+    <rect class="panel" x="28" y="820" width="1114" height="72" rx="12"/>
+    <text class="sub tiny" x="50" y="851">Height / equipment ratio: __________   Asymmetry: __________   AI side/back: REFERENCE ONLY</text>
+    <text class="sub tiny" x="50" y="878">Structure corrections / cut lines / attachment points: ________________________________________</text>
+  </g>
+
+  <!-- FRAME 03 -->
+  <g id="FRAME_03_Face_Expressions" transform="translate(2600 100)">
+    <rect class="board" width="1200" height="920" rx="20"/>
+    <rect class="mint" width="1200" height="74" rx="20"/>
+    <text class="txt title" x="28" y="50" fill="#102023">03 · FACE / EXPRESSIONS</text>
+    <rect class="slot" x="28" y="100" width="430" height="430" rx="14"/>
+    <text class="sub body center" x="243" y="286">FACE ANCHOR</text>
+    <text class="sub small center" x="243" y="326">front + 3/4 · eye / jaw / hairline</text>
+    <g transform="translate(486 100)">
+      <rect class="slot" width="158" height="188" rx="10"/><rect class="slot" x="176" width="158" height="188" rx="10"/>
+      <rect class="slot" x="352" width="158" height="188" rx="10"/><rect class="slot" x="528" width="158" height="188" rx="10"/>
+      <rect class="slot" y="212" width="158" height="188" rx="10"/><rect class="slot" x="176" y="212" width="158" height="188" rx="10"/>
+      <rect class="slot" x="352" y="212" width="158" height="188" rx="10"/><rect class="slot" x="528" y="212" width="158" height="188" rx="10"/>
+      <text class="sub tiny center" x="79" y="166">BASE</text><text class="sub tiny center" x="255" y="166">SMILE</text>
+      <text class="sub tiny center" x="431" y="166">CHARM</text><text class="sub tiny center" x="607" y="166">SURPRISE</text>
+      <text class="sub tiny center" x="79" y="378">SERIOUS</text><text class="sub tiny center" x="255" y="378">ANGER</text>
+      <text class="sub tiny center" x="431" y="378">SAD</text><text class="sub tiny center" x="607" y="378">EMBARRASSED</text>
+    </g>
+    <rect class="panel" x="28" y="556" width="1118" height="142" rx="14"/>
+    <text class="txt body" x="50" y="594">FACE DIFFERENTIATION NOTES</text>
+    <text class="sub small" x="50" y="632">Eye: __________  Brow: __________  Jaw: __________  Mouth: __________</text>
+    <text class="sub small" x="50" y="668">Hairline / face-covering equipment states: ______________________________</text>
+    <rect class="slot" x="28" y="720" width="1118" height="168" rx="14"/>
+    <text class="sub body center" x="587" y="786">128px FACE STRIP · FIVE-CHARACTER COMPARISON</text>
+    <text class="sub small center" x="587" y="830">actual 128px export required for Gate A evidence</text>
+  </g>
+
+  <!-- FRAME 04 -->
+  <g id="FRAME_04_Outfit_Equipment" transform="translate(40 1120)">
+    <rect class="board" width="1200" height="920" rx="20"/>
+    <rect class="coral" width="1200" height="74" rx="20"/>
+    <text class="txt title" x="28" y="50" fill="#291717">04 · OUTFIT / EQUIPMENT</text>
+    <rect class="slot" x="28" y="100" width="500" height="500" rx="14"/>
+    <text class="sub body center" x="278" y="332">OUTFIT LAYER BREAKDOWN</text>
+    <text class="sub small center" x="278" y="370">front / back · seams · joints · material</text>
+    <rect class="slot" x="552" y="100" width="594" height="238" rx="14"/>
+    <text class="sub body center" x="849" y="200">SIGNATURE EQUIPMENT</text>
+    <text class="sub small center" x="849" y="240">handle · fold · open · emission · effect origin</text>
+    <rect class="slot" x="552" y="362" width="594" height="238" rx="14"/>
+    <text class="sub body center" x="849" y="460">SECONDARY EQUIPMENT / PROP</text>
+    <rect class="panel" x="28" y="626" width="1118" height="262" rx="14"/>
+    <text class="txt body" x="50" y="664">SOCKET / MOTION / COLLISION NOTES</text>
+    <text class="sub small" x="50" y="706">Socket candidates: Weapon · BladeTip · Muzzle · Scanner · Drone · Shield · VFXCenter</text>
+    <text class="sub small" x="50" y="748">Attach / detach / fold states: __________________________________________</text>
+    <text class="sub small" x="50" y="790">Joint penetration risk: ________________________________________________</text>
+    <text class="coral small" x="50" y="838">Cross-character motif collision: _______________________________________</text>
+  </g>
+
+  <!-- FRAME 05 -->
+  <g id="FRAME_05_Palette_Materials_3DNotes" transform="translate(1320 1120)">
+    <rect class="board" width="1200" height="920" rx="20"/>
+    <rect class="coral" width="1200" height="74" rx="20"/>
+    <text class="txt title" x="28" y="50" fill="#291717">05 · PALETTE / MATERIALS / 3D NOTES</text>
+    <text class="txt small" x="1172" y="48" text-anchor="end" fill="#291717">4–5 HEAD SD-LITE</text>
+    <g transform="translate(28 108)">
+      <rect class="chip" fill="#69d8bd" width="130" height="94" rx="10"/>
+      <rect class="chip" fill="#f2ead9" x="150" width="130" height="94" rx="10"/>
+      <rect class="chip" fill="#ef857a" x="300" width="130" height="94" rx="10"/>
+      <rect class="chip" fill="#d7a27e" x="450" width="130" height="94" rx="10"/>
+      <rect class="chip" fill="#6d4b45" x="600" width="130" height="94" rx="10"/>
+      <rect class="chip" fill="#7fc5d8" x="750" width="130" height="94" rx="10"/>
+      <rect class="chip" fill="#202b34" x="900" width="130" height="94" rx="10"/>
+      <text class="sub tiny" x="0" y="124">Primary</text><text class="sub tiny" x="150" y="124">Secondary</text>
+      <text class="sub tiny" x="300" y="124">Accent</text><text class="sub tiny" x="450" y="124">Skin</text>
+      <text class="sub tiny" x="600" y="124">Hair</text><text class="sub tiny" x="750" y="124">Eye/FX</text>
+      <text class="sub tiny" x="900" y="124">Neutral</text>
+    </g>
+    <rect class="panel" x="28" y="272" width="1118" height="220" rx="14"/>
+    <text class="txt body" x="50" y="310">MATERIAL SLOT PLAN</text>
+    <text class="sub small" x="50" y="352">Face ______  Eye ______  Hair ______  Outfit ______  Equipment ______  Emission ______</text>
+    <text class="sub small" x="50" y="394">Surface / roughness / outline notes: ____________________________________</text>
+    <text class="sub small" x="50" y="436">Low-saturation luminance separation: __________________________________</text>
+    <rect class="panel" x="28" y="518" width="1118" height="370" rx="14"/>
+    <text class="txt body" x="50" y="558">3D 4–5 HEAD TRANSLATION NOTES</text>
+    <text class="sub small" x="50" y="604">Enlarge / preserve: head · hands · signature equipment · face read</text>
+    <text class="sub small" x="50" y="648">Simplify: _____________________________________________________________</text>
+    <text class="sub small" x="50" y="692">Rig / joint / clipping risks: __________________________________________</text>
+    <text class="sub small" x="50" y="736">Camera readability notes: _____________________________________________</text>
+    <text class="amber small" x="50" y="790">Poly / Texture / Bone / LOD budgets: TBD until CHARACTER_3D_SPEC</text>
+    <text class="sub tiny" x="50" y="838">Do not substitute 5–6-head proportions or treat this frame as approved 3D.</text>
+  </g>
+
+  <!-- FRAME 06 -->
+  <g id="FRAME_06_Gate_Evidence_Approval" transform="translate(2600 1120)">
+    <rect class="board" width="1200" height="920" rx="20"/>
+    <rect class="amber" width="1200" height="74" rx="20"/>
+    <text class="txt title" x="28" y="50" fill="#2b220f">06 · GATE EVIDENCE / APPROVAL</text>
+    <rect class="slot" x="28" y="100" width="350" height="260" rx="14"/>
+    <text class="sub small center" x="203" y="212">SILHOUETTE</text>
+    <text class="sub tiny center" x="203" y="246">gear on / off · 5/5 blind test</text>
+    <rect class="slot" x="402" y="100" width="350" height="260" rx="14"/>
+    <text class="sub small center" x="577" y="212">128px FACE</text>
+    <text class="sub tiny center" x="577" y="246">five-character strip</text>
+    <rect class="slot" x="776" y="100" width="370" height="260" rx="14"/>
+    <text class="sub small center" x="961" y="212">LOW-SAT / COLOR VISION</text>
+    <text class="sub tiny center" x="961" y="246">role and palette evidence</text>
+    <rect class="panel" x="28" y="386" width="560" height="302" rx="14"/>
+    <text class="txt body" x="50" y="424">GATE A CHECKS</text>
+    <text class="sub small" x="50" y="464">CHA-A01 ___  A02 ___  A03 ___  A04 ___</text>
+    <text class="sub small" x="50" y="504">CHA-A05 ___  A06 ___  A07 ___  A08 ___</text>
+    <text class="sub small" x="50" y="544">CHA-A09 ___  A10 ___  A11 ___  A12 ___</text>
+    <text class="coral small" x="50" y="594">Blocking changes: _______________________</text>
+    <text class="sub tiny" x="50" y="636">Gate B evidence links: CHA-B01–B08</text>
+    <rect class="panel" x="612" y="386" width="534" height="302" rx="14"/>
+    <text class="txt body" x="636" y="424">REVIEW RESULT</text>
+    <text class="sub small" x="636" y="468">Decision: PASS / CONDITIONAL / FAIL</text>
+    <text class="sub small" x="636" y="510">Reviewer: __________________________</text>
+    <text class="sub small" x="636" y="552">Date: __________  Scope: __________</text>
+    <text class="sub small" x="636" y="594">Retest: ____________________________</text>
+    <text class="amber small" x="636" y="644">HUMAN APPROVAL: PENDING</text>
+    <rect class="panel" x="28" y="714" width="1118" height="174" rx="14"/>
+    <text class="txt body" x="50" y="752">EXPORT / AUDIT</text>
+    <text class="sub small" x="50" y="794">PNG/PDF path: ______________________  Metadata: __________________________</text>
+    <text class="sub small" x="50" y="834">File status/version matches header: ___  LFS: ___  Rights evidence: ___</text>
+    <text class="coral tiny" x="50" y="868">Any FAIL blocks approval. CONDITIONAL / NOT TESTED requires explicit retest.</text>
+  </g>
+</svg>

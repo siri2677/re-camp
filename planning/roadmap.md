@@ -15,7 +15,7 @@ Re:Camp는 매력적인 성인 여성 캐릭터와 함께 폐허를 탐험하고
 
 | 항목 | 출시 목표 |
 |---|---|
-| 플랫폼 | PC 우선, 조작·성능 검증 후 Android 검토 |
+| 플랫폼 | Google Play Android 1차 제품, Windows는 개발·QA 기준 |
 | 플레이 | 싱글플레이 |
 | 캐릭터 | 루나·미유·코코·이리스·노아, 성인 여성 5명 |
 | 콘텐츠 | 스테이지 2개, 일반 몬스터 6종, 보스 2종, 캠프 시설 4종 이상 |
@@ -30,7 +30,7 @@ Re:Camp는 매력적인 성인 여성 캐릭터와 함께 폐허를 탐험하고
 4. 5명의 플레이 경험과 역할이 구분되는가
 5. 작은 범위라도 출시 가능한 완성도를 갖추는가
 
-## 2026-07-15 구현 기준선
+## 현재 구현 기준선
 
 Unity `6000.5.3f1` 프로젝트에서 다음을 구현·검증했다.
 
@@ -41,15 +41,21 @@ Unity `6000.5.3f1` 프로젝트에서 다음을 구현·검증했다.
 - `35.3° / 45°` Orthographic 카메라, 전투 경계와 카메라 Clamp, safe-area HUD
 - 5인 선택·Stats·Ability 기반과 캐릭터별 대표·보조 능력 Gray Box
 - 루나 대시·3타·스캔, 미유 드론·오버클럭, 코코 회복·보호막, 이리스 차지·표식, 노아 가드·방벽·밀쳐내기
-- Unity Test Runner 최종 EditMode 23/23, PlayMode 18/18 통과, `_ReCamp` 오류 0건
+- Unity Test Runner의 EditMode·PlayMode 전체 통과와 `_ReCamp` 오류 0건
 
-이 결과는 기능 기준선이다. 현재 primitive와 회색 박스는 최종 아트가 아니다. `battle_vertical_slice_concept.png`를 화면 톤·구도·여성 주인공 존재감의 원본 전투 비주얼 앵커로 유지한다.
+최신 테스트 수치와 구현 근거는 `planning/IMPLEMENTATION_STATUS.md`에서만 갱신한다. 이 결과는
+Windows Editor 기능 기준선이며 Android APK·Touch·실기기 검증을 뜻하지 않는다. 현재 primitive와
+회색 박스는 최종 아트가 아니다. `battle_vertical_slice_concept.png`를 화면 톤·구도·여성
+주인공 존재감의 원본 전투 비주얼 앵커로 유지한다.
 
 ## 현재 핵심 리스크
 
 ### 1. 캐릭터 라인업 사람 승인
 
-원격 v001은 거의 빈 이미지라 기준으로 사용할 수 없고, 혼성 v002는 전원 여성 조건과 원본 앵커를 누락해 `REJECTED` 처리했다. 교정 v003은 원본 전투 콘셉트, 성인 여성 5인, 남성향, 4~5등신 SD-lite 조건으로 제작했으며 사람 검토를 기다린다.
+원격 v001은 거의 빈 이미지라 기준으로 사용할 수 없고, 혼성 v002는 전원 여성 조건과 원본
+앵커를 누락해 `REJECTED` 처리했다. 교정 v003은 성인 여성 5인·4~5등신 SD-lite의 큰 방향은
+유효하지만 Gate A `FAIL` 권고다. 역할 모티프·얼굴·실루엣을 캐릭터별 WIP에서 수정한 뒤
+사람이 재검토한다.
 
 ### 2. Core 경계와 CI
 
@@ -64,8 +70,8 @@ Unity `6000.5.3f1` 프로젝트에서 다음을 구현·검증했다.
 | 마일스톤 | 목표 | 상태 | 현재 판단 |
 |---|---|---|---|
 | M0 | 저장소·기획 기반 | Done | 저장소, 문서, 테이블, 실행 계획 존재 |
-| M1 | 아트 방향·5인 설정 통일 | Review | 방향과 v003 교정본 완료, 사람 승인 필요 |
-| M2 | Unity 프로젝트·Core 통합 기반 | Review | 프로젝트·Scene·테스트 동작, Core 경계·CI·clone-open 검증 남음 |
+| M1 | 아트 방향·5인 설정 통일 | Review | v003 Gate A `FAIL` 항목 교정과 사람 승인 필요 |
+| M2 | Unity 프로젝트·Core·Android 개발 기반 | Review | 프로젝트·Scene·테스트 동작, Core 경계·CI·clone-open·Android 도구 체인/입력 검증 남음 |
 | M3 | 전투 Gray Box·5인 프로토타입 | Review | 5인 대표·보조 능력과 테스트 완료, VFX·튜닝·일부 통합 회귀 남음 |
 | M4 | 아트 파이프라인·5인 Approved 2D 시트 | In Progress | LFS·메타데이터·구조 완료, 개별 시트 Todo |
 | M5 | 루나 Character Proof·Vertical Slice | Todo | 루나 Approved 시트 이후 시작 |
@@ -87,14 +93,16 @@ Unity `6000.5.3f1` 프로젝트에서 다음을 구현·검증했다.
 - 캐릭터 등급·가챠 전제 제거
 - 2D 일반 등신 + 3D 4~5등신 SD-lite·툰 셰이딩·쿼터뷰 확정
 - Character Bible, Art Direction, MCP·자산 승인 가이드
-- v003 사람 승인과 캐릭터별 실루엣·색상·무기 확정이 남음
+- v003 Gate A `FAIL` 항목 교정과 캐릭터별 실루엣·색상·무기 사람 승인 남음
 
-## M2. Unity 프로젝트·Core 통합 — Review
+## M2. Unity 프로젝트·Core·Android 개발 기반 — Review
 
 - Unity 프로젝트 설정과 5개 Scene
 - SceneLoader, GameManager, CampManager, 저장·정산
 - EditMode·PlayMode 테스트 기반
-- 남은 작업: Core 호환성 검토, Assembly/Adapter 결정, Presentation 연결 정리, CI, clone-open 검증
+- `Screen.safeArea` 기반 Battle HUD 대응 구현
+- 남은 작업: Domain·Presentation 연결 정리, CI, clone-open, Android Build Support, Landscape 고정,
+  Touch HUD, App ID와 첫 APK·실기기 검증
 
 ## M3. 전투 Gray Box·5인 프로토타입 — Review
 
@@ -140,7 +148,7 @@ Unity `6000.5.3f1` 프로젝트에서 다음을 구현·검증했다.
 
 ## M8. Release Candidate — Todo
 
-- 전체 회귀, 저장 마이그레이션·손상 방지, PC 사양·기기 성능
+- 전체 회귀, 저장 마이그레이션·손상 방지, Android 목표 기기 성능·발열·Lifecycle
 - 메모리·GC·Draw Call·로딩·해상도·입력 최적화
 - 리깅·관통·애니메이션 폴리시
 - WIP 제거, 라이선스·AI 메타데이터 검토
@@ -148,16 +156,8 @@ Unity `6000.5.3f1` 프로젝트에서 다음을 구현·검증했다.
 
 ## 다음 실행 순서
 
-```text
-여성 5인 라인업 REVIEW v003 사람 검토
-→ Core/Presentation 경계 결정과 Scene 전환 회귀 강화
-→ 5인 역할·밸런스·피드백 폴리시
-→ 루나 Approved 2D 제작 시트
-→ 4~5등신 SD-lite Blender Blockout
-→ Unity 쿼터뷰 Gate C 검증
-→ 루나 Vertical Slice
-→ 나머지 4인과 출시 콘텐츠 확장
-```
+가변 실행 순서와 상태는 이 로드맵에서 복제하지 않는다.
+`planning/sprint_backlog.md`의 현재 P0 실행 큐와 첫 `In Progress`·`Ready` 항목을 따른다.
 
 ## 승인 게이트
 
