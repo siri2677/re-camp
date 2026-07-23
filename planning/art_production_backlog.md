@@ -6,9 +6,9 @@
 
 | ID | 작업 | 우선순위 | 상태 | 완료 기준 |
 |---|---|---:|---|---|
-| ART-0001 | 통합 Art Direction | High | Done | 2D 일반 등신·3D 4~5등신 SD-lite·쿼터뷰 문서화 |
+| ART-0001 | 통합 Art Direction | High | Done | 2D 일반 등신·3D 5~6등신 스타일라이즈드·쿼터뷰 문서화 |
 | ART-0002 | 성인 여성 5인 Character Bible | High | Done | 캐릭터·테이블 설정 일치 |
-| ART-0003 | 성인 여성 5인·남성향 라인업 `REVIEW v003` | High | Review | Gate A `FAIL` 권고 기록; 역할 모티프·얼굴·실루엣 교정 후 사람 재검토 |
+| ART-0003 | 성인 여성 5인·남성향 라인업 `REVIEW v003` | High | Review | Gate A `FAIL` 권고 기록; 역할 모티프·얼굴·실루엣·5~6등신 비율 교정 후 사람 재검토 |
 | ART-0004 | MCP 제작·승인 가이드 | High | Done | 도구 역할과 승인 절차 정의 |
 | ART-0005 | 자산 구조·상태·이름 규칙 | High | Done | WIP/REVIEW/APPROVED와 경로 정의 |
 | ART-0006 | AI 생성 메타데이터 양식 | Medium | Done | 도구·모델·Seed·입력·수정·권리 기록 |
@@ -102,14 +102,14 @@
 | ID | 작업 | 상태 | 완료 기준 |
 |---|---|---|---|
 | ART-1501 | 후보 일관성 리뷰 | Todo | 전원 성인 여성, 역할·실루엣·팔레트·무기 구분 |
-| ART-1502 | 최종 라인업 비교 시트 | Todo | 일반 등신 2D와 4~5등신 3D 변환 기준 포함 |
+| ART-1502 | 최종 라인업 비교 시트 | Todo | 일반 등신 2D와 5~6등신 스타일라이즈드 3D 변환 기준 포함 |
 
 ## ART-20. 공용 3D 규격과 루나 Proof
 
 | ID | 작업 | 상태 | 선행 조건 | 완료 기준 |
 |---|---|---|---|---|
 | ART-2001 | `CHARACTER_3D_SPEC.md`·Unity Presentation 계약 | Todo | ART-1008 | 비율·성능 예산·Rig·LOD·Shader와 Character ID→Prefab/Portrait/Icon/VFX 연결 규격 확정 |
-| ART-2002 | 공용 4~5등신 SD-lite Base Mesh | Todo | ART-2001 | 5명에게 재사용 가능한 베이스 |
+| ART-2002 | 공용 5~6등신 스타일라이즈드 Base Mesh | Todo | ART-2001 | 기본 약 5.2~5.5등신, 5명에게 재사용 가능한 베이스 |
 | ART-2003 | 공용 Humanoid Rig | Todo | ART-2002 | Unity Humanoid Avatar 정상 생성 |
 | ART-2004 | 공용 Toon Shader·Material 규칙 | Todo | Unity 기반 | 얼굴·눈·헤어·의상 슬롯 규칙 확정 |
 | ART-2005 | 루나 3D Blockout | Todo | ART-1008, ART-2002 | 쿼터뷰 실루엣 검증 가능 |
