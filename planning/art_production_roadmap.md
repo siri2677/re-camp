@@ -7,13 +7,13 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 ```text
 2D 일반 등신 대표 일러스트
 → 캐릭터별 Approved 제작 시트
-→ 3D 4~5등신 SD-lite Blockout
+→ 3D 5~6등신 스타일라이즈드 Blockout
 → 공용 Rig·Shader·Animator·Prefab
 → 최종 모델·애니메이션
 → Unity 쿼터뷰·성능 검증
 ```
 
-최종 아트보다 먼저 5명의 전투 역할을 Gray Box로 검증한다. 루나 Character Proof가 품질·비용 기준을 통과하기 전에는 나머지 캐릭터의 최종 3D를 대량 제작하지 않는다. `battle_vertical_slice_concept.png`를 전투 화면의 캐릭터 존재감·카메라·환경·색 대비 기준으로 유지한다.
+최종 아트보다 먼저 5명의 전투 역할을 Gray Box로 검증한다. 루나 Character Proof가 품질·비용 기준을 통과하기 전에는 나머지 캐릭터의 최종 3D를 대량 제작하지 않는다. `battle_vertical_slice_concept.png`를 전투 화면의 캐릭터 존재감·카메라·환경·색 대비 기준으로 유지하되 정확한 체형 비율은 최신 Baseline을 따른다.
 
 ## 도구 도입 원칙
 
@@ -28,7 +28,7 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 ### 완료
 
 - Art Direction, Character Bible, MCP Guide
-- 2D 일반 등신 + 3D 4~5등신 SD-lite + 툰 셰이딩·쿼터뷰 방향
+- 2D 일반 등신 + 3D 5~6등신 스타일라이즈드 + 툰 셰이딩·쿼터뷰 방향
 - 성인 여성 5인·남성향 캐릭터 구성
 - AI 생성 메타데이터 양식
 - 성인 여성 5인 라인업 `REVIEW v003`
@@ -37,8 +37,8 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 
 - v001: `Invalid` — 거의 빈 이미지, LFS raw blob
 - v002: `Rejected` — 전원 여성 조건 누락, 원본 이미지 미참조
-- v003: 원본 전투 콘셉트와 전원 성인 여성 조건으로 교정했으나 Gate A `FAIL` 권고, 상태는 `REVIEW` 유지
-- 루나↔코코 의료 모티프, 미유↔이리스 색, 코코↔노아 방패 인상과 5인 얼굴·실루엣 차별화 수정 필요
+- v003: 원본 전투 콘셉트와 전원 성인 여성 조건으로 교정했으나 기존 4~5등신 비율은 최종 기준이 아니며 Gate A `FAIL` 권고, 상태는 `REVIEW` 유지
+- 루나↔코코 의료 모티프, 미유↔이리스 색, 코코↔노아 방패 인상, 5인 얼굴·실루엣 차별화와 5~6등신 비율 수정 필요
 - 캐릭터별 WIP의 흑백 실루엣·128px 얼굴·저채도 비교 후 사람 승인 필요
 
 ## A1. 반복 가능한 파이프라인 — In Progress
@@ -90,7 +90,7 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 
 - 일반 등신 Key Art와 Approved 제작 시트
 - 에너지 단검·탐지 장치 상세
-- Gate A/B Approved 후 4~5등신 SD-lite Blender Blockout
+- Gate A/B Approved 후 5~6등신 스타일라이즈드 Blender Blockout, 기본 목표 약 5.2~5.5등신
 - Unity 쿼터뷰에서 얼굴·후드·단검 실루엣 Gate C 검증
 - 최종 모델·Texture·Rig·Weight·BlendShape
 - Idle·Run·Attack·Dash·Skill·Hit·Victory 애니메이션
@@ -103,7 +103,7 @@ Re:Camp의 아트 목표는 성인 여성 5인의 기획과 비주얼을 함께 
 
 - Character ID별 Visual Prefab·Portrait·Icon·VFX·Audio를 분리 연결하는 Unity Presentation 정의
 - 기능 Root 아래 교체 가능한 `CharacterVisual` Prefab과 장비·VFX 소켓 계약
-- 공용 4~5등신 SD-lite Base Mesh와 Humanoid 호환 Rig
+- 공용 5~6등신 스타일라이즈드 Base Mesh와 Humanoid 호환 Rig
 - 얼굴·눈·헤어·의상 Toon Shader와 Material 슬롯 규칙
 - 공용 Animator와 Idle·Walk·Run·Hit·Down 애니메이션
 - 목표 기기·프레임과 물리 본·Collider·폴리곤·Texture·LOD·VFX 예산
