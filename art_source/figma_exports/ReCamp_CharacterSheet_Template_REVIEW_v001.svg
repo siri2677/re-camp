@@ -24,7 +24,7 @@
 
   <rect class="bg" width="3840" height="2160"/>
   <text class="txt hero" x="48" y="66">Re:Camp Character Production Sheet — REVIEW TEMPLATE v001</text>
-  <text class="sub body" x="3792" y="62" text-anchor="end">2D NORMAL PROPORTION · 3D NOTES 4–5 HEAD ONLY · HUMAN APPROVAL PENDING</text>
+  <text class="sub body" x="3792" y="62" text-anchor="end">2D NORMAL PROPORTION · 3D NOTES 5–6 HEAD STYLIZED · HUMAN APPROVAL PENDING</text>
 
   <!-- FRAME 01 -->
   <g id="FRAME_01_Identity_KeyArt" transform="translate(40 100)">
@@ -139,7 +139,7 @@
     <rect class="board" width="1200" height="920" rx="20"/>
     <rect class="coral" width="1200" height="74" rx="20"/>
     <text class="txt title" x="28" y="50" fill="#291717">05 · PALETTE / MATERIALS / 3D NOTES</text>
-    <text class="txt small" x="1172" y="48" text-anchor="end" fill="#291717">4–5 HEAD SD-LITE</text>
+    <text class="txt small" x="1172" y="48" text-anchor="end" fill="#291717">5–6 HEAD STYLIZED</text>
     <g transform="translate(28 108)">
       <rect class="chip" fill="#69d8bd" width="130" height="94" rx="10"/>
       <rect class="chip" fill="#f2ead9" x="150" width="130" height="94" rx="10"/>
@@ -159,13 +159,13 @@
     <text class="sub small" x="50" y="394">Surface / roughness / outline notes: ____________________________________</text>
     <text class="sub small" x="50" y="436">Low-saturation luminance separation: __________________________________</text>
     <rect class="panel" x="28" y="518" width="1118" height="370" rx="14"/>
-    <text class="txt body" x="50" y="558">3D 4–5 HEAD TRANSLATION NOTES</text>
-    <text class="sub small" x="50" y="604">Enlarge / preserve: head · hands · signature equipment · face read</text>
+    <text class="txt body" x="50" y="558">3D 5–6 HEAD TRANSLATION NOTES</text>
+    <text class="sub small" x="50" y="604">Target 5.2–5.5 · emphasize head · hands · feet · signature equipment</text>
     <text class="sub small" x="50" y="648">Simplify: _____________________________________________________________</text>
     <text class="sub small" x="50" y="692">Rig / joint / clipping risks: __________________________________________</text>
     <text class="sub small" x="50" y="736">Camera readability notes: _____________________________________________</text>
     <text class="amber small" x="50" y="790">Poly / Texture / Bone / LOD budgets: TBD until CHARACTER_3D_SPEC</text>
-    <text class="sub tiny" x="50" y="838">Do not substitute 5–6-head proportions or treat this frame as approved 3D.</text>
+    <text class="sub tiny" x="50" y="838">Do not substitute 2–3-head chibi or realistic 6–7-head proportions.</text>
   </g>
 
   <!-- FRAME 06 -->
