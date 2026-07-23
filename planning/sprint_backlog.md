@@ -18,11 +18,11 @@
 | 3 | DEV-0116 | Android Touch 조작·HUD | Ready | 이동·공격·능력·귀환 On-screen 입력과 PC 개발 입력의 병행 계약 구현 |
 | 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity Hub에서 AndroidPlayer·SDK·NDK·OpenJDK 설치 후 Android Target 전환 |
 | 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
-| 6 | RC-0011 | 성인 여성 5인·남성향 통합 라인업 `REVIEW v003` 검토 | Review | Gate A `FAIL` 권고의 역할 모티프·얼굴·실루엣 수정 후 사람 재검토 |
+| 6 | RC-0011 | 성인 여성 5인·남성향 통합 라인업 `REVIEW v003` 검토 | Review | Gate A `FAIL` 권고의 역할 모티프·얼굴·실루엣·5~6등신 비율 수정 후 사람 재검토 |
 | 7 | ART-0103 | Figma 캐릭터 제작 시트 템플릿 | Review | SVG의 실제 Figma Import·Component Clone·PNG/PDF Export와 사람 사용성 검토 |
 | 8 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
 | 9 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
-| 10 | ART-1001·1101·1201·1301·1401 | 성인 여성 5명 단독 전신 WIP 후보 | Ready | 원본 앵커·Character Bible 기반 후보와 메타데이터 |
+| 10 | ART-1001·1101·1201·1301·1401 | 성인 여성 5명 단독 전신 WIP 후보 | Ready | 원본 앵커·Character Bible·5~6등신 기준 기반 후보와 메타데이터 |
 | 11 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
 | 12 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
 
@@ -40,14 +40,14 @@
 | RC-0004 | Unity `.gitignore` | High | Done | 생성 디렉터리 제외 |
 | RC-0005 | Git LFS 규칙 | High | Done | PNG·FBX·BLEND·KRA·TGA·EXR 속성 검증 |
 | RC-0006~0010 | 게임 기획·테이블·아트 가이드·실행 계획 | High | Done | `docs/`, `tables/`, `planning/` 기준 |
-| RC-0011 | 통합 캐릭터 라인업 교정 시안 | High | Review | v002 REJECTED, v003 Gate A `FAIL` 권고 기록; 캐릭터별 교정 WIP와 사람 승인 필요 |
+| RC-0011 | 통합 캐릭터 라인업 교정 시안 | High | Review | v002 REJECTED, v003 Gate A `FAIL` 권고 기록; 캐릭터별 5~6등신 교정 WIP와 사람 승인 필요 |
 | RC-0012 | LFS 규칙과 현재 아트 구조 검증 | High | Done | `git check-attr` 검증 |
-| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | `CURRENT_PROJECT_BASELINE.md`에 Android-first 제품 목표와 검증된 Unity·아트 상태 확정 |
+| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | `CURRENT_PROJECT_BASELINE.md`에 Android-first 제품 목표와 검증된 Unity·아트 상태, 5~6등신 3D 기준 확정 |
 
 ### 완료 기준
 
 - `planning/`에서 다음 작업을 선택할 수 있다.
-- 게임·캐릭터·아트 문서가 성인 여성 5인과 2D/3D 비율 방향에서 일치한다.
+- 게임·캐릭터·아트 문서가 성인 여성 5인과 2D 일반 등신·3D 5~6등신 방향에서 일치한다.
 - 통합 라인업의 승인 또는 수정 방향이 결정된다.
 
 ## Sprint 1. Unity 프로젝트·Core 통합 기반
@@ -163,7 +163,7 @@
 
 | ID 범위 | 작업 | 상태 |
 |---|---|---|
-| ART-2001~2004 | 3D 규격·Unity Presentation 계약·4~5등신 Base Mesh·Rig·Toon 규칙 | Todo |
+| ART-2001~2004 | 3D 규격·Unity Presentation 계약·5~6등신 스타일라이즈드 Base Mesh·Rig·Toon 규칙 | Todo |
 | ART-2005~2006 | 루나 Blockout·Unity 쿼터뷰 Gate C | Todo |
 | ART-2007~2010 | 최종 모델·Rig·표정·애니메이션·VFX·Prefab | Todo |
 | ART-2011 | 타깃 사용자 매력 검증 | Todo |
