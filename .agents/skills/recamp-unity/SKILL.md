@@ -18,7 +18,7 @@ Use this workflow to continue the project without reloading the full history or 
 
 Keep adjacent backlog IDs separate unless the selected completion criteria explicitly join them. Finish an audit/decision task before expanding into its implementation task.
 
-Keep these product decisions fixed unless the user changes them: five adult women; male-oriented subculture presentation; normal-proportion 2D art; 4–5-head SD-lite 3D; the original `battle_vertical_slice_concept.png` is the battle visual anchor. Treat current primitives and gray-box visuals as implementation scaffolding, not final art.
+Keep these product decisions fixed unless the user changes them: five adult women; male-oriented subculture presentation; normal-proportion 2D art; 5–6-head stylized 3D with a default target around 5.2–5.5 heads; the original `battle_vertical_slice_concept.png` is the battle visual anchor, while exact body proportions follow the latest baseline. Treat current primitives and gray-box visuals as implementation scaffolding, not final art.
 
 ## 2. Use Unity MCP economically
 
