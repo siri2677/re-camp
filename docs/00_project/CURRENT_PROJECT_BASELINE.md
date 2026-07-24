@@ -1,6 +1,6 @@
 # Re:Camp Current Project Baseline
 
-> 최종 갱신: 2026-07-23
+> 최종 갱신: 2026-07-24
 > 상태: Active
 > 목적: 제품 방향과 현재 검증 상태가 문서마다 달라질 때 적용할 단일 기준
 
@@ -92,7 +92,7 @@ Android와 PC·iOS 동시 정식 출시
 ## 5. 고정 비주얼 방향
 
 ```text
-2D 일반 등신 서브컬처 캐릭터 일러스트
+2D 약 7등신 성인 서브컬처 캐릭터 일러스트
 + 3D 5~6등신 스타일라이즈드 인게임 캐릭터
 + 툰 셰이딩
 + 자연에 잠식된 부드러운 포스트 아포칼립스
@@ -100,14 +100,18 @@ Android와 PC·iOS 동시 정식 출시
 + 고정 Orthographic 쿼터뷰 전투
 ```
 
+- 2D 대표 일러스트의 기본 목표는 약 7등신이며 캐릭터별 약 6.8~7.4등신 범위를 허용한다.
+- 인게임 3D는 캐릭터별 약 5.2~5.8등신을 사용하며 전체 허용 범위는 5~6등신이다.
+- 2D는 얼굴·패션·체형·표정·재질을, 3D는 얼굴·헤어·대표 장비·전투 실루엣을 우선한다.
+- 3D는 2D를 단순 축소하지 않고 머리·손·발·대표 무기를 확대하고 미세 장식을 단순화한다.
 - `art_refs/moodboard/battle_vertical_slice_concept.png`를 캐릭터 존재감, 환경 구성, 카메라와
-  색 대비의 원본 전투 비주얼 앵커로 사용한다. 정확한 체형 비율은 이 Baseline을 우선한다.
+  색 대비의 원본 전투 비주얼 앵커로 사용한다. 해당 이미지의 개별 캐릭터 외형과 파티 구성은 공식 기준이 아니다.
 - 현재 Capsule·Sphere·Cube·단색 Material은 기능 검증용 Gray Box이며 최종 품질이 아니다.
-- 2D 일반 등신과 3D 5~6등신은 용도가 다르지만 같은 캐릭터로 인식돼야 한다.
-- 3D 기본 목표는 약 5.2~5.5등신이며 캐릭터별로 5~6등신 범위를 허용한다.
-- 머리·손·발·대표 무기는 모바일 쿼터뷰 가독성을 위해 적절히 강조한다.
-- 2~3등신 유아형 치비와 현실적인 6~7등신 체형은 현재 기준에 포함하지 않는다.
-- v003 통합 라인업은 최종 모델링 시트가 아니며 새 비율 기준에 맞춰 교정 후 검토한다.
+- 2D와 3D는 용도가 다르지만 같은 캐릭터로 인식돼야 한다.
+- 2D에서 6.5등신 미만으로 어려 보이는 대표 Key Art와 3D에서 2~3등신 유아형 치비 또는
+  6등신 초과의 길고 가는 체형은 현재 기준에 포함하지 않는다.
+- 과거 v003 통합 라인업은 최종 모델링 시트가 아니며 새 캐릭터 훅·2D 약 7등신·3D 5~6등신
+  변환 기준에 맞춰 교정 후 재검토한다.
 
 ## 6. 현재 검증된 Unity 기준선
 
@@ -137,26 +141,26 @@ Android와 PC·iOS 동시 정식 출시
 
 | 항목 | 현재 상태 |
 |---|---|
-| Art Direction·Character Bible | 기준 문서 존재 |
-| 5인 캐릭터 앵커 | `CHARACTER_ANCHOR_SPEC.md` 완료 |
-| Gate A/B/C 공통 판정 | `ART_REVIEW_CHECKLIST.md` 완료 |
-| 통합 라인업 v003 | `REVIEW` 유지, 자동 Gate A `FAIL` 권고, 사람 승인 Pending |
+| Art Direction·Character Bible | v2.0 기준 문서 존재 |
+| 5인 캐릭터 앵커 | `CHARACTER_ANCHOR_SPEC.md` v2.0 완료 |
+| Gate A/B/C 공통 판정 | `ART_REVIEW_CHECKLIST.md` 존재, 새 비율 기준 갱신 필요 |
+| 통합 라인업 v003 | `REVIEW` 유지, Gate A `FAIL` 권고, 사람 승인 Pending |
 | 개별 Approved 2D 제작 시트 | 0/5 |
 | 최종 3D Model·Prefab·Animator | 0/5 |
 | 최종 HUD 초상화·Icon·VFX·Audio | 0/5 |
 | Unity 적용 | ID·수치·능력·대표색·텍스트 HUD까지 Gray Box 연결 |
 
-v003의 큰 방향은 참고할 수 있으나 루나↔코코 의료 모티프, 미유↔이리스 색, 코코↔노아
-방패 인상, 얼굴·체형·표정 차별화와 5~6등신 비율을 수정해야 한다. 사람 승인 전
-`Direction Approved`나 `APPROVED`로 기록하지 않는다.
+v003은 과거 4~5등신 라인업 검토 이력으로만 사용한다. 루나↔코코 의료 모티프, 미유↔이리스 색,
+코코↔노아 방패 인상, 얼굴·체형·표정 차별화뿐 아니라 새 한 문장 훅과 2D·3D 분리 기준을 적용해야 한다.
+사람 승인 전 `Direction Approved`나 `APPROVED`로 기록하지 않는다.
 
 ## 8. 제작 도구 기준
 
 | 도구 | 현재 역할 |
 |---|---|
 | 이미지 생성 도구 | 초기 2D 후보와 교정 WIP |
-| Figma 또는 동등한 편집 도구 | 제작 시트·UI Design System·리뷰 Export |
-| Blender | 소품 Export Proof, Approved 시트 이후 캐릭터 Blockout |
+| Figma 또는 동등한 편집 도구 | 약 7등신 제작 시트·UI Design System·리뷰 Export |
+| Blender | 소품 Export Proof, Approved 시트 이후 5~6등신 캐릭터 Blockout |
 | Coplay/unityMCP | Unity Scene·Prefab·Material·Animator·검증 자동화 |
 | 코드 에이전트 | Runtime·Adapter·Importer·Validation Tool·테스트 |
 | ComfyUI | 대량 일관성·정밀 인페인팅이 실제 병목일 때만 도입하는 `Deferred` 선택 사항 |
@@ -170,22 +174,23 @@ v003의 큰 방향은 참고할 수 있으나 루나↔코코 의료 모티프, 
 연결하는 단계다. 실제 실행 순서와 상태는 `planning/sprint_backlog.md`만 갱신한다.
 
 ```text
-문서·플랫폼 기준 충돌 제거
+문서·플랫폼·2D/3D 비율 기준 충돌 제거
 → 진행 중인 Core Domain·Adapter 범위 완료
 → Android Landscape·Safe Area·Touch 입력 기준과 첫 APK
-→ ART-0103 캐릭터 제작 시트 템플릿
-→ 루나 Gate A 교정 WIP·사람 승인
+→ ART-0103 캐릭터 제작 시트 템플릿 갱신·검증
+→ 새 캐릭터 훅 기반 5인 2D WIP 비교
+→ 루나 약 7등신 Gate A 제작 시트·사람 승인
 → 3D 규격·Unity Presentation/Prefab 계약
-→ 루나 Blockout·Gate B/C·Android 실기기 Character Proof
+→ 루나 5~6등신 Blockout·Gate B/C·Android 실기기 Character Proof
 → 환경·UI·VFX를 포함한 Android Vertical Slice
 → 외부 테스트·출시 범위 확정
 ```
 
 Gate를 건너뛰지 않는다.
 
-- Gate A: 매력·성인 여성 가독성·정체성·역할·실루엣·팔레트
-- Gate B: Turnaround·장비·재질·Rig·Animation 제작 가능성
-- Gate C: Unity 쿼터뷰 가독성·기능 회귀·성능
+- Gate A: 매력·성인 여성 가독성·정체성·역할·실루엣·팔레트·약 7등신 Key Art 적합성
+- Gate B: Turnaround·2D→3D 변환·장비·재질·Rig·Animation 제작 가능성
+- Gate C: 5~6등신 Unity 쿼터뷰 가독성·기능 회귀·성능
 - Android Gate: Touch·Safe Area·Lifecycle·APK·실기기 성능
 
 ## 10. 문서 소유권
@@ -200,6 +205,7 @@ Gate를 건너뛰지 않는다.
 | 아트 세부 작업 | `planning/art_production_backlog.md` |
 | 게임 콘셉트·MVP 범위 | `GAME_CONCEPT.md`, `MVP_SCOPE.md` |
 | 캐릭터 설정·시각 앵커 | `CHARACTER_BIBLE.md`, `CHARACTER_ANCHOR_SPEC.md` |
+| 공통 아트 표현 | `ART_DIRECTION.md` |
 | 아트 디렉터리·승인 상태 | `ART_ASSET_STRUCTURE.md` |
 | 자산 이름·버전·Export·LOD·Socket·GUID | `ASSET_NAMING_GUIDE.md` |
 | 공용·캐릭터 Motion·Animator·Event·Import | `ANIMATION_GUIDE.md` |
@@ -216,6 +222,7 @@ Gate를 건너뛰지 않는다.
 - 1차 제품 플랫폼이나 입력 방식
 - 한 판 시간·핵심 루프·출시 Scope
 - 캐릭터 수·성별 방향·2D/3D 비율
+- 캐릭터별 한 문장 훅과 대표 장비
 - Unity 메이저 기준선과 Render Pipeline
 - 라인업 또는 개별 제작 시트의 사람 승인 상태
 - Android 첫 APK·실기기 Gate 통과
