@@ -1,6 +1,9 @@
 # Re:Camp Integrated Sprint Backlog
 
-이 문서는 실제 작업을 시작할 때 가장 먼저 확인하는 통합 작업 목록이다. 원격 계획의 ID 체계를 유지하고 최신 Unity 구현·검증 상태를 반영한다.
+> 최종 갱신: 2026-07-24
+
+이 문서는 실제 작업을 시작할 때 가장 먼저 확인하는 통합 작업 목록이다. 원격 계획의 ID 체계를
+유지하고 최신 Unity 구현·검증 상태와 캐릭터 디자인 v2.0 기준을 반영한다.
 
 상태는 `Todo`, `Ready`, `In Progress`, `Review`, `Deferred`, `Blocked`, `Done`을 사용한다.
 
@@ -18,13 +21,17 @@
 | 3 | DEV-0116 | Android Touch 조작·HUD | Ready | 이동·공격·능력·귀환 On-screen 입력과 PC 개발 입력의 병행 계약 구현 |
 | 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity Hub에서 AndroidPlayer·SDK·NDK·OpenJDK 설치 후 Android Target 전환 |
 | 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
-| 6 | RC-0011 | 성인 여성 5인·남성향 통합 라인업 `REVIEW v003` 검토 | Review | Gate A `FAIL` 권고의 역할 모티프·얼굴·실루엣·5~6등신 비율 수정 후 사람 재검토 |
-| 7 | ART-0103 | Figma 캐릭터 제작 시트 템플릿 | Review | SVG의 실제 Figma Import·Component Clone·PNG/PDF Export와 사람 사용성 검토 |
-| 8 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
-| 9 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
-| 10 | ART-1001·1101·1201·1301·1401 | 성인 여성 5명 단독 전신 WIP 후보 | Ready | 원본 앵커·Character Bible·5~6등신 기준 기반 후보와 메타데이터 |
-| 11 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
-| 12 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
+| 6 | ART-0103·0111 | Figma 캐릭터 제작 시트 v002 실사용 검증 | Review | v002 SVG Import·Component Clone·한글 보존·PNG/PDF Export·사람 사용성 검토 |
+| 7 | ART-0112 | 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Ready | 루나 샘플에서 확대·삭제·결합·헤어/천 단순화 필드 검증 |
+| 8 | ART-1001·1101·1201·1301·1401 | 성인 여성 5명 약 7등신 전신 WIP 후보 | Ready | Character Bible v2.0 한 문장 훅 기반 캐릭터별 3안과 metadata |
+| 9 | ART-1501~1503 | 5인 교차 디자인·유사성 검토 | Todo | 흑백 실루엣·128px 얼굴·저채도·외부 IP 유사성 비교 |
+| 10 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
+| 11 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
+| 12 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
+| 13 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
+
+과거 `RC-0011 / ReCamp_CharacterLineup_REVIEW_v003`은 실패 이력으로 유지하며 새 디자인 후보의
+베이스 이미지로 사용하지 않는다.
 
 ## Sprint 0. 저장소·기획·아트 방향
 
@@ -40,15 +47,15 @@
 | RC-0004 | Unity `.gitignore` | High | Done | 생성 디렉터리 제외 |
 | RC-0005 | Git LFS 규칙 | High | Done | PNG·FBX·BLEND·KRA·TGA·EXR 속성 검증 |
 | RC-0006~0010 | 게임 기획·테이블·아트 가이드·실행 계획 | High | Done | `docs/`, `tables/`, `planning/` 기준 |
-| RC-0011 | 통합 캐릭터 라인업 교정 시안 | High | Review | v002 REJECTED, v003 Gate A `FAIL` 권고 기록; 캐릭터별 5~6등신 교정 WIP와 사람 승인 필요 |
+| RC-0011 | 과거 통합 캐릭터 라인업 시안 | Medium | Review | v002 REJECTED, v003 Gate A FAIL; 실패 이력으로만 보존 |
 | RC-0012 | LFS 규칙과 현재 아트 구조 검증 | High | Done | `git check-attr` 검증 |
-| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | `CURRENT_PROJECT_BASELINE.md`에 Android-first 제품 목표와 검증된 Unity·아트 상태, 5~6등신 3D 기준 확정 |
+| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | Android-first, 2D 약 7등신·3D 5~6등신, Character Bible·Anchor v2.0 확정 |
 
 ### 완료 기준
 
 - `planning/`에서 다음 작업을 선택할 수 있다.
-- 게임·캐릭터·아트 문서가 성인 여성 5인과 2D 일반 등신·3D 5~6등신 방향에서 일치한다.
-- 통합 라인업의 승인 또는 수정 방향이 결정된다.
+- 게임·캐릭터·아트 문서가 성인 여성 5인과 2D 약 7등신·3D 5~6등신 방향에서 일치한다.
+- 과거 v003을 수정하는 대신 새 한 문장 훅 기반 캐릭터별 후보를 제작한다.
 
 ## Sprint 1. Unity 프로젝트·Core 통합 기반
 
@@ -67,25 +74,27 @@
 | DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 25/25, PlayMode 18/18 통과 |
 | DEV-0112 | Core·Unity CI | Medium | Todo | 로컬 테스트 기준선 존재 |
 | DEV-0113 | 기존 비종속 Core 통합 | High | In Progress | domain 캠프·저장 포트와 v1→v2 migration 검증 완료, 탐험·스킬 포트 남음 |
-| DEV-0114 | Android Build Support·SDK·NDK·OpenJDK | High | Blocked | 설치된 Unity `6000.5.3f1`에 `PlaybackEngines/AndroidPlayer` 없음; Unity Hub Module 설치와 Android Target 전환 필요 |
-| DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | `BattleHudController`에 `Screen.safeArea` 대응은 있으나 Auto Rotation이 모든 방향 허용; Landscape 고정·종횡비/Cutout 테스트·실기기 확인 필요 |
-| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Ready | 현재 전투 이동·능력·귀환이 `Keyboard.current` 직접 입력; Touch 이동·공격·능력·귀환 UI와 입력 계약 필요 |
-| DEV-0117 | Android App ID·Build Profile·첫 APK/실기기 Smoke | High | Blocked | Application Identifier가 Unity 템플릿 기본값이며 DEV-0114~0116, 배포 식별자 결정, 테스트 기기 필요 |
+| DEV-0114 | Android Build Support·SDK·NDK·OpenJDK | High | Blocked | 설치된 Unity `6000.5.3f1`에 `PlaybackEngines/AndroidPlayer` 없음; Module 설치 필요 |
+| DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | `Screen.safeArea` 대응은 있으나 Landscape 고정·종횡비/Cutout 테스트·실기기 확인 필요 |
+| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Ready | Touch 이동·공격·능력·귀환 UI와 입력 계약 필요 |
+| DEV-0117 | Android App ID·Build Profile·첫 APK/실기기 Smoke | High | Blocked | DEV-0114~0116, 배포 식별자 결정, 테스트 기기 필요 |
 
 ### 아트 파이프라인 병행
 
 | ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
 |---|---|---:|---|---|
-| ART-0101 | 현재 이미지 도구 기반 반복 워크플로 | High | Review | v002 실패 원인 기록, 원본 앵커·전원 성인 여성 회귀 규칙 보강 |
-| ART-0102 | 도구 비종속 일관성 변수·메타데이터 | High | Done | `CHARACTER_ANCHOR_SPEC.md`에 5인 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
-| ART-0103 | Figma 제작 시트 템플릿 | High | Review | 6-Frame 규격·import용 SVG 완료, 실제 Figma Import·Clone·Export 검증 남음 |
-| ART-0104 | Blender MCP 연결·소품 Export | Medium | Ready | ART-0109 규격을 적용한 테스트 소품·Socket의 `.blend`→FBX Export 검증 |
+| ART-0101 | 현재 이미지 도구 기반 반복 워크플로 | High | Review | 한 문장 훅·Anchor v2.0·외부 IP 회귀 규칙 반영 후 샘플 반복 필요 |
+| ART-0102 | 도구 비종속 일관성 변수·메타데이터 v2.0 | High | Done | 5인 2D/3D 목표와 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
+| ART-0103 | Figma 제작 시트 템플릿 v002 | High | Review | 6-Frame 규격·v002 SVG 완료, 실제 Figma Import·Clone·Export 검증 남음 |
+| ART-0104 | Blender MCP 연결·소품 Export | Medium | Ready | 테스트 소품·Socket의 `.blend`→FBX Export 검증 |
 | ART-0105 | FBX Import·Material·Prefab | Medium | Todo | ART-0104·0109 선행 |
 | ART-0106 | `art_source/` 구조 | Medium | Done | 소스 하위 구조 존재 |
-| ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 | High | Done | `ART_REVIEW_CHECKLIST.md`에 범위별 판정·증거·승인 규칙 확정 |
+| ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 v2.0 | High | Done | 약 7등신·변환표·유사성·Android Gate 증거 확정 |
 | ART-0108 | ComfyUI·ComfyUI MCP 고정 워크플로 | Low | Deferred | 대량 일관성·정밀 인페인팅이 실제 병목일 때 재평가 |
-| ART-0109 | 아트 자산·Export 명명 규격 | High | Done | `ASSET_NAMING_GUIDE.md`에 이미지→Blender→Unity 이름·버전·LOD·Socket·GUID 규칙 확정 |
-| ART-0110 | 공용·캐릭터 Animation 규격 | Medium | Done | `ANIMATION_GUIDE.md`에 5인 Clip·in-place·Animator·Event·장비·Import·Gate 규칙 확정 |
+| ART-0109 | 아트 자산·Export 명명 규격 | High | Done | 이미지→Blender→Unity 이름·버전·LOD·Socket·GUID 규칙 확정 |
+| ART-0110 | 공용·캐릭터 Animation 규격 | Medium | Done | 5인 Clip·in-place·Animator·Event·장비·Import·Gate 규칙 확정 |
+| ART-0111 | v002 Figma 실사용 검증 | High | Todo | Import·Component·한글·PNG/PDF Export·사람 사용성 |
+| ART-0112 | 2D→3D 변환표 샘플 | High | Ready | 루나 6.9~7.1 → 5.3~5.4 변환 필드 검증 |
 
 ## Sprint 2. Scene 흐름과 Gray Box 전투
 
@@ -105,8 +114,8 @@
 | DEV-0213 | 사망·보상 1회 지급 | High | Done | 위치 보존과 단일 보상 검증 |
 | DEV-0214 | 귀환·사망·시간 종료 | High | Done | 5분, 60초 경고, 발전기 +30초/레벨, R 홀드·버튼 귀환, 종료 사유 |
 | DEV-0215 | 결과 정산·로컬 저장 | High | Done | 자원 정산·로비 유지·캠프 저장 검증 |
-| TEST-0201 | Scene 흐름 PlayMode 테스트 | High | Review | Build Settings 자동 검증, 실제 전환 자동화 남음 |
-| TEST-0202 | 전투·보상·정산 테스트 | High | Review | Ledger·보호막·적 생명주기·저장 검증, 전체 Scene 통합 남음 |
+| TEST-0201 | Scene 흐름 PlayMode 테스트 | High | Review | Build Settings 자동 검증과 전체 전환 회귀 남음 |
+| TEST-0202 | 전투·보상·정산 회귀 테스트 | High | Review | 전체 Scene 전환·정산 통합 자동화 |
 
 ### 완료 기준
 
@@ -116,7 +125,8 @@
 
 ## Sprint 3. 캐릭터 5명 전투 프로토타입
 
-성인 여성 5명의 최종 아트 제작 전에 primitive/프록시로 플레이 차이를 검증한다. 프록시는 최종 성별 표현이나 아트 품질 기준이 아니다.
+성인 여성 5명의 최종 아트 제작 전에 primitive/프록시로 플레이 차이를 검증한다. 프록시는 최종
+성별 표현이나 아트 품질 기준이 아니다.
 
 | ID | 작업 | 우선순위 | 상태 | 구현·남은 일 |
 |---|---|---:|---|---|
@@ -140,35 +150,38 @@
 
 ### 목표
 
-5명 모두 3D 모델링에 사용할 사람 승인 제작 시트를 확보한다.
+5명 모두 3D 모델링과 Key Art에 사용할 사람 승인 약 7등신 제작 시트를 확보한다.
 
 ```text
-얼굴·헤어 확정
-의상·실루엣 확정
-정면·측면·후면 Turnaround
-표정 8종
-무기·장비 상세
-컬러·재질표
-대표 포즈
-3D 제작 주의사항
+한 문장 훅 기반 전신 후보 3안
+→ 얼굴·헤어·체형·패션 확정
+→ 약 7등신 Front·Side·Back Turnaround
+→ 평상시↔임무 상태와 표정 8종
+→ 무기·장비 상세와 기능 근거
+→ 컬러·재질표
+→ 128px 얼굴·흑백 실루엣·저채도·유사성 검토
+→ 캐릭터별 2D→3D 변환표
+→ 사람 승인
 ```
 
-세부 ID는 `planning/art_production_backlog.md`의 `ART-10`~`ART-15`를 따른다. `APPROVED`는 사람 검토를 통과한 경우에만 사용한다.
+세부 ID는 `planning/art_production_backlog.md`의 `ART-10`~`ART-15`를 따른다. `APPROVED`는
+`ART_REVIEW_CHECKLIST.md` v2.0과 사람 검토를 통과한 경우에만 사용한다.
 
 ## Sprint 5. 루나 Character Proof
 
 ### 목표
 
-루나를 첫 최종 캐릭터로 완성해 아트·3D·Unity 파이프라인과 타깃 매력을 검증한다.
+루나를 첫 최종 캐릭터로 완성해 약 7등신 2D, 5~6등신 3D, Unity 파이프라인과 타깃 매력을 검증한다.
 
 | ID 범위 | 작업 | 상태 |
 |---|---|---|
-| ART-2001~2004 | 3D 규격·Unity Presentation 계약·5~6등신 스타일라이즈드 Base Mesh·Rig·Toon 규칙 | Todo |
-| ART-2005~2006 | 루나 Blockout·Unity 쿼터뷰 Gate C | Todo |
+| ART-2001~2004 | 3D 규격·Unity Presentation 계약·5.2~5.8 수용 Base Mesh·Rig·Toon 규칙 | Todo |
+| ART-2005~2006 | 루나 5.3~5.4등신 Blockout·Unity 쿼터뷰·Android Gate C | Todo |
 | ART-2007~2010 | 최종 모델·Rig·표정·애니메이션·VFX·Prefab | Todo |
-| ART-2011 | 타깃 사용자 매력 검증 | Todo |
+| ART-2011 | 센서 고양이 정찰병 훅과 타깃 사용자 매력 검증 | Todo |
 
-Approved 2D와 같은 캐릭터로 보이고, 쿼터뷰 식별·관통·성능·플레이 검증을 통과해야 한다.
+Approved 약 7등신 2D와 같은 루나로 보이고, 얼굴·센서 귀·쌍단검 쿼터뷰 식별·관통·성능·플레이
+검증을 통과해야 한다.
 
 ## Sprint 6. Vertical Slice
 
@@ -207,13 +220,13 @@ Approved 2D와 같은 캐릭터로 보이고, 쿼터뷰 식별·관통·성능·
 |---|---|---:|---|
 | REL-8001 | 전체 회귀 테스트 | High | Todo |
 | REL-8002 | 저장 안정화·마이그레이션 | High | Todo |
-| REL-8003 | 실제 기기·다양한 PC 사양 | High | Todo |
+| REL-8003 | 실제 Android 기기와 개발 PC 사양 검증 | High | Todo |
 | REL-8004 | CPU·GPU·메모리·GC·Draw Call 최적화 | High | Todo |
 | REL-8005 | 해상도·입력·키 설정 | High | Todo |
 | REL-8006 | 리깅·관통·애니메이션 폴리시 | High | Todo |
 | REL-8007 | 승인되지 않은 WIP 제거 | High | Todo |
-| REL-8008 | 라이선스·AI 생성 메타데이터 | High | Todo |
-| REL-8009 | 스토어 이미지·트레일러·설명 | Medium | Todo |
+| REL-8008 | 라이선스·AI 생성 메타데이터·외부 IP 유사성 | High | Todo |
+| REL-8009 | 약 7등신 스토어 이미지·트레일러·설명 | Medium | Todo |
 | REL-8010 | 체험판 또는 외부 베타 | High | Todo |
 | REL-8011 | Release Candidate 승인 | High | Todo |
 
@@ -224,6 +237,8 @@ Approved 2D와 같은 캐릭터로 보이고, 쿼터뷰 식별·관통·성능·
 - 코드가 동작해도 필요한 자동 테스트·직접 검증이 없으면 `Done`으로 바꾸지 않는다.
 - 아트는 사람 승인 전까지 `APPROVED`나 최종 게임 자산으로 취급하지 않는다.
 - 플레이어블은 전원 성인 여성으로 제작하고 남성 생성 결과는 승인 후보로 올리지 않는다.
-- 루나 Approved 2D 시트와 Character Proof 전에 최종 3D를 대량 제작하지 않는다.
+- 과거 v003 라인업을 새 캐릭터 제작 앵커로 사용하지 않는다.
+- 약 7등신 2D 제작 시트와 캐릭터별 2D→3D 변환표 없이 최종 3D Blockout을 시작하지 않는다.
+- 루나 Approved 2D 시트와 Character Proof 전에 나머지 최종 3D를 대량 제작하지 않는다.
 - ComfyUI·대용량 모델은 현재 선행 조건이 아니며 실제 아트 병목이 생길 때만 `ART-0108`을 `Ready`로 전환한다.
 - Git 커밋·push·PR은 사용자가 명시적으로 요청할 때 수행한다.
