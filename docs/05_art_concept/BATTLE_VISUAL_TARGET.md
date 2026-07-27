@@ -1,59 +1,63 @@
 # Re:Camp Battle Visual Target
 
-## 문서 역할
+> 최종 갱신: 2026-07-27
+> 역할: Unity 전투 화면의 카메라·공간·가독성 계약
 
-이 문서는 현재 Unity Gray Box의 카메라·전투 공간·가독성 기준을 기록한다. 캐릭터 설정은
-`CHARACTER_BIBLE.md`, 고정·가변 외형은 `CHARACTER_ANCHOR_SPEC.md`, 세부 제작 기준은 사람
-승인을 받은 개별 캐릭터 시트가 소유한다.
+제품·전역 비주얼·자산 우선순위는 `docs/00_project/CURRENT_PROJECT_BASELINE.md`를 따른다. 캐릭터 설정은 `CHARACTER_BIBLE.md`, 외형 Anchor는 `CHARACTER_ANCHOR_SPEC.md`, 표현 규칙은 `ART_DIRECTION.md`가 소유한다.
 
 ## 기준 자료와 상태
 
 | 자료 | 상태 | 사용 범위 |
 |---|---|---|
-| `art_refs/moodboard/battle_vertical_slice_concept.png` | PRIMARY ANCHOR / REVIEW | 기존 원본 전투 콘셉트. 폐허 구도·쿼터뷰·색 대비·여성 주인공의 화면 존재감을 우선 참고하되 세부 제작 시트는 아님 |
-| `Assets/_ReCamp/Captures/battle_quarter_view_hud.png` | REVIEW | Unity Gray Box 카메라·HUD·경계 기능 검증 |
-| 원격 `art_refs/art_direction/ReCamp_Character_Lineup.png` | INVALID | 거의 빈 이미지로 확인돼 모든 제작 기준에서 제외 |
-| `art_refs/art_direction/ReCamp_CharacterLineup_REJECTED_v002.png` | REJECTED | 전원 여성 조건 누락, 노아가 남성으로 생성됨, 원본 이미지와 다른 신규 계열 |
-| `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.png` | REVIEW / Gate A `FAIL` 권고 | 성인 여성 5인·SD-lite 계열은 유효하나 역할 모티프·얼굴·실루엣 교정과 사람 재검토 필요 |
+| `art_refs/moodboard/battle_vertical_slice_concept.png` | REVIEW reference | 폐허 구도·쿼터뷰·색 대비·플레이어 존재감 참고. 캐릭터 외형·무기·파티 구성 기준이 아님 |
+| `Assets/_ReCamp/Captures/battle_quarter_view_hud.png` | REVIEW evidence | Unity Gray Box 카메라·HUD·경계 기능 증거 |
+| `ReCamp_Character_Lineup.png` | INVALID history | 손상·빈 이미지 이력, 제작 기준에서 제외 |
+| `ReCamp_CharacterLineup_REJECTED_v002.png` | REJECTED history | 생성 실패 비교 이력 |
+| `ReCamp_CharacterLineup_REVIEW_v003.png` | Gate A FAIL history | 실패 원인 비교에만 사용하며 신규 디자인 기반으로 사용하지 않음 |
 
-## 유지하는 화면 언어
+## 화면 계약
 
-- Orthographic 카메라는 X축 약 `35.3°`, Y축 `45°`의 쿼터뷰를 사용한다.
+- Orthographic 카메라는 X축 약 `35.3°`, Y축 `45°`의 쿼터뷰를 기준으로 한다.
 - 플레이 영역은 낮은 폐허 벽과 모서리 마커로 닫힌 형태를 만든다.
-- 중앙 교전 공간은 비우고, 폐허 블록·바리케이드·식생은 가장자리에 배치한다.
-- 환경은 자연에 아름답게 잠식된 폐허로 표현하고 캐릭터보다 낮은 채도·디테일을 유지한다.
-- HUD는 둥근 패널, 얇은 외곽선, 가벼운 글래스 표현과 최소 정보를 사용한다.
-- 캐릭터·공격·자원은 배경보다 높은 명도·채도 대비를 가진다.
+- 중앙 교전 공간은 비우고 폐허 블록·바리케이드·식생은 가장자리에 배치한다.
+- 환경은 자연에 잠식된 폐허로 표현하고 캐릭터보다 낮은 채도·디테일을 유지한다.
+- 캐릭터·적·공격·자원·상호작용은 배경과 명도·채도·형태가 구분돼야 한다.
+- HUD는 최소 정보와 충분한 터치 영역을 사용하며 세부 계약은 `MOBILE_INPUT_AND_LIFECYCLE.md`를 따른다.
+- 캠프는 전투 영역의 장식이 아니라 로비의 따뜻하고 안전한 별도 공간으로 다룬다.
 
-캠프는 전투 영역 안의 천막 장식이 아니라 로비의 따뜻하고 안전한 별도 공간으로 다룬다.
+## Gray Box 기능 팔레트
 
-## 잠정 기능 팔레트
-
-| 역할 | 색상 | 상태 |
+| 역할 | 색상 | 용도 |
 |---|---|---|
-| 플레이어·안전·체력 | `#69E5BE` | 루나 민트 계열 프록시 |
-| 적·경고 | `#F48B7F` | Gray Box 식별색 |
-| HUD·장비 차콜 | `#141D21` | Gray Box UI 기반색 |
-| 전투 지면 | `#334740` | 환경 잠정색 |
-| 폐허 스톤 | `#61756E` | 환경 잠정색 |
-| 센서·데이터 | `#48BEFF` | 기술 피드백 잠정색 |
+| 플레이어·안전·체력 | `#69E5BE` | 기능 검증용 플레이어·안전 표시 |
+| 적·경고 | `#F48B7F` | 적과 위험 표시 |
+| HUD·장비 차콜 | `#141D21` | 기능 UI 기반색 |
+| 전투 지면 | `#334740` | 이동 가능 영역 |
+| 폐허 스톤 | `#61756E` | 환경 경계 |
+| 센서·데이터 | `#48BEFF` | 기술 피드백 |
 
-정확한 프로젝트·캐릭터 HEX 팔레트는 라인업과 개별 시트 승인 때 확정한다.
+이 HEX 값은 Gray Box 기능색이다. 출시 팔레트나 캐릭터 제작 시트의 고정 색이 아니다.
 
-## 기존 생성 이미지 기록
+## 무드보드 재사용 범위
 
-- 생성 방식: Codex 내장 imagegen
-- 기존 프롬프트: companion metadata `art_refs/moodboard/battle_vertical_slice_concept.metadata.md`에 보존
-- 캐릭터 판단: 여성 주인공의 민트 계열 색감, 귀여운 실루엣, 화면 내 존재감은 유지할 원본 앵커다. 정확한 비율·소총·의상 구조는 제작 시트에서 재검토한다.
-- 재사용 기준: Orthographic 구도, 폐허 가장자리 배치, 자원·적·플레이어 대비, HUD 밀도, 부드러운 포스트 아포칼립스 톤
-- 출시 자산 사용: 미승인
+사용 가능:
 
-## 현재 판정과 실행 연결
+- Orthographic 구도.
+- 폐허 가장자리 배치와 열린 중앙 교전 공간.
+- 플레이어·적·자원·배경의 대비.
+- 낮은 HUD 밀도.
+- 부드러운 포스트 아포칼립스 톤.
 
-- v002는 `REJECTED`로 보존하며 재사용하지 않는다.
-- v003 생성·metadata·Gate A 리뷰 기록은 완료됐고 현재 판정은 `REVIEW / FAIL 권고`다.
-- 역할 모티프·얼굴·실루엣 교정은 캐릭터별 WIP와 128px 얼굴·흑백 실루엣 증거에서 수행한다.
-- 사람 승인 전에는 v003 또는 파생 자산을 `APPROVED`나 최종 모델링 시트로 사용하지 않는다.
-- 가변 작업 순서와 상태는 이 문서에서 관리하지 않고 `planning/sprint_backlog.md`만 따른다.
+사용 불가:
 
-기존 Gray Box는 폐기하지 않는다. 아트 승인을 기다리는 동안 자동 테스트와 5인 전투 프로토타입의 기능 기반으로 유지한다.
+- 이미지 속 캐릭터 얼굴·체형·의상·무기.
+- 다인 파티 구성.
+- 출시 자산으로의 직접 사용.
+- 개별 캐릭터 제작 시트 대체.
+
+## 실행 연결
+
+- 기존 Gray Box는 기능과 회귀 테스트 기반으로 유지한다.
+- 캐릭터 디자인은 역사 라인업을 수정하지 않고 현재 Character Bible·Anchor에서 새 후보를 제작한다.
+- 캐릭터 자산이 승인되면 실제 쿼터뷰 캡처로 실루엣·카메라 framing·HUD 가림을 다시 검증한다.
+- 작업 순서와 상태는 `planning/sprint_backlog.md`, 검증 증거는 `planning/IMPLEMENTATION_STATUS.md`에서만 갱신한다.
