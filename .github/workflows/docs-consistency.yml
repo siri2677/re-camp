@@ -31,4 +31,20 @@ jobs:
           python-version: "3.12"
 
       - name: Validate documentation ownership and stale guidance
-        run: python scripts/validate_project_docs.py
+        id: validate_docs
+        shell: bash
+        run: |
+          set +e
+          python scripts/validate_project_docs.py 2>&1 | tee docs-validation.txt
+          status=${PIPESTATUS[0]}
+          echo "exit_code=${status}" >> "$GITHUB_OUTPUT"
+          exit "$status"
+
+      - name: Upload validation diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-validation
+          path: docs-validation.txt
+          if-no-files-found: error
+          retention-days: 7
