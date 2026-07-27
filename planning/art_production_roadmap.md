@@ -1,212 +1,160 @@
 # Re:Camp Art Production Roadmap
 
-> 최종 갱신: 2026-07-24
+> 최종 갱신: 2026-07-27
 > 상태: Active
+> 역할: 아트 제작 단계와 Gate 의존 관계
 
-## 목표
+전역 비주얼·로스터·허용 비율·플랫폼은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`가 소유한다. 캐릭터별 고유 설정은 `CHARACTER_BIBLE.md`, 고정·가변 항목은 `CHARACTER_ANCHOR_SPEC.md`, 표현 규칙은 `ART_DIRECTION.md`를 따른다.
 
-Re:Camp의 아트 목표는 성인 여성 5인의 캐릭터 훅과 비주얼을 약 7등신 2D 제작 시트에서 먼저
-확정하고, 이를 5~6등신 인게임 모델로 번역해 순차적으로 출시 품질까지 완성하는 것이다.
+실제 우선순위는 `planning/sprint_backlog.md`, 세부 산출물 ID는 `planning/art_production_backlog.md`가 소유한다.
+
+## 제작 흐름
 
 ```text
-5인 캐릭터 훅·패션·실루엣 재탐색
-→ 2D 약 7등신 Approved 제작 시트
-→ 캐릭터별 2D→3D 변환표
-→ 루나 5~6등신 스타일라이즈드 Character Proof
-→ 공용 Rig·Shader·Animator·Prefab
-→ 나머지 캐릭터 최종 모델·애니메이션
-→ 환경·UI·VFX·사운드
-→ Unity 쿼터뷰·Android 성능·출시 검증
+설계 계약
+→ 반복 파이프라인 Proof
+→ 캐릭터 후보·교차 비교
+→ 개별 Approved 2D 제작 시트
+→ 2D→3D 변환 계약
+→ 루나 Character Proof
+→ 공용 3D 기반
+→ 나머지 캐릭터
+→ 환경·몬스터·UI·VFX·Audio
+→ Unity·Android 통합
+→ 출시 자산 검수
 ```
 
-최종 아트보다 먼저 5명의 전투 역할을 Gray Box로 검증한다. 루나 Character Proof가 품질·비용
-기준을 통과하기 전에는 나머지 캐릭터의 최종 3D를 대량 제작하지 않는다.
-`battle_vertical_slice_concept.png`는 전투 화면의 캐릭터 존재감·카메라·환경·색 대비 참고이며
-개별 캐릭터 외형과 파티 구성은 공식 디자인 기준이 아니다.
+루나 Character Proof가 품질·비용·가독성·성능 기준을 통과하기 전에는 나머지 캐릭터의 최종 3D를 대량 제작하지 않는다.
 
-## 도구 도입 원칙
+## A0. 설계 계약 — Review
 
-- 현재 Unity 기능 개발과 초기 아트 방향 검토에는 ComfyUI 또는 ComfyUI MCP가 필요하지 않다.
-- 현재 이용 가능한 이미지 생성 도구로 후보를 만들고, 사람 승인과 제작 시트를 기준으로 다음 단계로 이동한다.
-- 캐릭터 일관성 대량 생성, 정밀 인페인팅, Seed·LoRA·ControlNet·IP-Adapter 고정 워크플로가
-  실제 병목이 될 때 ComfyUI 도입을 재평가한다.
-- 그때까지 ComfyUI는 `Deferred`이며 로컬 모델·GPU·설치·MCP 연결은 개발 선행 조건이 아니다.
-- `Deferred`는 필요성이 아직 확인되지 않은 선택 작업이고 기술적으로 진행할 수 없는 `Blocked`와 구분한다.
+완료:
 
-## A0. 방향 통일 — Review
+- Canonical Baseline.
+- Character Bible·Anchor Spec.
+- Art Direction·Review Checklist.
+- 제작 시트·명명·Animation·metadata 계약.
+- 역사 자산의 상태와 사용 제한.
 
-### 완료
+남은 일:
 
-- `CURRENT_PROJECT_BASELINE.md`에 2D 약 7등신·3D 5~6등신 분리 반영
-- `ART_DIRECTION.md` v2.0
-- `CHARACTER_BIBLE.md` v2.0
-- `CHARACTER_ANCHOR_SPEC.md` v2.0
-- `ART_REVIEW_CHECKLIST.md` v2.0
-- 성인 여성 5인·남성향 캐릭터 구성
-- 캐릭터별 한 문장 훅, 2D·3D 목표 비율, 패션·기능·반전 매력 재정의
-- AI 생성 메타데이터 양식
+- 개별 후보와 교차 비교 증거.
+- 사람 승인 제작 시트.
 
-### 이력과 남은 기준
-
-- v001 라인업: `Invalid` — 거의 빈 이미지, LFS raw blob
-- v002 라인업: `Rejected` — 전원 여성 조건 누락, 원본 이미지 미참조
-- v003 라인업: `Review / Gate A FAIL` — 과거 4~5등신·역할 혼동·얼굴·실루엣 문제
-- v003은 새 디자인의 기반 이미지가 아니라 실패 원인과 비교 이력으로만 사용
-- 새 후보는 각 캐릭터의 한 문장 훅과 약 7등신 2D 기준으로 처음부터 재탐색
-- 흑백 실루엣·128px 얼굴·저채도·외부 IP 유사성 비교 후 사람 승인 필요
+Exit 기준: 모든 신규 후보가 현재 계약을 사용하고 역사 실패 자산을 제작 기준으로 사용하지 않는다.
 
 ## A1. 반복 가능한 파이프라인 — In Progress
 
-### 완료
+완료:
 
-- Git LFS 규칙
-- `art_source/`와 Unity Art 구조
-- 생성 메타데이터 companion 규칙
-- WIP / REVIEW / APPROVED 승인 흐름
-- 5인 도구 비종속 캐릭터 앵커·회귀 규칙 v2.0
-- 캐릭터·환경·UI/VFX Gate A/B/C 공통 리뷰 체크리스트 v2.0
-- 캐릭터 제작 시트 6-Frame 규격 v002
-- Figma import용 `ReCamp_CharacterSheet_Template_REVIEW_v002.svg`
-- 이미지→Blender→Unity 자산·Export·LOD·Socket·GUID 명명 규격
-- 공용·5인 고유 Motion, Animator, Event·장비·Unity Import 규격
+- Git LFS와 아트 디렉터리.
+- WIP / REVIEW / APPROVED 흐름.
+- Figma 제작 시트 템플릿.
+- 이미지→Blender→Unity 명명·Export·GUID 계약.
+- Motion·Animator·Event·Import 계약.
 
-### 남은 작업
+남은 일:
 
-- v002 SVG의 실제 Figma Import·Component Clone·PNG/PDF Export와 사람 사용성 검토
-- 샘플 루나 Frame에서 약 7등신 가이드와 2D→3D 변환표 검증
-- Blender MCP 소품 Export와 저장 규칙
-- FBX → Unity Import·Material·Prefab 테스트
-- ComfyUI 고정 워크플로는 `Deferred`
+- Figma Import·Component Clone·한글·PNG/PDF Export 검증.
+- 샘플 2D→3D 변환표 검증.
+- Blender 테스트 소품 Export.
+- FBX→Unity Material·Prefab Proof.
 
-파이프라인은 같은 얼굴·헤어·의상 앵커로 후보를 반복하고, 결과를 제작 시트에 정리하며,
-Blender 테스트 자산을 Unity Prefab으로 가져올 수 있을 때 완료로 본다.
+Exit 기준: 같은 앵커로 후보를 반복하고, 제작 시트와 Export 기록을 남기며, 테스트 자산을 Unity Prefab으로 재현할 수 있다.
 
-## A2. 5인 2D 디자인 재탐색·방향 확정 — Todo
+## A2. 5인 2D 디자인·방향 확정 — Todo
 
-후보 비교는 5명을 함께 진행하되 개별 제작 시트는 루나 → 미유 → 코코 → 이리스 → 노아 순으로 완성한다.
-후보 제작은 현재 도구로 시작하며 ComfyUI 도입을 기다리지 않는다.
+캐릭터별 필수 산출물:
 
-### 캐릭터별 필수 산출물
+- 단독 전신 후보 3안 이상.
+- 한 문장 훅과 대표·보조 특징 주석.
+- 얼굴 정면·3/4과 평상시·임무 상태.
+- Front·Side·Back Turnaround.
+- 표정 8종과 작은 얼굴 비교.
+- 헤어·의상 Layer와 기능 분해.
+- 무기·장비·접힘·발광·Socket 상세.
+- 컬러·재질표와 대표 포즈.
+- 실루엣·저채도·외부 IP 유사성 검토.
+- 캐릭터별 2D→3D 변환표.
 
-- 약 7등신 단독 전신 WIP 후보 3안 이상
-- 한 문장 훅과 대표 특징 1개·보조 특징 2개 주석
-- 얼굴 정면·3/4과 평상시↔임무 상태 표정
-- 약 7등신 정면·측면·후면 Turnaround
-- 표정 8종과 128px 얼굴 비교
-- 헤어 구조와 패션 Layer·기능 분해도
-- 무기·장비 상세도와 접힘·발광·Socket 구조
-- 컬러·재질 팔레트
-- 대표 포즈 3종
-- 외부 IP 유사성 검토
-- 캐릭터별 2D→3D 확대·삭제·결합 변환표
+Exit 기준:
 
-### 완료 기준
-
-- 5명 모두 사람 검토를 통과한 `APPROVED` 약 7등신 2D 제작 시트를 보유한다.
-- 시점마다 얼굴·헤어·의상·무기 구조가 일치한다.
-- 한 문장 훅이 이미지 한 장에서 전달된다.
-- 캐릭터별 얼굴·체형·키·패션·색상·실루엣이 겹치지 않는다.
-- 전투 역할과 성격의 반전 매력이 외형과 표정에서 구분된다.
-- 외부 작품의 고유 디자인을 직접 복제하지 않는다.
+- 5명 모두 Gate A/B와 사람 검토를 통과한다.
+- 시점별 얼굴·헤어·의상·장비가 일치한다.
+- 한 문장 훅이 한 장에서 전달된다.
+- 캐릭터 간 얼굴·체형·패션·색·실루엣이 구분된다.
 
 ## A3. 루나 Character Proof — Todo
 
-- 약 7등신 Key Art와 Approved 제작 시트
-- 센서 고양이 후드·쌍 에너지 단검·손목 스캐너 상세
-- 루나 2D 6.9~7.1등신 → 3D 5.3~5.4등신 변환표
-- `CHARACTER_3D_SPEC.md`와 Unity Presentation 계약
-- Gate A/B Approved 후 Blender Blockout
-- Unity 쿼터뷰에서 얼굴·센서 귀·쌍단검 실루엣 Gate C 검증
-- 최종 모델·Texture·Rig·Weight·BlendShape
-- Idle·Run·Attack·Dash·Skill·Hit·Victory 애니메이션
-- 전용 Toon Material·VFX·사운드·Prefab
-- Android Landscape 로비·선택·전투 통합과 타깃 사용자 매력 검증
+- Approved 2D 제작 시트.
+- 2D→3D 변환표와 Unity Presentation 계약.
+- Blender Blockout과 쿼터뷰 Gate C.
+- 최종 모델·Texture·Rig·Weight·BlendShape.
+- 대표 Animation·Toon Material·VFX·Audio·Prefab.
+- 로비·선택·전투 통합.
+- Android Gate와 사용자 첫인상 검증.
 
-2D와 3D가 같은 루나로 보이고 관통·변형·성능 문제가 허용 범위이며, 사용자 평가에서 한 문장 훅과
-캐릭터 매력이 전달되면 통과한다.
+Exit 기준: 2D와 3D가 같은 루나로 인식되고, 대표 훅·관통·변형·성능·플레이 피드백이 허용 범위다.
 
 ## A4. 공용 3D 기반 — Todo
 
-- Character ID별 Visual Prefab·Portrait·Icon·VFX·Audio를 분리 연결하는 Unity Presentation 정의
-- 기능 Root 아래 교체 가능한 `CharacterVisual` Prefab과 장비·VFX 소켓 계약
-- 캐릭터별 약 5.2~5.8등신을 수용하는 공용 스타일라이즈드 Base Mesh
-- 공용 Humanoid 호환 Rig
-- 얼굴·눈·헤어·의상 Toon Shader와 Material 슬롯 규칙
-- 공용 Animator와 Idle·Walk·Run·Hit·Down 애니메이션
-- 목표 Android 기기·프레임과 물리 본·Collider·폴리곤·Texture·LOD·VFX 예산
-- Unity 캐릭터 Prefab 템플릿
+- Character ID별 Visual Prefab·Portrait·Icon·VFX·Audio 연결.
+- 기능 Root와 교체 가능한 CharacterVisual 계약.
+- 공용 Base Mesh·Humanoid Rig·Shader·Animator.
+- 물리 본·Collider·LOD·Texture·VFX 예산.
+- Unity Prefab 템플릿과 Validation.
 
-루나에서 검증된 구조로 다른 캐릭터 Blockout을 만들고 공용 이동·피격 애니메이션을 재사용할 수 있어야 한다.
+Exit 기준: 루나에서 검증된 구조로 다음 캐릭터 Blockout을 만들고 공용 이동·피격 Animation을 재사용할 수 있다.
 
 ## A5. 나머지 캐릭터 — Todo
 
-루나 기반으로 미유 → 코코 → 이리스 → 노아 순으로 제작한다.
+제작 순서는 `planning/art_production_backlog.md`를 따른다.
 
-- 미유: 2D 6.8~7.0 → 3D 5.2~5.3, 비대칭 헤어·큰 소매·드론 2기
-- 코코: 2D 7.0~7.2 → 3D 5.5~5.6, 구조대 하프 케이프·인젝터·투명 보호막
-- 이리스: 2D 7.2~7.4 → 3D 5.7~5.8, 화이트 롱 코트·장거리 라이플·바이저
-- 노아: 2D 7.2~7.4 → 3D 5.7~5.8, 짧은 보브·테일러드 방호복·전개 방패
+- 공용 기반을 사용한다.
+- 얼굴·헤어·체형·패션·무기·대표 Motion·VFX는 캐릭터별로 분리한다.
+- 선택·로비·전투에서 외형·모션·플레이가 명확히 구분돼야 한다.
 
-공용 기반을 사용하되 얼굴·헤어·체형·패션·무기, 대표 Idle, 기본 공격, 스킬 3종, 승리 모션,
-선택 연출과 VFX에서 개성을 구분한다. 5명 모두 선택·로비·전투에서 정상 동작하고 외형·모션·플레이
-방식이 명확히 구분되면 완료한다.
+Exit 기준: 5명 모두 최종 Prefab으로 핵심 흐름에서 정상 동작한다.
 
 ## A6. 환경·몬스터·소품 — Todo
 
 ```text
-Gray Box 환경
+Gray Box 보존
 → 캠프 핵심 시설
-→ 버려진 거리
-→ 일반 몬스터 3종과 보스 1종
-→ 폐쇄된 연구소
-→ 추가 몬스터 3종과 보스 1종
+→ 첫 위험 구역
+→ 첫 적·보스 세트
+→ 추가 환경·적
 → 환경 폴리시
 ```
 
-- 스테이지 2개, 일반 몬스터 6종, 보스 2종
-- 캠프 시설 4종 이상
-- 폐허 모듈, 바리케이드, 고철, 자원·상자 세트
-- 배경은 캐릭터보다 낮은 채도·시각 밀도를 유지하고 캠프는 따뜻한 안전 지대로 대비한다.
+Exit 기준: 이동·교전·자원·상호작용이 읽히고 캐릭터보다 낮은 시각 밀도를 유지하며 성능 예산을 통과한다.
 
-## A7. UI·VFX·사운드 — Todo
+## A7. UI·VFX·Audio — Todo
 
-### UI
+- UI Design System과 화면별 Layout.
+- Portrait·Icon·Skill·상태 피드백.
+- 캐릭터별 VFX 언어.
+- BGM·UI·전투·환경 Audio.
+- 모바일 Safe Area와 입력 상태.
 
-- 둥근 패널·얇은 외곽선·가벼운 글래스 기반 Design System
-- 타이틀·로비·캐릭터 선택·정보·친밀도·대화
-- 전투 HUD·스킬 선택·결과·정산·캠프 강화
-- 약 7등신 Key Art와 128px 초상화의 얼굴·헤어·대표색 일관성
-- Android Landscape Touch·Safe Area 가독성을 제품 기준으로 유지
+Exit 기준: 기능·가독성·캐릭터 식별·성능·라이선스 검수를 통과한다.
 
-### 캐릭터 VFX 언어
+## A8. 통합·출시 검수 — Todo
 
-| 캐릭터 | 색과 형태 방향 |
-|---|---|
-| 루나 | 청록 쌍단검 궤적과 센서 링 |
-| 미유 | 라일락·시안 홀로그램과 서로 다른 드론 탄도 |
-| 코코 | 코랄·제이드 회복 파동과 투명 곡면 보호막 |
-| 이리스 | 크림슨 조준선과 압축 직선 타격광 |
-| 노아 | 앰버 격자 방벽과 무거운 반격 충격파 |
+- Prefab·Material·Animation·VFX·Audio 연결.
+- 쿼터뷰와 화면비별 검수.
+- Android 성능·발열·메모리.
+- WIP·Missing·Placeholder 제거.
+- AI metadata·라이선스·외부 IP 유사성.
+- 스토어 Key Art·스크린샷·트레일러.
 
-작은 화면에서 전투 정보가 읽히고 이펙트만 보아도 캐릭터를 구분할 수 있어야 한다.
+Exit 기준: Gate C·Android Gate·Release QA를 통과한다.
 
-## A8. 출시 폴리시 — Todo
+## 도구 원칙
 
-- 캐릭터 5명 2D·3D 최종 일관성·리터칭 리뷰
-- 애니메이션 타이밍·타격감·물리 본·관통 수정
-- LOD·Texture·Material·화면비·성능 검증
-- 승인되지 않은 WIP 제거
-- AI 메타데이터·라이선스·버전·외부 IP 유사성 검토
-- 스토어 스크린샷·트레일러·약 7등신 대표 Key Art
+- 현재 사용 가능한 도구로 후보와 검증을 시작한다.
+- ComfyUI는 대량 일관성·정밀 인페인팅·재현 가능한 고정 워크플로가 실제 병목일 때만 `Deferred`에서 전환한다.
+- 도구 사용 여부는 승인 기준을 낮추지 않는다.
+- 생성 결과는 metadata·review·사람 승인 없이 최종 자산으로 승격하지 않는다.
 
-## 승인 규칙
-
-- `WIP`: 제작 중, 게임 기준 사용 금지
-- `REVIEW`: 비교·검토 가능, 최종 모델링 기준 사용 금지
-- `APPROVED`: 사람 검토를 통과한 제작 기준
-- `DEFERRED`: 선택 도구 또는 작업의 필요성을 나중에 재평가하며 현재 선행 조건이 아님
-- `SUPERSEDED`: 새 방향으로 대체됨
-- `REJECTED`: 검토에서 반려되어 제작 기준으로 사용 금지
-- `ARCHIVE`: 이력 보관
-
-Gate A(매력·정체성) → Gate B(2D→3D 제작 가능성) → Gate C(Unity 통합) 순서를 건너뛰지 않는다.
+이 Roadmap에서 캐릭터별 수치·전역 비율·현재 P0 순서·상세 작업 상태를 중복 관리하지 않는다.
