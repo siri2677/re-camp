@@ -1,268 +1,178 @@
 # Re:Camp Art Asset Structure
 
-이 문서는 Re:Camp 아트 자산의 최종 디렉터리 구조, 파일명, 승인 상태, Git 관리 규칙을 정의한다.
+> Version: v002
+> 최종 갱신: 2026-07-27
+> 상태: Active Domain Contract
 
-## 1. 최종 디렉터리 구조
+이 문서는 아트 자산의 디렉터리·상태·버전·Git 관리 규칙만 정의한다. 제품·전역 비주얼·로스터는 `docs/00_project/CURRENT_PROJECT_BASELINE.md`, 캐릭터 설정은 `CHARACTER_BIBLE.md`, 파일 이름과 Export 규칙은 `ASSET_NAMING_GUIDE.md`를 따른다.
+
+## 1. 디렉터리 구조
 
 ```text
 art_refs/
 ├── README.md
-├── art_direction/
-│   ├── ReCamp_Character_Lineup.png
-│   ├── ReCamp_Art_Direction_Board.png
-│   ├── ReCamp_Color_Palette.png
-│   └── archive/
+├── moodboard/                       # 화면 분위기·구도 참고
+├── art_direction/                   # 통합 비교·역사 자산
 ├── characters/
 │   ├── luna/
-│   │   ├── concept/
-│   │   ├── turnaround/
-│   │   ├── expressions/
-│   │   ├── equipment/
-│   │   ├── 3d_reference/
-│   │   └── archive/
 │   ├── miyu/
 │   ├── coco/
 │   ├── iris/
 │   └── noah/
-├── environments/
-│   ├── camp/
-│   ├── ruined_street/
-│   ├── contaminated_forest/
-│   ├── abandoned_lab/
-│   └── machine_graveyard/
+│       ├── concept/
+│       ├── turnaround/
+│       ├── expressions/
+│       ├── equipment/
+│       ├── production_sheet/
+│       ├── 3d_review/
+│       └── archive/
+├── environment/
 ├── monsters/
-│   ├── normal/
-│   └── bosses/
-├── props/
-│   ├── camp_facilities/
-│   ├── weapons/
-│   ├── drones/
-│   ├── loot/
-│   └── environment/
 ├── ui/
-│   ├── design_system/
-│   ├── lobby/
-│   ├── battle/
-│   ├── result/
-│   └── character/
 └── vfx/
-    ├── common/
-    ├── luna/
-    ├── miyu/
-    ├── coco/
-    ├── iris/
-    └── noah/
-
-docs/05_art_concept/
-├── ART_DIRECTION.md
-├── CHARACTER_BIBLE.md
-├── ART_PRODUCTION_MCP_GUIDE.md
-├── ART_ASSET_STRUCTURE.md
-├── CHARACTER_3D_SPEC.md
-├── ANIMATION_GUIDE.md
-└── ASSET_NAMING_GUIDE.md
 
 art_source/
 ├── figma_exports/
 ├── blender/
+│   ├── characters/
+│   ├── equipment/
+│   ├── environment/
+│   └── proof/
 ├── textures/
-└── comfyui_workflows/
+├── comfyui_workflows/
+└── manifests/
 
 Assets/_ReCamp/Art/
 ├── Characters/
-├── Environments/
+├── Environment/
 ├── Monsters/
-├── Props/
 ├── UI/
 ├── VFX/
-├── Materials/
-├── Shaders/
-└── Animations/
+└── Materials/
 ```
 
-`art_source/`와 `Assets/_ReCamp/Art/`는 Unity 프로젝트 생성 이후 추가한다.
+- `art_refs/`: 사람이 비교·검토하는 이미지와 companion 기록.
+- `art_source/`: 편집 가능한 원본과 Export Manifest.
+- `Assets/_ReCamp/Art/`: Unity Runtime에 Import된 자산.
+- 소스와 Runtime 파일을 같은 경로에서 직접 덮어쓰지 않는다.
 
-## 2. 문서별 역할
+## 2. 상태
 
-| 문서 | 역할 |
-|---|---|
-| ART_DIRECTION.md | 프로젝트 공통 비주얼 방향의 최종 기준 |
-| CHARACTER_BIBLE.md | 캐릭터 설정·외형·역할의 단일 기준 |
-| ART_PRODUCTION_MCP_GUIDE.md | MCP와 AI 도구 운영 방식 |
-| ART_ASSET_STRUCTURE.md | 디렉터리·상태·Git 관리 기준 |
-| CHARACTER_3D_SPEC.md | 폴리곤, 텍스처, Rig, LOD, 셰이더 규격 |
-| ANIMATION_GUIDE.md | 공용·고유 애니메이션과 파일 규격 |
-| ASSET_NAMING_GUIDE.md | Unity·Blender·이미지 파일명 규칙 |
-
-## 3. 캐릭터별 필수 산출물
-
-각 캐릭터는 최소 다음 산출물을 갖는다.
-
-```text
-[Character]_Key_Art.png
-[Character]_Front.png
-[Character]_Side.png
-[Character]_Back.png
-[Character]_Turnaround.png
-[Character]_Expression_Sheet.png
-[Character]_Equipment_Sheet.png
-[Character]_Material_Palette.png
-[Character]_3D_Notes.png
-```
-
-### 상태별 예시
-
-```text
-Luna_Key_Art_WIP_v001.png
-Luna_Key_Art_REVIEW_v003.png
-Luna_Key_Art_APPROVED_v005.png
-```
-
-Approved 이후 사소한 수정도 버전을 올린다.
-
-## 4. 승인 상태
-
-| 상태 | 의미 | 게임 제작 사용 |
+| 상태 | 의미 | Runtime 사용 |
 |---|---|---|
-| WIP | 작업 중, 구조와 색상이 변경될 수 있음 | 금지 |
-| REVIEW | 리뷰 후보, 피드백 대기 | Blockout 참고만 허용 |
-| APPROVED | 최종 기준으로 승인 | 허용 |
-| SUPERSEDED | 새로운 승인본으로 대체됨 | 신규 작업 금지 |
-| ARCHIVE | 폐기 또는 기록 보존 | 금지 |
+| `WIP` | 탐색·제작 중 | 금지 |
+| `REVIEW` | 비교·검토 가능한 후보 | 개발 임시 참조만 가능 |
+| `APPROVED` | 사람 승인과 필수 증거 완료 | 제작·Runtime 승격 가능 |
+| `REJECTED` | 요구조건 실패 | 금지, 이력 보존 |
+| `INVALID` | 손상·빈 파일·권리 불명·형식 오류 | 금지 |
+| `ARCHIVED` | 대체된 과거 버전 | 금지, 비교 이력만 |
 
-파일 내부 또는 동반 Markdown에 상태, 버전, 담당자, 승인일을 기록한다.
+생성 도구의 품질 점수나 자동 판정만으로 `APPROVED`로 변경하지 않는다.
 
-## 5. 파일명 규칙
+## 3. Companion 파일
 
-### 공통
-
-```text
-PascalCase_AssetType_Status_v###.ext
-```
-
-예시:
+검토 이미지와 Export에는 가능한 범위에서 같은 Base Name의 companion Markdown을 둔다.
 
 ```text
-Luna_ExpressionSheet_APPROVED_v003.png
-Miyu_CombatDrone_REVIEW_v002.png
-RuinedStreet_ColorKey_WIP_v004.png
-CampGenerator_Blockout_v001.blend
+Asset_REVIEW_v003.png
+Asset_REVIEW_v003.metadata.md
+Asset_REVIEW_v003.review.md
 ```
 
-### Unity
+### Metadata 최소 항목
+
+- Asset Name·Subject·Purpose·Status.
+- Tool/Model·Workflow Version·Seed.
+- Input References·Generated Date.
+- Human Edits·Usage Restriction.
+- Owning documents.
+- External-IP Similarity.
+- Source·Export 경로와 Version.
+
+### Review 최소 항목
+
+- Reviewer·Date.
+- 적용 Gate와 판정.
+- Pass·Fail 근거.
+- 수정 요청.
+- 다음 유효 Version 또는 대체 경로.
+- Runtime 사용 가능 여부.
+
+## 4. Version 규칙
+
+- 구조나 시각 결과가 달라지면 Version을 올린다.
+- 단순 파일 이동·오탈자 수정은 결과를 바꾸지 않으면 Version을 유지할 수 있다.
+- 같은 Version의 이미지·metadata·review가 서로 다른 내용을 가지면 안 된다.
+- 새 Version이 생겨도 이전 파일을 덮어쓰지 않고 `archive/` 또는 역사 경로로 이동한다.
+- `latest`, `final`, `new`처럼 의미가 불명확한 파일명을 사용하지 않는다.
+
+## 5. 승인 흐름
 
 ```text
-CHR_Luna_Model.fbx
-CHR_Luna_Prefab.prefab
-CHR_Luna_Mat_Body.mat
-CHR_Luna_Anim_Attack01.anim
-ENV_RuinedStreet_BuildingA.fbx
-PRP_Camp_Generator.fbx
-VFX_Luna_CrossFang.prefab
-UI_Character_Select_Luna.png
+WIP 생성
+→ metadata 기록
+→ REVIEW Export
+→ Gate 검토
+→ 수정 또는 REJECTED
+→ 사람 승인
+→ APPROVED Source·Export
+→ Blender/Unity 제작
+→ Gate C·Android 검증
 ```
 
-## 6. 소스와 Export 분리
+- 개별 `APPROVED` 제작 시트가 텍스트 설명과 통합 비교 이미지보다 우선한다.
+- 역사·실패 자산은 새 제작의 입력 이미지로 사용하지 않는다.
+- APPROVED 자산을 수정할 때는 새 Version과 review를 만든다.
 
-### 소스 파일
+## 6. Source→Export→Runtime 연결
 
-- `.blend`
-- Figma 원본
-- ComfyUI workflow JSON
-- 고해상도 PSD·Krita 원본
-- Substance 원본
-
-### Export 파일
-
-- `.fbx`
-- `.png`
-- `.tga`
-- `.exr`
-- Unity용 압축 Texture
-
-소스와 Export를 동일 디렉터리에 혼합하지 않는다.
-
-## 7. Git과 Git LFS
-
-Git LFS 대상 권장:
+각 Runtime 자산은 다음을 역추적할 수 있어야 한다.
 
 ```text
-*.psd
-*.kra
-*.blend
-*.fbx
-*.tga
-*.exr
-*.wav
-*.mp4
+Approved reference
+→ editable source
+→ export manifest
+→ FBX/PNG/TGA/WAV 등 전달 파일
+→ Unity import asset
+→ Prefab/Material/Animator
 ```
 
-PNG는 크기와 변경 빈도에 따라 LFS 적용 여부를 결정한다. 레퍼런스 PNG는 일반 Git으로 관리할 수 있지만 대형 원화 Export는 LFS 사용을 권장한다.
+Manifest에는 다음을 기록한다.
 
-### 커밋 원칙
+- Source SHA 또는 Version.
+- Export Tool과 Version.
+- Export 설정.
+- 출력 파일 경로.
+- Socket·LOD·Material Slot.
+- Unity Import Preset.
+- Reviewer와 사용 제한.
 
-- 승인되지 않은 대량 생성 이미지를 전부 Git에 넣지 않는다.
-- 후보 중 선택된 WIP와 승인본만 저장한다.
-- 한 커밋에는 하나의 목적을 유지한다.
-- 최종 승인본을 교체할 때 기존 파일을 `archive/`로 이동한다.
-- 라이선스와 생성 도구 정보를 동반 문서에 기록한다.
+## 7. Git·LFS
 
-## 8. AI 생성 자산 메타데이터
+- 대용량 이미지·모델·편집 원본은 `.gitattributes`의 LFS 규칙을 따른다.
+- `.meta`를 함께 커밋하고 GUID를 임의 재생성하지 않는다.
+- `Library/`, `Temp/`, Cache, 자동 생성 Preview는 커밋하지 않는다.
+- Export 전에 `git status`를 확인해 관련 없는 사용자 변경을 보존한다.
+- 손상된 LFS Pointer나 빈 이미지가 발견되면 `INVALID`로 기록하고 제작을 중단한다.
 
-AI로 생성한 레퍼런스에는 다음 정보를 기록한다.
+## 8. Unity 승격 조건
 
-```text
-Asset Name:
-Character/Environment:
-Purpose:
-Status:
-Generated Date:
-Tool/Model:
-Workflow Version:
-Seed:
-Input References:
-Human Edits:
-Usage Restriction:
-Reviewer:
-```
+다음 조건을 만족하기 전 최종 Runtime 폴더로 승격하지 않는다.
 
-모델·서비스 약관과 상업적 사용 조건을 확인하지 않은 이미지는 출시 자산으로 사용하지 않는다.
+- 승인된 Source와 review 경로 존재.
+- 파일명·Socket·Material·LOD 규격 통과.
+- Missing Script·Material·Texture 없음.
+- Prefab Validation 통과.
+- 쿼터뷰 가독성·관통·Animation 검증.
+- 필요한 Android 성능 증거.
 
-## 9. 리뷰 체크리스트
+Gray Box와 임시 Proxy는 별도 Prototype 경로와 이름을 유지하고 최종 자산처럼 보이게 명명하지 않는다.
 
-### 캐릭터
+## 9. 폐기·보존
 
-- 얼굴과 헤어가 기준 이미지와 일치하는가
-- 캐릭터별 실루엣과 색상이 구분되는가
-- 무기·장비 구조가 모든 시점에서 일관적인가
-- 3D 모델링과 애니메이션이 가능한 구조인가
-- 쿼터뷰에서 머리·상체·무기가 식별되는가
+- `REJECTED`, `INVALID`, Gate 실패 결과는 원인을 설명하는 review와 함께 보존한다.
+- 보존 목적은 실패 회귀 방지이며 제작 기준 재사용이 아니다.
+- 권리 불명·개인정보·불필요한 대용량 중간 파일은 정책에 따라 제거할 수 있다.
+- 제거 전 참조 링크와 Manifest를 확인한다.
 
-### 환경
-
-- 캐릭터보다 시각적 밀도와 채도가 낮은가
-- 이동 가능 영역과 위험 영역이 구분되는가
-- 자원과 상호작용 오브젝트가 보이는가
-- 부드러운 포스트 아포칼립스 톤을 유지하는가
-
-### UI/VFX
-
-- 모바일에서 텍스트와 버튼이 읽히는가
-- 캐릭터별 색상 언어가 일관적인가
-- VFX가 캐릭터와 적을 가리지 않는가
-- 공격, 회복, 보호막, 위험 피드백이 즉시 구분되는가
-
-## 10. 현재 저장소 적용 범위
-
-현재 커밋에서는 다음을 우선 적용한다.
-
-```text
-art_refs/art_direction/ReCamp_Character_Lineup.png
-docs/05_art_concept/ART_DIRECTION.md
-docs/05_art_concept/CHARACTER_BIBLE.md
-docs/05_art_concept/ART_PRODUCTION_MCP_GUIDE.md
-docs/05_art_concept/ART_ASSET_STRUCTURE.md
-art_refs/README.md
-```
-
-향후 캐릭터별 Approved 시트가 추가되면 통합 라인업 이미지보다 개별 Approved 시트를 우선한다.
+이 문서에서 전역 비율·플랫폼·캐릭터 방향을 다시 정의하지 않는다.

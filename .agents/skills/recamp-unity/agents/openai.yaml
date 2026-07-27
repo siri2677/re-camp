@@ -1,0 +1,7 @@
+interface:
+  display_name: "Re:Camp Unity"
+  short_description: "Re:Camp Unity 개발·MCP·검증 워크플로"
+  default_prompt: "Use $recamp-unity to continue Re:Camp Unity development with compact MCP output and verified tests."
+
+policy:
+  allow_implicit_invocation: true
