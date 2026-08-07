@@ -1,15 +1,18 @@
 # Re:Camp 구현 현황 대조표
 
-> 최종 갱신: 2026-07-27
+> 최종 갱신: 2026-08-07
 > 상태: Active Snapshot
 > 기준 브랜치: `codex/recamp-unity-mvp`
-> 기준 HEAD 작성 시점: `be122c1` 이후 문서 정합성 작업 포함
+> 기준 HEAD 작성 시점: 원격 `38d1eb9` 기술 문서 기준선과 5인 디자인 REVIEW 패키지 포함
 > Unity: `6000.5.3f1`
 
 ## 1. 문서 역할
 
 이 문서는 `CURRENT_PROJECT_BASELINE.md`, `planning/sprint_backlog.md`와 원격 브랜치에 반영된 Unity
 구현을 대조해 **구현·검증 근거만** 기록한다.
+
+이번 스냅샷은 원격 기술 문서의 Core·저장·Android 계약과 2026-08-07 일본 서브컬처 5인 디자인
+REVIEW 패키지를 함께 반영한다. 실제 Unity 구현 경로는 `Assets/_ReCamp/`다.
 
 - 제품·플랫폼·아트 방향: `docs/00_project/CURRENT_PROJECT_BASELINE.md`
 - 실행 순서와 상태: `planning/sprint_backlog.md`
@@ -41,6 +44,10 @@
 - `ReCamp.Domain → ReCamp.UnityAdapter → ReCamp.Runtime` Assembly 경계
 - PlayerPrefs 저장 v1→v2 마이그레이션
 - EditMode 25개, PlayMode 18개 테스트 기준선
+- 일본 모바일 서브컬처 v2.1 기준의 5인 후보·KeyArt·3뷰·8표정·장비·팔레트·Face128·2D→3D REVIEW 패키지
+- 캐릭터별 4096×4608 통합 시트 5개와 4096×2304 라인업·교차 검토 보드
+
+디자인 세부 수량과 승인 경계는 `planning/DESIGN_PROGRESS_2026-08-07.md`를 따른다.
 
 하지만 다음은 아직 완료되지 않았다.
 
@@ -60,7 +67,7 @@
 ```text
 Google Play Android 1차 제품 목표
 + Windows Editor 개발·디버그·테스트 기준
-+ 2D 약 6.8~7.4등신 성인 서브컬처 Key Art
++ 2D 약 6.8~7.4등신 성인 일본 모바일 서브컬처 Key Art
 + 3D 약 5.2~5.8등신 스타일라이즈드 인게임 캐릭터
 + 3D 스타일라이즈드 환경·툰 셰이딩
 + 고정 Orthographic 쿼터뷰
@@ -68,15 +75,28 @@ Google Play Android 1차 제품 목표
 
 | ID | 항목 | 상태 | 현재 판정 |
 |---|---|---|---|
-| RC-0013 | 프로젝트 기준 단일화 | Done | Android-first, 2D 약 7등신·3D 5~6등신, 캐릭터 디자인 v2.0 기준 확정 |
-| RC-0011 | 과거 통합 라인업 v003 | Review / Fail | Gate A 실패 이력으로만 보존. 새 후보의 제작 앵커로 사용하지 않음 |
-| ART-0102 | 캐릭터 앵커 v2.0 | Done | 5명 고정·가변·금지 요소와 개별 2D/3D 목표 비율 확정 |
-| ART-0103 | Figma 제작 시트 v002 | Review | 규격과 SVG 존재. 실제 Figma Import·Clone·한글·PNG/PDF Export 미검증 |
-| ART-0107 | Gate A/B/C v2.0 | Done | 약 7등신, 2D→3D 변환, 외부 IP 유사성, Android Gate 기준 반영 |
-| ART-1001·1101·1201·1301·1401 | 5인 전신 후보 | Ready | Character Bible v2.0 한 문장 훅 기반 캐릭터별 3안 제작 필요 |
-| ART-4001~4004 | 최종 UI Design System | Todo | 현재 UGUI는 기능 검증용 Gray Box |
+| RC-0008, ART-0001 | 통합 캐릭터 설정·아트 방향 v2.1 | Done | 전원 성인 여성·남성향 일본 모바일 서브컬처, 2D 약 7등신과 캐릭터별 3D 5~6등신, 2D→3D 번역 원칙을 최신 기준으로 채택한다. |
+| RC-0013 | 현재 프로젝트 기준 단일화 | Done | `CURRENT_PROJECT_BASELINE.md`에 Android-first, 2D 약 7등신·3D 5~6등신, v003 실패 이력, Unity 검증 상태와 문서 소유권을 확정했다. |
+| RC-0011, ART-0003 | 과거 통합 캐릭터 라인업 | Review | v001은 INVALID, v002는 REJECTED, v003은 Gate A `FAIL` 이력으로만 보존한다. 새 후보의 제작 앵커로 재사용하지 않는다. |
+| ART-0004 | 아트 MCP 제작·승인 가이드 | Done | 도구 역할·사람 승인·선택형 도구 도입 원칙을 확정했으며 최신 비율·화풍은 Baseline·Art Direction v2.1을 따른다. |
+| ART-0102 | 도구 비종속 캐릭터 앵커·메타데이터 규칙 | Done | `CHARACTER_ANCHOR_SPEC.md`에 공통·5인별 `LOCKED`/`CONTROLLED`/`OPEN`/`FORBIDDEN` 변수, 교차 구분 규칙과 산출물별 적용 기준을 확정했다. |
+| ART-0103·0111 | 캐릭터 제작 시트 템플릿 v002 | Review | 약 7등신 2D·5~6등신 3D 변환 Frame을 포함한 v002 SVG가 있으며 실제 Figma Import·Component Clone·한글·PNG/PDF Export 검증은 남았다. |
+| ART-0112 | 루나 2D→3D 변환표 샘플 | Review | v004에서 2D 7.09H→3D 5.39H와 확대·삭제·결합·물리 위험, Face128·실루엣·통합 REVIEW 시트를 작성했다. Figma 실사용·사람 검토가 남았다. |
+| ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 | Done | `ART_REVIEW_CHECKLIST.md`에 캐릭터·환경·UI/VFX·Unity Prefab의 Gate별 판정값, 필수 증거, 차단 조건과 인간 승인 규칙을 확정했다. |
+| ART-0108 | ComfyUI·ComfyUI MCP 도입 | Deferred | 현재 필수가 아니다. 대량 일관성 생성·정밀 인페인팅·재현 가능한 고정 워크플로가 병목일 때만 재평가한다. |
+| ART-0109 | 아트 자산·Export 명명 규격 | Done | `ASSET_NAMING_GUIDE.md`에 Source→Review→Runtime 이름, LOD·Socket, Export manifest, GUID 보존과 Gray Box·코드 이름 의존성 예외를 확정했다. |
+| ART-0110 | 공용·캐릭터 Animation 규격 | Done | `ANIMATION_GUIDE.md`에 현재 Gameplay와 디자인 후보를 분리한 5인 Clip, in-place, Animator/AOC, Event Cue, 장비·Import와 Gate B/C 계약을 확정했다. |
+| ART-1001~1409 | 5명 약 7등신 2D 제작 패키지 | Review | 일본 모바일 서브컬처 스타일로 5명 각 3안·선택 KeyArt·3뷰·8표정·장비·팔레트·Face128·실루엣·2D→3D·4096×4608 통합 시트를 작성했다. ART-1009/1109/1209/1309/1409 사람 승인 대기다. |
+| ART-1501~1504 | 5인 일관성·유사성·라인업 리뷰 | Review | 최신 코코 v005·이리스 v006을 포함한 4096×2304 라인업과 exact 128px 얼굴·실루엣·저채도 교차 보드, 내부 originality precheck를 작성했다. 사람·법률·런타임 판정이 남았다. |
+| ART-4001~ART-4004 | 최종 UI Design System·화면 | Todo | 현재 UGUI는 기능 검증용 Gray Box HUD다. 최종 아트·스킬 선택 UI 완료로 간주하지 않는다. |
 
-Approved 2D 제작 시트는 `0/5`, 최종 3D Model·Prefab·Animator도 `0/5`다.
+현재 제작 방향은 `CURRENT_PROJECT_BASELINE.md`와 `ART_DIRECTION.md` v2.1로 단일화했다.
+원본 전투 이미지는 환경·카메라·색 대비와 캐릭터 존재감의 참고이며 외형·무기·파티 구성은
+공식 디자인 기준이 아니다. 정확한 얼굴·체형·의상·무기는 개별 Approved 시트에서 확정한다.
+`PRODUCTION_DIRECTION.md`는 과거 링크 호환용 안내만 유지한다.
+
+Approved 2D 제작 시트는 `0/5`, 최종 3D Model·Prefab·Animator도 `0/5`다. 현재 5인 제작물은
+사람이 방향을 판정할 수 있는 `REVIEW` 완료 상태이며 자동으로 `APPROVED`되지 않는다.
 
 ## 4. Unity 프로젝트·Scene 기반
 

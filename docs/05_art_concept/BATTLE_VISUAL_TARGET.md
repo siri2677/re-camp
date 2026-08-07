@@ -14,7 +14,9 @@
 | `Assets/_ReCamp/Captures/battle_quarter_view_hud.png` | REVIEW | Unity Gray Box 카메라·HUD·경계 기능 검증 |
 | 원격 `art_refs/art_direction/ReCamp_Character_Lineup.png` | INVALID | 거의 빈 이미지로 확인돼 모든 제작 기준에서 제외 |
 | `art_refs/art_direction/ReCamp_CharacterLineup_REJECTED_v002.png` | REJECTED | 전원 여성 조건 누락, 노아가 남성으로 생성됨, 원본 이미지와 다른 신규 계열 |
-| `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.png` | REVIEW / Gate A `FAIL` 권고 | 성인 여성 5인·SD-lite 계열은 유효하나 역할 모티프·얼굴·실루엣 교정과 사람 재검토 필요 |
+| `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.png` | HISTORICAL REVIEW / Gate A `FAIL` | 과거 4~5등신·역할 모티프·얼굴·실루엣 실패 기록. 새 제작 앵커로 사용하지 않음 |
+| `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_REVIEW_v001.png` | REVIEW / 사람 승인 대기 | 최신 2D 약 7등신 선택 방향과 캐릭터별 3D 5~6등신 목표, 역할·팔레트·장비 훅 비교 |
+| `art_refs/characters/lineup/ReCamp_FiveCharacterCrossReview_REVIEW_v001.png` | REVIEW / 사람 승인 대기 | exact 128px 얼굴·장비 포함/제거 실루엣·저채도 5인 교차 검토 증거 |
 
 ## 유지하는 화면 언어
 
@@ -51,9 +53,9 @@
 ## 현재 판정과 실행 연결
 
 - v002는 `REJECTED`로 보존하며 재사용하지 않는다.
-- v003 생성·metadata·Gate A 리뷰 기록은 완료됐고 현재 판정은 `REVIEW / FAIL 권고`다.
-- 역할 모티프·얼굴·실루엣 교정은 캐릭터별 WIP와 128px 얼굴·흑백 실루엣 증거에서 수행한다.
-- 사람 승인 전에는 v003 또는 파생 자산을 `APPROVED`나 최종 모델링 시트로 사용하지 않는다.
+- v003 생성·metadata·Gate A 기록은 과거 `FAIL` 이력으로만 보존한다.
+- 역할 모티프·얼굴·실루엣 교정은 5인 개별 REVIEW 제작 패키지와 통합 교차 검토 보드에 반영했다.
+- 사람 승인 전에는 최신 개별/통합 REVIEW 자산도 `APPROVED`나 최종 모델링 시트로 사용하지 않는다.
 - 가변 작업 순서와 상태는 이 문서에서 관리하지 않고 `planning/sprint_backlog.md`만 따른다.
 
 기존 Gray Box는 폐기하지 않는다. 아트 승인을 기다리는 동안 자동 테스트와 5인 전투 프로토타입의 기능 기반으로 유지한다.

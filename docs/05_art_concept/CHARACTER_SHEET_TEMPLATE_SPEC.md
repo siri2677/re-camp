@@ -49,10 +49,10 @@ Figma 원본 URL이나 파일 키는 저장소에 비밀값으로 기록하지 �
 
 | 구분 | 단일 소스 | 템플릿에서의 사용 |
 |---|---|---|
-| 캐릭터 설정 | `CHARACTER_BIBLE.md` v2.0 | Character ID·한 문장 훅·역할·2D/3D 목표 |
-| 고정/가변 디자인 | `CHARACTER_ANCHOR_SPEC.md` v2.0 | `LOCKED`, `CONTROLLED`, `FORBIDDEN` 필드 |
-| 공통 아트 방향 | `ART_DIRECTION.md` v2.0 | 2D 약 7등신·3D 5~6등신 Scope |
-| Gate 판정 | `ART_REVIEW_CHECKLIST.md` v2.0 | `CHA-Axx`, `CHA-Bxx` 증거 슬롯 |
+| 캐릭터 설정 | `CHARACTER_BIBLE.md` v2.1 | Character ID·한 문장 훅·역할·2D/3D 목표 |
+| 고정/가변 디자인 | `CHARACTER_ANCHOR_SPEC.md` v2.1 | `LOCKED`, `CONTROLLED`, `FORBIDDEN` 필드 |
+| 공통 아트 방향 | `ART_DIRECTION.md` v2.1 | 일본 모바일 서브컬처 2D 약 7등신·3D 5~6등신 Scope |
+| Gate 판정 | `ART_REVIEW_CHECKLIST.md` v2.1 | `CHA-Axx`, `CHA-Bxx` 증거 슬롯 |
 | AI 생성 이력 | `AI_ASSET_METADATA_TEMPLATE.md` | companion metadata 경로 |
 | 경로·상태 | `ART_ASSET_STRUCTURE.md` | Export manifest |
 | 파일명·Export | `ASSET_NAMING_GUIDE.md` | Export basename·버전·동반 파일 |

@@ -44,7 +44,7 @@ Animation을 붙이기 위해 Damage·Cooldown·이동 거리를 Animation Event
 6. Animation Event는 SFX·VFX·장비 표시 같은 Presentation Cue에만 사용한다.
 7. 원본 전투 앵커의 Orthographic 쿼터뷰와 Android Landscape 축소 화면에서 시작·방향·타격
    순간이 읽혀야 한다.
-8. 4~5등신 SD-lite의 큰 머리·손·장비를 살리되 얼굴, Grip, 실루엣을 장비가 가리지 않는다.
+8. 캐릭터별 5~6등신 스타일라이즈드 비율의 큰 얼굴·손·장비를 살리되 얼굴, Grip, 실루엣을 장비가 가리지 않는다.
 9. 공용 Motion 재사용 때문에 5명의 체형·성격·역할이 같아 보이면 고유 Motion으로 보완한다.
 10. 최종 Clip은 사람 Gate B/C 검토 전 `APPROVED`로 표시하지 않는다.
 
@@ -161,7 +161,7 @@ ANM_Common_Turn_R
 | 상태 | Clip | 구현 연결 |
 |---|---|---|
 | Signature | `ANM_Iris_Idle_Signature` | 정밀함과 생활 허당의 절제된 대비 |
-| Basic | `ANM_Iris_Attack_Rifle` | 기본 자동 공격 |
+| Basic | `ANM_Iris_Attack_ObservationLance` | 관측 랜스 에너지 방출 기본 자동 공격 |
 | Primary Start | `ANM_Iris_FocusShot_Start` | 현재 `BeginCharge` |
 | Primary Loop | `ANM_Iris_FocusShot_Loop` | `IsCharging`, Loop |
 | Primary Release | `ANM_Iris_FocusShot_Fire` | 현재 `ReleaseCharge` |
@@ -171,7 +171,7 @@ ANM_Common_Turn_R
 | Result | `ANM_Iris_Victory` | Result·Lobby |
 | Select | `ANM_Iris_Select` | 캐릭터 선택 |
 
-- 긴 Rifle의 `Socket_Muzzle`과 조준 방향이 Orthographic 화면에서 보여야 한다.
+- 긴 관측 랜스의 `Socket_Emitter_Tip`·거리 링과 방출 방향이 Orthographic 화면에서 보여야 하며 총구·방아쇠·탄창처럼 읽히면 안 된다.
 - Charge Ratio는 코드가 소유하고 Animator의 `PrimaryCharge`는 시각 보간 값으로만 사용한다.
 - 취소·Target 없음에서도 Start/Loop에 갇히지 않고 Locomotion으로 복귀해야 한다.
 
@@ -362,7 +362,7 @@ Socket 이름과 축은 `ASSET_NAMING_GUIDE.md`를 그대로 사용한다.
 | Luna | `Socket_Weapon_R`, 단검의 `Socket_BladeTip`, `Socket_Scanner` | 단검 Trail·Scan Origin |
 | Miyu | `Socket_Drone`, Drone `Socket_Muzzle` | Orbit·Burst·Overclock |
 | Coco | `Socket_Weapon_R`, `Socket_Shield`, `Socket_VFXCenter` | Injector·SafeZone |
-| Iris | `Socket_Weapon_R`, Rifle의 `Socket_Grip_L`·`Socket_Muzzle`, `Socket_CameraFocus` | 양손 Grip·Rifle·Mark·Charge |
+| Iris | `Socket_Weapon_R`, Lance의 `Socket_Grip_L`·`Socket_Emitter_Tip`·`Socket_RangeRing`, `Socket_CameraFocus` | 양손 Grip·Observation Lance·Mark·Charge |
 | Noah | `Socket_Shield`, `Socket_VFXCenter` | Guard·Counter·Barrier |
 
 - Socket Transform을 Clip에서 삭제·이름 변경하지 않는다.
@@ -459,7 +459,7 @@ Expected Socket Motion:
 - 각 Clip의 시작·Active·Recovery 썸네일
 - Loop 첫/끝 Pose 비교와 Root Drift 수치
 - 손 Grip·장비 Pivot·Socket 궤적 Overlay
-- 4~5등신 관절, Hair·Cape·가방·방패 관통 검사
+- 캐릭터별 5~6등신 관절, Hair·Cape·가방·방패 관통 검사
 - Export manifest와 Source/Runtime basename 대응
 
 즉시 `FAIL`:
@@ -494,7 +494,7 @@ Expected Socket Motion:
 
 ## 17. 루나 Animation Proof 완료 조건
 
-- Approved 루나 일반 등신 제작 시트와 4~5등신 Model·Rig가 선행된다.
+- Approved 루나 약 7등신 제작 시트와 5.3~5.4등신 Model·Rig가 선행된다.
 - 공용 `Idle_Combat`, `Run_F`, `Hit_Front`, `Down`, `Down_Loop` Retargeting이 정상이다.
 - 3타 `Attack_01~03`의 방향·단검 궤적·회수가 서로 읽힌다.
 - CatStep은 코드 이동과 동기화되고 Root Drift·Arena Clamp 회귀가 없다.

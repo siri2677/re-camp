@@ -1,6 +1,6 @@
 # Re:Camp Integrated Roadmap
 
-> 최종 갱신: 2026-07-24
+> 최종 갱신: 2026-08-04
 
 ## 프로젝트 목표
 
@@ -55,9 +55,9 @@ Windows Editor 기능 기준선이며 Android APK·Touch·실기기 검증을 �
 
 ### 1. 캐릭터 5인 사람 승인
 
-과거 v001은 거의 빈 이미지, v002는 전원 여성 조건 누락으로 사용할 수 없다. v003도 기존 4~5등신,
-역할 모티프 혼동, 얼굴·실루엣 차별화 부족으로 Gate A `FAIL`이다. v003을 직접 수정하는 대신
-Character Bible·Anchor v2.0의 새 한 문장 훅을 기준으로 약 7등신 후보를 다시 제작한다.
+일본 모바일 서브컬처 화풍의 5인 KeyArt와 후보·3뷰·표정·장비·2D→3D·교차 비교 근거를
+`REVIEW`로 다시 작성했다. 과거 서양식 세미리얼/페인터리 결과는 `STYLE REJECTED / HISTORY ONLY`로
+격리했다. 현재 남은 핵심은 사용자가 얼굴 매력·여성성·캐릭터별 차별성을 직접 판정하는 Gate A다.
 
 ### 2. 2D→3D 변환 검증
 
@@ -79,10 +79,10 @@ Core·Presentation 사이 Assembly 또는 Adapter 경계를 정하고 CI를 추�
 | 마일스톤 | 목표 | 상태 | 현재 판단 |
 |---|---|---|---|
 | M0 | 저장소·기획 기반 | Done | 저장소, 문서, 테이블, 실행 계획 존재 |
-| M1 | 아트 방향·5인 설정 v2.0 | Review | 문서 개편 완료, 새 약 7등신 후보와 사람 승인 필요 |
+| M1 | 아트 방향·5인 설정 v2.1 | Review | 일본 모바일 서브컬처 계약과 5인 REVIEW 패키지 작성, 사람 승인 필요 |
 | M2 | Unity 프로젝트·Core·Android 개발 기반 | Review | 프로젝트·Scene·테스트 동작, Core·CI·Android 도구 체인/입력 검증 남음 |
 | M3 | 전투 Gray Box·5인 프로토타입 | Review | 5인 능력과 테스트 완료, VFX·튜닝·일부 통합 회귀 남음 |
-| M4 | 아트 파이프라인·5인 Approved 2D 시트 | In Progress | v002 템플릿·규격 완료, 실사용 검증·개별 시트 Todo |
+| M4 | 아트 파이프라인·5인 Approved 2D 시트 | Review | 5인 개별·교차 REVIEW 시트 작성, 사람 Gate A 승인만 별도 대기 |
 | M5 | 루나 Character Proof·Vertical Slice | Todo | 루나 약 7등신 Approved 시트 이후 시작 |
 | M6 | 공용 3D 기반·나머지 4인 | Todo | 루나 5.3~5.4등신 품질·비용 검증 후 시작 |
 | M7 | 출시 범위 전체 콘텐츠 | Todo | 스테이지·적·캠프·UI·VFX·사운드 확장 |
@@ -103,16 +103,17 @@ Core·Presentation 사이 Assembly 또는 Adapter 경계를 정하고 CI를 추�
 - 캐릭터 5명 이름·역할과 성인 여성 로스터 단일화
 - 캐릭터 등급·가챠 전제 제거
 - 2D 약 7등신 + 3D 5~6등신 스타일라이즈드·툰 셰이딩·쿼터뷰 확정
-- Character Bible·Anchor Spec·Art Direction v2.0
+- Character Bible·Anchor Spec·Art Direction v2.1
 - 각 캐릭터 한 문장 훅, 얼굴·체형·패션·장비·반전 매력 재정의
-- Figma 제작 시트 v002와 Gate A/B/C v2.0
+- 제작 시트와 Gate A/B/C v2.1
+- 일본 모바일 서브컬처 얼굴·헤어·렌더링 계약과 서양식 세미리얼 드리프트 차단 규칙
+- 5인 REVIEW KeyArt·후보·3뷰·표정·장비·팔레트·2D→3D·통합 비교 근거
 
 ### 남은 작업
 
-- 캐릭터별 약 7등신 전신 후보 3안
-- 128px 얼굴·흑백 실루엣·저채도·외부 IP 유사성 비교
-- 캐릭터별 2D→3D 변환표
-- 사람 승인 제작 시트 5종
+- 5인 얼굴 매력·여성성·응집도에 대한 사람 Gate A 판정
+- 외부 IP 유사성의 사람/법률 최종 확인
+- 승인된 방향만 `APPROVED` 제작 기준으로 승격
 
 ## M2. Unity 프로젝트·Core·Android 개발 기반 — Review
 
@@ -132,7 +133,7 @@ Core·Presentation 사이 Assembly 또는 Adapter 경계를 정하고 CI를 추�
 
 아트 제작 전에 역할과 조작 차이를 검증해 디자인·애니메이션 낭비를 줄인다.
 
-## M4. 아트 파이프라인·5인 2D 제작 시트 — In Progress
+## M4. 아트 파이프라인·5인 2D 제작 시트 — Review
 
 각 캐릭터에 다음 산출물을 작성한다.
 
@@ -146,8 +147,9 @@ Core·Presentation 사이 Assembly 또는 Adapter 경계를 정하고 CI를 추�
 - 128px 얼굴·실루엣·저채도·유사성 증거
 - 캐릭터별 2D→3D 변환표
 
-현재 이미지 도구로 후보를 진행한다. ComfyUI는 대량 일관성·정밀 인페인팅·고정 워크플로가
-병목일 때만 `Deferred`에서 전환한다.
+현재 이미지 도구로 5인 `REVIEW` 패키지와 결정론적 통합 시트를 작성했다. ComfyUI는 사람 승인 뒤
+대량 일관성·정밀 인페인팅·고정 워크플로가 실제 병목일 때만 `Deferred`에서 전환한다. 사람 승인 전에는
+어떤 이미지도 `APPROVED` 또는 최종 게임 자산으로 승격하지 않는다.
 
 ## M5. 루나 Character Proof·Vertical Slice — Todo
 

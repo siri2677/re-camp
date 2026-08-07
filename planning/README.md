@@ -1,6 +1,6 @@
 # Re:Camp Planning Index
 
-> 최종 갱신: 2026-07-27
+> 최종 갱신: 2026-08-07
 
 이 디렉터리는 Re:Camp 개발·아트 작업의 단일 실행 진입점이다. 게임 기획과 기술·아트 기준은
 `docs/`에 보관하지만 실제 작업 순서와 상태는 `planning/`을 기준으로 판단한다.
@@ -57,12 +57,14 @@
 | 저장 Schema·Migration | `docs/02_system_design/SAVE_DATA_SPEC.md` |
 | 모바일 입력·Lifecycle | `docs/04_ui_ux/MOBILE_INPUT_AND_LIFECYCLE.md` |
 | Android Build·배포 | `docs/06_technical/ANDROID_BUILD_AND_RELEASE.md` |
-| 캐릭터 설정 | `docs/05_art_concept/CHARACTER_BIBLE.md` v2.0 |
-| 캐릭터 제작 앵커 | `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md` v2.0 |
+| 캐릭터 설정 | `docs/05_art_concept/CHARACTER_BIBLE.md` v2.1 |
+| 캐릭터 제작 앵커 | `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md` v2.1 |
 | 캐릭터 제작 시트 템플릿 | `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md` v002 |
-| 아트 Gate 리뷰 | `docs/05_art_concept/ART_REVIEW_CHECKLIST.md` v2.0 |
+| 아트 Gate 리뷰 | `docs/05_art_concept/ART_REVIEW_CHECKLIST.md` v2.1 |
+| 현재 5인 REVIEW 패키지 | `art_refs/characters/STYLE_RESET_2026-08-04.md`, `art_refs/characters/`와 `art_refs/characters/lineup/ReCamp_ART-1501-1504_REVIEW_Package.md` |
+| 2026-08-07 디자인 진척도 | `planning/DESIGN_PROGRESS_2026-08-07.md` |
 | 과거 5인 라인업 판정 | `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md` |
-| 공통 아트 방향 | `docs/05_art_concept/ART_DIRECTION.md` v2.0 |
+| 공통 아트 방향 | `docs/05_art_concept/ART_DIRECTION.md` v2.1 |
 | 아트 MCP 파이프라인 | `docs/05_art_concept/ART_PRODUCTION_MCP_GUIDE.md` |
 | 아트 디렉터리·승인 규칙 | `docs/05_art_concept/ART_ASSET_STRUCTURE.md` |
 | 아트 자산·Export 명명 계약 | `docs/05_art_concept/ASSET_NAMING_GUIDE.md` |
