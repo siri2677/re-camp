@@ -170,9 +170,20 @@ luxury street armor fused with practical rescue hardware, no large shield, no he
 - 신규 5인 역할·성격·비주얼 훅: 문서 기준 완료
 - 신규 Character Bible: 완료
 - 신규 Anchor와 공통 Art Direction: 완료
-- 이미지 후보: 생성 대기 — 외부 이미지 provider 또는 로컬 생성 경로 연결 필요; Unity는 선행 조건 아님
+- 이미지 후보: 공통 라인업 WIP 1장 생성 완료 — `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_WIP_v001.png`; 캐릭터별 3안은 다음 단계
 - Gate A 승인: `0/5`
 - 2D 제작 시트·Turnaround·2D→3D·3D Blockout: Gate A 이후
 - 기존 REVIEW 자산: 신규 기준이 아닌 `HISTORY ONLY`, 이후 `SUPERSEDED` 또는 `ARCHIVE`로 정리
 
 이미지를 생성할 수 없는 상태에서 기존 REVIEW 이미지를 새 컨셉으로 가장하지 않는다.
+
+### 2026-08-09 생성 증거
+
+내장 `image_gen.imagegen`으로 CH101~CH105 공통 하우스 스타일 라인업 WIP를 생성했다. 이 이미지는
+공통 조명·선화·성인 여성 비율·캠프 분위기·실루엣 분리를 확인하기 위한 첫 후보이며, 개별 3안·128px
+얼굴·장비 on/off 실루엣·저채도 보드가 만들어지기 전에는 Gate A를 통과한 것으로 보지 않는다.
+
+- PNG: `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_WIP_v001.png`
+- Metadata: 동명 `.metadata.md`
+- Review: 동명 `.review.md`
+- 상태: `WIP / GATE A PENDING`, `APPROVED: NOT GRANTED`

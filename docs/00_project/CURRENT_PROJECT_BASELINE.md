@@ -149,8 +149,8 @@ Android와 PC·iOS 동시 정식 출시
 | Gate A/B/C 공통 판정 | `ART_REVIEW_CHECKLIST.md` v3.0 완료 |
 | 캐릭터 제작 시트 템플릿 | v003 규격·신규 Instance 존재, Figma 실사용 검증 Pending |
 | 기존 라인업·캐릭터별 REVIEW | `HISTORY ONLY`, 신규 제작 앵커로 사용하지 않음 |
-| 신규 5인 Prompt·Gate A 패키지 | 문서 완료, 이미지 provider 연결 Pending |
-| 신규 후보 이미지·교차 보드 | 미생성, `0/5` |
+| 신규 5인 Prompt·Gate A 패키지 | 문서 완료, 공통 라인업 WIP 1장 생성, 개별 후보 Pending |
+| 신규 후보 이미지·교차 보드 | 공통 라인업 WIP `1/1`, 캐릭터별 후보·교차 보드 `0/5` |
 | 개별 Approved 2D 제작 시트 | 0/5 |
 | 최종 3D Model·Prefab·Animator | 0/5 |
 | 최종 HUD 초상화·Icon·VFX·Audio | 0/5 |
@@ -158,13 +158,14 @@ Android와 PC·iOS 동시 정식 출시
 
 신규 5인 역할·성격·비주얼 훅은 `CHARACTER_BIBLE.md` v3.0, 고정값은 `CHARACTER_ANCHOR_SPEC.md`
 v3.0, 공통 표현은 `ART_DIRECTION.md` v3.0에 있다. 신규 후보 PNG 생성과 Gate A는 Unity와 독립된 단계다.
-외부 이미지 provider 또는 로컬 생성 경로가 연결되기 전까지 신규 후보 이미지를 생성했다고 기록하지 않는다.
+공통 WIP는 내장 이미지 생성 경로의 실제 산출물로 기록했으며, 캐릭터별 3안·제작 시트·사람 Gate A 전에는
+출시 후보 또는 `APPROVED`로 승격하지 않는다.
 
 ## 8. 제작 도구 기준
 
 | 도구 | 현재 역할 |
 |---|---|
-| 이미지 생성 도구 | 신규 5인 3안 후보 생성 — 현재 provider 연결 대기 |
+| 이미지 생성 도구 | 공통 5인 라인업 WIP 1장 생성 완료; 캐릭터별 3안·검토 보드 생성 진행 예정 |
 | Figma 또는 동등한 편집 도구 | 약 7등신 제작 시트·UI Design System·리뷰 Export |
 | Blender | 소품 Export Proof, Gate A Approved 시트 이후 5~6등신 캐릭터 Blockout |
 | Coplay/unityMCP | Unity Scene·Prefab·Material·Animator·검증 자동화 |
@@ -183,7 +184,7 @@ v3.0, 공통 표현은 `ART_DIRECTION.md` v3.0에 있다. 신규 후보 PNG 생�
 문서·플랫폼·2D/3D 비율 기준 충돌 제거
 → 진행 중인 Core Domain·Adapter 범위 완료
 → Android Landscape·Safe Area·Touch 입력 기준과 첫 APK
-→ 이미지 provider 연결 후 CH101~CH105 각 3안 생성
+→ 공통 라인업 WIP를 기준으로 CH101~CH105 각 3안 생성
 → 사람 Gate A에서 5인 방향 선택
 → 선택된 후보의 약 7등신 제작 시트·Turnaround·2D→3D 변환표
 → CH101 5.3~5.4등신 Blockout·Gate B/C·Android 실기기 Character Proof

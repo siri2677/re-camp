@@ -23,7 +23,7 @@
 | 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
 | 6 | ART-0103·0111 | Figma 신규 캐릭터 제작 시트 v003 실사용 검증 | Review | v003 SVG Import·Component Clone·한글 보존·PNG/PDF Export·사람 사용성 검토 |
 | 7 | ART-0112 | 신규 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Todo | Gate A 선택 후보의 비율·확대/삭제/결합·Face128·실루엣 검토 |
-| 8 | ART-1001~1409 | 신규 CH101~CH105 2D 디자인 제작 시트 | Ready | 이미지 provider 연결 후 캐릭터별 3안·선택 KeyArt·3뷰·표정·장비·팔레트·Face128·실루엣 |
+| 8 | ART-1001~1409 | 신규 CH101~CH105 2D 디자인 제작 시트 | In Progress | 공통 라인업 WIP 생성 완료; 캐릭터별 3안·선택 KeyArt·3뷰·표정·장비·팔레트·Face128·실루엣 남음 |
 | 9 | ART-1501~1504 | 신규 5인 교차 디자인·유사성 검토 | Todo | 동일 128px 얼굴·장비 포함/제거 실루엣·저채도 보드·원작성 기록 |
 | 10 | ART-1510 | 신규 레퍼런스 품질·성인 여성 매력 Alignment | Done | Reset Brief·프롬프트·비복제 규칙과 Gate A 검토표 작성, 사람 승인 전 APPROVED 금지 |
 | 11 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Review | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정; 레거시 경계와 신규 전환 검토 남음 |
@@ -84,7 +84,7 @@
 
 | ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
 |---|---|---:|---|---|
-| ART-0101 | 신규 5인 후보 생성 workflow | High | Ready | 이미지 provider 연결 후 캐릭터별 3안·동일 캔버스·공통 Negative Prompt 생성 |
+| ART-0101 | 신규 5인 후보 생성 workflow | High | In Progress | 공통 라인업 WIP 생성 완료: `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_WIP_v001.png`; 캐릭터별 3안·동일 캔버스 비교 남음 |
 | ART-0102 | 도구 비종속 신규 캐릭터 Anchor v3.0 | High | Done | CH101~CH105의 2D/3D 목표와 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
 | ART-0103 | Figma 제작 시트 템플릿 v003 | High | Review | 6-Frame 규격·신규 Instance 완료, 실제 Figma Import·Clone·Export 검증 남음 |
 | ART-0104 | Blender MCP 연결·장비 Export | Medium | Ready | 신규 장비·소품 `.blend`→FBX Export 검증 |
@@ -176,7 +176,7 @@
 
 - `CHARACTER_BIBLE.md` v3.0에 신규 5인 역할·성격·장비·캠프 기능을 기록했다.
 - `ART_DIRECTION_RESET_BRIEF_2026-08-09.md`에 공통 Prompt·Negative Prompt·캐릭터별 3안 변형·Gate A 표를 기록했다.
-- 이미지 provider 연결 전에는 후보 이미지를 생성했다고 기록하지 않는다.
+- 공통 라인업 WIP는 생성 증거와 metadata/review를 함께 기록한다. 캐릭터별 3안과 Gate A 전에는 최종 후보로 기록하지 않는다.
 - 사람 Gate A 승인 전에는 5인 모두 `REVIEW`를 유지하고 최종 3D를 시작하지 않는다.
 - 상세 계획과 완료 조건은 `planning/DESIGN_DIRECTION_2026-08-09.md`를 따른다.
 

@@ -46,7 +46,7 @@ Baseline 문서를 함께 반영한다. 실제 Unity 구현 경로는 `Assets/_R
 - EditMode 31개, PlayMode 19개 테스트 기준선
 - 기존 5인 선택·역할 능력 Gray Box는 기능 검증용 레거시로 유지
 - 신규 CH101~CH105 Character Bible·Anchor·Art Direction·Prompt·Gate A 문서 패키지
-- 신규 이미지 후보·제작 시트·사람 승인·최종 3D는 아직 없음
+- 신규 5인 공통 라인업 WIP 1장과 metadata/review는 생성됨. 캐릭터별 후보·제작 시트·사람 승인·최종 3D는 아직 없음
 
 신규 디자인 세부 상태와 승인 경계는 `planning/DESIGN_PROGRESS_2026-08-07.md`를 따른다.
 
@@ -76,7 +76,7 @@ Google Play Android 1차 제품 목표
 | RC-0008, ART-0001 | 통합 캐릭터 설정·아트 방향 v3.0 | Done | CH101~CH105 성인 여성 5인, 2D 약 7등신·3D 5~6등신, 신규 훅·역할·2D→3D 원칙과 비복제 규칙을 채택한다. |
 | RC-0013 | 현재 프로젝트 기준 단일화 | Done | `CURRENT_PROJECT_BASELINE.md`에 Android-first와 Unity 검증 상태를 확정하고 신규 아트 문서를 별도 소유권으로 연결한다. |
 | RC-0011, ART-0003 | 과거 통합 캐릭터 라인업 | Review | 과거 라인업과 캐릭터별 자료는 `HISTORY ONLY`로 보존하며 새 후보의 제작 앵커로 재사용하지 않는다. |
-| ART-0004 | 아트 MCP 제작·승인 가이드 v3.0 | Done | 신규 후보 생성 대기·사람 Gate A·선택형 도구 도입 원칙을 확정했다. |
+| ART-0004 | 아트 MCP 제작·승인 가이드 v3.0 | Done | 신규 후보 생성·metadata·사람 Gate A·선택형 도구 도입 원칙을 확정했다. 첫 공통 라인업 WIP는 별도 asset 기록으로 남긴다. |
 | ART-0102 | 신규 캐릭터 앵커·metadata 규칙 v3.0 | Done | `CHARACTER_ANCHOR_SPEC.md`에 CH101~CH105 `LOCKED`/`CONTROLLED`/`OPEN`/`FORBIDDEN`을 확정했다. |
 | ART-0103·0111 | 캐릭터 제작 시트 템플릿 v003 | Review | 신규 Instance와 6-Frame 구조가 있으며 실제 Figma Import·Component Clone·한글·PNG/PDF Export 검증은 남았다. |
 | ART-0112 | 신규 2D→3D 변환표 | Todo | Gate A 후보 선택 후 작성한다. |
@@ -84,8 +84,8 @@ Google Play Android 1차 제품 목표
 | ART-0108 | ComfyUI·ComfyUI MCP 도입 | Deferred | 대량 일관성 생성·정밀 인페인팅·재현 workflow가 병목일 때만 재평가한다. |
 | ART-0109 | 아트 자산·Export 명명 규격 v002 | Done | 신규 Subject·CH101~CH105와 Gray Box 코드 이름 의존성 예외를 확정했다. |
 | ART-0110 | 공용·캐릭터 Animation 규격 | Review | 현재 Animation Guide는 레거시 Gray Box와 신규 승인 모션을 분리하는 경계 검토 중이다. |
-| ART-1001~1409 | 신규 CH101~CH105 2D 제작 패키지 | Ready | 역할·성격·프롬프트는 준비됐고 이미지 provider 연결 후 각 3안·KeyArt·3뷰·표정·장비를 생성한다. |
-| ART-1501~1504 | 신규 5인 일관성·유사성·라인업 리뷰 | Todo | 실제 이미지 생성·동일 크기 보드·metadata·사람 검토가 남았다. |
+| ART-1001~1409 | 신규 CH101~CH105 2D 제작 패키지 | In Progress | 공통 라인업 WIP가 생성됐고, 다음은 캐릭터별 각 3안·KeyArt·3뷰·표정·장비·Face128·실루엣이다. |
+| ART-1501~1504 | 신규 5인 일관성·유사성·라인업 리뷰 | Todo | 공통 WIP는 있으나 동일 크기·저채도·Face128 보드와 사람 검토가 남았다. |
 | ART-4001~ART-4004 | 최종 UI Design System·화면 | Todo | 현재 UGUI는 기능 검증용 Gray Box HUD다. 최종 아트·스킬 선택 UI 완료로 간주하지 않는다. |
 
 현재 제작 방향은 `docs/05_art_concept/ART_DIRECTION.md` v3.0, `CHARACTER_BIBLE.md` v3.0,
