@@ -59,6 +59,7 @@ These are REVIEW corrections only. They do not grant human Gate A approval or au
 
 ## Validation evidence
 
+- Initial visual alignment record: art_refs/characters/lineup/ReCamp_FiveCharacterReferenceAlignment_REVIEW_v001.md
 - 레퍼런스별 흡수 품질과 Re:Camp 변형을 metadata에 기록
 - 5인 동일 크기 얼굴 스트립과 128px 비교
 - 장비 포함·제거 흑백 실루엣 비교
