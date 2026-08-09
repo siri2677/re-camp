@@ -1,7 +1,7 @@
 # Re:Camp Art Review Checklist
 
-> Version: 2.1
-> 최종 갱신: 2026-08-04
+> Version: 2.2
+> 최종 갱신: 2026-08-09
 
 이 문서는 `ART-0107`의 공통 Gate A/B/C 판정표다. 캐릭터, 환경, UI, VFX를 게임에 적용하기
 전에 같은 증거와 용어로 검토하기 위해 사용한다. 체크리스트 통과 권고와 자산의 인간
@@ -30,8 +30,8 @@ Asset:
 Asset Version:
 Scope: Character 2D / Character 3D / Environment / UI / VFX / Unity Prefab
 Current Status: WIP / REVIEW
-Anchor Spec Version: 2.0
-Character Bible Version: 2.0
+Anchor Spec Version: 2.1
+Character Bible Version: 2.2
 Input References:
 Tool / Model:
 License Evidence:
@@ -84,6 +84,9 @@ Gate A는 “무엇을 만들 것인가”를 승인하는 단계다. 2D 후보�
 | CHA-A14 | 평상시와 임무 상태의 반전 성격이 중립 포즈·대표 표정에 드러남 | 표정 2~3종 | |
 | CHA-A15 | 외부 작품의 고유 얼굴·의상 절개·무기·로고를 직접 복제하지 않음 | 레퍼런스 차이 분석 | |
 | CHA-A16 | 약 7등신 2D와 5~6등신 3D가 서로 다른 용도라는 Scope가 명시됨 | Scope Assessment | |
+| CHA-A17 | 얼굴·체형·패션·자세·표정에서 성인 여성의 매력과 여성성이 충분히 전달되며 동일한 노출도나 단일 섹시함으로 평준화되지 않음 | 사람 매력성 review·전신·얼굴 크롭 | |
+| CHA-A18 | 사용자 지정 레퍼런스에서 흡수한 품질 축과 Re:Camp의 변형·차이점이 기록됨 | benchmark matrix·metadata·차이 분석 | |
+| CHA-A19 | 3초 첫인상과 128px 얼굴에서 아름다움·감정·한 문장 훅이 동시에 읽힘 | 썸네일·128px 얼굴 스트립·사람 review | |
 
 다음은 즉시 `FAIL`이다.
 
@@ -92,6 +95,7 @@ Gate A는 “무엇을 만들 것인가”를 승인하는 단계다. 2D 후보�
 - 작은 현실 눈·긴 중안부·사실적인 코·입술·광대·피부와 회화식 명암이 지배해 서양권 반실사 콘셉트 아트처럼 보임
 - 캐릭터의 한 문장 훅과 대표 장비를 설명할 수 없음
 - 다섯 명이 동일한 검정 전술복·은발·네온 장식의 팔레트 스왑처럼 보임
+- 얼굴·패션·자세에서 성인 여성의 매력과 캐릭터 훅이 전달되지 않고 평범한 기능복·무기·팔레트만 남음
 - 루나가 일반 은발·보라 총기 요원, 미유가 장총 사용자, 코코가 간호사 코스튬·물리 방패 사용자,
   이리스가 일반 검정 암살자, 노아가 얼굴과 허리선이 사라진 중장갑 남성 탱커처럼 회귀
 - 얼굴을 가려 애착·표정 전달이 불가능함
