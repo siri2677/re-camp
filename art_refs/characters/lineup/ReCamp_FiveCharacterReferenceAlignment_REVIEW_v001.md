@@ -64,4 +64,6 @@ The current package already has the requested Japanese mobile subculture directi
 
 ## Next owner
 
+Correction brief: art_refs/characters/lineup/ReCamp_FiveCharacterReferenceAlignment_ART_BRIEF_v001.md
+
 `ART-1510` remains `In Progress`. The next artifact is a versioned correction pass for only the characters or presentation panels that fail this review.
