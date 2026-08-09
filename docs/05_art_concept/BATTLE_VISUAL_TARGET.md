@@ -15,8 +15,8 @@
 | 원격 `art_refs/art_direction/ReCamp_Character_Lineup.png` | INVALID | 거의 빈 이미지로 확인돼 모든 제작 기준에서 제외 |
 | `art_refs/art_direction/ReCamp_CharacterLineup_REJECTED_v002.png` | REJECTED | 전원 여성 조건 누락, 노아가 남성으로 생성됨, 원본 이미지와 다른 신규 계열 |
 | `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.png` | HISTORICAL REVIEW / Gate A `FAIL` | 과거 4~5등신·역할 모티프·얼굴·실루엣 실패 기록. 새 제작 앵커로 사용하지 않음 |
-| `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_REVIEW_v001.png` | REVIEW / 사람 승인 대기 | 최신 2D 약 7등신 선택 방향과 캐릭터별 3D 5~6등신 목표, 역할·팔레트·장비 훅 비교 |
-| `art_refs/characters/lineup/ReCamp_FiveCharacterCrossReview_REVIEW_v001.png` | REVIEW / 사람 승인 대기 | exact 128px 얼굴·장비 포함/제거 실루엣·저채도 5인 교차 검토 증거 |
+| 신규 `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_REVIEW_v001.png` | NOT CREATED / provider pending | 신규 CH101~CH105 2D 약 7등신 후보 보드 예정. 생성 전에는 존재한다고 기록하지 않음 |
+| 신규 `art_refs/characters/lineup/ReCamp_FiveCharacterCrossReview_REVIEW_v001.png` | NOT CREATED / provider pending | 128px 얼굴·장비 포함/제거 실루엣·저채도 교차 보드 예정 |
 
 ## 유지하는 화면 언어
 
@@ -33,20 +33,22 @@
 
 | 역할 | 색상 | 상태 |
 |---|---|---|
-| 플레이어·안전·체력 | `#69E5BE` | 루나 민트 계열 프록시 |
+| 플레이어·안전·체력 | `#69E5BE` | 기존 Gray Box 프록시 |
 | 적·경고 | `#F48B7F` | Gray Box 식별색 |
 | HUD·장비 차콜 | `#141D21` | Gray Box UI 기반색 |
 | 전투 지면 | `#334740` | 환경 잠정색 |
 | 폐허 스톤 | `#61756E` | 환경 잠정색 |
-| 센서·데이터 | `#48BEFF` | 기술 피드백 잠정색 |
-
-정확한 프로젝트·캐릭터 HEX 팔레트는 라인업과 개별 시트 승인 때 확정한다.
+| CH101 경로 | 청록-백색 | 신규 디자인 문서 기준, 런타임 미적용 |
+| CH102 구조 | 보라-레몬 | 신규 디자인 문서 기준, 런타임 미적용 |
+| CH103 공명 | 아쿠아-코랄 | 신규 디자인 문서 기준, 런타임 미적용 |
+| CH104 측량 | 백색-마젠타 | 신규 디자인 문서 기준, 런타임 미적용 |
+| CH105 앵커 | 코퍼-황금 | 신규 디자인 문서 기준, 런타임 미적용 |
 
 ## 기존 생성 이미지 기록
 
-- 생성 방식: Codex 내장 imagegen
-- 기존 프롬프트: companion metadata `art_refs/moodboard/battle_vertical_slice_concept.metadata.md`에 보존
-- 캐릭터 판단: 여성 주인공의 민트 계열 색감, 귀여운 실루엣, 화면 내 존재감은 유지할 원본 앵커다. 정확한 비율·소총·의상 구조는 제작 시트에서 재검토한다.
+- 생성 방식: 기존 전투 콘셉트·Gray Box 캡처의 과거 metadata에 보존
+- 신규 캐릭터 생성 방식: provider 연결 대기
+- 캐릭터 판단: 기존 이미지는 카메라·폐허 구도·화면 존재감만 참고하며 신규 얼굴·의상·무기 기준이 아니다.
 - 재사용 기준: Orthographic 구도, 폐허 가장자리 배치, 자원·적·플레이어 대비, HUD 밀도, 부드러운 포스트 아포칼립스 톤
 - 출시 자산 사용: 미승인
 

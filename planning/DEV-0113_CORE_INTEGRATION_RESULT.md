@@ -1,7 +1,7 @@
 # DEV-0113 Core 통합 결과
 
-> 최종 갱신: 2026-07-27
-> 상태: In Progress
+> 최종 갱신: 2026-08-09
+> 상태: Done
 > 기준 브랜치: `codex/recamp-unity-mvp`
 
 ## 1. 목적
@@ -60,7 +60,7 @@ ReCamp.Runtime
   - `PlayerPrefs` 저장 입출력
   - 캐릭터 선택·능력 Gray Box
 
-Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표지만, 현재 탐험·스킬·정산 일부는 아직 Runtime에 남아 있다.
+Runtime은 Domain 규칙을 소비하고 Unity Scene·입력·HUD·전투 표현을 소유한다. 탐험·스킬·정산 계약은 Domain과 Adapter 경계를 통해 연결됐다.
 
 ## 3. 완료된 구현
 
@@ -94,18 +94,42 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 
 이 기록은 당시 로컬 Editor 검증 결과다. Fresh Clone, CI Runner, Android Player에서의 재현은 아직 완료되지 않았다.
 
+### 2026-08-09 working-tree integration
+
+The portable contracts and their Unity presentation wiring are implemented and verified in the
+working tree.
+
+- `RunSettlementCommand`, `RunSettlementResult` and `RunSettlementService` own the
+  `Extracted / Defeated / Expired` reward policy and one-run idempotence in `ReCamp.Domain`.
+- `DomainCampSaveAdapter` converts the runtime ledger to a domain settlement command and
+  converts the result back to Unity reward data.
+- `GameManager` creates a stable run id, submits the outcome, deposits only extracted rewards,
+  and exposes `LastRunOutcome`.
+- `BattleSceneController` maps defeat and time expiry to distinct domain outcomes while
+  preserving the existing time-expiry presentation state.
+- `SkillCommandProcessor` owns signature/utility cooldown acceptance and emits a
+  `SkillActivatedEvent`; `CharacterAbilityController` uses it for cooldown state and
+  `BattleHudController` presents the event and cooldown state.
+- `SceneSettlementRuntimeTests` covers `Bootstrap → Lobby → Battle → Result → Lobby`,
+  extracted reward transfer, Result presentation, and camp persistence.
+- Domain costs and facility effects are the single source of truth; `CampManager` now adapts
+  them instead of reimplementing the rules.
+
+Verification on Unity `6000.5.3f1`:
+
+- Batch script compilation: exit code `0`; `ReCamp.Domain`, `ReCamp.UnityAdapter`,
+  `ReCamp.Runtime`, and test assemblies compiled.
+- Current working tree EditMode: `35/35` passed
+  (`TestResults/editmode-current.xml`, 2026-08-09).
+- Current working tree PlayMode: `21/21` passed
+  (`TestResults/playmode-current.xml`, 2026-08-09).
+
+Fresh Clone verification is complete. CI is configured but a hosted run remains pending until
+the workflow is pushed with the required Unity license secrets.
+
 ## 4. 아직 남은 통합 범위
 
-DEV-0113을 `Done`으로 변경하려면 다음이 필요하다.
-
-1. 탐험 시작·종료를 Domain Command와 Result/Event로 분리
-2. `Extracted / Defeated / Expired` 정산 정책의 단일 소유자 결정
-3. Runtime의 스킬 수치·상태 변경 중 Domain으로 옮길 범위 확정
-4. Domain 상태를 HUD와 Scene Presentation에 전달하는 Adapter 계약 정리
-5. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
-6. 전체 Scene 전환·보상 정산 통합 테스트 추가
-7. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
-8. Core·Unity CI에서 동일 테스트 실행
+1. Hosted GitHub Actions run of the same EditMode and PlayMode suites.
 
 ## 5. 금지 사항
 
@@ -118,12 +142,7 @@ DEV-0113을 `Done`으로 변경하려면 다음이 필요하다.
 ## 6. 다음 구현 순서
 
 ```text
-탐험 Outcome·정산 계약
-→ 스킬 Command/Event 경계
-→ Runtime 중복 규칙 제거
-→ 통합 Scene·정산 테스트
-→ Fresh Clone 검증
-→ CI 연결
+Hosted CI 실행
 ```
 
 실행 순서와 상태 변경은 `planning/sprint_backlog.md`에서 관리한다.

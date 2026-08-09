@@ -1,7 +1,10 @@
+using ReCamp.Domain;
+using ReCamp.Input;
 using ReCamp.Enemy;
+using RuntimePlayerStats = ReCamp.Player.PlayerStats;
+using RuntimePlayerAttack = ReCamp.Player.PlayerAttack;
 using ReCamp.GameFlow;
 using ReCamp.Item;
-using ReCamp.Player;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
@@ -24,7 +27,7 @@ namespace ReCamp.UI
         private const float RefreshInterval = 0.1f;
 
         private BattleSceneController battle;
-        private PlayerStats playerStats;
+        private RuntimePlayerStats playerStats;
         private GameObject hudRoot;
         private GameObject createdEventSystem;
         private InputSystemUIInputModule createdInputModule;
@@ -39,6 +42,10 @@ namespace ReCamp.UI
         private Text hostilesText;
         private Text timerText;
         private Button returnButton;
+        private Button attackTouchButton;
+        private Button signatureTouchButton;
+        private Button utilityTouchButton;
+        private VirtualJoystick virtualJoystick;
         private Font uiFont;
         private float nextRefreshTime;
         private Rect lastSafeArea;
@@ -72,11 +79,6 @@ namespace ReCamp.UI
 
         private void OnDestroy()
         {
-            if (returnButton != null)
-            {
-                returnButton.onClick.RemoveListener(ReturnToCamp);
-            }
-
             if (createdInputModule != null)
             {
                 createdInputModule.UnassignActions();
@@ -114,8 +116,9 @@ namespace ReCamp.UI
 
             BuildVitalsPanel();
             BuildBattleStatusPanel();
-            BuildReturnButton();
             BuildControlHint();
+            BuildReturnButton();
+            BuildTouchControls();
         }
 
         private void BuildVitalsPanel()
@@ -192,7 +195,8 @@ namespace ReCamp.UI
                 fadeDuration = 0.08f,
             };
             returnButton.interactable = battle != null;
-            returnButton.onClick.AddListener(ReturnToCamp);
+            var returnCommand = buttonRect.gameObject.AddComponent<TouchHoldButton>();
+            returnCommand.Configure(TouchAction.Extract);
 
             var outline = buttonRect.gameObject.AddComponent<Outline>();
             outline.effectColor = new Color32(10, 18, 21, 160);
@@ -201,6 +205,86 @@ namespace ReCamp.UI
             CreateStretchText("Label", buttonRect, "캠프로 귀환", 20, FontStyle.Bold, Charcoal,
                 TextAnchor.MiddleCenter, new Vector2(12f, 6f), new Vector2(-12f, -6f));
         }
+        private void BuildTouchControls()
+        {
+            var joystickRect = CreateRect("MoveJoystick", safeAreaRoot);
+            SetRect(joystickRect, Vector2.zero, Vector2.zero, Vector2.zero,
+                new Vector2(148f, 148f), new Vector2(236f, 236f));
+
+            var joystickImage = joystickRect.gameObject.AddComponent<Image>();
+            joystickImage.color = new Color32(31, 43, 47, 220);
+            var joystickOutline = joystickRect.gameObject.AddComponent<Outline>();
+            joystickOutline.effectColor = new Color32(105, 229, 190, 180);
+            joystickOutline.effectDistance = new Vector2(3f, -3f);
+
+            var handleRect = CreateRect("Handle", joystickRect);
+            SetRect(handleRect, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(92f, 92f));
+            var handleImage = handleRect.gameObject.AddComponent<Image>();
+            handleImage.color = new Color32(105, 229, 190, 230);
+            handleImage.raycastTarget = false;
+
+            virtualJoystick = joystickRect.gameObject.AddComponent<VirtualJoystick>();
+            virtualJoystick.Initialize(handleRect, 72f);
+
+            attackTouchButton = CreateTouchButton(
+                "AttackTouchButton",
+                "기본 공격",
+                new Vector2(-110f, 250f),
+                new Vector2(180f, 104f),
+                TouchAction.Attack,
+                Salmon).GetComponent<Button>();
+            signatureTouchButton = CreateTouchButton(
+                "SignatureTouchButton",
+                "대표 능력",
+                new Vector2(-320f, 130f),
+                new Vector2(180f, 96f),
+                TouchAction.Signature,
+                Mint).GetComponent<Button>();
+            utilityTouchButton = CreateTouchButton(
+                "UtilityTouchButton",
+                "역할 능력",
+                new Vector2(-110f, 130f),
+                new Vector2(180f, 96f),
+                TouchAction.Utility,
+                CharcoalSoft).GetComponent<Button>();
+        }
+
+        private TouchHoldButton CreateTouchButton(
+            string objectName,
+            string label,
+            Vector2 position,
+            Vector2 size,
+            TouchAction action,
+            Color color)
+        {
+            var buttonRect = CreateRect(objectName, safeAreaRoot);
+            SetRect(buttonRect, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f),
+                position, size);
+
+            var image = buttonRect.gameObject.AddComponent<Image>();
+            image.color = color;
+            var button = buttonRect.gameObject.AddComponent<Button>();
+            button.targetGraphic = image;
+            button.transition = Selectable.Transition.ColorTint;
+            button.colors = new ColorBlock
+            {
+                normalColor = Color.white,
+                highlightedColor = new Color(1f, 1f, 1f, 0.92f),
+                pressedColor = new Color(0.78f, 0.78f, 0.78f, 1f),
+                selectedColor = Color.white,
+                disabledColor = new Color(0.45f, 0.45f, 0.45f, 0.65f),
+                colorMultiplier = 1f,
+                fadeDuration = 0.08f,
+            };
+
+            var holdButton = buttonRect.gameObject.AddComponent<TouchHoldButton>();
+            holdButton.Configure(action);
+            CreateStretchText("Label", buttonRect, label, 19, FontStyle.Bold, Cream,
+                TextAnchor.MiddleCenter, new Vector2(8f, 6f), new Vector2(-8f, -6f));
+            return holdButton;
+        }
+
 
         private void BuildControlHint()
         {
@@ -209,7 +293,7 @@ namespace ReCamp.UI
                 new Vector2(0f, 30f), new Vector2(980f, 62f));
 
             CreateStretchText("ControlHint", panel,
-                "WASD / 방향키 이동  ·  자동 공격  ·  SPACE 대표 능력(이리스 홀드)  ·  E 역할 능력  ·  R 홀드 귀환",
+                "WASD / 방향키 / 조이스틱 이동  ·  자동 공격 / 기본 공격  ·  SPACE / 대표 능력(이리스 홀드)  ·  E / 역할 능력  ·  R / 귀환 HOLD",
                 17, FontStyle.Normal, Muted, TextAnchor.MiddleCenter,
                 new Vector2(22f, 6f), new Vector2(-22f, -6f));
         }
@@ -227,7 +311,7 @@ namespace ReCamp.UI
 
             if (playerStats == null)
             {
-                playerStats = FindAnyObjectByType<PlayerStats>();
+                playerStats = FindAnyObjectByType<RuntimePlayerStats>();
             }
 
             var health = playerStats == null ? null : playerStats.Health;
@@ -263,6 +347,11 @@ namespace ReCamp.UI
                     abilityText.text = "[SPACE] 대표 능력 불러오는 중";
                     abilityText.color = Muted;
                 }
+                else if (WasRecentlyActivated(SkillSlot.Signature))
+                {
+                    abilityText.text = $"[SPACE] {ability.AbilityName}  ·  발동";
+                    abilityText.color = Salmon;
+                }
                 else if (ability.IsCharging)
                 {
                     abilityText.text = $"[SPACE 놓기] {ability.AbilityName}  ·  차지 {ability.ChargeRatio * 100f:0}%";
@@ -287,6 +376,11 @@ namespace ReCamp.UI
                 {
                     utilityText.text = "[E] 역할 능력 불러오는 중";
                     utilityText.color = Muted;
+                }
+                else if (WasRecentlyActivated(SkillSlot.Utility))
+                {
+                    utilityText.text = $"[E] {ability.UtilityAbilityName}  ·  발동  ·  {ability.RoleStatusText}";
+                    utilityText.color = Salmon;
                 }
                 else if (ability.IsUtilityReady)
                 {
@@ -360,10 +454,35 @@ namespace ReCamp.UI
                 }
             }
 
+            var battleActive = battle != null && !battle.IsBattleResolved;
             if (returnButton != null)
             {
-                returnButton.interactable = battle != null && !battle.IsBattleResolved;
+                returnButton.interactable = battleActive;
             }
+            if (attackTouchButton != null)
+            {
+                attackTouchButton.interactable = battleActive &&
+                    playerStats != null &&
+                    FindAnyObjectByType<RuntimePlayerAttack>() != null;
+            }
+
+            if (signatureTouchButton != null)
+            {
+                signatureTouchButton.interactable = battleActive && playerStats?.Ability != null;
+            }
+
+            if (utilityTouchButton != null)
+            {
+                utilityTouchButton.interactable = battleActive && playerStats?.Ability != null;
+            }
+        }
+
+        private bool WasRecentlyActivated(SkillSlot slot)
+        {
+            var activation = battle == null ? null : battle.LastSkillActivation;
+            return activation != null &&
+                activation.Slot == slot &&
+                Time.time - activation.ActivatedAt <= 0.45f;
         }
 
         private void RefreshSafeArea(bool force)
@@ -384,6 +503,8 @@ namespace ReCamp.UI
             lastScreenSize = screenSize;
             safeAreaRoot.anchorMin = new Vector2(safeArea.xMin / Screen.width, safeArea.yMin / Screen.height);
             safeAreaRoot.anchorMax = new Vector2(safeArea.xMax / Screen.width, safeArea.yMax / Screen.height);
+            virtualJoystick?.ResetPointer();
+            BattleInputRouter.Instance?.ResetTransientInput();
         }
 
         private void EnsureEventSystem()
@@ -397,15 +518,6 @@ namespace ReCamp.UI
             createdInputModule = createdEventSystem.AddComponent<InputSystemUIInputModule>();
         }
 
-        private void ReturnToCamp()
-        {
-            if (battle == null)
-            {
-                battle = FindAnyObjectByType<BattleSceneController>();
-            }
-
-            battle?.ResolveManualExtraction();
-        }
 
         private RectTransform CreatePanel(string objectName, Transform parent, Color color)
         {

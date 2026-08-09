@@ -36,6 +36,35 @@ namespace ReCamp.UnityAdapter
                 foodStorageLevel = domainSave.FacilityLevels[FacilityKind.RationStorage],
             };
         }
+
+        public static RunSettlementCommand ToRunSettlementCommand(
+            string runId,
+            RunOutcome outcome,
+            int scrap,
+            int food,
+            int dataFragments)
+        {
+            return new RunSettlementCommand(
+                runId,
+                outcome,
+                new Dictionary<ResourceKind, int>
+                {
+                    { ResourceKind.Scrap, scrap },
+                    { ResourceKind.Rations, food },
+                    { ResourceKind.DataFragment, dataFragments },
+                });
+        }
+
+        public static UnityRunRewardsData ToUnityRunRewards(RunSettlementResult result)
+        {
+            if (result == null) throw new ArgumentNullException(nameof(result));
+            return new UnityRunRewardsData
+            {
+                scrap = result.DepositedRewards[ResourceKind.Scrap],
+                food = result.DepositedRewards[ResourceKind.Rations],
+                dataFragments = result.DepositedRewards[ResourceKind.DataFragment],
+            };
+        }
     }
 
     [Serializable]
@@ -49,5 +78,13 @@ namespace ReCamp.UnityAdapter
         public int generatorLevel;
         public int workbenchLevel;
         public int foodStorageLevel;
+    }
+
+    [Serializable]
+    public sealed class UnityRunRewardsData
+    {
+        public int scrap;
+        public int food;
+        public int dataFragments;
     }
 }

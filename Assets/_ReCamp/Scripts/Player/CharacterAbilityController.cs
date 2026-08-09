@@ -1,12 +1,13 @@
+using System;
 using System.Collections.Generic;
 using ReCamp.Combat;
+using ReCamp.Domain;
 using ReCamp.Data;
 using ReCamp.Enemy;
 using ReCamp.GameFlow;
 using ReCamp.Item;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
+using ReCamp.Input;
 namespace ReCamp.Player
 {
     /// <summary>Input-driven gray-box implementation of each character's combat identity.</summary>
@@ -27,8 +28,8 @@ namespace ReCamp.Player
         private PlayerStats stats;
         private CharacterDefinition definition;
         private Damageable subscribedHealth;
-        private float nextReadyTime;
-        private float nextUtilityReadyTime;
+        private BattleInputRouter inputRouter;
+        private readonly SkillCommandProcessor skillCommands = new();
         private float guardEndsAt;
         private float scanEndsAt;
         private float overclockEndsAt;
@@ -42,6 +43,8 @@ namespace ReCamp.Player
         private Transform droneTransform;
         private EnemyController markedTarget;
         private EnergyBarrier activeBarrier;
+
+        public event Action<SkillActivatedEvent> SkillActivated;
 
         public CharacterDefinition Definition => definition;
         public string AbilityName => definition == null ? "대표 능력" : definition.SignatureAbilityName;
@@ -68,8 +71,8 @@ namespace ReCamp.Player
                 CharacterId.Noah => 12f,
                 _ => 0f,
             };
-        public float CooldownRemaining => Mathf.Max(0f, nextReadyTime - Time.time);
-        public float UtilityCooldownRemaining => Mathf.Max(0f, nextUtilityReadyTime - Time.time);
+        public float CooldownRemaining => skillCommands.CooldownRemaining(SkillSlot.Signature, Time.time);
+        public float UtilityCooldownRemaining => skillCommands.CooldownRemaining(SkillSlot.Utility, Time.time);
         public float GuardRemaining => IsGuarding ? Mathf.Max(0f, guardEndsAt - Time.time) : 0f;
         public float ScanRemaining => IsScanning ? Mathf.Max(0f, scanEndsAt - Time.time) : 0f;
         public float ShieldRemaining => IsShieldActive ? Mathf.Max(0f, shieldEndsAt - Time.time) : 0f;
@@ -132,6 +135,10 @@ namespace ReCamp.Player
         private void Awake()
         {
             stats = GetComponent<PlayerStats>();
+            inputRouter = BattleInputRouter.EnsureInstance();
+            inputRouter.SignaturePressed += HandleSignaturePressed;
+            inputRouter.SignatureReleased += HandleSignatureReleased;
+            inputRouter.UtilityPressed += HandleUtilityPressed;
             if (stats != null && stats.Character != null)
             {
                 Configure(stats, stats.Character);
@@ -142,38 +149,41 @@ namespace ReCamp.Player
         {
             UpdateTimedStates();
             UpdateDrone();
+        }
 
-            var keyboard = Keyboard.current;
-            if (keyboard == null)
+        private void HandleSignaturePressed()
+        {
+            if (definition?.Id == CharacterId.Iris)
             {
+                BeginCharge();
                 return;
             }
 
+            TryActivate();
+        }
+
+        private void HandleSignatureReleased()
+        {
             if (definition?.Id == CharacterId.Iris)
             {
-                if (keyboard.spaceKey.wasPressedThisFrame)
-                {
-                    BeginCharge();
-                }
+                ReleaseCharge();
+            }
+        }
 
-                if (keyboard.spaceKey.wasReleasedThisFrame)
-                {
-                    ReleaseCharge();
-                }
-            }
-            else if (keyboard.spaceKey.wasPressedThisFrame)
-            {
-                TryActivate();
-            }
-
-            if (keyboard.eKey.wasPressedThisFrame)
-            {
-                TryActivateUtility();
-            }
+        private void HandleUtilityPressed()
+        {
+            TryActivateUtility();
         }
 
         private void OnDestroy()
         {
+            if (inputRouter != null)
+            {
+                inputRouter.SignaturePressed -= HandleSignaturePressed;
+                inputRouter.SignatureReleased -= HandleSignatureReleased;
+                inputRouter.UtilityPressed -= HandleUtilityPressed;
+            }
+
             ResetCharacterRuntime();
             SubscribeToHealth(null);
         }
@@ -190,8 +200,6 @@ namespace ReCamp.Player
             if (characterChanged)
             {
                 ResetCharacterRuntime();
-                nextReadyTime = 0f;
-                nextUtilityReadyTime = 0f;
             }
 
             stats = playerStats;
@@ -212,6 +220,16 @@ namespace ReCamp.Player
                 CancelCharge();
             }
 
+            var command = new SkillCommand(
+                SkillSlot.Signature,
+                Time.time,
+                definition.AbilityCooldown);
+            var commandResult = skillCommands.TryBegin(command);
+            if (!commandResult.Accepted)
+            {
+                return false;
+            }
+
             var activated = definition.Id switch
             {
                 CharacterId.Luna => ActivateLunaDash(),
@@ -222,17 +240,29 @@ namespace ReCamp.Player
                 _ => false,
             };
 
-            if (activated)
+            if (!activated)
             {
-                nextReadyTime = Time.time + definition.AbilityCooldown;
+                skillCommands.Cancel(SkillSlot.Signature);
+                return false;
             }
 
-            return activated;
+            SkillActivated?.Invoke(skillCommands.CreateActivatedEvent(command, commandResult));
+            return true;
         }
 
         public bool TryActivateUtility()
         {
             if (!CanUseAbility(IsUtilityReady))
+            {
+                return false;
+            }
+
+            var command = new SkillCommand(
+                SkillSlot.Utility,
+                Time.time,
+                UtilityCooldownDuration);
+            var commandResult = skillCommands.TryBegin(command);
+            if (!commandResult.Accepted)
             {
                 return false;
             }
@@ -247,12 +277,14 @@ namespace ReCamp.Player
                 _ => false,
             };
 
-            if (activated)
+            if (!activated)
             {
-                nextUtilityReadyTime = Time.time + UtilityCooldownDuration;
+                skillCommands.Cancel(SkillSlot.Utility);
+                return false;
             }
 
-            return activated;
+            SkillActivated?.Invoke(skillCommands.CreateActivatedEvent(command, commandResult));
+            return true;
         }
 
         public bool BeginCharge()
@@ -276,12 +308,28 @@ namespace ReCamp.Player
 
             var chargeRatio = ChargeRatio;
             CancelCharge();
-            if (!CanUseAbility(IsReady) || !ActivateIrisFocusShot(chargeRatio))
+            if (!CanUseAbility(IsReady))
             {
                 return false;
             }
 
-            nextReadyTime = Time.time + definition.AbilityCooldown;
+            var command = new SkillCommand(
+                SkillSlot.Signature,
+                Time.time,
+                definition.AbilityCooldown);
+            var commandResult = skillCommands.TryBegin(command);
+            if (!commandResult.Accepted)
+            {
+                return false;
+            }
+
+            if (!ActivateIrisFocusShot(chargeRatio))
+            {
+                skillCommands.Cancel(SkillSlot.Signature);
+                return false;
+            }
+
+            SkillActivated?.Invoke(skillCommands.CreateActivatedEvent(command, commandResult));
             return true;
         }
 
@@ -536,6 +584,7 @@ namespace ReCamp.Player
 
         private void ResetCharacterRuntime()
         {
+            skillCommands.Reset();
             EndGuard();
             CancelCharge();
             if (stats?.Health != null)
@@ -586,7 +635,7 @@ namespace ReCamp.Player
             }
         }
 
-        private static void DestroyOwnedObject(Object ownedObject)
+        private static void DestroyOwnedObject(UnityEngine.Object ownedObject)
         {
             if (ownedObject == null)
             {

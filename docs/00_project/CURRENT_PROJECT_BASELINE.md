@@ -71,10 +71,11 @@ Android-first는 제품·UX 목표다. 현재 Windows Editor에서 동작하는 
 - 한 판 목표 시간은 3~5분이다.
 - 탐험 중 더 진행할지 안전하게 귀환할지 선택하는 위험/보상 구조를 유지한다.
 - 캠프 성장은 다음 탐험의 생존력과 선택지를 넓힌다.
-- 플레이어블 로스터는 루나·미유·코코·이리스·노아, 성인 여성 5명이다.
+- 플레이어블 로스터의 신규 디자인 기준은 CH101 아마사와 린, CH102 키사라기 마오,
+  CH103 카나데 노조미, CH104 시온 타테가미, CH105 쿠로가네 아카리의 성인 여성 5명이다.
 - 타깃 표현은 남성향 일본 모바일 서브컬처이며 캐릭터의 매력·역할·성격 구분을 우선한다.
-- 초기 Character Proof와 Vertical Slice는 루나 1명을 기준으로 완성한 뒤 나머지 4명에
-  검증된 구조를 확장한다.
+- 현재 Unity Gray Box는 기존 5인 이름·능력의 기능 검증용 레거시이고 신규 CH101~CH105로 아직 마이그레이션하지 않았다.
+- 초기 Character Proof와 Vertical Slice는 Gate A 승인 후 CH101 아마사와 린을 기준으로 완성한 뒤 나머지 4명에 검증된 구조를 확장한다.
 
 초기 출시 범위에 포함하지 않는다.
 
@@ -113,11 +114,11 @@ Android와 PC·iOS 동시 정식 출시
 - 2D에서 6.5등신 미만으로 어려 보이는 대표 Key Art와 3D에서 2~3등신 유아형 치비 또는
   6등신 초과의 길고 가는 체형은 현재 기준에 포함하지 않는다.
 - 과거 v003 통합 라인업은 Gate A 실패 이력으로 보존하며 새 캐릭터 후보의 제작 앵커로 사용하지 않는다.
-- 일본풍 서브컬처 품질 레퍼런스와 비복제 적용 규칙은 docs/05_art_concept/ART_DIRECTION.md v2.2의 품질 매트릭스를 따른다. 사용자 지정 작품의 고유 IP 요소는 디자인 앵커로 사용하지 않는다.
+- 일본풍 서브컬처 품질 레퍼런스와 비복제 적용 규칙은 `docs/05_art_concept/ART_DIRECTION.md` v3.0의 품질 매트릭스를 따른다. 사용자 지정 작품의 고유 IP 요소는 디자인 앵커로 사용하지 않는다.
 
 ## 6. 현재 검증된 Unity 기준선
 
-2026-07-19 기준 로컬 프로젝트에서 확인된 사실은 다음과 같다.
+2026-08-09 기준 최신 로컬 프로젝트에서 확인된 사실은 다음과 같다.
 
 | 항목 | 현재 근거 |
 |---|---|
@@ -126,9 +127,9 @@ Android와 PC·iOS 동시 정식 출시
 | 핵심 흐름 | Lobby → Battle → Result → Lobby |
 | 전투 | XZ 이동, 자동 공격, 적 Wave·Boss, 승리·패배, 5분 타이머·조기 귀환 |
 | 성장·저장 | 자원 3종, 결과 정산, 캠프 시설 강화, 로컬 저장과 v1→v2 migration |
-| 캐릭터 기능 | 성인 여성 5인의 선택·수치·대표/역할 능력 Gray Box |
-| Core 경계 | `ReCamp.Domain` + `ReCamp.UnityAdapter` 방향과 캠프·저장 포트 구현 중 |
-| 자동 테스트 | EditMode 25/25, PlayMode 18/18 |
+| 캐릭터 기능 | 기존 레거시 5인의 선택·수치·대표/역할 능력 Gray Box |
+| Core 경계 | `ReCamp.Domain` + `ReCamp.UnityAdapter` + `ReCamp.Runtime` Assembly 경계와 캠프·저장 포트 구현 |
+| 자동 테스트 | EditMode 31/31, PlayMode 19/19 |
 | Console | `_ReCamp` 오류 0 |
 
 이 기준선은 Windows Editor 기능 검증이다. 다음은 아직 증명하지 않았다.
@@ -143,28 +144,29 @@ Android와 PC·iOS 동시 정식 출시
 
 | 항목 | 현재 상태 |
 |---|---|
-| Art Direction·Character Bible | v2.1 일본 모바일 서브컬처 기준 문서 존재 |
-| 5인 캐릭터 앵커 | `CHARACTER_ANCHOR_SPEC.md` v2.1 완료 |
-| Gate A/B/C 공통 판정 | `ART_REVIEW_CHECKLIST.md` v2.1 완료 |
-| 캐릭터 제작 시트 템플릿 | v002 규격·SVG 존재, Figma 실사용 검증 Pending |
-| 통합 라인업 v003 | `REVIEW / Gate A FAIL`, 실패 이력으로만 보존 |
-| 일본 서브컬처 Style Reset KeyArt | 5/5 `REVIEW`, Coco v005·Iris v006 비율 교정 포함, 사람 매력·원작성 승인 Pending |
+| Art Direction·Character Bible | v3.0 신규 CH101~CH105 문서 기준, 사람 Gate A Pending |
+| 5인 캐릭터 앵커 | `CHARACTER_ANCHOR_SPEC.md` v3.0 완료, 승인 전 `REVIEW` |
+| Gate A/B/C 공통 판정 | `ART_REVIEW_CHECKLIST.md` v3.0 완료 |
+| 캐릭터 제작 시트 템플릿 | v003 규격·신규 Instance 존재, Figma 실사용 검증 Pending |
+| 기존 라인업·캐릭터별 REVIEW | `HISTORY ONLY`, 신규 제작 앵커로 사용하지 않음 |
+| 신규 5인 Prompt·Gate A 패키지 | 문서 완료, 이미지 provider 연결 Pending |
+| 신규 후보 이미지·교차 보드 | 미생성, `0/5` |
 | 개별 Approved 2D 제작 시트 | 0/5 |
 | 최종 3D Model·Prefab·Animator | 0/5 |
 | 최종 HUD 초상화·Icon·VFX·Audio | 0/5 |
-| Unity 적용 | ID·수치·능력·대표색·텍스트 HUD까지 Gray Box 연결 |
+| Unity 적용 | 기존 레거시 Gray Box ID·수치·능력·대표색·텍스트 HUD만 연결 |
 
-현재 5인 제작은 Character Bible·Anchor v2.1의 한 문장 훅과 일본 모바일 서브컬처 계약으로 다시 작성한
-`REVIEW` 패키지를 사용한다. 과거 서양식 세미리얼 결과는 실패 이력으로만 보존하며, 사람 승인 전
-`Direction Approved`나 `APPROVED`로 기록하지 않는다.
+신규 5인 역할·성격·비주얼 훅은 `CHARACTER_BIBLE.md` v3.0, 고정값은 `CHARACTER_ANCHOR_SPEC.md`
+v3.0, 공통 표현은 `ART_DIRECTION.md` v3.0에 있다. 신규 후보 PNG 생성과 Gate A는 Unity와 독립된 단계다.
+외부 이미지 provider 또는 로컬 생성 경로가 연결되기 전까지 신규 후보 이미지를 생성했다고 기록하지 않는다.
 
 ## 8. 제작 도구 기준
 
 | 도구 | 현재 역할 |
 |---|---|
-| 이미지 생성 도구 | 초기 2D 후보와 교정 WIP |
+| 이미지 생성 도구 | 신규 5인 3안 후보 생성 — 현재 provider 연결 대기 |
 | Figma 또는 동등한 편집 도구 | 약 7등신 제작 시트·UI Design System·리뷰 Export |
-| Blender | 소품 Export Proof, Approved 시트 이후 5~6등신 캐릭터 Blockout |
+| Blender | 소품 Export Proof, Gate A Approved 시트 이후 5~6등신 캐릭터 Blockout |
 | Coplay/unityMCP | Unity Scene·Prefab·Material·Animator·검증 자동화 |
 | 코드 에이전트 | Runtime·Adapter·Importer·Validation Tool·테스트 |
 | ComfyUI | 대량 일관성·정밀 인페인팅이 실제 병목일 때만 도입하는 `Deferred` 선택 사항 |
@@ -174,20 +176,19 @@ Android와 PC·iOS 동시 정식 출시
 
 ## 9. 현재 Gate와 다음 순서
 
-현재 프로젝트는 기능 Gray Box를 보존하면서 Android 제품 기준과 루나 Character Proof를
+현재 프로젝트는 기능 Gray Box를 보존하면서 신규 CH101~CH105 아트 Gate A와 Android 제품 기준을
 연결하는 단계다. 실제 실행 순서와 상태는 `planning/sprint_backlog.md`만 갱신한다.
 
 ```text
 문서·플랫폼·2D/3D 비율 기준 충돌 제거
 → 진행 중인 Core Domain·Adapter 범위 완료
 → Android Landscape·Safe Area·Touch 입력 기준과 첫 APK
-→ ART-0103·0111 캐릭터 제작 시트 v002 실사용 검증
-→ 새 한 문장 훅 기반 5인 약 7등신 WIP 비교
-→ 루나 약 7등신 Gate A 제작 시트·사람 승인
-→ 캐릭터별 2D→3D 변환표와 3D 규격·Unity Presentation 계약
-→ 루나 5.3~5.4등신 Blockout·Gate B/C·Android 실기기 Character Proof
+→ 이미지 provider 연결 후 CH101~CH105 각 3안 생성
+→ 사람 Gate A에서 5인 방향 선택
+→ 선택된 후보의 약 7등신 제작 시트·Turnaround·2D→3D 변환표
+→ CH101 5.3~5.4등신 Blockout·Gate B/C·Android 실기기 Character Proof
 → 환경·UI·VFX를 포함한 Android Vertical Slice
-→ 외부 테스트·출시 범위 확정
+→ CH102~CH105 확장·외부 테스트·출시 범위 확정
 ```
 
 Gate를 건너뛰지 않는다.

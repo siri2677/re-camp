@@ -2,7 +2,8 @@
   "name": "ReCamp.Tests.PlayMode",
   "rootNamespace": "ReCamp.Tests.PlayMode",
   "references": [
-    "ReCamp.Runtime"
+    "ReCamp.Runtime",
+    "ReCamp.Domain"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

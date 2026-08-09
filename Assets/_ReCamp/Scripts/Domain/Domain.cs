@@ -7,6 +7,224 @@ namespace ReCamp.Domain
     public enum FacilityKind { Generator, Workshop, RationStorage }
     public enum RunOutcome { Extracted, Defeated, Expired }
 
+    public sealed class RunSettlementCommand
+    {
+        public RunSettlementCommand(
+            string runId,
+            RunOutcome outcome,
+            IDictionary<ResourceKind, int> rewards)
+        {
+            if (string.IsNullOrWhiteSpace(runId))
+                throw new ArgumentException("A run must have a stable identifier.", nameof(runId));
+            if (!Enum.IsDefined(typeof(RunOutcome), outcome))
+                throw new ArgumentOutOfRangeException(nameof(outcome));
+            if (rewards == null)
+                throw new ArgumentNullException(nameof(rewards));
+
+            RunId = runId;
+            Outcome = outcome;
+            Rewards = new Dictionary<ResourceKind, int>();
+            foreach (ResourceKind resource in Enum.GetValues(typeof(ResourceKind)))
+            {
+                int amount;
+                if (!rewards.TryGetValue(resource, out amount) || amount < 0)
+                    throw new ArgumentException(
+                        "A run must provide non-negative rewards for every resource.",
+                        nameof(rewards));
+                Rewards.Add(resource, amount);
+            }
+        }
+
+        public string RunId { get; private set; }
+        public RunOutcome Outcome { get; private set; }
+        public Dictionary<ResourceKind, int> Rewards { get; private set; }
+    }
+
+    public sealed class RunSettlementResult
+    {
+        internal RunSettlementResult(
+            string runId,
+            RunOutcome outcome,
+            bool applied,
+            bool deposited,
+            IDictionary<ResourceKind, int> depositedRewards)
+        {
+            RunId = runId;
+            Outcome = outcome;
+            Applied = applied;
+            Deposited = deposited;
+            DepositedRewards = new Dictionary<ResourceKind, int>();
+            foreach (ResourceKind resource in Enum.GetValues(typeof(ResourceKind)))
+            {
+                int amount;
+                if (!depositedRewards.TryGetValue(resource, out amount))
+                    amount = 0;
+                DepositedRewards.Add(resource, amount);
+            }
+        }
+
+        public string RunId { get; private set; }
+        public RunOutcome Outcome { get; private set; }
+        public bool Applied { get; private set; }
+        public bool Deposited { get; private set; }
+        public Dictionary<ResourceKind, int> DepositedRewards { get; private set; }
+    }
+
+    public sealed class RunSettlementService
+    {
+        private readonly HashSet<string> settledRunIds = new HashSet<string>();
+
+        public RunSettlementResult Settle(RunSettlementCommand command)
+        {
+            if (command == null)
+                throw new ArgumentNullException(nameof(command));
+
+            if (!settledRunIds.Add(command.RunId))
+            {
+                return new RunSettlementResult(
+                    command.RunId,
+                    command.Outcome,
+                    false,
+                    false,
+                    new Dictionary<ResourceKind, int>());
+            }
+
+            var depositedRewards = new Dictionary<ResourceKind, int>();
+            foreach (ResourceKind resource in Enum.GetValues(typeof(ResourceKind)))
+            {
+                depositedRewards.Add(
+                    resource,
+                    command.Outcome == RunOutcome.Extracted ? command.Rewards[resource] : 0);
+            }
+
+            return new RunSettlementResult(
+                command.RunId,
+                command.Outcome,
+                true,
+                command.Outcome == RunOutcome.Extracted,
+                depositedRewards);
+        }
+    }
+
+    public enum SkillSlot { Signature, Utility }
+
+    public enum SkillCommandRejection { None, Cooldown }
+
+    public sealed class SkillCommand
+    {
+        public SkillCommand(SkillSlot slot, float now, float cooldownSeconds)
+        {
+            if (!Enum.IsDefined(typeof(SkillSlot), slot))
+                throw new ArgumentOutOfRangeException(nameof(slot));
+            if (float.IsNaN(now) || float.IsInfinity(now) || now < 0f)
+                throw new ArgumentOutOfRangeException(nameof(now));
+            if (float.IsNaN(cooldownSeconds) || float.IsInfinity(cooldownSeconds) || cooldownSeconds < 0f)
+                throw new ArgumentOutOfRangeException(nameof(cooldownSeconds));
+
+            Slot = slot;
+            Now = now;
+            CooldownSeconds = cooldownSeconds;
+        }
+
+        public SkillSlot Slot { get; private set; }
+        public float Now { get; private set; }
+        public float CooldownSeconds { get; private set; }
+    }
+
+    public sealed class SkillCommandResult
+    {
+        internal SkillCommandResult(
+            SkillSlot slot,
+            bool accepted,
+            SkillCommandRejection rejection,
+            float cooldownEndsAt)
+        {
+            Slot = slot;
+            Accepted = accepted;
+            Rejection = rejection;
+            CooldownEndsAt = cooldownEndsAt;
+        }
+
+        public SkillSlot Slot { get; private set; }
+        public bool Accepted { get; private set; }
+        public SkillCommandRejection Rejection { get; private set; }
+        public float CooldownEndsAt { get; private set; }
+    }
+
+    public sealed class SkillActivatedEvent
+    {
+        internal SkillActivatedEvent(SkillSlot slot, float activatedAt, float cooldownEndsAt)
+        {
+            Slot = slot;
+            ActivatedAt = activatedAt;
+            CooldownEndsAt = cooldownEndsAt;
+        }
+
+        public SkillSlot Slot { get; private set; }
+        public float ActivatedAt { get; private set; }
+        public float CooldownEndsAt { get; private set; }
+    }
+
+    public sealed class SkillCommandProcessor
+    {
+        private readonly Dictionary<SkillSlot, float> cooldownEndsAt = new Dictionary<SkillSlot, float>();
+
+        public SkillCommandResult TryBegin(SkillCommand command)
+        {
+            if (command == null)
+                throw new ArgumentNullException(nameof(command));
+
+            float existingCooldownEndsAt;
+            if (cooldownEndsAt.TryGetValue(command.Slot, out existingCooldownEndsAt) &&
+                existingCooldownEndsAt > command.Now)
+            {
+                return new SkillCommandResult(
+                    command.Slot,
+                    false,
+                    SkillCommandRejection.Cooldown,
+                    existingCooldownEndsAt);
+            }
+
+            var nextCooldownEndsAt = command.Now + command.CooldownSeconds;
+            cooldownEndsAt[command.Slot] = nextCooldownEndsAt;
+            return new SkillCommandResult(
+                command.Slot,
+                true,
+                SkillCommandRejection.None,
+                nextCooldownEndsAt);
+        }
+
+        public float CooldownRemaining(SkillSlot slot, float now)
+        {
+            float endTime;
+            if (!cooldownEndsAt.TryGetValue(slot, out endTime))
+                return 0f;
+            return Math.Max(0f, endTime - now);
+        }
+
+        public void Cancel(SkillSlot slot)
+        {
+            cooldownEndsAt.Remove(slot);
+        }
+
+        public void Reset()
+        {
+            cooldownEndsAt.Clear();
+        }
+
+        public SkillActivatedEvent CreateActivatedEvent(SkillCommand command, SkillCommandResult result)
+        {
+            if (command == null)
+                throw new ArgumentNullException(nameof(command));
+            if (result == null)
+                throw new ArgumentNullException(nameof(result));
+            if (!result.Accepted || result.Slot != command.Slot)
+                throw new ArgumentException("Only an accepted matching command can emit an activation event.");
+
+            return new SkillActivatedEvent(command.Slot, command.Now, result.CooldownEndsAt);
+        }
+    }
+
     public sealed class ResourceWallet
     {
         private readonly Dictionary<ResourceKind, int> amounts = new Dictionary<ResourceKind, int>();
@@ -69,7 +287,7 @@ namespace ReCamp.Domain
         public void ApplyFacility(FacilityKind facility)
         {
             if (facility == FacilityKind.Workshop) Attack += 2;
-            if (facility == FacilityKind.RationStorage) MaxHealth += 10;
+            if (facility == FacilityKind.RationStorage) MaxHealth += 20;
         }
     }
 
@@ -84,13 +302,13 @@ namespace ReCamp.Domain
             get
             {
                 var cost = new Dictionary<ResourceKind, int>();
-                if (Kind == FacilityKind.Generator) cost.Add(ResourceKind.Scrap, 10 * (Level + 1));
+                if (Kind == FacilityKind.Generator) cost.Add(ResourceKind.Scrap, 3 + Level * 2);
                 if (Kind == FacilityKind.Workshop)
                 {
-                    cost.Add(ResourceKind.Scrap, 15 * (Level + 1));
-                    cost.Add(ResourceKind.DataFragment, 2 * (Level + 1));
+                    cost.Add(ResourceKind.Scrap, 2 + Level * 2);
+                    cost.Add(ResourceKind.DataFragment, 1 + Level);
                 }
-                if (Kind == FacilityKind.RationStorage) cost.Add(ResourceKind.Rations, 10 * (Level + 1));
+                if (Kind == FacilityKind.RationStorage) cost.Add(ResourceKind.Rations, 3 + Level * 2);
                 return cost;
             }
         }
@@ -132,7 +350,9 @@ namespace ReCamp.Domain
         public PlayerStats Player { get; private set; }
         public ResourceWallet Resources { get; private set; }
         public CampFacility Facility(FacilityKind kind) { return facilities[kind]; }
-
+        public int AttackBonus { get { return Player.Attack - Player.BaseAttack; } }
+        public int MaxHealthBonus { get { return Player.MaxHealth - Player.BaseMaxHealth; } }
+        public float ExplorationTimeBonusSeconds { get { return Facility(FacilityKind.Generator).Level * 30f; } }
         public bool TryUpgrade(FacilityKind kind)
         {
             CampFacility facility = Facility(kind);

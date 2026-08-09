@@ -4,10 +4,12 @@ Re:Camp는 멸망한 세계에서 생존자 캠프를 성장시키기 위해 위
 
 ## Project Status
 
-현재 단계는 **Unity 기능 Gray Box 기준선 확보 / Core·Android·최종 비주얼 통합 진행 단계**입니다.
+현재 단계는 **Unity 기능 Gray Box 기준선 확보 / 신규 5인 아트 컨셉 패키지 Gate A 대기**입니다.
 
-`Lobby → Battle → Result → Lobby` 흐름, 5분 탐험 타이머, 귀환·사망·시간 만료 정산, 성인 여성 5인의 전투 역할 프로토타입이 구현되어 있습니다. 현재 primitive 기반 화면은 기능 검증용이며 최종 아트 품질이 아닙니다.
-
+`Lobby → Battle → Result → Lobby` 흐름, 5분 탐험 타이머, 귀환·사망·시간 만료 정산과 기존
+Gray Box 성인 여성 5인의 전투 역할 프로토타입이 구현되어 있습니다. 기존 런타임 로스터는 기능
+검증용 레거시이며, 새 아트 로스터 CH101~CH105로 아직 마이그레이션하지 않았습니다.
+현재 신규 디자인 문서·프롬프트는 준비됐지만 이미지 provider 연결과 사람 Gate A 승인이 남아 있습니다.
 개발과 아트 작업은 반드시 `planning/`의 실행 계획을 기준으로 진행합니다.
 
 ## Platform
@@ -156,8 +158,8 @@ art_refs/
     └── ReCamp_CharacterLineup_REJECTED_v002.png
 ```
 
-v003은 `REVIEW` 상태이며 Gate A `FAIL` 권고가 기록돼 있습니다. 역할 모티프·얼굴·실루엣을
-교정하고 사람이 승인하기 전에는 제작 기준이나 `APPROVED` 자산으로 사용하지 않습니다.
+과거 v003과 기존 캐릭터별 REVIEW 자산은 `HISTORY ONLY`입니다. 신규 CH101~CH105 후보의 기준으로
+사용하지 않으며, 사람이 승인한 개별 제작 시트가 생기기 전까지 어떤 캐릭터 이미지도 `APPROVED`가 아닙니다.
 
 ## Development Workflow
 
@@ -192,9 +194,9 @@ docs/00_project/CURRENT_PROJECT_BASELINE.md의 제품·플랫폼·비주얼 기�
 ```text
 1. 진행 중인 Domain·Unity Presentation 통합과 Gray Box 회귀 완료
 2. Android Landscape·Safe Area·Touch 조작과 첫 APK·실기기 기준 확보
-3. 원본 전투 콘셉트를 기준으로 캐릭터 5명 단독 2D 콘셉트와 제작 시트 확정
-4. 루나 Character Proof와 Android 전투 Vertical Slice 품질 제작
-5. 환경·UI·VFX 아트와 Unity용 Prefab/Material 파이프라인 확장
+3. 신규 CH101~CH105 이미지 후보 생성과 사람 Gate A 선택
+4. 승인된 CH101 아마사와 린 Character Proof와 Android 전투 Vertical Slice 품질 제작
+5. 나머지 4인 제작 시트·2D→3D 변환·3D 모델·환경·UI·VFX 파이프라인 확장
 6. 캠프 성장·콘텐츠·밸런스 확장
 7. Android 최적화·QA와 Google Play 출시 준비
 ```
@@ -213,7 +215,7 @@ docs/00_project/CURRENT_PROJECT_BASELINE.md의 제품·플랫폼·비주얼 기�
 - `docs/01_game_design/CORE_LOOP.md`: 핵심 플레이 루프
 - `docs/05_art_concept/ART_DIRECTION.md`: 공통 아트 방향
 - `docs/05_art_concept/CHARACTER_BIBLE.md`: 캐릭터 설정 단일 기준
-- `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md`: 5인 고정·가변·금지 디자인 앵커
+- `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md`: 신규 5인 고정·가변·금지 디자인 앵커
 - `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md`: 캐릭터 제작 시트 Frame·Export 규격
 - `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`: Gate A/B/C 판정과 증거 기준
 - `docs/05_art_concept/ASSET_NAMING_GUIDE.md`: 이미지→Blender→Unity 이름·Export·GUID 계약

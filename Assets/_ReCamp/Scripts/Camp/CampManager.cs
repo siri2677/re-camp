@@ -1,3 +1,6 @@
+using System;
+using DomainFacilityKind = ReCamp.Domain.FacilityKind;
+using DomainGameSession = ReCamp.Domain.GameSession;
 using ReCamp.Item;
 using ReCamp.Save;
 using UnityEngine;
@@ -10,13 +13,13 @@ namespace ReCamp.Camp
 
         public ResourceLedger Inventory { get; private set; } = new();
 
-        private int generatorLevel;
-        private int workbenchLevel;
-        private int foodStorageLevel;
+        private DomainGameSession domainSession;
 
-        public int AttackBonus => workbenchLevel * 2;
-        public int MaxHealthBonus => foodStorageLevel * 20;
-        public float ExplorationTimeBonusSeconds => generatorLevel * 30f;
+        public int AttackBonus => domainSession == null ? 0 : domainSession.AttackBonus;
+        public int MaxHealthBonus => domainSession == null ? 0 : domainSession.MaxHealthBonus;
+        public float ExplorationTimeBonusSeconds => domainSession == null
+            ? 0f
+            : domainSession.ExplorationTimeBonusSeconds;
 
         private void Awake()
         {
@@ -32,97 +35,66 @@ namespace ReCamp.Camp
 
         public int GetLevel(CampFacility facility)
         {
-            return facility switch
-            {
-                CampFacility.Generator => generatorLevel,
-                CampFacility.Workbench => workbenchLevel,
-                CampFacility.FoodStorage => foodStorageLevel,
-                _ => 0,
-            };
+            return domainSession == null
+                ? 0
+                : domainSession.Facility(ToDomainFacility(facility)).Level;
         }
 
         public bool TryUpgrade(CampFacility facility)
         {
-            var level = GetLevel(facility);
-            if (!CanPayUpgrade(facility, level))
+            if (domainSession == null || !domainSession.TryUpgrade(ToDomainFacility(facility)))
             {
                 return false;
             }
 
-            SpendUpgradeCost(facility, level);
-            switch (facility)
-            {
-                case CampFacility.Generator:
-                    generatorLevel++;
-                    break;
-                case CampFacility.Workbench:
-                    workbenchLevel++;
-                    break;
-                case CampFacility.FoodStorage:
-                    foodStorageLevel++;
-                    break;
-            }
-
+            SyncFromDomain();
             Save();
             return true;
         }
 
         public void Deposit(ResourceLedger rewards)
         {
-            if (rewards == null || rewards.Total == 0)
+            if (domainSession == null || rewards == null || rewards.Total == 0)
             {
                 return;
             }
 
-            Inventory.Add(ResourceType.Scrap, rewards.Scrap);
-            Inventory.Add(ResourceType.Food, rewards.Food);
-            Inventory.Add(ResourceType.DataFragment, rewards.DataFragments);
+            domainSession.Resources.Add(ReCamp.Domain.ResourceKind.Scrap, rewards.Scrap);
+            domainSession.Resources.Add(ReCamp.Domain.ResourceKind.Rations, rewards.Food);
+            domainSession.Resources.Add(ReCamp.Domain.ResourceKind.DataFragment, rewards.DataFragments);
+            SyncFromDomain();
             Save();
         }
 
-        private bool CanPayUpgrade(CampFacility facility, int level)
-        {
-            return facility switch
-            {
-                CampFacility.Generator => Inventory.Get(ResourceType.Scrap) >= 3 + level * 2,
-                CampFacility.Workbench => Inventory.Get(ResourceType.Scrap) >= 2 + level * 2
-                    && Inventory.Get(ResourceType.DataFragment) >= 1 + level,
-                CampFacility.FoodStorage => Inventory.Get(ResourceType.Food) >= 3 + level * 2,
-                _ => false,
-            };
-        }
-
-        private void SpendUpgradeCost(CampFacility facility, int level)
-        {
-            switch (facility)
-            {
-                case CampFacility.Generator:
-                    Inventory.TrySpend(ResourceType.Scrap, 3 + level * 2);
-                    break;
-                case CampFacility.Workbench:
-                    Inventory.TrySpend(ResourceType.Scrap, 2 + level * 2);
-                    Inventory.TrySpend(ResourceType.DataFragment, 1 + level);
-                    break;
-                case CampFacility.FoodStorage:
-                    Inventory.TrySpend(ResourceType.Food, 3 + level * 2);
-                    break;
-            }
-        }
 
         private void Load()
         {
-            var data = SaveManager.LoadCamp();
-            Inventory.Add(ResourceType.Scrap, data.scrap);
-            Inventory.Add(ResourceType.Food, data.food);
-            Inventory.Add(ResourceType.DataFragment, data.dataFragments);
-            generatorLevel = Mathf.Max(0, data.generatorLevel);
-            workbenchLevel = Mathf.Max(0, data.workbenchLevel);
-            foodStorageLevel = Mathf.Max(0, data.foodStorageLevel);
+            domainSession = SaveManager.LoadDomainCamp();
+            SyncFromDomain();
         }
 
         private void Save()
         {
-            SaveManager.SaveCamp(Inventory, this);
+            SaveManager.SaveCamp(domainSession);
+        }
+
+        private void SyncFromDomain()
+        {
+            Inventory = new ResourceLedger();
+            Inventory.Add(ResourceType.Scrap, domainSession.Resources[ReCamp.Domain.ResourceKind.Scrap]);
+            Inventory.Add(ResourceType.Food, domainSession.Resources[ReCamp.Domain.ResourceKind.Rations]);
+            Inventory.Add(ResourceType.DataFragment, domainSession.Resources[ReCamp.Domain.ResourceKind.DataFragment]);
+        }
+
+        private static DomainFacilityKind ToDomainFacility(CampFacility facility)
+        {
+            return facility switch
+            {
+                CampFacility.Generator => DomainFacilityKind.Generator,
+                CampFacility.Workbench => DomainFacilityKind.Workshop,
+                CampFacility.FoodStorage => DomainFacilityKind.RationStorage,
+                _ => throw new ArgumentOutOfRangeException(nameof(facility), facility, null),
+            };
         }
     }
 }

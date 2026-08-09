@@ -13,6 +13,8 @@ For every change:
 5. Report only verified results.
 
 Do not claim that a feature was MCP-tested if only a batch compile completed.
+이 문서의 2026-07 검증 기록에 나오는 루나·미유·코코·이리스·노아는 Unity Gray Box 레거시
+로스터다. 신규 CH101~CH105 아트·런타임 마이그레이션과 사람 Gate A 승인을 의미하지 않는다.
 
 ## Project
 
@@ -158,14 +160,16 @@ Visual references:
 - 제품·플랫폼·비주얼·현재 Gate: `docs/00_project/CURRENT_PROJECT_BASELINE.md`
 - 현재 실행 순서와 상태: `planning/sprint_backlog.md`
 - 구현·테스트 근거: `planning/IMPLEMENTATION_STATUS.md`
-- v003 캐릭터 판정: `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md`
+- `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md` (레거시 `HISTORY ONLY`)
 
 MCP 작업을 재개할 때는 위 실행 큐에서 선택된 ID만 수행하고, 이 문서의 연결 절차와 검증
 명령을 적용한다. 테스트 개수·다음 작업·아트 승인 상태를 이 파일에 다시 복사하지 않는다.
 
 ## ComfyUI / ComfyUI MCP
 
-ComfyUI is deferred and optional at the current development stage. Do not block Unity gameplay work, initial concept review, Luna's production-sheet planning, or the neutral Blender export test on installing ComfyUI, downloading model weights, or preparing a local GPU.
+ComfyUI is deferred and optional at the current development stage. Do not block Unity gameplay work,
+initial CH101~CH105 concept review, CH101 production-sheet planning, or the neutral Blender export test
+on installing ComfyUI, downloading model weights, or preparing a local GPU.
 
 Continue with the currently available image-generation path. Re-evaluate ComfyUI only when one of these needs becomes a demonstrated production bottleneck:
 

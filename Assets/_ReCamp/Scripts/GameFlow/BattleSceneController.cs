@@ -1,12 +1,14 @@
 using System.Collections;
+using ReCamp.Domain;
+using RunOutcome = ReCamp.Domain.RunOutcome;
+using RuntimePlayerStats = ReCamp.Player.PlayerStats;
 using ReCamp.Camp;
 using ReCamp.Combat;
 using ReCamp.Runtime;
 using ReCamp.Item;
 using ReCamp.Player;
+using ReCamp.Input;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 namespace ReCamp.GameFlow
 {
     public sealed class BattleSceneController : MonoBehaviour
@@ -23,9 +25,10 @@ namespace ReCamp.GameFlow
         private float effectiveExplorationDurationSeconds;
         private float explorationTimeRemaining;
         private float manualExtractionHeldSeconds;
-        private bool externalManualExtractionHeld;
         private Damageable playerHealth;
+        private CharacterAbilityController playerAbility;
         private readonly ResourceLedger localRewards = new();
+        private BattleInputRouter inputRouter;
 
         public int CollectedResources => GameManager.Instance == null
             ? collectedResources
@@ -34,6 +37,7 @@ namespace ReCamp.GameFlow
         public bool IsBattleResolved { get; private set; }
         public bool WasVictory { get; private set; }
         public float ReturnCountdown { get; private set; }
+        public SkillActivatedEvent LastSkillActivation { get; private set; }
         public BattleResolutionReason ResolutionReason { get; private set; }
         public float ExplorationDuration => effectiveExplorationDurationSeconds > 0f
             ? effectiveExplorationDurationSeconds
@@ -55,6 +59,13 @@ namespace ReCamp.GameFlow
             ? localRewards
             : GameManager.Instance.CurrentRunRewards;
 
+        private void Awake()
+        {
+            inputRouter = BattleInputRouter.EnsureInstance();
+            inputRouter.ExtractStarted += HandleExtractStarted;
+            inputRouter.ExtractCancelled += HandleExtractCancelled;
+        }
+
         private void Start()
         {
             var campTimeBonus = CampManager.Instance == null
@@ -64,8 +75,9 @@ namespace ReCamp.GameFlow
                 1f,
                 explorationDurationSeconds + campTimeBonus);
             explorationTimeRemaining = effectiveExplorationDurationSeconds;
-            var playerStats = FindFirstObjectByType<PlayerStats>();
+            var playerStats = FindAnyObjectByType<RuntimePlayerStats>();
             playerHealth = playerStats == null ? null : playerStats.Health;
+            BindPlayerAbility(playerStats == null ? null : playerStats.Ability);
             if (playerHealth != null)
             {
                 playerHealth.Died += HandlePlayerDied;
@@ -78,10 +90,21 @@ namespace ReCamp.GameFlow
             {
                 playerHealth.Died -= HandlePlayerDied;
             }
+
+            if (inputRouter != null)
+            {
+                inputRouter.ExtractStarted -= HandleExtractStarted;
+                inputRouter.ExtractCancelled -= HandleExtractCancelled;
+                inputRouter.ResetTransientInput();
+            }
+
+            BindPlayerAbility(null);
         }
 
         private void Update()
         {
+            var playerStats = FindAnyObjectByType<RuntimePlayerStats>();
+            BindPlayerAbility(playerStats == null ? null : playerStats.Ability);
             if (!IsBattleResolved && explorationTimerEnabled)
             {
                 explorationTimeRemaining = Mathf.Max(0f, explorationTimeRemaining - Time.deltaTime);
@@ -172,7 +195,10 @@ namespace ReCamp.GameFlow
                 return;
             }
 
-            GameManager.Instance.CompleteRun(0);
+            var outcome = ResolutionReason == BattleResolutionReason.TimeExpired
+                ? RunOutcome.Expired
+                : RunOutcome.Defeated;
+            GameManager.Instance.FailRun(outcome);
         }
 
         public void ConfigureExplorationTimer(float durationSeconds, float warningThresholdSeconds = 60f)
@@ -205,10 +231,14 @@ namespace ReCamp.GameFlow
 
         public void SetManualExtractionHeld(bool isHeld)
         {
-            externalManualExtractionHeld = isHeld;
-            if (!isHeld && Keyboard.current?.rKey.isPressed != true)
+            var router = inputRouter ??= BattleInputRouter.EnsureInstance();
+            if (isHeld)
             {
-                manualExtractionHeldSeconds = 0f;
+                router.SubmitExtractPressed();
+            }
+            else
+            {
+                router.SubmitExtractReleased();
             }
         }
 
@@ -233,8 +263,7 @@ namespace ReCamp.GameFlow
 
         private void UpdateManualExtraction()
         {
-            var keyboardHeld = Keyboard.current?.rKey.isPressed == true;
-            if (!externalManualExtractionHeld && !keyboardHeld)
+            if (inputRouter == null || !inputRouter.IsExtractionHeld)
             {
                 manualExtractionHeldSeconds = 0f;
                 return;
@@ -257,13 +286,47 @@ namespace ReCamp.GameFlow
                 yield return null;
             }
 
-            if (WasVictory)
+            if (WasVictory && ResolutionReason != BattleResolutionReason.TimeExpired)
             {
                 CompleteBattle();
             }
             else
             {
                 AbortBattle();
+            }
+        }
+
+        private void HandleExtractStarted()
+        {
+            manualExtractionHeldSeconds = 0f;
+        }
+
+        private void HandleExtractCancelled()
+        {
+            manualExtractionHeldSeconds = 0f;
+        }
+        private void HandleSkillActivated(SkillActivatedEvent activation)
+        {
+            LastSkillActivation = activation;
+        }
+
+        private void BindPlayerAbility(CharacterAbilityController ability)
+        {
+            if (playerAbility == ability)
+            {
+                return;
+            }
+
+            if (playerAbility != null)
+            {
+                playerAbility.SkillActivated -= HandleSkillActivated;
+            }
+
+            playerAbility = ability;
+            LastSkillActivation = null;
+            if (playerAbility != null)
+            {
+                playerAbility.SkillActivated += HandleSkillActivated;
             }
         }
 

@@ -1,7 +1,7 @@
 # Re:Camp Mobile Input and Lifecycle
 
-> 최종 갱신: 2026-07-27
-> 상태: Active Implementation Contract
+> 최종 갱신: 2026-08-09
+> 상태: Touch Command Slice Implemented; Device Smoke Pending
 > 대상: Android Landscape Vertical Slice
 
 ## 1. 목적
@@ -9,14 +9,13 @@
 Android 가로 화면에서 전투 입력, Safe Area, 일시정지, Android Back, 앱 Background·Resume 동작을
 하나의 계약으로 정의한다.
 
-현재 `BattleHudController`의 Safe Area 대응과 PC 개발 입력은 존재하지만 Touch UI와 공통 입력
-Command는 아직 구현되지 않았다. 본 문서는 DEV-0115·DEV-0116·DEV-0117의 완료 기준으로 사용한다.
+- `BattleHudController`의 Safe Area 대응과 PC 개발 입력, 가상 조이스틱·능력·귀환 Touch UI가 구현됐다.
+- `BattleInputRouter`가 Keyboard와 Touch를 공통 Command로 변환하며, Runtime Gameplay는 장치 API를 직접 읽지 않는다.
 
 ## 2. 화면 방향과 Safe Area
 
-- 게임 화면은 Landscape만 지원한다.
-- Portrait 자동 회전은 허용하지 않는다.
-- 좌우 Landscape 회전 허용 여부는 첫 실기기 테스트에서 확정하되, HUD는 양쪽 Cutout을 모두 처리한다.
+- 게임 화면은 Landscape만 지원하며 `ProjectSettings`에서 Portrait 자동 회전을 비활성화하고 좌우 Landscape 회전을 허용한다.
+- 양쪽 Cutout은 HUD에서 처리하며 실기기 확인이 남아 있다.
 - 모든 필수 조작은 `Screen.safeArea` 내부에 배치한다.
 - 배경 장식은 Safe Area 밖까지 확장할 수 있지만 버튼·텍스트·HP·타이머는 잘리면 안 된다.
 - 기준 설계 화면은 16:9이며 18:9, 19.5:9, 20:9와 Tablet 비율을 검증한다.
@@ -45,8 +44,8 @@ Command는 아직 구현되지 않았다. 본 문서는 DEV-0115·DEV-0116·DEV-
 
 ## 4. 입력 Command 계약
 
-Gameplay 코드는 `Keyboard.current`, `Gamepad.current`, Touch 좌표를 직접 읽지 않는다.
-장치 입력은 다음 공통 Command로 변환한다.
+- Gameplay 코드는 `Keyboard.current`와 Touch 좌표를 직접 읽지 않는다.
+- 장치 입력은 다음 공통 Command로 변환한다.
 
 ```text
 Move(Vector2)
@@ -62,7 +61,7 @@ ExtractCancelled
 PausePressed
 ```
 
-- PC Keyboard·Gamepad·Touch UI는 같은 Command를 생성한다.
+- PC Keyboard·Touch UI는 같은 Command를 생성한다.
 - 캐릭터 능력이 Hold·Release를 사용하는 경우 Press와 Release를 모두 전달한다.
 - 귀환은 Hold 진행률을 Runtime이 소유하고, UI는 시작·취소 입력과 진행 상태만 표시한다.
 - UI Button 이벤트가 전투 Component를 직접 호출하지 않고 Input Command 계층을 거친다.
@@ -188,13 +187,12 @@ Vertical Slice에서 최소한 다음 설정을 제공한다.
 
 ### 자동 테스트
 
-- Safe Area가 변경돼도 필수 HUD가 영역 안에 남음
-- Pointer Cancel 시 이동과 Hold가 0으로 복귀
-- PC와 Touch 입력이 같은 Command를 생성
-- Pause 중 Run Timer와 Gameplay가 진행되지 않음
-- Resume 후 사용자의 명시적 입력 전까지 Gameplay가 재개되지 않음
+- `BattleInputRouterTests`: Dead Zone·입력 정규화·취소·transient reset
+- `BattleInputRouter_SignatureCommandActivatesCurrentAbility`: 공통 Signature Command가 현재 캐릭터 능력으로 전달됨
+- `BattleHud_CreatesSafeTouchControlsThatEmitExtractionCommand`: Safe Area HUD 생성과 귀환 Hold Command
+- Unity EditMode `35/35`, PlayMode `21/21` 통과
 
-### 실기기 Smoke
+### 남은 실기기 Smoke
 
 1. 이동하면서 공격·Dash·Skill 동시 사용
 2. Cutout 좌우 회전에서 버튼 잘림 없음

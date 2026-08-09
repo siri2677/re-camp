@@ -1,5 +1,6 @@
 using ReCamp.Data;
 using ReCamp.Enemy;
+using ReCamp.Input;
 using UnityEngine;
 
 namespace ReCamp.Player
@@ -13,6 +14,7 @@ namespace ReCamp.Player
         private PlayerStats stats;
         private float nextAttackTime;
         private EnemyController comboTarget;
+        private BattleInputRouter inputRouter;
         private int comboStep;
         private float comboExpiresAt;
 
@@ -26,9 +28,30 @@ namespace ReCamp.Player
         private void Awake()
         {
             stats = GetComponent<PlayerStats>();
+            inputRouter = BattleInputRouter.EnsureInstance();
+            inputRouter.AttackPressed += RequestAttack;
         }
 
+        private void OnDestroy()
+        {
+            if (inputRouter != null)
+            {
+                inputRouter.AttackPressed -= RequestAttack;
+            }
+        }
+
+
         private void Update()
+        {
+            TryAttack();
+        }
+
+        public void RequestAttack()
+        {
+            TryAttack();
+        }
+
+        private void TryAttack()
         {
             if (stats.Health.IsDead || Time.time < nextAttackTime)
             {
@@ -49,6 +72,7 @@ namespace ReCamp.Player
             target.TakeDamage(ResolveAttackDamage(target));
             nextAttackTime = Time.time + stats.AttackInterval;
         }
+
 
         private int ResolveAttackDamage(EnemyController target)
         {

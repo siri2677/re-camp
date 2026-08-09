@@ -14,10 +14,10 @@ Export 추적 규칙을 정의한다.
 | 항목 | 값 |
 |---|---|
 | 작업 ID | `ART-0109` |
-| 문서 상태 | `Active` |
-| 규격 버전 | `v001` |
-| 적용 시작일 | 2026-07-21 |
-| 적용 대상 | 새로 만드는 아트 소스·검토본·Export·Unity 런타임 자산 |
+| 문서 상태 | `Active — New Concept Baseline` |
+| 규격 버전 | `v002` |
+| 적용 시작일 | 2026-08-09 |
+| 적용 대상 | 신규 디자인 소스·검토본·Export·향후 승인 런타임 자산 |
 | 비적용 대상 | 기존 Gray Box 자산의 즉시 일괄 이름 변경 |
 
 이 규격의 도입 때문에 기존 Unity 자산을 탐색기에서 대량 변경하지 않는다. 기존 GUID를 유지할
@@ -41,16 +41,17 @@ Export 추적 규칙을 정의한다.
 
 | 범위 | 허용 식별자 |
 |---|---|
-| 캐릭터 | `Luna`, `Miyu`, `Coco`, `Iris`, `Noah` |
-| 제작 시트·metadata ID | `CH001`, `CH002`, `CH003`, `CH004`, `CH005` |
+| 신규 캐릭터 | `AmasawaRin`, `KisaragiMao`, `KanadeNozomi`, `ShionTategami`, `KuroganeAkari` |
+| 신규 제작 시트·metadata ID | `CH101`, `CH102`, `CH103`, `CH104`, `CH105` |
+| 역사 캐릭터 | `Luna`, `Miyu`, `Coco`, `Iris`, `Noah` — `HISTORY ONLY` |
 | 공용 | `Common` |
 | 주요 환경 | `Camp`, `RuinedStreet`, `ContaminatedForest`, `AbandonedLab`, `MachineGraveyard` |
 | 방향 | `F`, `B`, `L`, `R` |
 | 좌우 | `L`, `R` |
 
-캐릭터 식별자는 `Assets/_ReCamp/Scripts/Data/CharacterId.cs`와 철자·대소문자가 같아야 한다.
-`CH001`~`CH005`는 제작 시트·metadata 필드용이며 파일명의 Subject를 대신하지 않는다. 표시용
-한국어 이름이나 현지화 문자열도 파일명에 사용하지 않는다.
+신규 디자인 식별자는 현재 Unity 런타임 `CharacterId`와 분리된 아트·metadata 식별자다. 코드 로스터를
+마이그레이션하기 전 기존 `CH001`~`CH005` 런타임 자산의 이름을 바꾸지 않는다. 신규 승인 시트가
+생기면 아트 파일은 위 신규 식별자를 사용하고, 런타임 연결은 별도 마이그레이션 작업으로 검증한다.
 
 Unity의 고정 Scene `00_Bootstrap`~`04_Result`와 일반 Scene Hierarchy 이름은 이 아트 파일명
 규격의 대상이 아니다. 특히 Build Settings의 Scene 이름을 `SCN_` 규칙으로 일괄 변경하지 않는다.
@@ -108,13 +109,13 @@ ReCamp_<Scope>_<AssetType>_<STATUS>_v###.<ext>
 시작한다.
 
 ```text
-ReCamp_CharacterLineup_REVIEW_v003.png
-ReCamp_CharacterSheet_Template_REVIEW_v001.svg
-Luna_KeyArt_WIP_v001.png
-Luna_Turnaround_REVIEW_v003.png
-Luna_CharacterSheet_REVIEW_v001.pdf
-Luna_Face128_REVIEW_v001.png
-Miyu_CombatDrone_REVIEW_v002.png
+ReCamp_FiveCharacterLineup_REVIEW_v001.png
+ReCamp_FiveCharacterCrossReview_REVIEW_v001.png
+ReCamp_CharacterSheet_Template_REVIEW_v003.svg
+AmasawaRin_KeyArt_REVIEW_v001.png
+AmasawaRin_Turnaround_REVIEW_v001.png
+AmasawaRin_Face128_REVIEW_v001.png
+KisaragiMao_BowEquipment_REVIEW_v001.png
 RuinedStreet_ColorKey_WIP_v004.png
 ```
 
@@ -138,15 +139,17 @@ Icon
 ```
 
 띄어 쓴 명칭은 파일명에서 붙여 쓴다. 예: `Key Art` → `KeyArt`, `Color Key` → `ColorKey`.
+신규 캐릭터 예시는 CH101~CH105 Subject를 사용한다. 아래 규칙의 `Luna` 예시는 현재 런타임
+Gray Box의 `HISTORY ONLY` 호환 예시이며 신규 아트 파일에 사용하지 않는다.
 
 ### 4.2 동반 파일
 
 원본 이미지와 같은 basename을 사용한다.
 
 ```text
-Luna_KeyArt_REVIEW_v003.png
-Luna_KeyArt_REVIEW_v003.metadata.md
-Luna_KeyArt_REVIEW_v003.review.md
+AmasawaRin_KeyArt_REVIEW_v001.png
+AmasawaRin_KeyArt_REVIEW_v001.metadata.md
+AmasawaRin_KeyArt_REVIEW_v001.review.md
 ```
 
 - `.metadata.md`: 도구·모델·입력 레퍼런스·사람 수정·사용 제한·출처를 기록한다.
@@ -184,10 +187,9 @@ FRAME_02_Turnaround
 <Category>_<Subject>_<Purpose>_v###.blend
 ```
 
-```text
-CHR_Luna_Model_v001.blend
-CHR_Luna_Rig_v002.blend
-PRP_Luna_EnergyDagger_v003.blend
+CHR_AmasawaRin_Model_v001.blend
+CHR_AmasawaRin_Rig_v001.blend
+PRP_AmasawaRin_WireSaber_v001.blend
 MON_Scrapper_Blockout_v002.blend
 ENV_RuinedStreet_BuildingA_v001.blend
 ```
@@ -199,10 +201,10 @@ ENV_RuinedStreet_BuildingA_v001.blend
 
 | 종류 | 형식 | 예시 |
 |---|---|---|
-| Export Collection | `EXPORT_<RuntimeRoot>` | `EXPORT_CHR_Luna` |
+| Export Collection | `EXPORT_<RuntimeRoot>` | `EXPORT_CHR_AmasawaRin` |
 | 작업 Collection | `SOURCE_<Purpose>` | `SOURCE_HighPoly` |
 | 참고 Collection | `REFERENCE_<Purpose>` | `REFERENCE_Turnaround` |
-| Armature Object | `RIG_<Subject>` | `RIG_Luna` |
+| Armature Object | `RIG_<Subject>` | `RIG_AmasawaRin` |
 | Mesh Object | `GEO_<Part>[_LOD#]` | `GEO_Hair_LOD0` |
 | Collision Object | `COL_<Part>` | `COL_Body` |
 | Locator·Socket | `Socket_<Purpose>[_L|R]` | `Socket_Weapon_R` |
@@ -215,8 +217,8 @@ Unity Transform 이름으로 넘어갈 수 있으므로 `Cube.001`, `Armature.00
 편집 원본은 Runtime Texture와 같은 의미 이름 뒤에 버전을 붙인다.
 
 ```text
-TEX_Luna_Face_BaseColor_v003.kra
-TEX_Luna_Outfit_Mask_v002.psd
+TEX_AmasawaRin_Face_BaseColor_v001.kra
+TEX_AmasawaRin_Outfit_Mask_v001.psd
 TEX_RuinedStreet_BuildingA_Normal_v001.psd
 ```
 
@@ -241,8 +243,8 @@ PSD·KRA·Substance·고해상도 원본은 `art_source/`에 두며 Unity `Asset
 | `SO` | 아트 연결용 ScriptableObject |
 | `SHD` | 프로젝트 전용 Shader·Shader Graph |
 
-접두사는 파일 확장자를 반복하지 않는다. 예를 들어 `CHR_Luna_Model.fbx`는 허용하지만
-`FBX_CHR_Luna.fbx`는 사용하지 않는다.
+접두사는 파일 확장자를 반복하지 않는다. 예를 들어 `CHR_AmasawaRin_Model.fbx`는 허용하지만
+`FBX_CHR_AmasawaRin.fbx`는 사용하지 않는다.
 
 ### 6.1 Unity 저장 경로
 
@@ -267,22 +269,22 @@ Runtime 파일은 상태와 버전 없이 안정된 이름을 사용한다.
 ### 7.1 Model·Prefab·Avatar
 
 ```text
-CHR_Luna_Model.fbx
-CHR_Luna_Prefab.prefab
-AVT_Luna.asset
+CHR_AmasawaRin_Model.fbx
+CHR_AmasawaRin_Prefab.prefab
+AVT_AmasawaRin.asset
 MON_Scrapper_Model.fbx
 MON_Scrapper_Prefab.prefab
 ENV_RuinedStreet_BuildingA_Model.fbx
-PRP_Luna_EnergyDagger_Model.fbx
+PRP_AmasawaRin_WireSaber_Model.fbx
 PRP_Camp_Generator_Prefab.prefab
 ```
 
 Prefab Variant는 역할을 마지막 필드에 붙인다.
 
 ```text
-CHR_Luna_Prefab.prefab
-CHR_Luna_Prefab_Lobby.prefab
-CHR_Luna_Prefab_Battle.prefab
+CHR_AmasawaRin_Prefab.prefab
+CHR_AmasawaRin_Prefab_Lobby.prefab
+CHR_AmasawaRin_Prefab_Battle.prefab
 ```
 
 공통 원본 Prefab을 먼저 만들고 Scene별 차이가 실제로 필요할 때만 Variant를 추가한다.
@@ -308,13 +310,13 @@ TEX_<Subject>_<Part>_<Map>.<ext>
 Shader 규격에서 확정한다. 확정 전 파일명만 보고 채널 배치를 추정하지 않는다.
 
 ```text
-MAT_Luna_Face.mat
-MAT_Luna_Hair.mat
-MAT_Luna_Outfit.mat
-TEX_Luna_Face_BaseColor.png
-TEX_Luna_Face_Normal.png
-TEX_Luna_Outfit_Mask.png
-TEX_Luna_Equipment_Emission.png
+MAT_AmasawaRin_Face.mat
+MAT_AmasawaRin_Hair.mat
+MAT_AmasawaRin_Outfit.mat
+TEX_AmasawaRin_Face_BaseColor.png
+TEX_AmasawaRin_Face_Normal.png
+TEX_AmasawaRin_Outfit_Mask.png
+TEX_AmasawaRin_Equipment_Emission.png
 ```
 
 ### 7.3 Animation·Animator
@@ -328,15 +330,14 @@ AOC_<Subject>.overrideController
 ```text
 ANM_Common_Idle_Combat.anim
 ANM_Common_Run_F.anim
-ANM_Luna_Attack_01.anim
-ANM_Luna_ScanPulse.anim
-ANM_Luna_CrossFang.anim
-ANM_Luna_Victory.anim
+ANM_AmasawaRin_Attack_01.anim
+ANM_AmasawaRin_Slipstream.anim
+ANM_AmasawaRin_Victory.anim
 AC_Character_Common.controller
-AOC_Luna.overrideController
+AOC_AmasawaRin.overrideController
 ```
 
-외부 Animation Export FBX도 같은 stem을 사용한다. 예: `ANM_Luna_Attack_01.fbx`. Unity에서
+외부 Animation Export FBX도 같은 stem을 사용한다. 예: `ANM_AmasawaRin_Attack_01.fbx`. Unity에서
 Clip을 추출할 때만 같은 이름의 `.anim`을 만들고, Model FBX와 Animation FBX를 분리한다.
 
 Action·State·Event의 최종 사전, 공용 Clip과 전용 Clip의 분리, Root Motion 여부는
@@ -350,12 +351,11 @@ VFX_<Subject>_<Action>[_Part].prefab
 ```
 
 ```text
-VFX_Luna_Attack01_Trail.prefab
-VFX_Luna_CrossFang_Impact.prefab
-VFX_Miyu_Drone_Muzzle.prefab
-VFX_Coco_SafeZone_Area.prefab
-VFX_Iris_FocusShot_Line.prefab
-VFX_Noah_BarrierWall_Shield.prefab
+VFX_AmasawaRin_RouteThread_Trail.prefab
+VFX_KisaragiMao_ScrapBloom_Field.prefab
+VFX_KanadeNozomi_HushVeil_Area.prefab
+VFX_ShionTategami_FaultLine_Mark.prefab
+VFX_KuroganeAkari_AnchorDrop_Impact.prefab
 ```
 
 색상 Variant만 다른 경우 캐릭터 이름을 생략하지 않는다. 다섯 캐릭터의 Character ID→VFX
@@ -375,7 +375,7 @@ UI_<Screen>_<Element>.prefab
 UI_Common_Button_Primary_Normal.png
 UI_Common_Button_Primary_Pressed.png
 UI_Battle_SkillFrame_Cooldown.png
-UI_Character_Luna_Portrait.png
+UI_Character_AmasawaRin_Portrait.png
 UI_Result_RewardCard.prefab
 UI_Lobby_CharacterPanel.prefab
 ```
@@ -457,10 +457,10 @@ Socket_CameraFocus
 ### 9.2 Runtime 교체
 
 ```text
-Source:  art_source/blender/luna/CHR_Luna_Model_v004.blend
-Review:  art_refs/characters/luna/3d_reference/Luna_Model_APPROVED_v004.review.md
-Runtime: Assets/_ReCamp/Art/Characters/Luna/Models/CHR_Luna_Model.fbx
-Prefab:  Assets/_ReCamp/Prefabs/Player/CHR_Luna_Prefab.prefab
+Source:  art_source/blender/amasawa_rin/CHR_AmasawaRin_Model_v001.blend
+Review:  art_refs/characters/amasawa_rin/3d_reference/AmasawaRin_Model_APPROVED_v001.review.md
+Runtime: Assets/_ReCamp/Art/Characters/AmasawaRin/Models/CHR_AmasawaRin_Model.fbx
+Prefab:  Assets/_ReCamp/Prefabs/Player/CHR_AmasawaRin_Prefab.prefab
 ```
 
 - Runtime 파일은 승인 버전이 바뀌어도 같은 경로·이름을 유지한다.
@@ -503,14 +503,14 @@ manifest는 `Assets/` 아래에 두지 않는다. Unity GUID는 최초 Import �
 
 | 금지 | 수정 예시 | 이유 |
 |---|---|---|
-| `루나최종.png` | `Luna_KeyArt_REVIEW_v001.png` | 문자·상태·버전 불명 |
-| `Luna final final2.png` | `Luna_KeyArt_WIP_v002.png` | 공백·임의 버전 |
-| `character01_new.fbx` | `CHR_Luna_Model.fbx` | Subject·타입 불명 |
-| `material copy.mat` | `MAT_Luna_Outfit.mat` | 역할 불명 |
-| `attack.anim` | `ANM_Luna_Attack_01.anim` | Subject·순번 불명 |
+| `아마사와린최종.png` | `AmasawaRin_KeyArt_REVIEW_v001.png` | 문자·상태·버전 불명 |
+| `AmasawaRin final final2.png` | `AmasawaRin_KeyArt_WIP_v002.png` | 공백·임의 버전 |
+| `character101_new.fbx` | `CHR_AmasawaRin_Model.fbx` | Subject·타입 불명 |
+| `material copy.mat` | `MAT_AmasawaRin_Outfit.mat` | 역할 불명 |
+| `attack.anim` | `ANM_AmasawaRin_Attack_01.anim` | Subject·순번 불명 |
 | `Cube.001` | `GEO_Body_LOD0` | Export Node 역할 불명 |
 | `Socket1` | `Socket_Weapon_R` | 부착 용도 불명 |
-| `Luna_APPROVED_v001.fbx` | `CHR_Luna_Model.fbx` | Runtime에 상태·버전 사용 |
+| `AmasawaRin_APPROVED_v001.fbx` | `CHR_AmasawaRin_Model.fbx` | Runtime에 상태·버전 사용 |
 
 ## 11. 현재 런타임 이름 의존성
 

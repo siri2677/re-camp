@@ -46,6 +46,9 @@ sysinfo.txt
 *.aab
 *.unitypackage
 
+# Unity Test Runner output
+/TestResults/
+
 # Rider
 .idea/
 *.sln.iml

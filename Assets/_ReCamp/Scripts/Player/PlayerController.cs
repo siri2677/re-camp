@@ -1,6 +1,6 @@
 using ReCamp.GameFlow;
+using ReCamp.Input;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace ReCamp.Player
 {
@@ -13,12 +13,14 @@ namespace ReCamp.Player
 
         private PlayerStats stats;
         private Camera movementCamera;
+        private BattleInputRouter inputRouter;
 
         private void Awake()
         {
             Instance = this;
             stats = GetComponent<PlayerStats>();
             movementCamera = Camera.main;
+            inputRouter = BattleInputRouter.EnsureInstance();
         }
 
         private void OnDestroy()
@@ -36,38 +38,7 @@ namespace ReCamp.Player
                 return;
             }
 
-            var keyboard = Keyboard.current;
-            if (keyboard == null)
-            {
-                return;
-            }
-
-            var input = Vector2.zero;
-            if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
-            {
-                input.x -= 1f;
-            }
-
-            if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
-            {
-                input.x += 1f;
-            }
-
-            if (keyboard.sKey.isPressed || keyboard.downArrowKey.isPressed)
-            {
-                input.y -= 1f;
-            }
-
-            if (keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed)
-            {
-                input.y += 1f;
-            }
-
-            if (input.sqrMagnitude > 1f)
-            {
-                input.Normalize();
-            }
-
+            var input = inputRouter == null ? Vector2.zero : inputRouter.MoveInput;
             var movement = GetCameraRelativeMovement(input);
             var nextPosition = transform.position + movement * stats.MoveSpeed * Time.deltaTime;
             if (BattleArenaBounds.Instance != null)

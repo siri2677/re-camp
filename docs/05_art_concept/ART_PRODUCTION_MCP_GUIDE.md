@@ -1,6 +1,7 @@
 # Re:Camp Art Production MCP Guide
 
-이 문서는 Re:Camp의 2D 콘셉트 아트, 캐릭터 제작 시트, 3D 모델, Unity 통합을 반복 가능하게 만드는 MCP·AI 도구 운영 기준이다.
+이 문서는 Re:Camp의 신규 5인 2D 콘셉트, 캐릭터 제작 시트, 3D 모델, Unity 통합을 반복 가능하게
+만드는 MCP·AI 도구 운영 기준이다. 신규 로스터는 `CHARACTER_BIBLE.md` v3.0을 따른다.
 
 ## 1. 기본 원칙
 
@@ -12,15 +13,20 @@
 - 2D 대표 일러스트는 약 7등신 일반 비율, 3D 인게임 캐릭터는 캐릭터별 5~6등신 스타일라이즈드 비율을 기준으로 한다. 원본 전투 콘셉트는 감성·카메라·환경·가독성 앵커이며 정확한 체형 비율은 최신 Baseline을 따른다.
 - 도구별 역할을 분리하고 동일한 작업을 여러 MCP가 중복 수정하지 않도록 한다.
 - 모든 최종 산출물은 Git에 저장하며 소스 파일과 Export 파일을 구분한다.
+- 신규 2D 후보의 1차 산출물은 PNG이며, 같은 basename의 `.metadata.md`와 `.review.md`를 함께 저장한다.
+- PNG 생성과 Gate A 검토는 Unity 없이 수행한다. Unity/Coplay MCP는 승인 후 Import·Sprite·Material·Prefab·쿼터뷰 검증에만 사용한다.
+- 예시 경로: `art_refs/characters/amasawa_rin/concept/AmasawaRin_FullBodyCandidates_REVIEW_v001.png`
+- 동반 파일: `AmasawaRin_FullBodyCandidates_REVIEW_v001.metadata.md`,
+  `AmasawaRin_FullBodyCandidates_REVIEW_v001.review.md`
 
 ## 2. 권장 도구 구성
 
 | 도구 | 주 역할 | Re:Camp에서의 사용 범위 | 현재 상태 |
 |---|---|---|---|
-| 현재 이용 가능한 이미지 생성 도구 | 초기 2D 후보와 방향 탐색 | 전신 시안, 표정, 포즈, 장비, 배경, 몬스터, VFX 콘셉트 | 사용 가능 |
-| ComfyUI MCP | 재현 가능한 2D 생성·수정 워크플로 | 캐릭터 일관성, 대량 변형, 정밀 인페인팅, LoRA·ControlNet·IP-Adapter 기반 제어 | **Deferred / Optional** |
-| Figma MCP | 디자인 시트와 UI 문서 구성 | 캐릭터 시트, 컬러 팔레트, 장비 주석, UI 시스템, 진행 보드 | 필요 시 도입 |
-| Blender MCP | 3D Blockout과 반복 모델링 | 캐릭터 베이스 검증, 무기, 드론, 시설, 배경 소품, 몬스터 초안 | 루나 Approved 시트 전에는 소품 검증만 |
+| 이미지 생성 도구 | 초기 신규 2D PNG 후보와 방향 탐색 | 5인 전신 시안·표정·포즈·장비·배경 | **OpenRouter 선택, API key 연결 대기** |
+| ComfyUI MCP | 재현 가능한 2D 생성·수정 워크플로 | 얼굴·헤어 일관성, 대량 변형, 정밀 인페인팅 | `Deferred / Optional` |
+| Figma MCP | 제작 시트와 UI 문서 구성 | 5인 시트·팔레트·장비 주석·진행 보드 | 필요 시 도입 |
+| Blender MCP | 3D Blockout과 반복 모델링 | 5인 장비·베이스 검증, 시설·소품·몬스터 초안 | Gate A 이후 |
 | Coplay/Aura MCP | Unity Editor 통합 | Import, Prefab, Material, Animator, Collider, Scene, UI 연결 | 현재 개발에 사용 |
 | GitHub MCP | 형상·문서·작업 관리 | Issue, 브랜치, PR, 아트 문서, 레퍼런스 버전 관리 | 필요 시 사용 |
 | 코드 에이전트 | Unity 코드와 자동화 | Importer, ScriptableObject, 셰이더 설정, 에셋 검증 도구 | 현재 개발에 사용 |
@@ -31,14 +37,15 @@
 
 ```text
 현재: Coplay/Aura MCP와 코드 에이전트로 Unity 기능 개발·검증
-→ 현재 이용 가능한 이미지 생성 도구로 2D 방향 후보 검토
-→ 사람 승인과 Figma 제작 시트
-→ 루나 Approved 시트 후 Blender Blockout·Unity 검증
-→ 반복성과 정밀 제어가 실제 병목이 될 때만 ComfyUI MCP 재평가
-→ GitHub MCP와 CI 자동화는 협업·배포 필요에 맞춰 확장
+→ OpenRouter 연결 후 신규 5인 3안 후보 생성
+→ 사람 Gate A에서 캐릭터별 방향 선택
+→ Figma 또는 동등한 편집 도구로 제작 시트·Turnaround
+→ 승인된 시트 후 Blender Blockout·Unity 검증
+→ 반복성과 정밀 제어가 실제 병목일 때만 ComfyUI MCP 재평가
 ```
 
 현재 단계에서는 ComfyUI나 ComfyUI MCP가 필수가 아니다. 로컬 모델 파일 보유, 전용 GPU 마련, ComfyUI 설치를 Unity 기능 개발이나 초기 콘셉트 검토의 완료 조건으로 두지 않는다. 도입 시점이 오면 로컬 GPU 추론과 클라우드 실행의 비용·보안·속도를 비교해 선택한다.
+이번 생성 실행은 OpenRouter를 선택했다. API key는 채팅에 기록하지 않고 실행 환경의 보안 저장소 또는 환경 변수로 주입한다. 키가 확인되기 전에는 PNG 생성 완료나 Gate A 실행 완료로 기록하지 않는다.
 
 ### ComfyUI 도입 트리거
 
@@ -136,10 +143,11 @@ AI 이미지의 측면·후면은 구조적으로 일치하지 않을 수 있다
 
 ### 우선 적용 대상
 
-- 에너지 단검과 비총기형 에너지 관측 랜스
-- 미유의 드론과 제어 장치
-- 코코의 의료 장비
-- 노아의 방패
+- 단일 와이어 세이버·신호 리본과 경로 비콘
+- 접이식 자기 활·구조 링
+- 공명 배턴·응급 베일
+- 프리즘 측량 부채·궤도 지도 링
+- 키네틱 건틀릿·앵커 케이블
 - 발전기, 작업대, 식량 창고, 통신탑
 - 자원 상자, 고철, 바리케이드, 폐허 건물 모듈
 - 일반 몬스터와 보스 Blockout
@@ -218,8 +226,12 @@ Blender MCP의 첫 연결 검증은 최종 캐릭터가 아니라 중립적인 �
 ### 브랜치 예시
 
 ```text
-art/luna-concept
-art/miyu-concept
+art/character-roster-reset
+art/amasawa-rin-concept
+art/kisaragi-mao-concept
+art/kanade-nozomi-concept
+art/shion-tategami-concept
+art/kurogane-akari-concept
 art/environment-ruined-street
 art/ui-battle-hud
 ```
@@ -227,8 +239,8 @@ art/ui-battle-hud
 ### 커밋 예시
 
 ```text
-art: add Luna approved concept sheet
-art: update unified character lineup
+art: add new five-character concept package
+art: update Gate A review board
 art: add ruined street environment references
 docs: update art production MCP guide
 ```
@@ -236,21 +248,23 @@ docs: update art production MCP guide
 ## 9. 권장 전체 파이프라인
 
 ```text
-CHARACTER_BIBLE.md
-→ 현재 이용 가능한 이미지 생성 도구로 캐릭터 단독 시안 생성
-→ [일관성·대량 생성·정밀 수정이 병목일 때만 ComfyUI MCP 도입]
-→ 사람이 얼굴·의상·무기 후보 선택
+CHARACTER_BIBLE.md v3.0
+→ 이미지 provider 연결 후 신규 5인 캐릭터별 3안 PNG 후보 생성
+→ 공통 Negative Prompt·metadata 기록
+→ 사람이 얼굴·의상·장비 후보 선택
 → Figma 또는 동등한 편집 도구로 제작 시트 구성
-→ 디자인 리뷰와 APPROVED 처리
-→ Blender MCP로 캐릭터별 5~6등신 스타일라이즈드 3D Blockout
+→ Gate A에서 APPROVED 또는 CONDITIONAL 처리
+→ 승인된 시트만 Blender MCP로 5~6등신 Blockout
 → Unity 쿼터뷰 실루엣 테스트
 → 사람 또는 전문 작업자의 최종 모델 수정
 → Coplay/Aura MCP로 Unity 통합
 → 실제 기기 테스트
-→ GitHub에 승인 산출물과 메타데이터 반영
+→ 저장소에 승인 산출물과 metadata 반영
 ```
 
-ComfyUI를 도입하지 않아도 현재 파이프라인은 진행할 수 있다. 대괄호 단계는 조건부 분기이며 Gate A/B/C의 일부가 아니다.
+현재는 프롬프트·metadata·Gate A 문서 준비까지 진행할 수 있다. 후보 PNG 생성에는 Unity Editor가 필요하지 않으며,
+외부 이미지 provider 또는 로컬 생성 경로가 연결되기 전에는 후보 이미지를 생성했다고 기록하지 않는다. ComfyUI 단계는
+조건부 분기이며 Gate A/B/C의 일부가 아니다.
 
 ## 10. 인간 승인 게이트
 
@@ -283,13 +297,12 @@ ComfyUI를 도입하지 않아도 현재 파이프라인은 진행할 수 있다
 ### 캐릭터 콘셉트 생성
 
 ```text
-Re:Camp의 [캐릭터명] 단독 전신 콘셉트를 제작한다.
-CHARACTER_BIBLE의 역할, 색상, 성격, 무기 설정을 유지한다.
-플레이어블 캐릭터는 성인 여성이며 남성향 서브컬쳐 RPG의 캐릭터 매력을 우선한다.
-2D 일반 등신 일러스트이며 가벼운 택티컬 스트리트 패션을 사용한다.
-all adult female, no male characters.
-흰색 배경, 정면 중심, 발끝과 손·무기 구조가 명확해야 한다.
-기존 승인 이미지와 얼굴·헤어·의상·무기 색을 바꾸지 않는다.
+Re:Camp의 [신규 캐릭터명] 단독 전신 콘셉트를 제작한다.
+CHARACTER_BIBLE.md v3.0의 역할, 색상, 성격, 대표 장비를 유지한다.
+플레이어블 캐릭터는 성인 여성이며 일본 모바일 서브컬처 RPG의 매력을 우선한다.
+약 7등신 2D 전신 일러스트, 기능성 패션 레이어, 쿼터뷰에서 읽히는 장비 실루엣을 사용한다.
+흰색 또는 단순한 폐허 배경, 정면 3/4 중심, 발끝과 손·장비 구조를 명확히 한다.
+새 후보는 기존 Re:Camp 캐릭터와 외부 IP의 얼굴·헤어·의상·무기·포즈를 복제하지 않는다.
 워터마크, 로고, 불필요한 텍스트를 포함하지 않는다.
 ```
 

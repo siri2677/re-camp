@@ -1,22 +1,24 @@
 # Re:Camp Character Production Sheet Template Specification
 
-> Version: v002
-> 최종 갱신: 2026-07-24
-> 상태: REVIEW
+> Version: v003
+> 최종 갱신: 2026-08-09
+> 상태: New Concept Baseline — Gate A Pending
 
 이 문서는 `ART-0103`의 저장소 기준 산출물이다. Figma 또는 동등한 벡터 편집 도구에서
-루나·미유·코코·이리스·노아의 약 7등신 2D 제작 시트를 같은 구조로 만들기 위한 Frame,
-Component, 필드, Gate 증거와 Export 계약을 정의한다.
+아마사와 린·키사라기 마오·카나데 노조미·시온 타테가미·쿠로가네 아카리의 약 7등신 2D 제작 시트를
+같은 구조로 만들기 위한 Frame, Component, 필드, Gate 증거와 Export 계약을 정의한다.
 
 템플릿은 디자인 내용을 새로 정의하지 않는다. 캐릭터 설정은 `CHARACTER_BIBLE.md`, 고정·가변
 앵커는 `CHARACTER_ANCHOR_SPEC.md`, 판정은 `ART_REVIEW_CHECKLIST.md`, 경로·상태는
 `ART_ASSET_STRUCTURE.md`, 파일명·Export는 `ASSET_NAMING_GUIDE.md`를 링크해 사용한다.
+기존 5인 제작물은 이 템플릿의 신규 입력이 아니라 `HISTORY ONLY` 비교 자료다.
+
 
 ## 1. 범위와 상태
 
 ```yaml
 Backlog ID: ART-0103
-Template Version: v002
+Template Version: v003
 Template Status: REVIEW
 Human Approval: Pending
 Primary Scope: 2D seven-head adult anime character production sheet
@@ -36,11 +38,11 @@ Runtime Asset: No
 | 파일 | 역할 |
 |---|---|
 | `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md` | Frame·Component·필드·Export 단일 규격 |
-| `art_source/figma_exports/ReCamp_CharacterSheet_Template_REVIEW_v002.svg` | Figma import 가능한 6-Frame 벡터 템플릿 |
+| `art_source/figma_exports/ReCamp_CharacterSheet_Template_REVIEW_v002.svg` | 현재 저장소에 있는 Figma import 가능한 6-Frame 벡터 템플릿 (v003 규격 검증 대상) |
 | `art_refs/characters/<character>/...` | 사람 검토에 올릴 캐릭터별 PNG/PDF Export |
 
-기존 `ReCamp_CharacterSheet_Template_REVIEW_v001.svg`는 과거 2D 일반 등신·3D 비율 기준의 이력으로
-보존하며 새 캐릭터 시트에는 v002를 사용한다.
+기존 `ReCamp_CharacterSheet_Template_REVIEW_v001.svg`와 v002 기록은 과거 템플릿 이력으로
+보존하며 새 캐릭터 시트에는 v003을 사용한다.
 
 Figma 원본 URL이나 파일 키는 저장소에 비밀값으로 기록하지 않는다. 팀 공유가 필요하면 접근
 권한이 있는 연결에서 관리하고, Git에는 승인 판단에 사용한 버전 고정 Export를 반드시 둔다.
@@ -49,10 +51,10 @@ Figma 원본 URL이나 파일 키는 저장소에 비밀값으로 기록하지 �
 
 | 구분 | 단일 소스 | 템플릿에서의 사용 |
 |---|---|---|
-| 캐릭터 설정 | `CHARACTER_BIBLE.md` v2.1 | Character ID·한 문장 훅·역할·2D/3D 목표 |
-| 고정/가변 디자인 | `CHARACTER_ANCHOR_SPEC.md` v2.1 | `LOCKED`, `CONTROLLED`, `FORBIDDEN` 필드 |
-| 공통 아트 방향 | `ART_DIRECTION.md` v2.1 | 일본 모바일 서브컬처 2D 약 7등신·3D 5~6등신 Scope |
-| Gate 판정 | `ART_REVIEW_CHECKLIST.md` v2.1 | `CHA-Axx`, `CHA-Bxx` 증거 슬롯 |
+| 캐릭터 설정 | `CHARACTER_BIBLE.md` v3.0 | Character ID·한 문장 훅·역할·2D/3D 목표 |
+| 고정/가변 디자인 | `CHARACTER_ANCHOR_SPEC.md` v3.0 | `LOCKED`, `CONTROLLED`, `OPEN`, `FORBIDDEN` 필드 |
+| 공통 아트 방향 | `ART_DIRECTION.md` v3.0 | 일본 모바일 서브컬처 2D 약 7등신·3D 5~6등신 Scope |
+| Gate 판정 | `ART_REVIEW_CHECKLIST.md` v3.0 | `CHA-Axx`, `CHA-Bxx` 증거 슬롯 |
 | AI 생성 이력 | `AI_ASSET_METADATA_TEMPLATE.md` | companion metadata 경로 |
 | 경로·상태 | `ART_ASSET_STRUCTURE.md` | Export manifest |
 | 파일명·Export | `ASSET_NAMING_GUIDE.md` | Export basename·버전·동반 파일 |
@@ -175,13 +177,12 @@ TEXT        #F2F0E9 / #AFC1BD
 
 ## 7. 캐릭터별 Instance
 
-| Character ID | Page/Frame Prefix | 기본 Accent | 2D 목표 | 3D 목표 | 시작 상태 |
 |---|---|---|---:|---:|---|
-| CH001 | `Luna/` | Mint | 6.9~7.1 | 5.3~5.4 | WIP |
-| CH002 | `Miyu/` | Electric Cyan | 6.8~7.0 | 5.2~5.3 | WIP |
-| CH003 | `Coco/` | Jade | 7.0~7.2 | 5.5~5.6 | WIP |
-| CH004 | `Iris/` | Crimson | 7.2~7.4 | 5.7~5.8 | WIP |
-| CH005 | `Noah/` | Amber | 7.2~7.4 | 5.7~5.8 | WIP |
+| CH101 | `AmasawaRin/` | Turquoise | 6.9~7.1 | 5.3~5.4 | REVIEW |
+| CH102 | `KisaragiMao/` | Acid Lemon | 6.8~7.0 | 5.2~5.3 | REVIEW |
+| CH103 | `KanadeNozomi/` | Aqua Mint | 7.0~7.2 | 5.5~5.6 | REVIEW |
+| CH104 | `ShionTategami/` | Hot Magenta | 7.1~7.3 | 5.6~5.7 | REVIEW |
+| CH105 | `KuroganeAkari/` | Bronze Copper | 7.2~7.4 | 5.7~5.8 | REVIEW |
 
 공통 Component를 Detach하지 않고 Instance 속성으로 텍스트·상태·Accent만 바꾼다. 캐릭터별
 페이지 안에서는 `01`부터 `06`까지 Frame 순서를 유지한다.
@@ -189,7 +190,7 @@ TEXT        #F2F0E9 / #AFC1BD
 ## 8. Layer 이름
 
 ```text
-PAGE/CH001_Luna
+PAGE/CH101_AmasawaRin
 FRAME/01_Identity_KeyArt
 FRAME/02_Turnaround
 FRAME/03_Face_Expressions
@@ -232,7 +233,7 @@ Export 후 다음을 확인한다.
 
 ## 10. 사용 절차
 
-1. v002 SVG를 Figma 또는 동등한 도구로 Import한다.
+1. 현재 저장소의 v002 SVG를 Figma 또는 동등한 도구로 Import하고, v003 규격과의 차이를 검토한다.
 2. 6개 Board 그룹을 독립 Frame으로 변환하고 공통 요소를 Component로 만든다.
 3. 캐릭터 Page를 만들고 Component Instance를 복제한다.
 4. Character ID, 한 문장 훅, 2D·3D 목표 비율과 기준 문서 버전을 먼저 입력한다.
@@ -252,7 +253,7 @@ Export 후 다음을 확인한다.
 - Gate A/B 증거와 사람 승인 슬롯
 - 캐릭터 5인 Instance 규칙
 - PNG/PDF Export manifest
-- Figma import 가능한 v002 SVG
+- 현재 저장소 v002 SVG를 사용한 Figma import 검증과 v003 규격 차이 기록
 
 남은 검증:
 

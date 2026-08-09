@@ -3,7 +3,7 @@
 > 최종 갱신: 2026-08-09
 
 이 문서는 실제 작업을 시작할 때 가장 먼저 확인하는 통합 작업 목록이다. 원격 계획의 ID 체계를
-유지하고 최신 Unity 구현·검증 상태와 캐릭터 디자인 v2.1 기준을 반영한다.
+유지하고 최신 Unity 구현·검증 상태와 신규 캐릭터 디자인 v3.0 기준을 반영한다.
 
 상태는 `Todo`, `Ready`, `In Progress`, `Review`, `Deferred`, `Blocked`, `Done`을 사용한다.
 
@@ -16,19 +16,19 @@
 
 | 순서 | ID | 작업 | 상태 | 다음 완료 조건 |
 |---:|---|---|---|---|
-| 1 | DEV-0113 | 기존 비종속 Core 통합 | In Progress | 탐험·스킬 command/event를 portable domain과 Unity Presentation 경계에 연결 |
+| 1 | DEV-0113 | 기존 비종속 Core 통합 | Done | Domain 정산·스킬 command/event와 Unity Presentation 경계 연결, Scene 정산 통합 테스트 `19/19` |
 | 2 | DEV-0115 | Android Landscape·Safe Area 기준 | Review | Landscape 고정, 기존 SafeArea 구현의 종횡비·Cutout 자동 테스트와 실기기 확인 |
-| 3 | DEV-0116 | Android Touch 조작·HUD | Ready | 이동·공격·능력·귀환 On-screen 입력과 PC 개발 입력의 병행 계약 구현 |
+| 3 | DEV-0116 | Android Touch 조작·HUD | Review | `BattleInputRouter`·VirtualJoystick·Attack/Ability/Extract Touch HUD와 PC 입력 병행 구현, EditMode `35/35`·PlayMode `21/21`; Android device smoke 남음 |
 | 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity Hub에서 AndroidPlayer·SDK·NDK·OpenJDK 설치 후 Android Target 전환 |
 | 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
-| 6 | ART-0103·0111 | Figma 캐릭터 제작 시트 v002 실사용 검증 | Review | v002 SVG Import·Component Clone·한글 보존·PNG/PDF Export·사람 사용성 검토 |
-| 7 | ART-0112 | 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Review | 루나 7.09H→5.39H 변환표·확대/삭제/결합·Face128·실루엣·통합시트 작성. Figma Frame 05 실사용과 사람 검토 대기 |
-| 8 | ART-1001~1409 | 성인 여성 5명 2D 디자인 제작 시트 | Review | 일본 모바일 서브컬처 스타일로 5명 각 3안·선택 KeyArt·3뷰·8표정·장비·팔레트·Face128·실루엣·2D→3D·4096×4608 통합시트 작성. 5개 사람 승인만 대기 |
-| 9 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Review | 최신 4096×2304 라인업, exact 128px 얼굴·장비 포함/제거 실루엣·저채도 보드와 내부 originality precheck 작성. 사람·법률·런타임 가독성 판정 대기 |
-| 10 | ART-1510 | 레퍼런스 품질·성인 여성 매력 Alignment Pass | In Progress | 사용자 지정 레퍼런스 품질 매트릭스와 매력·여성성 기준으로 5인 REVIEW 패키지 재검토. 사람 Gate A 전까지 APPROVED 금지 |
-| 11 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
+| 6 | ART-0103·0111 | Figma 신규 캐릭터 제작 시트 v003 실사용 검증 | Review | v003 SVG Import·Component Clone·한글 보존·PNG/PDF Export·사람 사용성 검토 |
+| 7 | ART-0112 | 신규 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Todo | Gate A 선택 후보의 비율·확대/삭제/결합·Face128·실루엣 검토 |
+| 8 | ART-1001~1409 | 신규 CH101~CH105 2D 디자인 제작 시트 | Ready | 이미지 provider 연결 후 캐릭터별 3안·선택 KeyArt·3뷰·표정·장비·팔레트·Face128·실루엣 |
+| 9 | ART-1501~1504 | 신규 5인 교차 디자인·유사성 검토 | Todo | 동일 128px 얼굴·장비 포함/제거 실루엣·저채도 보드·원작성 기록 |
+| 10 | ART-1510 | 신규 레퍼런스 품질·성인 여성 매력 Alignment | Done | Reset Brief·프롬프트·비복제 규칙과 Gate A 검토표 작성, 사람 승인 전 APPROVED 금지 |
+| 11 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Review | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정; 레거시 경계와 신규 전환 검토 남음 |
 | 12 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
-| 13 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
+| 13 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Done | `Bootstrap → Lobby → Battle → Result → Lobby`와 Extracted 보상·Camp 저장 통합 자동화 `19/19` |
 | 14 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
 
 과거 `RC-0011 / ReCamp_CharacterLineup_REVIEW_v003`은 실패 이력으로 유지하며 새 디자인 후보의
@@ -50,7 +50,7 @@
 | RC-0006~0010 | 게임 기획·테이블·아트 가이드·실행 계획 | High | Done | `docs/`, `tables/`, `planning/` 기준 |
 | RC-0011 | 과거 통합 캐릭터 라인업 시안 | Medium | Review | v002 REJECTED, v003 Gate A FAIL; 실패 이력으로만 보존 |
 | RC-0012 | LFS 규칙과 현재 아트 구조 검증 | High | Done | `git check-attr` 검증 |
-| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | Android-first, 일본 모바일 서브컬처 2D 약 7등신·3D 5~6등신, Character Bible·Anchor v2.1 확정 |
+| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | Android-first, 일본 모바일 서브컬처 신규 CH101~CH105, 2D 약 7등신·3D 5~6등신, Character Bible·Anchor v3.0 확정 |
 
 ### 완료 기준
 
@@ -72,30 +72,30 @@
 | DEV-0108 | Core 런타임 호환성 검토 | High | Done | 원격 `ReCamp.Core`와 Unity 구현의 API·의존성·규칙 차이를 감사 문서에 기록 |
 | DEV-0109 | Core 공유·Assembly·Adapter 결정 | High | Done | 원격 원본 직접 병합 대신 portable domain + Unity adapter 경계 확정 |
 | DEV-0110 | Core 상태를 Unity Presentation에 연결 | High | Review | 현재 기능 동작, 중복 규칙 정리 필요 |
-| DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 25/25, PlayMode 18/18 통과 |
-| DEV-0112 | Core·Unity CI | Medium | Todo | 로컬 테스트 기준선 존재 |
-| DEV-0113 | 기존 비종속 Core 통합 | High | In Progress | domain 캠프·저장 포트와 v1→v2 migration 검증 완료, 탐험·스킬 포트 남음 |
+| DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 35/35, PlayMode 21/21 통과 |
+| DEV-0112 | Core·Unity CI | Medium | Review | `.github/workflows/unity-tests.yml` 설정과 로컬 Fresh Clone parity 검증 완료; hosted run은 push 후 확인 |
+| DEV-0113 | 기존 비종속 Core 통합 | High | Done | Domain 캠프·저장·탐험 Outcome·스킬 포트와 Unity Presentation 연결 및 EditMode/PlayMode 검증 완료 |
 | DEV-0114 | Android Build Support·SDK·NDK·OpenJDK | High | Blocked | 설치된 Unity `6000.5.3f1`에 `PlaybackEngines/AndroidPlayer` 없음; Module 설치 필요 |
-| DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | `Screen.safeArea` 대응은 있으나 Landscape 고정·종횡비/Cutout 테스트·실기기 확인 필요 |
-| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Ready | Touch 이동·공격·능력·귀환 UI와 입력 계약 필요 |
+| DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | Portrait 자동 회전 비활성화와 `Screen.safeArea` Touch HUD 구현; 종횡비/Cutout·실기기 확인 필요 |
+| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Review | 공통 Input Command와 이동·공격·능력·귀환 UI 구현; Android device smoke 필요 |
 | DEV-0117 | Android App ID·Build Profile·첫 APK/실기기 Smoke | High | Blocked | DEV-0114~0116, 배포 식별자 결정, 테스트 기기 필요 |
 
 ### 아트 파이프라인 병행
 
 | ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
 |---|---|---:|---|---|
-| ART-0101 | 현재 이미지 도구 기반 반복 워크플로 | High | Review | 한 문장 훅·Anchor v2.1·일본 서브컬처 화풍·외부 IP 회귀 규칙으로 5인 REVIEW 반복 완료 |
-| ART-0102 | 도구 비종속 일관성 변수·메타데이터 v2.1 | High | Done | 5인 2D/3D 목표와 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
-| ART-0103 | Figma 제작 시트 템플릿 v002 | High | Review | 6-Frame 규격·v002 SVG 완료, 실제 Figma Import·Clone·Export 검증 남음 |
-| ART-0104 | Blender MCP 연결·소품 Export | Medium | Ready | 테스트 소품·Socket의 `.blend`→FBX Export 검증 |
+| ART-0101 | 신규 5인 후보 생성 workflow | High | Ready | 이미지 provider 연결 후 캐릭터별 3안·동일 캔버스·공통 Negative Prompt 생성 |
+| ART-0102 | 도구 비종속 신규 캐릭터 Anchor v3.0 | High | Done | CH101~CH105의 2D/3D 목표와 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
+| ART-0103 | Figma 제작 시트 템플릿 v003 | High | Review | 6-Frame 규격·신규 Instance 완료, 실제 Figma Import·Clone·Export 검증 남음 |
+| ART-0104 | Blender MCP 연결·장비 Export | Medium | Ready | 신규 장비·소품 `.blend`→FBX Export 검증 |
 | ART-0105 | FBX Import·Material·Prefab | Medium | Todo | ART-0104·0109 선행 |
-| ART-0106 | `art_source/` 구조 | Medium | Done | 소스 하위 구조 존재 |
-| ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 v2.1 | High | Done | 일본 서브컬처 화풍·약 7등신·변환표·유사성·Android Gate 증거 확정 |
+| ART-0106 | `art_source/` 구조 | Medium | Done | 신규 소스 하위 구조 존재 |
+| ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 v3.0 | High | Done | 신규 매력·원작성·약 7등신·변환표·Unity Gate 증거 확정 |
 | ART-0108 | ComfyUI·ComfyUI MCP 고정 워크플로 | Low | Deferred | 대량 일관성·정밀 인페인팅이 실제 병목일 때 재평가 |
-| ART-0109 | 아트 자산·Export 명명 규격 | High | Done | 이미지→Blender→Unity 이름·버전·LOD·Socket·GUID 규칙 확정 |
-| ART-0110 | 공용·캐릭터 Animation 규격 | Medium | Done | 5인 Clip·in-place·Animator·Event·장비·Import·Gate 규칙 확정 |
-| ART-0111 | v002 Figma 실사용 검증 | High | Todo | Import·Component·한글·PNG/PDF Export·사람 사용성 |
-| ART-0112 | 2D→3D 변환표 샘플 | High | Review | 루나 2D 7.09H→3D 5.39H 변환표와 자동 비율·128px·실루엣·통합시트 증거 작성. Figma·사람 검토 남음 |
+| ART-0109 | 아트 자산·Export 명명 규격 v002 | High | Done | 신규 Subject·CH101~CH105·LOD·Socket·GUID 규칙 확정 |
+| ART-0110 | 공용·캐릭터 Animation 규격 | Medium | Review | 기존 Gray Box 모션과 신규 승인 모션 계약을 분리 |
+| ART-0111 | v003 Figma 실사용 검증 | High | Todo | Import·Component·한글·PNG/PDF Export·사람 사용성 |
+| ART-0112 | 신규 2D→3D 변환표 | High | Todo | Gate A 선택 후 자동 비율·128px·실루엣·통합시트 증거 |
 
 ## Sprint 2. Scene 흐름과 Gray Box 전투
 
@@ -107,16 +107,16 @@
 |---|---|---:|---|---|
 | DEV-0201~0204 | Bootstrap·Lobby·Battle·Result Gray Box | High | Done | Scene 직접 실행 확인 |
 | DEV-0205~0207 | Lobby → Battle → Result → Lobby | High | Done | 전체 Play Mode 흐름 검증 |
-| DEV-0208 | Input System·PlayerController | High | Review | 카메라 상대 XZ 이동, 실제 키보드 회귀 1회 필요 |
+| DEV-0208 | Input System·PlayerController | High | Review | `BattleInputRouter`를 통한 Keyboard·Touch 카메라 상대 XZ 이동, 실제 Android 입력·감도 회귀 필요 |
 | DEV-0209 | 쿼터뷰 카메라·이동 경계 | High | Done | Orthographic `35.3° / 45°`, actor/camera clamp |
 | DEV-0210 | 기본 공격·Hitbox·Damageable | High | Done | 자동 공격과 사망 처리 검증 |
 | DEV-0211 | EnemyController·추적 AI | High | Done | XZ 추적·접촉 피해 검증 |
 | DEV-0212 | EnemySpawner·웨이브·보스 | High | Done | 일반 웨이브 후 보스 스폰 |
 | DEV-0213 | 사망·보상 1회 지급 | High | Done | 위치 보존과 단일 보상 검증 |
-| DEV-0214 | 귀환·사망·시간 종료 | High | Done | 5분, 60초 경고, 발전기 +30초/레벨, R 홀드·버튼 귀환, 종료 사유 |
+| DEV-0214 | 귀환·사망·시간 종료 | High | Done | 5분, 60초 경고, 발전기 +30초/레벨, R/Touch Hold 귀환, 종료 사유 |
 | DEV-0215 | 결과 정산·로컬 저장 | High | Done | 자원 정산·로비 유지·캠프 저장 검증 |
-| TEST-0201 | Scene 흐름 PlayMode 테스트 | High | Review | Build Settings 자동 검증과 전체 전환 회귀 남음 |
-| TEST-0202 | 전투·보상·정산 회귀 테스트 | High | Review | 전체 Scene 전환·정산 통합 자동화 |
+| TEST-0201 | Scene 흐름 PlayMode 테스트 | High | Done | Build Settings와 `Bootstrap → Lobby → Battle → Result → Lobby` 자동 회귀 통과 |
+| TEST-0202 | 전투·보상·정산 회귀 테스트 | High | Done | 전체 Scene 전환·정산 통합 테스트 `19/19` 통과 |
 
 ### 완료 기준
 
@@ -124,10 +124,10 @@
 - 자원 획득, 귀환·사망·시간 만료, 결과 정산과 저장이 동작한다.
 - 자동 테스트와 직접 Play Mode 검증이 통과한다.
 
-## Sprint 3. 캐릭터 5명 전투 프로토타입
+## Sprint 3. 레거시 5인 전투 프로토타입
 
-성인 여성 5명의 최종 아트 제작 전에 primitive/프록시로 플레이 차이를 검증한다. 프록시는 최종
-성별 표현이나 아트 품질 기준이 아니다.
+기존 CH001~CH005 임시 로스터로 역할·조작 차이를 검증한다. 이 프록시는 신규 CH101~CH105의
+최종 성별 표현·아트 품질·런타임 데이터 기준이 아니며, Gate A 이후 별도 마이그레이션한다.
 
 | ID | 작업 | 우선순위 | 상태 | 구현·남은 일 |
 |---|---|---:|---|---|
@@ -166,33 +166,36 @@
 ```
 
 세부 ID는 `planning/art_production_backlog.md`의 `ART-10`~`ART-15`를 따른다. `APPROVED`는
-`ART_REVIEW_CHECKLIST.md` v2.1과 사람 검토를 통과한 경우에만 사용한다.
+`ART_REVIEW_CHECKLIST.md` v3.0과 사람 검토를 통과한 경우에만 사용한다.
 
-### ART-1510. 레퍼런스 품질·성인 여성 매력 Alignment Pass
+### ART-1510. 신규 레퍼런스 품질·성인 여성 매력 Alignment
 
-현재 5인 REVIEW 패키지를 사용자 지정 레퍼런스의 품질 축으로 재검토한다. 레퍼런스 고유 캐릭터·의상·무기·포즈·UI·로고를 복제하지 않고, 성인 여성의 매력·여성성·표정·패션·자세·역할 가독성만 Re:Camp의 훅과 기능 장비로 변환한다.
+문서로 확정한 신규 5인 후보를 사용자 지정 레퍼런스의 품질 축과 비교할 준비를 마쳤다. 레퍼런스
+고유 캐릭터·의상·무기·포즈·UI·로고를 복제하지 않고, 성인 여성의 매력·표정·패션·자세·역할
+가독성을 신규 훅과 기능 장비로 변환한다.
 
-- 5인 Key Art·3뷰·표정·장비·통합 시트를 ART_REVIEW_CHECKLIST.md v2.2로 재검토한다.
-- 3초 첫인상, 128px 얼굴, 장비 제거 실루엣, 저채도, 평상시/임무 상태를 모두 기록한다.
-- 매력성·여성성·표정·패션·실루엣이 약한 후보만 새 버전으로 교정하며 기존 훅을 보존한다.
-- 사람 Gate A 승인 전에는 5인 모두 REVIEW를 유지하고 최종 3D 제작을 시작하지 않는다.
-- 상세 계획과 완료 조건은 planning/DESIGN_DIRECTION_2026-08-09.md를 따른다.
+- `CHARACTER_BIBLE.md` v3.0에 신규 5인 역할·성격·장비·캠프 기능을 기록했다.
+- `ART_DIRECTION_RESET_BRIEF_2026-08-09.md`에 공통 Prompt·Negative Prompt·캐릭터별 3안 변형·Gate A 표를 기록했다.
+- 이미지 provider 연결 전에는 후보 이미지를 생성했다고 기록하지 않는다.
+- 사람 Gate A 승인 전에는 5인 모두 `REVIEW`를 유지하고 최종 3D를 시작하지 않는다.
+- 상세 계획과 완료 조건은 `planning/DESIGN_DIRECTION_2026-08-09.md`를 따른다.
 
-## Sprint 5. 루나 Character Proof
+## Sprint 5. CH101 아마사와 린 Character Proof
 
 ### 목표
 
-루나를 첫 최종 캐릭터로 완성해 약 7등신 2D, 5~6등신 3D, Unity 파이프라인과 타깃 매력을 검증한다.
+Gate A에서 승인된 아마사와 린을 첫 최종 캐릭터로 완성해 약 7등신 2D, 5~6등신 3D,
+Unity 파이프라인과 타깃 매력을 검증한다. Gate A 이전에는 이 단계에 진입하지 않는다.
 
 | ID 범위 | 작업 | 상태 |
 |---|---|---|
 | ART-2001~2004 | 3D 규격·Unity Presentation 계약·5.2~5.8 수용 Base Mesh·Rig·Toon 규칙 | Todo |
-| ART-2005~2006 | 루나 5.3~5.4등신 Blockout·Unity 쿼터뷰·Android Gate C | Todo |
-| ART-2007~2010 | 최종 모델·Rig·표정·애니메이션·VFX·Prefab | Todo |
-| ART-2011 | 센서 고양이 정찰병 훅과 타깃 사용자 매력 검증 | Todo |
+| ART-2005~2006 | CH101 5.3~5.4등신 Blockout·Unity 쿼터뷰·Android Gate C | Todo |
+| ART-2007~2010 | CH101 최종 모델·Rig·표정·애니메이션·VFX·Prefab | Todo |
+| ART-2011 | 신호 주자 훅과 타깃 사용자 매력 검증 | Todo |
 
-Approved 약 7등신 2D와 같은 루나로 보이고, 얼굴·센서 귀·쌍단검 쿼터뷰 식별·관통·성능·플레이
-검증을 통과해야 한다.
+승인된 약 7등신 2D와 같은 아마사와 린으로 보이고, 얼굴·신호 리본·단일 세이버의 쿼터뷰
+식별성·관통·성능·플레이 검증을 통과해야 한다.
 
 ## Sprint 6. Vertical Slice
 
@@ -203,7 +206,7 @@ Approved 약 7등신 2D와 같은 루나로 보이고, 얼굴·센서 귀·쌍�
 | VS-6003 | 첫 보스 최종 제작 | High | Todo |
 | VS-6004 | 캠프 시설 3종 최종 제작 | High | Todo |
 | VS-6005 | 로비·전투·결과·캠프 UI | High | Todo |
-| VS-6006 | 루나 스킬·VFX·타격감 폴리시 | High | Todo |
+| VS-6006 | CH101 스킬·VFX·타격감 폴리시 | High | Todo
 | VS-6007 | 저장·튜토리얼·설정 | High | Todo |
 | VS-6008 | 사운드·음악 1차 | Medium | Todo |
 | VS-6009 | 성능·메모리·로딩 최적화 | High | Todo |
@@ -215,7 +218,7 @@ Approved 약 7등신 2D와 같은 루나로 보이고, 얼굴·센서 귀·쌍�
 
 | ID | 작업 | 우선순위 | 상태 |
 |---|---|---:|---|
-| PROD-7001~7004 | 미유·코코·이리스·노아 최종 모델·애니메이션·VFX | High | Todo |
+| PROD-7001~7004 | CH102·CH103·CH104·CH105 최종 모델·애니메이션·VFX | High | Todo
 | PROD-7005 | 폐쇄된 연구소 | High | Todo |
 | PROD-7006 | 추가 몬스터 3종·보스 1종 | High | Todo |
 | PROD-7007 | 캠프 시설 4종 이상과 성장 연출 | High | Todo |
@@ -250,6 +253,6 @@ Approved 약 7등신 2D와 같은 루나로 보이고, 얼굴·센서 귀·쌍�
 - 플레이어블은 전원 성인 여성으로 제작하고 남성 생성 결과는 승인 후보로 올리지 않는다.
 - 과거 v003 라인업을 새 캐릭터 제작 앵커로 사용하지 않는다.
 - 약 7등신 2D 제작 시트와 캐릭터별 2D→3D 변환표 없이 최종 3D Blockout을 시작하지 않는다.
-- 루나 Approved 2D 시트와 Character Proof 전에 나머지 최종 3D를 대량 제작하지 않는다.
+- CH101 Approved 2D 시트와 Character Proof 전에 나머지 최종 3D를 대량 제작하지 않는다.
 - ComfyUI·대용량 모델은 현재 선행 조건이 아니며 실제 아트 병목이 생길 때만 `ART-0108`을 `Ready`로 전환한다.
 - Git 커밋·push·PR은 사용자가 명시적으로 요청할 때 수행한다.

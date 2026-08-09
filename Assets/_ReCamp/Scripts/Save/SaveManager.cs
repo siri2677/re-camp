@@ -1,6 +1,5 @@
 using System;
-using ReCamp.Camp;
-using ReCamp.Item;
+using ReCamp.Domain;
 using ReCamp.UnityAdapter;
 using UnityEngine;
 
@@ -29,7 +28,8 @@ namespace ReCamp.Save
         {
             if (PlayerPrefs.HasKey(CampSaveKey))
             {
-                return Deserialize(PlayerPrefs.GetString(CampSaveKey));
+                var current = Deserialize(PlayerPrefs.GetString(CampSaveKey));
+                return IsValid(current) ? current : new CampSaveData();
             }
 
             if (!PlayerPrefs.HasKey(LegacyCampSaveKey))
@@ -43,6 +43,20 @@ namespace ReCamp.Save
             return migrated;
         }
 
+        public static GameSession LoadDomainCamp()
+        {
+            var saved = LoadCamp();
+            return GameSession.FromSave(DomainCampSaveAdapter.ToDomain(new UnityCampSaveData
+            {
+                scrap = saved.scrap,
+                food = saved.food,
+                dataFragments = saved.dataFragments,
+                generatorLevel = saved.generatorLevel,
+                workbenchLevel = saved.workbenchLevel,
+                foodStorageLevel = saved.foodStorageLevel,
+            }));
+        }
+
         private static CampSaveData Deserialize(string json)
         {
             try
@@ -53,6 +67,18 @@ namespace ReCamp.Save
             {
                 return new CampSaveData();
             }
+        }
+
+        private static bool IsValid(CampSaveData data)
+        {
+            return data != null &&
+                data.version == CampSaveData.CurrentVersion &&
+                data.scrap >= 0 &&
+                data.food >= 0 &&
+                data.dataFragments >= 0 &&
+                data.generatorLevel >= 0 &&
+                data.workbenchLevel >= 0 &&
+                data.foodStorageLevel >= 0;
         }
 
         private static CampSaveData MigrateLegacy(CampSaveData legacy)
@@ -79,17 +105,23 @@ namespace ReCamp.Save
             };
         }
 
-        public static void SaveCamp(ResourceLedger inventory, CampManager camp)
+        public static void SaveCamp(GameSession session)
         {
+            if (session == null)
+            {
+                throw new ArgumentNullException(nameof(session));
+            }
+
+            var adapted = DomainCampSaveAdapter.ToUnity(session.CreateSave());
             var data = new CampSaveData
             {
                 version = CampSaveData.CurrentVersion,
-                scrap = inventory.Scrap,
-                food = inventory.Food,
-                dataFragments = inventory.DataFragments,
-                generatorLevel = camp.GetLevel(CampFacility.Generator),
-                workbenchLevel = camp.GetLevel(CampFacility.Workbench),
-                foodStorageLevel = camp.GetLevel(CampFacility.FoodStorage),
+                scrap = adapted.scrap,
+                food = adapted.food,
+                dataFragments = adapted.dataFragments,
+                generatorLevel = adapted.generatorLevel,
+                workbenchLevel = adapted.workbenchLevel,
+                foodStorageLevel = adapted.foodStorageLevel,
             };
             PlayerPrefs.SetString(CampSaveKey, JsonUtility.ToJson(data));
             PlayerPrefs.Save();

@@ -4,6 +4,7 @@ using NUnit.Framework;
 using ReCamp.Data;
 using ReCamp.Enemy;
 using ReCamp.Item;
+using ReCamp.Input;
 using ReCamp.Player;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -60,6 +61,16 @@ namespace ReCamp.Tests.PlayMode
             Assert.That(stats.transform.position.z, Is.GreaterThan(origin.z + 4f));
             Assert.That(stats.Ability.CooldownRemaining, Is.GreaterThan(0f));
             Assert.That(stats.Ability.TryActivate(), Is.False);
+        }
+
+        [UnityTest]
+        public IEnumerator BattleInputRouter_SignatureCommandActivatesCurrentAbility()
+        {
+            var stats = CreatePlayer(CharacterId.Luna);
+            BattleInputRouter.EnsureInstance().SubmitSignaturePressed();
+            yield return null;
+
+            Assert.That(stats.Ability.CooldownRemaining, Is.GreaterThan(0f));
         }
 
         [UnityTest]

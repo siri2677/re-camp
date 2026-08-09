@@ -16,17 +16,23 @@ art_refs/                         # 방향·검토·제작 시트 Export
 │   └── archive/
 ├── moodboard/
 ├── characters/
-│   ├── luna/
+│   ├── amasawa_rin/
 │   │   ├── concept/
 │   │   ├── turnaround/
 │   │   ├── expressions/
 │   │   ├── equipment/
 │   │   ├── 3d_reference/
 │   │   └── archive/
-│   ├── miyu/
-│   ├── coco/
-│   ├── iris/
-│   └── noah/
+│   ├── kisaragi_mao/
+│   ├── kanade_nozomi/
+│   ├── shion_tategami/
+│   └── kurogane_akari/
+│       ├── concept/
+│       ├── turnaround/
+│       ├── expressions/
+│       ├── equipment/
+│       ├── 3d_reference/
+│       └── archive/
 ├── environments/
 │   ├── camp/
 │   ├── ruined_street/
@@ -50,11 +56,14 @@ art_refs/                         # 방향·검토·제작 시트 Export
 │   └── character/
 └── vfx/
     ├── common/
-    ├── luna/
-    ├── miyu/
-    ├── coco/
-    ├── iris/
-    └── noah/
+    ├── amasawa_rin/
+    ├── kisaragi_mao/
+    ├── kanade_nozomi/
+    ├── shion_tategami/
+    └── kurogane_akari/
+
+기존 `luna/`, `miyu/`, `coco/`, `iris/`, `noah/` 자료는 새 폴더로 이동하거나 이름을 바꾸지 않는다.
+기존 위치는 `HISTORY ONLY`로 취급하고, 새 후보는 신규 폴더에만 저장한다.
 
 docs/05_art_concept/
 ├── ART_DIRECTION.md
@@ -97,9 +106,10 @@ Assets/_ReCamp/Prefabs/           # Gameplay Component·Collider가 붙는 Prefa
 `art_refs/`의 이미지는 Unity 런타임 자산이 아니다. 최종 Character ID·Stage 연결에는 승인된
 FBX, Texture, Material, Animation, Prefab만 사용한다. 현재 `Assets/_ReCamp/Art/Materials`의
 `M_*.mat`와 primitive는 기능 검증용 Gray Box 예외다. `art_source/`와 Runtime 폴더는 이미
-생성돼 있으나 다수는 최종 자산 제작 전 빈 구조다.
+생성돼 있으나 다수는 최종 자산 제작 전 빈 구조다. 신규 CH101~CH105 후보 폴더와 이미지는
+provider 연결 전에는 생성하지 않는다.
 
-위 문서 트리는 목표 구조다. 현재 `CHARACTER_3D_SPEC.md`만 `ART-2001`의 계획 산출물이며
+위 문서 트리는 목표 구조다. `CHARACTER_3D_SPEC.md`는 `ART-2001`에서 작성할 계획 산출물이며
 실제 파일이 생기기 전에는 현재 기준으로 인용하지 않는다. `ASSET_NAMING_GUIDE.md`와
 `ANIMATION_GUIDE.md`는 각각 `ART-0109`, `ART-0110`에서 작성한 활성 기준이다.
 
@@ -167,11 +177,11 @@ PascalCase_AssetType_STATUS_v###.ext
 예시:
 
 ```text
-ReCamp_CharacterLineup_REJECTED_v002.png
-ReCamp_CharacterLineup_REVIEW_v003.png
-Luna_FullBody_WIP_v001.png
-Luna_Turnaround_APPROVED_v003.png
-Miyu_CombatDrone_REVIEW_v002.png
+ReCamp_CharacterLineup_HISTORY_v003.png
+ReCamp_FiveCharacterLineup_REVIEW_v001.png
+AmasawaRin_FullBody_REVIEW_v001.png
+AmasawaRin_Turnaround_REVIEW_v001.png
+KisaragiMao_BowEquipment_REVIEW_v001.png
 RuinedStreet_ColorKey_WIP_v004.png
 PRP_Camp_Generator_Blockout_v001.blend
 ```
@@ -183,14 +193,14 @@ PRP_Camp_Generator_Blockout_v001.blend
 Unity 자산은 타입·대상 중심의 안정된 이름을 사용하며 상태와 버전을 붙이지 않는다.
 
 ```text
-CHR_Luna_Model.fbx
-CHR_Luna_Prefab.prefab
-MAT_Luna_Body.mat
-ANM_Luna_Attack_01.anim
+CHR_AmasawaRin_Model.fbx
+CHR_AmasawaRin_Prefab.prefab
+MAT_AmasawaRin_Body.mat
+ANM_AmasawaRin_Attack_01.anim
 ENV_RuinedStreet_BuildingA_Model.fbx
 PRP_Camp_Generator_Model.fbx
-VFX_Luna_CrossFang.prefab
-UI_Character_Luna_Portrait.png
+VFX_AmasawaRin_RouteThread.prefab
+UI_Character_AmasawaRin_Portrait.png
 ```
 
 Model·Material·Animation은 `Assets/_ReCamp/Art/`, Gameplay Prefab은
