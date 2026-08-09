@@ -1,6 +1,6 @@
 # Re:Camp Planning Index
 
-> 최종 갱신: 2026-08-07
+> 최종 갱신: 2026-08-09
 
 이 디렉터리는 Re:Camp 개발·아트 작업의 단일 실행 진입점이다. 게임 기획과 기술·아트 기준은
 `docs/`에 보관하지만 실제 작업 순서와 상태는 `planning/`을 기준으로 판단한다.
@@ -24,6 +24,8 @@
 - 2D 대표 일러스트는 캐릭터별 약 6.8~7.4등신, 기본 약 7등신의 성인 애니메이션 체형을 사용한다.
 - 인게임 3D는 캐릭터별 약 5.2~5.8등신을 중심으로 하는 5~6등신 스타일라이즈드 체형을 사용한다.
 - 2D는 패션·체형·표정·재질을, 3D는 얼굴·헤어·대표 장비·쿼터뷰 실루엣을 우선한다.
+- 사용자 지정 레퍼런스는 ART_DIRECTION.md의 품질 매트릭스로만 흡수하며, 고유 IP 요소는 복제하지 않는다.
+- 모든 캐릭터는 성인 여성의 매력·여성성·역할 가독성을 함께 검증하고 사람 Gate A 전에는 APPROVED로 올리지 않는다.
 - 2D 제작 시트마다 `2D to 3D Simplification`을 작성하고 단순 축소로 모델링하지 않는다.
 - `battle_vertical_slice_concept.png`는 캐릭터 존재감·환경·카메라·색 대비의 전투 비주얼 참고이며
   개별 캐릭터 외형·무기·파티 구성은 공식 디자인 기준이 아니다.
@@ -44,6 +46,7 @@
 | `DEV-0113_CORE_INTEGRATION_RESULT.md` | Domain·Adapter·Runtime 통합 결과와 잔여 범위 | Core 경계 변경 시 |
 | `art_production_roadmap.md` | 캐릭터·환경·UI·3D 아트 제작 단계 | 아트 단계 결정 |
 | `art_production_backlog.md` | 캐릭터 5명과 아트 자산의 세부 작업 | 아트 작업 시작·완료 시 |
+| `DESIGN_DIRECTION_2026-08-09.md` | 사용자 지정 레퍼런스 품질 매트릭스와 5인 매력·여성성 재검토 계획 | 디자인 방향 변경 또는 Gate A 재검토 시 |
 | `COPLAY_MCP_HANDOFF.md` | Unity MCP 연결·회귀·다음 작업 인계 | 연결 또는 회귀 문제 시 |
 
 ## 분야별 기준 문서
@@ -57,7 +60,7 @@
 | 저장 Schema·Migration | `docs/02_system_design/SAVE_DATA_SPEC.md` |
 | 모바일 입력·Lifecycle | `docs/04_ui_ux/MOBILE_INPUT_AND_LIFECYCLE.md` |
 | Android Build·배포 | `docs/06_technical/ANDROID_BUILD_AND_RELEASE.md` |
-| 캐릭터 설정 | `docs/05_art_concept/CHARACTER_BIBLE.md` v2.1 |
+| 캐릭터 설정 | `docs/05_art_concept/CHARACTER_BIBLE.md` v2.2 |
 | 캐릭터 제작 앵커 | `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md` v2.1 |
 | 캐릭터 제작 시트 템플릿 | `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md` v002 |
 | 아트 Gate 리뷰 | `docs/05_art_concept/ART_REVIEW_CHECKLIST.md` v2.1 |
