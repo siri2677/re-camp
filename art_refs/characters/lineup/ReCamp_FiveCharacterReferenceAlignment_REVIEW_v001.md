@@ -2,11 +2,15 @@
 
 - Backlog ID: ART-1510
 - Reviewed: 2026-08-09
-- Scope: 5-person 2D KeyArt, integrated sheets, lineup and cross-review board
+- Status: LEGACY REFERENCE / HISTORY ONLY
+- Scope: Legacy CH001~CH005 5-person 2D KeyArt, integrated sheets, lineup and cross-review board
 - Reference matrix: planning/DESIGN_DIRECTION_2026-08-09.md
-- Decision: CONDITIONAL / REVIEW
+- Decision: CONDITIONAL / HISTORY ONLY
 - Human Gate A: PENDING
 - APPROVED: NOT GRANTED
+
+이 기록은 신규 CH101~CH105의 Gate A 결과가 아니다. 기존 레거시 패키지에서 추출한 품질 축과
+교정 이력을 보존하며, 현재 제품 디자인 기준이나 신규 제작 앵커로 사용하지 않는다.
 
 ## Review conclusion
 

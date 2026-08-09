@@ -66,8 +66,8 @@
 
 ## Validation evidence
 
-- Initial visual alignment record: art_refs/characters/lineup/ReCamp_FiveCharacterReferenceAlignment_REVIEW_v001.md
-- Correction brief: art_refs/characters/lineup/ReCamp_FiveCharacterReferenceAlignment_ART_BRIEF_v001.md
+- Legacy reference alignment evidence (`HISTORY ONLY`): art_refs/characters/lineup/ReCamp_FiveCharacterReferenceAlignment_REVIEW_v001.md
+- Legacy correction brief (`HISTORY ONLY`): art_refs/characters/lineup/ReCamp_FiveCharacterReferenceAlignment_ART_BRIEF_v001.md
 - 레퍼런스별 흡수 품질과 Re:Camp 변형을 metadata에 기록
 - 동일 크기 5인 얼굴 스트립과 128px 비교
 - 장비 포함·제거 흑백 실루엣 비교

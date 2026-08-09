@@ -1,10 +1,14 @@
 # Re:Camp Five-Character Reference Alignment Art Brief v001
 
 - Backlog ID: ART-1510
-- Status: REVIEW preparation / not APPROVED
+- Status: LEGACY REFERENCE / HISTORY ONLY / not APPROVED
 - Target: 2D KeyArt correction pass and revised integrated sheets
 - Source review: ReCamp_FiveCharacterReferenceAlignment_REVIEW_v001.md
-- Canonical direction: docs/05_art_concept/ART_DIRECTION.md v2.2
+- Historical direction: docs/05_art_concept/ART_DIRECTION.md v2.2
+- Current direction: docs/05_art_concept/ART_DIRECTION.md v3.0 and CH101~CH105 documents; this brief does not supersede them
+
+이 문서는 신규 CH101~CH105 제작 브리프가 아니다. 기존 CH001~CH005 레거시 패키지의 레퍼런스 정렬
+이력을 보존하기 위한 자료이며, 신규 캐릭터의 얼굴·의상·장비·훅·Gate A 기준으로 사용하지 않는다.
 
 ## Global target
 
