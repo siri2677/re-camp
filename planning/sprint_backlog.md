@@ -1,6 +1,6 @@
 # Re:Camp Integrated Sprint Backlog
 
-> 최종 갱신: 2026-08-07
+> 최종 갱신: 2026-08-09
 
 이 문서는 실제 작업을 시작할 때 가장 먼저 확인하는 통합 작업 목록이다. 원격 계획의 ID 체계를
 유지하고 최신 Unity 구현·검증 상태와 캐릭터 디자인 v2.1 기준을 반영한다.
@@ -25,10 +25,11 @@
 | 7 | ART-0112 | 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Review | 루나 7.09H→5.39H 변환표·확대/삭제/결합·Face128·실루엣·통합시트 작성. Figma Frame 05 실사용과 사람 검토 대기 |
 | 8 | ART-1001~1409 | 성인 여성 5명 2D 디자인 제작 시트 | Review | 일본 모바일 서브컬처 스타일로 5명 각 3안·선택 KeyArt·3뷰·8표정·장비·팔레트·Face128·실루엣·2D→3D·4096×4608 통합시트 작성. 5개 사람 승인만 대기 |
 | 9 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Review | 최신 4096×2304 라인업, exact 128px 얼굴·장비 포함/제거 실루엣·저채도 보드와 내부 originality precheck 작성. 사람·법률·런타임 가독성 판정 대기 |
-| 10 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
-| 11 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
-| 12 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
-| 13 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
+| 10 | ART-1510 | 레퍼런스 품질·성인 여성 매력 Alignment Pass | In Progress | 사용자 지정 레퍼런스 품질 매트릭스와 매력·여성성 기준으로 5인 REVIEW 패키지 재검토. 사람 Gate A 전까지 APPROVED 금지 |
+| 11 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
+| 12 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
+| 13 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
+| 14 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
 
 과거 `RC-0011 / ReCamp_CharacterLineup_REVIEW_v003`은 실패 이력으로 유지하며 새 디자인 후보의
 베이스 이미지로 사용하지 않는다.
@@ -166,6 +167,16 @@
 
 세부 ID는 `planning/art_production_backlog.md`의 `ART-10`~`ART-15`를 따른다. `APPROVED`는
 `ART_REVIEW_CHECKLIST.md` v2.1과 사람 검토를 통과한 경우에만 사용한다.
+
+### ART-1510. 레퍼런스 품질·성인 여성 매력 Alignment Pass
+
+현재 5인 REVIEW 패키지를 사용자 지정 레퍼런스의 품질 축으로 재검토한다. 레퍼런스 고유 캐릭터·의상·무기·포즈·UI·로고를 복제하지 않고, 성인 여성의 매력·여성성·표정·패션·자세·역할 가독성만 Re:Camp의 훅과 기능 장비로 변환한다.
+
+- 5인 Key Art·3뷰·표정·장비·통합 시트를 ART_REVIEW_CHECKLIST.md v2.2로 재검토한다.
+- 3초 첫인상, 128px 얼굴, 장비 제거 실루엣, 저채도, 평상시/임무 상태를 모두 기록한다.
+- 매력성·여성성·표정·패션·실루엣이 약한 후보만 새 버전으로 교정하며 기존 훅을 보존한다.
+- 사람 Gate A 승인 전에는 5인 모두 REVIEW를 유지하고 최종 3D 제작을 시작하지 않는다.
+- 상세 계획과 완료 조건은 planning/DESIGN_DIRECTION_2026-08-09.md를 따른다.
 
 ## Sprint 5. 루나 Character Proof
 
