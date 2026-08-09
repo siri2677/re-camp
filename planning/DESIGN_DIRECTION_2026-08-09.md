@@ -45,6 +45,18 @@
 6. 사람 승인된 루나 시트만 A3 Character Proof와 5.3~5.4등신 3D Blockout의 입력으로 사용한다.
 7. 루나 Proof가 Gate B/C와 Android Gate를 통과하기 전에는 나머지 4인의 최종 3D를 대량 제작하지 않는다.
 
+## Initial review of the current 5-person package
+
+The current lineup and cross-review already move toward Japanese mobile subculture: large readable eyes, clean cel-like rendering, adult proportions, distinct hair/gear hooks, and feminine fashion silhouettes are present. The next pass is refinement, not a reset.
+
+- **Luna**: preserve the strongest first-face and sensor-cat hook. Refine eye sparkle, hair grouping, and agile feminine posture without losing the readable paired-dagger silhouette.
+- **Miyu**: preserve the asymmetric lavender technician and dual-drone triangle. Strengthen facial appeal and relaxed femininity so the sleepy expression does not read as childlike or generic.
+- **Coco**: preserve the warm coral rescue-captain role and healthy adult appeal. Unify the bright background treatment with the lineup, avoid a generic nurse costume, and make the cape, injector baton, and protection field feel like one elegant functional silhouette.
+- **Iris**: preserve the refined long vertical silhouette and observation-lance identity. Increase facial warmth and feminine poise so the result does not collapse into a generic gothic sniper or assassin.
+- **Noah**: preserve the calm adult guardian and case-to-door shield transformation. Keep the waist, face, and posture visibly feminine while preventing the armor and dark palette from reading as a gender-ambiguous tank.
+
+These are REVIEW corrections only. They do not grant human Gate A approval or authorize final 3D production.
+
 ## Validation evidence
 
 - 레퍼런스별 흡수 품질과 Re:Camp 변형을 metadata에 기록
