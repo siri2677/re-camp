@@ -1,9 +1,14 @@
-# Re:Camp Workspace
+# Re:Camp Current Generation Workspace
 
-- Re:Camp 기획·Unity·아트·MCP 작업을 시작할 때 `.agents/skills/recamp-unity/SKILL.md`를 적용한다.
-- 진입점은 `planning/README.md`다. 먼저 이것만 읽고, 필요한 작업 ID와 문서만 `rg`로 찾는다. `planning/`, `docs/`, `art/` 전체를 한꺼번에 읽지 않는다.
-- 고정 방향은 성인 여성 5인, 남성향 서브컬처, 2D 일반 등신, 3D 5~6등신 스타일라이즈드다. 기본 목표 비율은 약 5.2~5.5등신이며 캐릭터별로 5~6등신 범위를 허용한다. `battle_vertical_slice_concept.png`를 원본 전투 비주얼 앵커로 사용하되 정확한 체형 비율은 최신 Baseline을 따른다. 현재 회색 박스는 최종 품질이 아니다.
-- 기존 사용자 변경을 보존하고 소스는 `apply_patch`로 수정한다. Unity 패키지 캐시나 설치된 플러그인 캐시는 수정하지 않는다.
-- Unity 변경은 컴파일, `_ReCamp` 오류 Console, EditMode/PlayMode 테스트를 변경 위험에 맞게 검증한다. MCP 결과 전체 JSON을 대화에 전달하지 말고 요약 필드만 출력하며 반복 작업은 배치한다.
-- 아트는 사람 승인 전까지 `APPROVED`로 표시하지 않는다. ComfyUI와 대용량 생성 모델은 세부 아트가 필요한 시점의 선택 사항이다.
-- 커밋·푸시는 사용자가 명시적으로 요청한 경우에만 수행한다.
+1. 모든 작업 시작 시 현재 branch, short HEAD, `git status --short`를 확인한다.
+2. 신규 작업의 기준 브랜치는 `current/recamp-unified`다. `legacy/recamp-pre-generation`은 과거 비교용이며 신규 작업을 진행하지 않는다.
+3. 제품·플랫폼·전역 비주얼·Current 로스터·전역 비율·1인 제작 예산·현재 Gate는 `docs/00_project/CURRENT_PROJECT_BASELINE.md`만 기준으로 읽는다. 이 내용을 AGENTS, Skill, README, Roadmap, Backlog에 복제하지 않는다.
+4. 사용자가 작업을 지정하지 않았다면 `planning/sprint_backlog.md`의 첫 `In Progress`, 없으면 첫 `Ready` 항목을 선택한다.
+5. Baseline의 `LLM 작업별 필수 Read Set`과 대상 작업이 직접 참조하는 문서만 추가로 읽는다. 날짜가 붙은 리셋·정렬 문서는 변경 이력이지 Canonical 기준이 아니다.
+6. `.agents/skills/recamp-unity/SKILL.md`의 구현·MCP·검증 절차를 적용한다.
+7. 기존 사용자 변경을 보존하고 `Library/`, `Temp/`, 패키지 캐시, 설치된 플러그인·MCP 캐시는 수정하지 않는다.
+8. Unity 변경은 Compile, `_ReCamp` Console, 필요한 EditMode·PlayMode·직접 Play Mode 검증을 수행하고 실제 결과만 `planning/IMPLEMENTATION_STATUS.md`에 기록한다.
+9. 아트는 사람 승인과 review 기록 전까지 `APPROVED`로 표시하지 않는다. Legacy·REJECTED·INVALID·Gate 실패 자산을 Current 제작 앵커로 사용하지 않는다.
+10. 문서 변경 후 `python scripts/validate_project_docs.py`를 실행한다.
+11. Current에서 작업 브랜치를 만들 때는 `feature/*`, `art/*`, `docs/*`, `fix/*`로 짧게 분기하고 `current/recamp-unified`로 통합한다.
+12. `main` 병합은 Current Generation의 구현·디자인 기준이 안정화된 뒤 별도 검토로 수행한다.
