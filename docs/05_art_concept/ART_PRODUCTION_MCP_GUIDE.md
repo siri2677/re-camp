@@ -1,335 +1,137 @@
-# Re:Camp Art Production MCP Guide
+# Re:Camp Current Generation Art Production MCP Guide
 
-이 문서는 Re:Camp의 신규 5인 2D 콘셉트, 캐릭터 제작 시트, 3D 모델, Unity 통합을 반복 가능하게
-만드는 MCP·AI 도구 운영 기준이다. 신규 로스터는 `CHARACTER_BIBLE.md` v3.0을 따른다.
+> 역할: 이미지·Figma·Blender·Unity·GitHub 도구의 반복 가능한 운영 절차
 
-## 1. 기본 원칙
+제품·전역 비주얼·로스터·비율·Production Budget은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`, 캐릭터 내용은 Character Bible/Anchor, 표현 규칙은 Art Direction을 따른다. 이 문서에 해당 결정을 다시 적지 않는다.
 
-- MCP는 제작 속도와 반복성을 높이는 선택 도구이며 최종 미감과 캐릭터 매력 판단은 사람이 담당한다.
-- 도구 설치 자체를 개발 선행 조건으로 두지 않는다. 현재 작업을 수행할 수 있는 도구를 사용하고, 반복 비용이나 정밀 제어 필요가 확인될 때 전용 MCP를 추가한다.
-- 한 번의 프롬프트로 만든 이미지를 최종 디자인으로 확정하지 않는다.
-- 캐릭터별 승인된 기준 이미지와 디자인 시트를 먼저 만든 뒤 최종 3D 작업으로 이동한다.
-- 플레이어블 캐릭터는 전원 성인 여성이며 남성향 서브컬쳐 캐릭터 매력을 우선한다.
-- 2D 대표 일러스트는 약 7등신 일반 비율, 3D 인게임 캐릭터는 캐릭터별 5~6등신 스타일라이즈드 비율을 기준으로 한다. 원본 전투 콘셉트는 감성·카메라·환경·가독성 앵커이며 정확한 체형 비율은 최신 Baseline을 따른다.
-- 도구별 역할을 분리하고 동일한 작업을 여러 MCP가 중복 수정하지 않도록 한다.
-- 모든 최종 산출물은 Git에 저장하며 소스 파일과 Export 파일을 구분한다.
-- 신규 2D 후보의 1차 산출물은 PNG이며, 같은 basename의 `.metadata.md`와 `.review.md`를 함께 저장한다.
-- PNG 생성과 Gate A 검토는 Unity 없이 수행한다. Unity/Coplay MCP는 승인 후 Import·Sprite·Material·Prefab·쿼터뷰 검증에만 사용한다.
-- 예시 경로: `art_refs/characters/amasawa_rin/concept/AmasawaRin_FullBodyCandidates_REVIEW_v001.png`
-- 동반 파일: `AmasawaRin_FullBodyCandidates_REVIEW_v001.metadata.md`,
-  `AmasawaRin_FullBodyCandidates_REVIEW_v001.review.md`
+## 1. 원칙
 
-## 2. 권장 도구 구성
+- MCP와 생성 도구는 속도·반복성·기록을 돕는 수단이며 미감·매력·승인은 사람이 담당한다.
+- 현재 가능한 도구로 시작하고 실제 반복 비용이 병목일 때만 추가 도구를 도입한다.
+- 한 번의 생성 결과를 최종 디자인으로 확정하지 않는다.
+- Source·Export·Runtime을 분리한다.
+- 결과에는 Version·metadata·review를 남긴다.
+- Legacy·REJECTED·INVALID·Gate 실패 자산을 Current 제작 Anchor로 사용하지 않는다.
 
-| 도구 | 주 역할 | Re:Camp에서의 사용 범위 | 현재 상태 |
-|---|---|---|---|
-| 이미지 생성 도구 | 초기 신규 2D PNG 후보와 방향 탐색 | 5인 전신 시안·표정·포즈·장비·배경 | **OpenRouter 선택, API key 연결 대기** |
-| ComfyUI MCP | 재현 가능한 2D 생성·수정 워크플로 | 얼굴·헤어 일관성, 대량 변형, 정밀 인페인팅 | `Deferred / Optional` |
-| Figma MCP | 제작 시트와 UI 문서 구성 | 5인 시트·팔레트·장비 주석·진행 보드 | 필요 시 도입 |
-| Blender MCP | 3D Blockout과 반복 모델링 | 5인 장비·베이스 검증, 시설·소품·몬스터 초안 | Gate A 이후 |
-| Coplay/Aura MCP | Unity Editor 통합 | Import, Prefab, Material, Animator, Collider, Scene, UI 연결 | 현재 개발에 사용 |
-| GitHub MCP | 형상·문서·작업 관리 | Issue, 브랜치, PR, 아트 문서, 레퍼런스 버전 관리 | 필요 시 사용 |
-| 코드 에이전트 | Unity 코드와 자동화 | Importer, ScriptableObject, 셰이더 설정, 에셋 검증 도구 | 현재 개발에 사용 |
+## 2. 도구 역할
 
-## 3. 도입 우선순위
-
-도구 이름을 고정 순서로 설치하지 않고 현재 마일스톤의 병목을 기준으로 도입한다.
-
-```text
-현재: Coplay/Aura MCP와 코드 에이전트로 Unity 기능 개발·검증
-→ OpenRouter 연결 후 신규 5인 3안 후보 생성
-→ 사람 Gate A에서 캐릭터별 방향 선택
-→ Figma 또는 동등한 편집 도구로 제작 시트·Turnaround
-→ 승인된 시트 후 Blender Blockout·Unity 검증
-→ 반복성과 정밀 제어가 실제 병목일 때만 ComfyUI MCP 재평가
-```
-
-현재 단계에서는 ComfyUI나 ComfyUI MCP가 필수가 아니다. 로컬 모델 파일 보유, 전용 GPU 마련, ComfyUI 설치를 Unity 기능 개발이나 초기 콘셉트 검토의 완료 조건으로 두지 않는다. 도입 시점이 오면 로컬 GPU 추론과 클라우드 실행의 비용·보안·속도를 비교해 선택한다.
-이번 생성 실행은 OpenRouter를 선택했다. API key는 채팅에 기록하지 않고 실행 환경의 보안 저장소 또는 환경 변수로 주입한다. 키가 확인되기 전에는 PNG 생성 완료나 Gate A 실행 완료로 기록하지 않는다.
-
-### ComfyUI 도입 트리거
-
-다음 중 하나 이상이 실제 작업에서 반복적으로 발생할 때 도입을 재평가한다.
-
-- 동일 캐릭터의 얼굴·헤어·의상을 유지한 이미지를 대량 제작해야 한다.
-- Seed, 모델, LoRA, ControlNet, IP-Adapter를 고정한 재현 가능한 생성 워크플로가 필요하다.
-- 얼굴·손·의상·장비의 부분 수정이나 정밀 인페인팅이 현재 도구로 비효율적이다.
-- 다수 캐릭터의 표정·포즈·장비 변형을 배치 처리해야 한다.
-- 호출형 이미지 생성 비용이 로컬 또는 클라우드 ComfyUI 운영 비용보다 지속적으로 커진다.
-
-도입 트리거가 없으면 `Deferred`를 유지한다. `Deferred`는 기술적 실패를 뜻하는 `Blocked`가 아니며, 관련 설치나 연결 작업을 현재 실행 큐에 올리지 않는다.
-
-## 4. ComfyUI MCP — Deferred / Optional
-
-이 절은 향후 도입할 때의 운영 기준이다. 현재 제작 파이프라인의 필수 선행 단계가 아니다.
-
-### 담당 작업
-
-- 캐릭터 단독 전신 시안
-- 동일 캐릭터의 얼굴·의상 변형
-- 표정 시트 초안
-- 대표 포즈와 전투 포즈
-- 무기·장비 디자인 변형
-- 폐허와 캠프 배경 콘셉트
-- 몬스터와 보스 실루엣
-- 스킬 VFX 콘셉트
-
-### 권장 작업 방식
-
-```text
-캐릭터 바이블 확정
-→ 캐릭터 단독 기준 이미지 생성
-→ 얼굴과 의상 후보 비교
-→ 승인된 기준 이미지 고정
-→ 표정·포즈·장비 변형 생성
-→ Figma에서 제작 시트 구성
-```
-
-### 캐릭터 일관성 규칙
-
-- 다섯 캐릭터를 한 번에 새로 생성하지 않는다.
-- 캐릭터별 승인된 기준 이미지를 입력 레퍼런스로 사용한다.
-- 생성 대상은 전원 성인 여성으로 고정하고 남성 캐릭터 결과는 승인 후보로 올리지 않는다.
-- 헤어, 눈, 의상, 무기 색상은 프롬프트와 워크플로 변수로 고정한다.
-- 시드와 모델, LoRA, ControlNet, IP-Adapter, 해상도, 후처리 설정을 기록한다.
-- 새로운 결과가 기준 이미지를 임의로 대체하지 않도록 버전을 분리한다.
-
-### 출력 규격 예시
-
-| 용도 | 권장 비율 | 배경 |
+| 도구 | 역할 | 시점 |
 |---|---|---|
-| 전신 콘셉트 | 2:3 세로 | 단색 또는 투명 |
-| 얼굴·표정 | 1:1 | 단색 |
-| Turnaround 참고 | 16:9 또는 넓은 가로 | 흰색 |
-| 무기·장비 시트 | 16:9 | 흰색 |
-| 배경 콘셉트 | 16:9 | 완성 배경 |
+| 이미지 생성/편집 | 후보·얼굴·표정·장비·환경 Color Key | 초기 탐색·부분 수정 |
+| Figma 또는 동등 도구 | 제작 시트·주석·팔레트·UI System | 후보 정리·승인 Export |
+| Blender | 소품 Proof·Blockout·Model·Rig·Animation·FBX | Approved 기준 이후 |
+| Coplay/unityMCP | Import·Prefab·Material·Animator·Scene·검증 | Unity 통합 |
+| GitHub | Branch·PR·문서·Version 관리 | 모든 단계 |
+| ComfyUI | 대량 일관성·정밀 인페인팅 | 실제 병목일 때만 |
 
-### 주의사항
+## 3. 작업 시작
 
-AI 이미지의 측면·후면은 구조적으로 일치하지 않을 수 있다. Turnaround는 생성 결과를 그대로 사용하지 않고 사람이 구조를 정리한 제작 시트로 확정해야 한다.
+1. 현재 branch·HEAD·변경 상태 확인.
+2. Canonical Baseline과 대상 Backlog ID 확인.
+3. Baseline의 필수 Read Set에서 필요한 디자인 계약만 읽기.
+4. 대상 자산의 최신 metadata/review/Approved 상태 확인.
+5. Source·Export·Runtime 경로와 판정 기준을 먼저 정하기.
 
-## 5. Figma MCP
-
-### 담당 작업
-
-- 5인 캐릭터 라인업 보드
-- 캐릭터별 디자인 시트
-- 얼굴과 표정 시트
-- 색상·재질 팔레트
-- 의상·장비 분해 주석
-- UI 디자인 시스템
-- 스킬 아이콘과 VFX 보드
-- 아트 리뷰 상태 관리
-
-### 캐릭터 시트 기본 레이아웃
+## 4. 2D 후보
 
 ```text
-좌측: 대표 전신 이미지
-우측 상단: 얼굴 확대와 표정
-우측 중앙: 정면·측면·후면 참고
-우측 하단: 무기, 장비, 소품 상세
-하단: 컬러 팔레트, 재질, 3D 제작 주의사항
+Character Bible / Anchor
+→ 후보 목적 정의
+→ 통제 후보 생성
+→ 얼굴·실루엣·저채도·장비 on/off 비교
+→ 부분 수정
+→ metadata
+→ REVIEW Export
+→ 사람 Gate
 ```
 
-### Figma 운영 규칙
+입력에는 Character ID·한 문장 훅·LOCKED/CONTROLLED/FORBIDDEN·산출물 목적·시점·배경 조건을 넣는다. 외부 작품 직접 모방을 금지하고, 기존 Reference는 Approved Current 자산일 때만 제작 입력으로 사용한다.
 
-- 캐릭터별 페이지를 분리한다.
-- 공통 컴포넌트로 제목, 팔레트, 승인 상태, 주석 영역을 관리한다.
-- WIP, REVIEW, APPROVED 상태를 명확히 표시한다.
-- 최종 승인 프레임만 PNG/PDF로 Export하여 Git에 저장한다.
-- Figma 원본만 존재하고 Git에 기준 Export가 없는 상태를 허용하지 않는다.
+## 5. 제작 시트
 
-## 6. Blender MCP
+1. `CHARACTER_SHEET_TEMPLATE_SPEC.md` Frame을 복제한다.
+2. 선택한 REVIEW 자산과 metadata를 연결한다.
+3. Turnaround·표정·장비·팔레트·2D→3D 변환표를 채운다.
+4. Gate 증거와 수정 이력을 기록한다.
+5. REVIEW PNG/PDF를 Export한다.
+6. 사람 승인 후 새 Version으로 APPROVED Source/Export를 만든다.
 
-### 우선 적용 대상
+## 6. Blender
 
-- 단일 와이어 세이버·신호 리본과 경로 비콘
-- 접이식 자기 활·구조 링
-- 공명 배턴·응급 베일
-- 프리즘 측량 부채·궤도 지도 링
-- 키네틱 건틀릿·앵커 케이블
-- 발전기, 작업대, 식량 창고, 통신탑
-- 자원 상자, 고철, 바리케이드, 폐허 건물 모듈
-- 일반 몬스터와 보스 Blockout
+### 소품 Proof
 
-### 캐릭터 작업 범위
+- 규격 이름의 단순 소품을 만든다.
+- 단위·축·Pivot·Socket·Material Slot을 설정한다.
+- `.blend` Source와 FBX Export를 저장한다.
+- Tool Version과 Export 설정을 Manifest에 기록한다.
 
-Blender MCP는 다음 작업에 활용한다.
+### 캐릭터
 
-- 캐릭터별 5~6등신 스타일라이즈드 신체 비율 Blockout
-- 의상과 헤어의 큰 형태
-- 장비 크기와 장착 위치
-- 공용 Humanoid Rig 적용
-- 기본 Material 슬롯 구성
-- Unity Export 규칙 적용
+- Approved 제작 시트와 2D→3D 변환표 이후 시작한다.
+- Blockout 단계에서 쿼터뷰 실루엣·관통·장비 크기를 먼저 검증한다.
+- 공용 Base/Rig/Shader/Animator를 우선한다.
+- Production Budget을 넘는 Cloth/Cable/독립 Physics는 필수 요구로 만들지 않는다.
 
-다음 항목은 사람의 최종 검수가 필수다.
-
-- 얼굴 조형
-- 헤어카드와 머리카락 흐름
-- Retopology
-- UV와 Texture 품질
-- Weight Painting
-- 관절 변형
-- 의상 관통
-- 표정 BlendShape
-- 헤어·의상 물리 본
-
-### 3D 검증 순서
+## 7. Unity 통합
 
 ```text
-캐릭터 시트 APPROVED
-→ 저해상도 5~6등신 스타일라이즈드 Blockout
-→ Unity 쿼터뷰 카메라 검증
-→ 실루엣과 무기 크기 수정
-→ 고해상도 모델링
-→ Retopology/UV/Texture
-→ Rig/Weight/표정
-→ Unity 최종 검증
+Import
+→ Preset
+→ Material·Avatar·Clip
+→ Prefab
+→ Socket·Collider·LOD·Animator
+→ Compile·Console
+→ EditMode·PlayMode
+→ Direct Scene Probe
+→ Gate C·Android Evidence
 ```
 
-Blender MCP의 첫 연결 검증은 최종 캐릭터가 아니라 중립적인 소품으로 수행한다. `1m`, `+Z forward`, 발 또는 바닥 기준 Pivot을 확인한 뒤 FBX Import·Material·Prefab·PlayMode까지 검증한다.
+Gameplay Root와 Visual Root를 분리하고, Damage·Cooldown·이동·정산을 Presentation 자산으로 옮기지 않는다.
 
-## 7. Coplay/Aura MCP
+## 8. 수정 기록
 
-### 담당 작업
-
-- FBX와 Texture Import
-- Material과 툰 셰이더 연결
-- 캐릭터 Prefab 생성
-- Animator Controller 구성
-- Collider와 Hitbox 배치
-- 머리카락·의상 물리 연결
-- 캐릭터 선택·로비·전투 Scene 배치
-- VFX와 사운드 연결
-- 누락된 참조와 컴파일 오류 확인
-
-### Unity 통합 원칙
-
-- Blender 파일을 Unity에서 직접 참조하기보다 승인된 FBX Export를 사용한다.
-- 캐릭터 Prefab의 공통 구조를 먼저 확정한다.
-- 캐릭터별 스크립트에 게임 규칙을 중복 구현하지 않는다.
-- Unity Adapter와 Presentation 계층만 캐릭터 Prefab에 연결한다.
-- 실제 기기에서 쿼터뷰 가독성과 성능을 검증한다.
-- 변경 후 compile, EditMode, PlayMode, Console을 확인하고 직접 검증하지 않은 항목은 Done 처리하지 않는다.
-
-## 8. GitHub MCP
-
-### 담당 작업
-
-- 캐릭터·배경·UI Issue 관리
-- 레퍼런스와 문서 버전 관리
-- 브랜치와 PR 관리
-- 승인된 이미지 변경 추적
-- 파일명과 디렉터리 규칙 검토
-
-### 브랜치 예시
+수정 요청은 다음 형태로 남긴다.
 
 ```text
-art/character-roster-reset
-art/amasawa-rin-concept
-art/kisaragi-mao-concept
-art/kanade-nozomi-concept
-art/shion-tategami-concept
-art/kurogane-akari-concept
-art/environment-ruined-street
-art/ui-battle-hud
+문제 위치
+→ 현재 결과
+→ 위반한 Anchor/Gate
+→ 변경할 요소
+→ 유지할 요소
+→ 새 Version
+→ 검증 방법
 ```
 
-### 커밋 예시
+부분 수정이 가능하면 전체를 다시 생성하지 않는다.
 
-```text
-art: add new five-character concept package
-art: update Gate A review board
-art: add ruined street environment references
-docs: update art production MCP guide
-```
+## 9. Metadata 최소 항목
 
-## 9. 권장 전체 파이프라인
+- Tool/Model·Version·Workflow·Seed.
+- Input Reference와 사용 권한.
+- 작업 지시 요약.
+- Human Edits.
+- Status·Reviewer·Date.
+- Pass/Fail 근거와 다음 Version.
+- External-IP Similarity.
+- Source·Export·Runtime 경로.
 
-```text
-CHARACTER_BIBLE.md v3.0
-→ 이미지 provider 연결 후 신규 5인 캐릭터별 3안 PNG 후보 생성
-→ 공통 Negative Prompt·metadata 기록
-→ 사람이 얼굴·의상·장비 후보 선택
-→ Figma 또는 동등한 편집 도구로 제작 시트 구성
-→ Gate A에서 APPROVED 또는 CONDITIONAL 처리
-→ 승인된 시트만 Blender MCP로 5~6등신 Blockout
-→ Unity 쿼터뷰 실루엣 테스트
-→ 사람 또는 전문 작업자의 최종 모델 수정
-→ Coplay/Aura MCP로 Unity 통합
-→ 실제 기기 테스트
-→ 저장소에 승인 산출물과 metadata 반영
-```
+## 10. 실패 처리
 
-현재는 프롬프트·metadata·Gate A 문서 준비까지 진행할 수 있다. 후보 PNG 생성에는 Unity Editor가 필요하지 않으며,
-외부 이미지 provider 또는 로컬 생성 경로가 연결되기 전에는 후보 이미지를 생성했다고 기록하지 않는다. ComfyUI 단계는
-조건부 분기이며 Gate A/B/C의 일부가 아니다.
+다음은 REVIEW 승격 없이 REJECTED/INVALID 처리한다.
 
-## 10. 인간 승인 게이트
+- 빈 파일·손상·LFS 오류.
+- Anchor 중대한 위반.
+- 외부 IP 고유 요소 직접 복제.
+- 워터마크·권리 불명 로고.
+- Source/metadata가 없어 재현 불가.
 
-다음 단계는 자동으로 통과시키지 않는다.
+## 11. 완료 보고
 
-### Gate A: 캐릭터 매력
+- 작업 ID와 상태.
+- Source·Export·Runtime 경로.
+- Version.
+- Gate·Unity Test·기기 증거.
+- 사람 승인 여부.
+- 실패와 다음 작업.
 
-- 성인 여성 캐릭터로 명확히 읽히는가
-- 남성향 서브컬쳐 RPG의 첫인상과 매력이 있는가
-- 얼굴과 실루엣이 기억에 남는가
-- 다섯 캐릭터가 서로 구분되는가
-- 성격과 전투 역할이 외형에서 느껴지는가
-
-### Gate B: 제작 가능성
-
-- 의상 구조가 3D로 구현 가능한가
-- 캐릭터별 5~6등신 스타일라이즈드 비율로 변환해도 캐릭터 정체성과 성인 여성 인상이 유지되는가
-- 무기와 장비가 애니메이션에 적합한가
-- 쿼터뷰에서 얼굴과 무기가 보이는가
-- 물리 본과 관통 문제를 감당할 수 있는가
-
-### Gate C: 게임 통합
-
-- 약 7등신 2D 일러스트와 캐릭터별 5~6등신 스타일라이즈드 3D가 같은 캐릭터로 보이는가
-- 실제 기기에서 가독성과 성능이 확보되는가
-- 공격과 스킬이 캐릭터 정체성을 전달하는가
-
-## 11. 프롬프트 템플릿
-
-### 캐릭터 콘셉트 생성
-
-```text
-Re:Camp의 [신규 캐릭터명] 단독 전신 콘셉트를 제작한다.
-CHARACTER_BIBLE.md v3.0의 역할, 색상, 성격, 대표 장비를 유지한다.
-플레이어블 캐릭터는 성인 여성이며 일본 모바일 서브컬처 RPG의 매력을 우선한다.
-약 7등신 2D 전신 일러스트, 기능성 패션 레이어, 쿼터뷰에서 읽히는 장비 실루엣을 사용한다.
-흰색 또는 단순한 폐허 배경, 정면 3/4 중심, 발끝과 손·장비 구조를 명확히 한다.
-새 후보는 기존 Re:Camp 캐릭터와 외부 IP의 얼굴·헤어·의상·무기·포즈를 복제하지 않는다.
-워터마크, 로고, 불필요한 텍스트를 포함하지 않는다.
-```
-
-후보 단계에서 정면·측면·후면 생성 결과를 한 번에 최종 Turnaround로 단정하지 않는다.
-
-### Blender Blockout
-
-```text
-APPROVED 캐릭터 시트를 기준으로 최신 Baseline의 캐릭터별 5~6등신 스타일라이즈드 Blockout을 만든다.
-공용 Humanoid 골격을 사용하고 쿼터뷰에서 머리, 상체, 무기가 식별되도록 한다.
-세부 장식보다 실루엣과 장비 크기를 우선한다.
-각 의상 파츠와 무기를 별도 Object로 분리하고 Pivot과 이름을 규칙에 맞춘다.
-```
-
-### Unity 통합
-
-```text
-승인된 FBX를 Import하고 ReCamp 공통 캐릭터 Prefab 구조를 사용한다.
-Material, Animator, Collider, Hitbox, 물리 본을 연결한다.
-게임 규칙을 MonoBehaviour에 중복 구현하지 말고 기존 Core Adapter를 사용한다.
-쿼터뷰 카메라에서 실루엣과 공격 가독성을 확인한다.
-```
-
-## 12. 출시 품질에 대한 원칙
-
-- MCP 결과물을 그대로 출시 자산으로 간주하지 않는다.
-- 캐릭터 얼굴, 헤어, 의상, 애니메이션은 최종 리터칭 단계를 거친다.
-- 배경과 소품은 자동화 비율을 높이되 캐릭터 관련 자산에는 더 높은 검수 비용을 배정한다.
-- 콘텐츠 수보다 성인 여성 다섯 캐릭터의 매력과 일관성을 우선한다.
-- 승인되지 않은 이미지는 모델링 기준이나 최종 빌드 자산으로 사용하지 않는다.
+이 문서는 Current Generation의 디자인 자체를 소유하지 않는다.
