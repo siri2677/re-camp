@@ -62,3 +62,12 @@ CH101 린의 Gate A 세부 후보 중 **A안 — Route Sprint**를 사용자 선
 ## 5. Evidence note
 
 2026-08-10 대화 중 생성된 비교 이미지는 WIP 시각 검토 자료로 사용되었으나, 이 커밋 시점에는 해당 PNG를 저장소의 완료 증거로 간주하지 않는다. 저장소에 실제 이미지 파일과 metadata가 추가되기 전에는 문서 기록만 유효하다.
+
+## 6. Face identity revision evidence
+
+2026-08-10에 5인 얼굴 유사성 보정을 위한 WIP를 생성했다. CH101 A안 Route Sprint 선택은 유지하되,
+린↔마오와 노조미↔시온의 눈매·얼굴형·헤어 외곽·표정 언어를 분리하는 CONTROLLED 앵커를 추가했다.
+
+- WIP: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
+- Metadata/review: 동명 `.metadata.md`, `.review.md`
+- 상태: `CONDITIONAL / REVIEW`, 최종 `APPROVED` 아님

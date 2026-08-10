@@ -118,3 +118,24 @@ art_refs/characters/roster/current/CH101-105_Roster_Desaturated_WIP_v001.png
 ```
 
 실제 자산이 저장되기 전에는 위 경로를 완료 증거로 기록하지 않는다.
+
+## 10. 2026-08-10 Face Identity Separation Pass
+
+사용자 피드백에서 린↔마오, 노조미↔시온의 얼굴 템플릿 유사성이 확인되어 얼굴 식별 앵커를 별도로
+강화했다. 의상·대표 장비·역할 계약은 유지하고, 다음 차이를 얼굴·헤어·표정의 CONTROLLED 조건으로
+추가한다.
+
+| ID | 얼굴 식별 앵커 | 성격 읽기 |
+|---|---|---|
+| CH101 린 | 위로 올라간 청록 눈, 좁은 애슬레틱 얼굴, 높은 묶음, 비대칭 반미소 | 빠르고 대담함 |
+| CH102 마오 | 반쯤 감긴 보라 눈, 긴 타원형 얼굴, 낮은 옆가르마, 낮은 입선 | 영리하고 내향적 |
+| CH103 노조미 | 둥근 코랄 눈, 풍성한 볼, 둥근 턱선, 열린 미소 | 따뜻하고 보호적 |
+| CH104 시온 | 좁은 인디고 눈, 곧은 눈썹, 각진 턱선, 닫힌 중립 입 | 우아하고 분석적 |
+| CH105 아카리 | 성숙한 앰버 눈, 넓은 눈썹, 강한 광대·턱선, 절제된 반미소 | 안정적이고 강인함 |
+
+생성 증거: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`와 동명
+metadata/review. v001은 이전 complexion/style 탐색 이력, v002는 피부·화풍 보정 이력으로 보존하고, v003을 현재 얼굴·화풍·상체 비율 검토용으로
+사용한다. 어느 WIP에도 Gate A `APPROVED`를 부여하지 않는다.
+
+추가 Gate A 증거 보드: `art_refs/characters/roster/current/CH101-105_Roster_GateA_Evidence_WIP_v001.png`와
+동명 metadata/review. 상단 얼굴 스트립·장비 OFF 실루엣·저채도 행을 포함하지만 최종 128px export는 아니다.

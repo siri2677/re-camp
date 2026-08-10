@@ -188,8 +188,9 @@ Noah Guard / Barrier   →    Akari 가드·공간 고정
 ## 9. 현재 디자인 상태
 
 - Current Generation 역할·성격·한 문장 훅: 문서화 완료.
-- Character Bible·Anchor·Art Direction v3.0: REVIEW 기준선.
+- Character Bible·Anchor·Art Direction v3.2: REVIEW 기준선.
 - 공통 5인 라인업 WIP: `1/1` 생성.
+- 얼굴 유사성 보정 WIP: `1/1` 생성, 128px 검증 전 `CONDITIONAL`.
 - 캐릭터별 통제 후보: `0/15`.
 - 128px 얼굴·장비 on/off 실루엣·저채도 교차 보드: 미완료.
 - 사람 Gate A 승인: `0/5`.

@@ -133,6 +133,17 @@ art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_C_v001.png
 art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_C_v001.metadata.md
 ```
 
+현재 생성된 통합 비교 보드:
+
+```text
+art_refs/characters/rin/concept/CH101_Rin_GateA_Candidates_WIP_v001.png
+art_refs/characters/rin/concept/CH101_Rin_GateA_Candidates_WIP_v001.metadata.md
+art_refs/characters/rin/concept/CH101_Rin_GateA_Candidates_WIP_v001.review.md
+```
+
+통합 보드는 A/B/C 방향을 한 화면에서 비교하기 위한 WIP다. 개별 A/B/C PNG, Face128, 장비 ON/OFF 실루엣,
+Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기록하지 않는다.
+
 실제 생성 전에는 위 PNG가 존재한다고 기록하지 않는다.
 
 ## 7. Gate A 다음 단계

@@ -27,7 +27,7 @@
 | 4 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | 선행 Android 작업 + 식별자 결정 + 테스트 기기 |
 | 5 | ART-0103·0111 | 제작 시트 도구 실사용 검증 | Review | Import·Clone·한글·PNG/PDF Export·사람 사용성 |
 | 6 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | In Progress | 캐릭터별 통제 후보, 비교 보드, 사람 Gate A, 제작 시트 |
-| 7 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Todo | 얼굴·실루엣·저채도·원작성 비교 증거 |
+| 7 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | In Progress | 얼굴 분리 WIP 생성 완료; 128px·실루엣·저채도·원작성 비교와 사람 검토 남음 |
 | 8 | ART-0112 | 2D→3D 변환표 Proof | Todo | Gate A 선택 후보의 단순화·제작 위험 검증 |
 | 9 | ART-0104 | Blender 소품 Export Proof | Ready | 명명 규격 Source→FBX→기록 |
 | 10 | ART-0109·0110 | 자산·Animation Handoff 계약 | Review | Current/Legacy 경계와 공용/고유 Motion 검토 |

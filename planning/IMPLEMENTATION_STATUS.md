@@ -112,6 +112,9 @@ Current Generation Runtime handoff에서는 이 Gameplay 축을 재사용하되 
 - Current Character Bible·Anchor·Art Direction 계약 존재.
 - 공통 5인 라인업 WIP 1장 + metadata + review 존재.
 - 해당 라인업은 `WIP / GATE A PENDING`이며 Approved가 아니다.
+- 얼굴 유사성·화풍/피부 톤·상체 비율 보정 WIP v003 1장 + metadata + review가 추가됐다.
+- Gate A 비교 프록시(얼굴·장비 OFF 실루엣·저채도) WIP 1장 + metadata + review가 추가됐다.
+- CH101 A/B/C 통합 후보 비교 보드 WIP 1장 + metadata + review가 추가됐다.
 - 캐릭터별 통제 후보·128px 얼굴·장비 on/off·저채도 보드는 아직 완료되지 않았다.
 - 사람 Gate A, Approved 2D 제작 시트, 최종 3D는 아직 없다.
 
