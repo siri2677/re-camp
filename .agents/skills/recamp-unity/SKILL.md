@@ -1,49 +1,58 @@
 ---
 name: recamp-unity
-description: Continue and verify the Re:Camp Unity project with compact Coplay/unityMCP usage. Use for Re:Camp gameplay, scenes, C# scripts, tests, planning/art/docs continuation, MCP recovery, vertical-slice work, or requests such as "개발 계속" in this repository.
+description: Continue and verify the active Re:Camp Current Generation with compact Unity MCP usage. Use for gameplay, scenes, C# scripts, tests, planning, art, documentation, MCP recovery, and vertical-slice work in this repository.
 ---
 
-# Re:Camp Unity
+# Re:Camp Current Generation Workflow
 
-Use this workflow to continue the project without reloading the full history or forwarding large MCP payloads.
+## 1. Establish active context
 
-## 1. Establish the current task
+1. Follow the user's explicitly named task first.
+2. Check current branch, short HEAD, and `git status --short`.
+3. Active integration branch is `current/recamp-unified`. `legacy/recamp-pre-generation` is read-only historical reference unless the user explicitly requests Legacy maintenance.
+4. Read `docs/00_project/CURRENT_PROJECT_BASELINE.md` first. It is the only source for generation separation, product, platform, global visual direction, active roster, global proportions, solo-production budget, current Gate, document precedence, and required read sets.
+5. Read only the selected row in `planning/sprint_backlog.md` and the domain documents required by the Baseline. Without an explicit task, choose the first `In Progress`, then the first `Ready` item.
+6. Use `planning/IMPLEMENTATION_STATUS.md` only for implementation and verification evidence; it does not redefine product direction.
+7. Date-stamped reset/alignment notes are decision history. They never outrank the Baseline.
+8. Historical, Legacy, rejected, invalid, or Gate-failed assets are comparison evidence only.
 
-1. Follow the user's explicitly named content, file, or task before selecting anything from the backlog.
-2. Read `planning/README.md` first.
-3. Use `rg` in `planning/sprint_backlog.md` and `planning/IMPLEMENTATION_STATUS.md` to locate only the selected item's completion criteria. Without an explicit selection, choose the highest-priority `In Progress` item, then the first `Ready` item.
-4. Treat `planning/sprint_backlog.md` as the execution-status source of truth when it differs from `IMPLEMENTATION_STATUS.md`; the latter records implementation evidence.
-5. Read other planning, art, or docs files only when the selected work item references them. Open `planning/COPLAY_MCP_HANDOFF.md` only for connection, stale-job, or regression recovery.
-6. Inspect `git status --short` before editing and preserve all unrelated user changes. Do not start implementation with unresolved merge conflicts; resolve the in-scope conflicts or report them first.
-
-Keep adjacent backlog IDs separate unless the selected completion criteria explicitly join them. Finish an audit/decision task before expanding into its implementation task.
-
-Keep these product decisions fixed unless the user changes them: five adult women; male-oriented subculture presentation; normal-proportion 2D art; 5–6-head stylized 3D with a default target around 5.2–5.5 heads; the original `battle_vertical_slice_concept.png` is the battle visual anchor, while exact body proportions follow the latest baseline. Treat current primitives and gray-box visuals as implementation scaffolding, not final art.
+Do not restate global project decisions in this Skill, README, Roadmap, or Backlog.
 
 ## 2. Use Unity MCP economically
 
 Read [references/mcp-compact-workflow.md](references/mcp-compact-workflow.md) before substantial Unity MCP work.
 
-1. Confirm the Unity instance and editor state; set the active instance only when needed.
-2. Keep the default core tool group active. Activate `testing` for verification and `scripting_ext` only for runtime probes. Activate docs, profiling, UI, animation, VFX, ProBuilder, or asset-generation groups only for a task that needs them; deactivate optional groups afterward.
-3. Use `batch_execute` for two or more independent or repetitive Unity operations.
-4. Request small result pages and targeted fields. Never print or relay a complete MCP response when a status, count, path, failed-test list, or error summary is enough.
+1. Confirm active Unity instance and Editor state.
+2. Enable only tool groups needed for the current task.
+3. Batch independent or repetitive operations.
+4. Request compact status, counts, paths, failures, and evidence instead of full MCP payloads.
+5. Do not treat transport errors as Unity project errors without checking Editor state and `_ReCamp` Console entries.
 
 ## 3. Implement safely
 
-- Edit repository sources with `apply_patch`; use formatters only for mechanical formatting.
-- Do not edit `Library/`, `Temp/`, package caches, installed MCP/plugin caches, or generated IDE state.
-- Prefer deterministic C# and Unity-native assets over runtime-only editor mutations. If an editor mutation creates durable state, save the intended scene or asset explicitly.
-- Keep code, tests, and the smallest relevant planning/status entry aligned. Avoid duplicating the full project state across documents.
-- Do not upgrade placeholder art to final or `APPROVED` status without human review. Keep ComfyUI/local diffusion as an optional later detail pass.
+- Preserve unrelated user changes and do not work through unresolved in-scope merge conflicts.
+- Edit repository sources, not `Library/`, `Temp/`, package caches, installed plugin caches, or generated IDE state.
+- Prefer deterministic C# and versioned Unity assets over unrecorded Editor-only mutation.
+- Save intended Scene and asset changes explicitly.
+- Keep code, tests, and the smallest owning status entry aligned.
+- Reuse verified Gray Box gameplay rules where they fit the Current Generation; do not recreate systems merely because the character presentation changed.
+- Follow the Baseline solo-production budget: shared Rig/Animation/Shader foundations, limited dynamic equipment, no mandatory cloth/cable physics, and no unnecessary per-character subsystem.
+- Do not promote generated art to `APPROVED` without human Gate evidence.
 
 ## 4. Verify proportionally
 
 1. Refresh Unity and wait for compilation.
-2. Read only error-level Console entries relevant to `_ReCamp`; include stack traces only for failures being diagnosed.
-3. Run EditMode and PlayMode suites with compact details. Report totals and failed names; fetch per-test detail only when a test fails.
-4. For gameplay or scene changes, perform the smallest direct PlayMode probe that proves the affected behavior.
-5. Save intended scene changes before restoring `Assets/_ReCamp/Scenes/03_Battle.unity` as the active scene unless the task intentionally changes the handoff scene. Never discard an unrelated dirty scene to perform the restore.
-6. Record the verification result in the relevant status/backlog entry.
+2. Check error-level Console entries relevant to `_ReCamp`.
+3. Run the smallest EditMode/PlayMode suites proving the change; use full suites for shared runtime, Domain, save, Scene-flow, or input changes.
+4. For gameplay/Scene work, perform a focused direct Play Mode probe.
+5. Save intended Scene changes before restoring the agreed handoff Scene when appropriate.
+6. Record actual environment, result, failures, and limitations in `planning/IMPLEMENTATION_STATUS.md`.
+7. For documentation changes run `python scripts/validate_project_docs.py`.
 
-Commit or push only when the user explicitly requests it.
+## 5. Branch and completion rules
+
+- Branch new work from `current/recamp-unified` using short `feature/*`, `art/*`, `docs/*`, or `fix/*` branches when needed.
+- Merge Current work back into `current/recamp-unified`; do not merge Legacy directly into Current.
+- Update only the owning Backlog/status/domain document.
+- Code existence alone is not `Done`; generated image quality alone is not `APPROVED`.
+- Merge to `main` only after an explicit Current Generation integration review.
