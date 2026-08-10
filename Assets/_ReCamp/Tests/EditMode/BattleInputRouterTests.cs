@@ -1,6 +1,6 @@
+using System.IO;
 using NUnit.Framework;
 using ReCamp.Input;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -128,11 +128,14 @@ namespace ReCamp.Tests.EditMode
         [Test]
         public void AndroidPlayerSettings_AutorotationIsLandscapeOnly()
         {
-            Assert.That(PlayerSettings.defaultInterfaceOrientation, Is.EqualTo(UIOrientation.AutoRotation));
-            Assert.That(PlayerSettings.allowedAutorotateToPortrait, Is.False);
-            Assert.That(PlayerSettings.allowedAutorotateToPortraitUpsideDown, Is.False);
-            Assert.That(PlayerSettings.allowedAutorotateToLandscapeLeft, Is.True);
-            Assert.That(PlayerSettings.allowedAutorotateToLandscapeRight, Is.True);
+            var projectSettingsPath = Path.GetFullPath(Path.Combine(Application.dataPath, "../ProjectSettings/ProjectSettings.asset"));
+            var serializedSettings = File.ReadAllText(projectSettingsPath);
+
+            StringAssert.Contains("defaultScreenOrientation: 4", serializedSettings);
+            StringAssert.Contains("allowedAutorotateToPortrait: 0", serializedSettings);
+            StringAssert.Contains("allowedAutorotateToPortraitUpsideDown: 0", serializedSettings);
+            StringAssert.Contains("allowedAutorotateToLandscapeRight: 1", serializedSettings);
+            StringAssert.Contains("allowedAutorotateToLandscapeLeft: 1", serializedSettings);
         }
     }
 }
