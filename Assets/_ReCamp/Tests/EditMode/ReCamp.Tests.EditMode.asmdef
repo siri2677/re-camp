@@ -4,7 +4,8 @@
   "references": [
     "ReCamp.Runtime",
     "ReCamp.Domain",
-    "ReCamp.UnityAdapter"
+    "ReCamp.UnityAdapter",
+    "UnityEngine.UI"
   ],
   "includePlatforms": [
     "Editor"
