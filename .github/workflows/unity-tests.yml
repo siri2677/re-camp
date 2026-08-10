@@ -15,8 +15,31 @@ permissions:
   contents: read
 
 jobs:
+  repository-preflight:
+    name: Fresh checkout preflight
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify Unity project baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f ProjectSettings/ProjectVersion.txt
+          test -f ProjectSettings/ProjectSettings.asset
+          test -f Packages/manifest.json
+          test -f Assets/_ReCamp/Scripts/ReCamp.Runtime.asmdef
+          grep -q "m_EditorVersion: 6000.5.3f1" ProjectSettings/ProjectVersion.txt
+          grep -q "defaultScreenOrientation: 4" ProjectSettings/ProjectSettings.asset
+          grep -q "allowedAutorotateToPortrait: 0" ProjectSettings/ProjectSettings.asset
+          grep -q "allowedAutorotateToPortraitUpsideDown: 0" ProjectSettings/ProjectSettings.asset
+          grep -q "allowedAutorotateToLandscapeRight: 1" ProjectSettings/ProjectSettings.asset
+          grep -q "allowedAutorotateToLandscapeLeft: 1" ProjectSettings/ProjectSettings.asset
+
   editmode-playmode:
     name: EditMode and PlayMode
+    needs: repository-preflight
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -41,5 +64,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: unity-test-artifacts
-          path: ${{ steps.unity-tests.outputs.artifactsPath }}
+          path: artifacts
           if-no-files-found: warn
