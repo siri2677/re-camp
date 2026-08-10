@@ -1,258 +1,161 @@
-# Re:Camp Integrated Sprint Backlog
+# Re:Camp Current Generation Sprint Backlog
 
-> 최종 갱신: 2026-08-09
+> 최종 갱신: 2026-08-10
+> 역할: 실제 작업 ID·실행 순서·상태·완료 조건의 단일 기준
 
-이 문서는 실제 작업을 시작할 때 가장 먼저 확인하는 통합 작업 목록이다. 원격 계획의 ID 체계를
-유지하고 최신 Unity 구현·검증 상태와 신규 캐릭터 디자인 v3.0 기준을 반영한다.
+전역 제품·디자인 기준은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`를 따른다. 이 Backlog에서는 캐릭터 이름·비율·플랫폼·Production Budget을 다시 정의하지 않는다.
 
-상태는 `Todo`, `Ready`, `In Progress`, `Review`, `Deferred`, `Blocked`, `Done`을 사용한다.
+## 상태
 
-- `Done`: 구현과 직접 검증이 모두 끝남
-- `Review`: 구현됐지만 통합 회귀·Git 재현성·사람 승인 중 하나가 남음
-- `Deferred`: 필요성이 확인될 때 도입하는 선택 작업이며 현재 선행 조건이 아님
-- `Blocked`: 외부 연결·손상 자산·사용자 결정 등 명시적 조건을 기다림
+| 상태 | 의미 |
+|---|---|
+| `Todo` | 결과 없음 |
+| `Ready` | 선행 조건 충족 |
+| `In Progress` | 현재 작업 중 |
+| `Review` | 구현/산출물은 있으나 검증·재현·사람 승인 일부가 남음 |
+| `Blocked` | 외부 설치·기기·사용자 결정·승인 필요 |
+| `Deferred` | 실제 병목이 생길 때 재평가 |
+| `Done` | 완료 조건과 필요한 증거 충족 |
 
 ## 현재 P0 실행 큐
 
 | 순서 | ID | 작업 | 상태 | 다음 완료 조건 |
 |---:|---|---|---|---|
-| 1 | DEV-0113 | 기존 비종속 Core 통합 | Done | Domain 정산·스킬 command/event와 Unity Presentation 경계 연결, Scene 정산 통합 테스트 `19/19` |
-| 2 | DEV-0115 | Android Landscape·Safe Area 기준 | Review | Landscape 고정, 기존 SafeArea 구현의 종횡비·Cutout 자동 테스트와 실기기 확인 |
-| 3 | DEV-0116 | Android Touch 조작·HUD | Review | `BattleInputRouter`·VirtualJoystick·Attack/Ability/Extract Touch HUD와 PC 입력 병행 구현, EditMode `35/35`·PlayMode `21/21`; Android device smoke 남음 |
-| 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity Hub에서 AndroidPlayer·SDK·NDK·OpenJDK 설치 후 Android Target 전환 |
-| 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
-| 6 | ART-0103·0111 | Figma 신규 캐릭터 제작 시트 v003 실사용 검증 | Review | v003 SVG Import·Component Clone·한글 보존·PNG/PDF Export·사람 사용성 검토 |
-| 7 | ART-0112 | 신규 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Todo | Gate A 선택 후보의 비율·확대/삭제/결합·Face128·실루엣 검토 |
-| 8 | ART-1001~1409 | 신규 CH101~CH105 2D 디자인 제작 시트 | In Progress | 공통 라인업 WIP 생성 완료; 캐릭터별 3안·선택 KeyArt·3뷰·표정·장비·팔레트·Face128·실루엣 남음 |
-| 9 | ART-1501~1504 | 신규 5인 교차 디자인·유사성 검토 | Todo | 동일 128px 얼굴·장비 포함/제거 실루엣·저채도 보드·원작성 기록 |
-| 10 | ART-1510 | 신규 레퍼런스 품질·성인 여성 매력 Alignment | Done | Reset Brief·프롬프트·비복제 규칙과 Gate A 검토표 작성, 사람 승인 전 APPROVED 금지 |
-| 11 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Review | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정; 레거시 경계와 신규 전환 검토 남음 |
-| 12 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
-| 13 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Done | `Bootstrap → Lobby → Battle → Result → Lobby`와 Extracted 보상·Camp 저장 통합 자동화 `19/19` |
-| 14 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
+| 1 | GEN-0001 | Legacy / Current Generation 분리·문서 단일화 | In Progress | Current 문서 정합성 검사 통과, 활성 진입 문서가 Baseline만 참조 |
+| 2 | DEV-0115 | Landscape·Safe Area | Review | 화면비·Cutout 자동/실기기 증거 |
+| 3 | DEV-0116 | Touch 입력·HUD | Review | Android 기기 Smoke와 입력 회귀 |
+| 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity AndroidPlayer·SDK·NDK·OpenJDK 설치 |
+| 5 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | 선행 Android 작업 + 식별자 결정 + 테스트 기기 |
+| 6 | ART-0103·0111 | 제작 시트 도구 실사용 검증 | Review | Import·Clone·한글·PNG/PDF Export·사람 사용성 |
+| 7 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | In Progress | 캐릭터별 통제 후보, 비교 보드, 사람 Gate A, 제작 시트 |
+| 8 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Todo | 얼굴·실루엣·저채도·원작성 비교 증거 |
+| 9 | ART-0112 | 2D→3D 변환표 Proof | Todo | Gate A 선택 후보의 단순화·제작 위험 검증 |
+| 10 | ART-0104 | Blender 소품 Export Proof | Ready | 명명 규격 Source→FBX→기록 |
+| 11 | ART-0109·0110 | 자산·Animation Handoff 계약 | Review | Current/Legacy 경계와 공용/고유 Motion 검토 |
+| 12 | CHR-0360 | 역할 밸런스·중복 검토 | Review | 수동 플레이 기록·수치 보정 |
 
-과거 `RC-0011 / ReCamp_CharacterLineup_REVIEW_v003`은 실패 이력으로 유지하며 새 디자인 후보의
-베이스 이미지로 사용하지 않는다.
+## Sprint 0 — 저장소·세대·문서 기반
 
-## Sprint 0. 저장소·기획·아트 방향
+| ID | 작업 | 상태 | 완료 조건 |
+|---|---|---|---|
+| RC-0001~0012 | 저장소·기획·LFS·문서 기반 | Done | 기존 근거 유지 |
+| RC-0013 | Canonical Baseline | Done | 전역 결정 단일 소스 존재 |
+| GEN-0001 | Legacy / Current Generation 분리 | In Progress | `legacy/recamp-pre-generation`, `current/recamp-unified` 역할 고정 |
+| GEN-0002 | Current 문서 소유권 정리 | In Progress | AGENTS·Skill·README·Planning·Design 문서 중복 제거 |
+| GEN-0003 | Current 문서 정합성 CI | Ready | validator와 Workflow가 Current PR/Push에서 통과 |
 
-### 목표
+## Sprint 1 — Unity·Core·Android 기반
 
-개발과 아트 제작을 시작할 수 있는 기준 문서와 저장소 구조를 준비한다.
+| ID | 작업 | 상태 | 남은 완료 조건 |
+|---|---|---|---|
+| DEV-0101~0103 | Unity 프로젝트·저장소 구조 | Done | 없음 |
+| DEV-0104 | Fresh Clone 재현 | Review | 별도 Clone·Unity Open·Compile·Test |
+| DEV-0105~0107 | Scene·Loader·GameManager | Done | 없음 |
+| DEV-0108~0109 | Core 감사·경계 결정 | Done | 없음 |
+| DEV-0110 | Domain 상태와 Presentation 연결 | Review | 잔여 중복 규칙 정리 |
+| DEV-0111 | 테스트 Assembly | Done | 없음 |
+| DEV-0112 | Core·Unity CI | Review | Hosted run 및 Current branch parity 확인 |
+| DEV-0113 | Domain 정산·스킬 Command/Event 통합 | Done | 현재 회귀 기준 유지 |
+| DEV-0114 | Android Build Support | Blocked | Module·SDK·NDK·JDK 설치 |
+| DEV-0115 | Landscape·Safe Area | Review | 실기기·화면비 증거 |
+| DEV-0116 | Touch Control | Review | Android 기기 Smoke |
+| DEV-0117 | App ID·Build Profile·첫 APK | Blocked | 선행 작업과 식별자 결정 |
 
-| ID | 작업 | 우선순위 | 상태 | 근거·비고 |
-|---|---|---:|---|---|
-| RC-0001 | GitHub 저장소 초기화 | High | Done | 저장소 존재 |
-| RC-0002 | README | High | Done | 프로젝트 개요 존재 |
-| RC-0003 | AGENTS 작업 규칙 | High | Done | 다음 세션 자동 진입 규칙 존재 |
-| RC-0004 | Unity `.gitignore` | High | Done | 생성 디렉터리 제외 |
-| RC-0005 | Git LFS 규칙 | High | Done | PNG·FBX·BLEND·KRA·TGA·EXR 속성 검증 |
-| RC-0006~0010 | 게임 기획·테이블·아트 가이드·실행 계획 | High | Done | `docs/`, `tables/`, `planning/` 기준 |
-| RC-0011 | 과거 통합 캐릭터 라인업 시안 | Medium | Review | v002 REJECTED, v003 Gate A FAIL; 실패 이력으로만 보존 |
-| RC-0012 | LFS 규칙과 현재 아트 구조 검증 | High | Done | `git check-attr` 검증 |
-| RC-0013 | 현재 프로젝트 기준 단일화 | High | Done | Android-first, 일본 모바일 서브컬처 신규 CH101~CH105, 2D 약 7등신·3D 5~6등신, Character Bible·Anchor v3.0 확정 |
+실제 테스트 수치는 `IMPLEMENTATION_STATUS.md`에서만 관리한다.
 
-### 완료 기준
+## Sprint 2 — 핵심 루프·Gray Box
 
-- `planning/`에서 다음 작업을 선택할 수 있다.
-- 게임·캐릭터·아트 문서가 성인 여성 5인과 2D 약 7등신·3D 5~6등신 방향에서 일치한다.
-- 과거 v003을 수정하는 대신 새 한 문장 훅 기반 캐릭터별 후보를 제작한다.
-
-## Sprint 1. Unity 프로젝트·Core 통합 기반
-
-| ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
-|---|---|---:|---|---|
-| DEV-0101 | Unity 버전 확정 및 프로젝트 생성 | High | Done | `CURRENT_PROJECT_BASELINE.md`와 `ProjectVersion.txt`에 `6000.5.3f1` 확정 |
-| DEV-0102 | Visible Meta Files·Force Text | High | Done | `m_SerializationMode: 2` 확인 |
-| DEV-0103 | `Assets/_ReCamp` 구조 | High | Done | Scenes, Scripts, Art, Prefabs, Captures 존재 |
-| DEV-0104 | `Assets`, `Packages`, `ProjectSettings`, `.meta` Git 반영 | High | Review | 저장소 반영 후 별도 clone-open 검증 남음 |
-| DEV-0105 | 기본 Scene 5개 | High | Done | Bootstrap·Title·Lobby·Battle·Result 존재 |
-| DEV-0106 | SceneLoader | High | Done | Scene 이름 매핑과 흐름 검증 |
-| DEV-0107 | GameManager·서비스 초기화 | High | Done | 지속 인스턴스와 CampManager 동작 |
-| DEV-0108 | Core 런타임 호환성 검토 | High | Done | 원격 `ReCamp.Core`와 Unity 구현의 API·의존성·규칙 차이를 감사 문서에 기록 |
-| DEV-0109 | Core 공유·Assembly·Adapter 결정 | High | Done | 원격 원본 직접 병합 대신 portable domain + Unity adapter 경계 확정 |
-| DEV-0110 | Core 상태를 Unity Presentation에 연결 | High | Review | 현재 기능 동작, 중복 규칙 정리 필요 |
-| DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 35/35, PlayMode 21/21 통과 |
-| DEV-0112 | Core·Unity CI | Medium | Review | `.github/workflows/unity-tests.yml` 설정과 로컬 Fresh Clone parity 검증 완료; hosted run은 push 후 확인 |
-| DEV-0113 | 기존 비종속 Core 통합 | High | Done | Domain 캠프·저장·탐험 Outcome·스킬 포트와 Unity Presentation 연결 및 EditMode/PlayMode 검증 완료 |
-| DEV-0114 | Android Build Support·SDK·NDK·OpenJDK | High | Blocked | 설치된 Unity `6000.5.3f1`에 `PlaybackEngines/AndroidPlayer` 없음; Module 설치 필요 |
-| DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | Portrait 자동 회전 비활성화와 `Screen.safeArea` Touch HUD 구현; 종횡비/Cutout·실기기 확인 필요 |
-| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Review | 공통 Input Command와 이동·공격·능력·귀환 UI 구현; Android device smoke 필요 |
-| DEV-0117 | Android App ID·Build Profile·첫 APK/실기기 Smoke | High | Blocked | DEV-0114~0116, 배포 식별자 결정, 테스트 기기 필요 |
-
-### 아트 파이프라인 병행
-
-| ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
-|---|---|---:|---|---|
-| ART-0101 | 신규 5인 후보 생성 workflow | High | In Progress | 공통 라인업 WIP 생성 완료: `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_WIP_v001.png`; 캐릭터별 3안·동일 캔버스 비교 남음 |
-| ART-0102 | 도구 비종속 신규 캐릭터 Anchor v3.0 | High | Done | CH101~CH105의 2D/3D 목표와 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
-| ART-0103 | Figma 제작 시트 템플릿 v003 | High | Review | 6-Frame 규격·신규 Instance 완료, 실제 Figma Import·Clone·Export 검증 남음 |
-| ART-0104 | Blender MCP 연결·장비 Export | Medium | Ready | 신규 장비·소품 `.blend`→FBX Export 검증 |
-| ART-0105 | FBX Import·Material·Prefab | Medium | Todo | ART-0104·0109 선행 |
-| ART-0106 | `art_source/` 구조 | Medium | Done | 신규 소스 하위 구조 존재 |
-| ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 v3.0 | High | Done | 신규 매력·원작성·약 7등신·변환표·Unity Gate 증거 확정 |
-| ART-0108 | ComfyUI·ComfyUI MCP 고정 워크플로 | Low | Deferred | 대량 일관성·정밀 인페인팅이 실제 병목일 때 재평가 |
-| ART-0109 | 아트 자산·Export 명명 규격 v002 | High | Done | 신규 Subject·CH101~CH105·LOD·Socket·GUID 규칙 확정 |
-| ART-0110 | 공용·캐릭터 Animation 규격 | Medium | Review | 기존 Gray Box 모션과 신규 승인 모션 계약을 분리 |
-| ART-0111 | v003 Figma 실사용 검증 | High | Todo | Import·Component·한글·PNG/PDF Export·사람 사용성 |
-| ART-0112 | 신규 2D→3D 변환표 | High | Todo | Gate A 선택 후 자동 비율·128px·실루엣·통합시트 증거 |
-
-## Sprint 2. Scene 흐름과 Gray Box 전투
-
-### 목표
-
-임시 모델로 Lobby → Battle → Result → Lobby 흐름과 기본 전투·정산을 완성한다.
-
-| ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
-|---|---|---:|---|---|
-| DEV-0201~0204 | Bootstrap·Lobby·Battle·Result Gray Box | High | Done | Scene 직접 실행 확인 |
-| DEV-0205~0207 | Lobby → Battle → Result → Lobby | High | Done | 전체 Play Mode 흐름 검증 |
-| DEV-0208 | Input System·PlayerController | High | Review | `BattleInputRouter`를 통한 Keyboard·Touch 카메라 상대 XZ 이동, 실제 Android 입력·감도 회귀 필요 |
-| DEV-0209 | 쿼터뷰 카메라·이동 경계 | High | Done | Orthographic `35.3° / 45°`, actor/camera clamp |
-| DEV-0210 | 기본 공격·Hitbox·Damageable | High | Done | 자동 공격과 사망 처리 검증 |
-| DEV-0211 | EnemyController·추적 AI | High | Done | XZ 추적·접촉 피해 검증 |
-| DEV-0212 | EnemySpawner·웨이브·보스 | High | Done | 일반 웨이브 후 보스 스폰 |
-| DEV-0213 | 사망·보상 1회 지급 | High | Done | 위치 보존과 단일 보상 검증 |
-| DEV-0214 | 귀환·사망·시간 종료 | High | Done | 5분, 60초 경고, 발전기 +30초/레벨, R/Touch Hold 귀환, 종료 사유 |
-| DEV-0215 | 결과 정산·로컬 저장 | High | Done | 자원 정산·로비 유지·캠프 저장 검증 |
-| TEST-0201 | Scene 흐름 PlayMode 테스트 | High | Done | Build Settings와 `Bootstrap → Lobby → Battle → Result → Lobby` 자동 회귀 통과 |
-| TEST-0202 | 전투·보상·정산 회귀 테스트 | High | Done | 전체 Scene 전환·정산 통합 테스트 `19/19` 통과 |
-
-### 완료 기준
-
-- 임시 캐릭터가 이동·공격하고 적이 스폰·추적·피격·사망한다.
-- 자원 획득, 귀환·사망·시간 만료, 결과 정산과 저장이 동작한다.
-- 자동 테스트와 직접 Play Mode 검증이 통과한다.
-
-## Sprint 3. 레거시 5인 전투 프로토타입
-
-기존 CH001~CH005 임시 로스터로 역할·조작 차이를 검증한다. 이 프록시는 신규 CH101~CH105의
-최종 성별 표현·아트 품질·런타임 데이터 기준이 아니며, Gate A 이후 별도 마이그레이션한다.
-
-| ID | 작업 | 우선순위 | 상태 | 구현·남은 일 |
-|---|---|---:|---|---|
-| CHR-0301 | 공용 CharacterController·Stats·Ability | High | Done | 5인 Roster·Stats·Ability와 테스트 |
-| CHR-0302 | 캐릭터 선택·데이터 적용 | High | Done | Lobby 선택 → Battle 데이터 유지 직접 검증 |
-| CHR-0310~0311 | 루나 대시·3타·스캔·자원 탐지 | High | Review | 자동 테스트 완료, VFX·수치 튜닝 |
-| CHR-0320~0321 | 미유 드론 자동 사격·오버클럭·자동 회수 | High | Review | 수동 대상 지정 남음 |
-| CHR-0330~0331 | 코코 회복·보호막 | High | Review | 상태 이상 시스템·해제 남음 |
-| CHR-0340~0341 | 이리스 차지·보스 보정·표식·피해 증폭 | High | Review | 최종 약점 연출 남음 |
-| CHR-0350~0351 | 노아 가드·반격·이동 차단 방벽·밀쳐내기 | High | Review | VFX·수치 튜닝 |
-| CHR-0360 | 5명 밸런스·역할 중복 검토 | High | Review | 수동 플레이와 밸런스 기록 |
-| TEST-0301 | 캐릭터별 핵심 스킬 테스트 | High | Done | 자동 테스트 통과 |
-
-### 완료 기준
-
-- 5명 모두 임시 모델로 선택·전투 가능하다.
-- 플레이 방식과 강점이 겹치지 않는다.
-- 대표 능력 자동 테스트와 직접 피드백 검증을 통과한다.
-
-## Sprint 4. 성인 여성 5인 Approved 2D 제작 시트
-
-### 목표
-
-5명 모두 3D 모델링과 Key Art에 사용할 사람 승인 약 7등신 제작 시트를 확보한다.
-
-```text
-한 문장 훅 기반 전신 후보 3안
-→ 얼굴·헤어·체형·패션 확정
-→ 약 7등신 Front·Side·Back Turnaround
-→ 평상시↔임무 상태와 표정 8종
-→ 무기·장비 상세와 기능 근거
-→ 컬러·재질표
-→ 128px 얼굴·흑백 실루엣·저채도·유사성 검토
-→ 캐릭터별 2D→3D 변환표
-→ 사람 승인
-```
-
-세부 ID는 `planning/art_production_backlog.md`의 `ART-10`~`ART-15`를 따른다. `APPROVED`는
-`ART_REVIEW_CHECKLIST.md` v3.0과 사람 검토를 통과한 경우에만 사용한다.
-
-### ART-1510. 신규 레퍼런스 품질·성인 여성 매력 Alignment
-
-문서로 확정한 신규 5인 후보를 사용자 지정 레퍼런스의 품질 축과 비교할 준비를 마쳤다. 레퍼런스
-고유 캐릭터·의상·무기·포즈·UI·로고를 복제하지 않고, 성인 여성의 매력·표정·패션·자세·역할
-가독성을 신규 훅과 기능 장비로 변환한다.
-
-- `CHARACTER_BIBLE.md` v3.0에 신규 5인 역할·성격·장비·캠프 기능을 기록했다.
-- `ART_DIRECTION_RESET_BRIEF_2026-08-09.md`에 공통 Prompt·Negative Prompt·캐릭터별 3안 변형·Gate A 표를 기록했다.
-- 공통 라인업 WIP는 생성 증거와 metadata/review를 함께 기록한다. 캐릭터별 3안과 Gate A 전에는 최종 후보로 기록하지 않는다.
-- 사람 Gate A 승인 전에는 5인 모두 `REVIEW`를 유지하고 최종 3D를 시작하지 않는다.
-- 상세 계획과 완료 조건은 `planning/DESIGN_DIRECTION_2026-08-09.md`를 따른다.
-
-## Sprint 5. CH101 아마사와 린 Character Proof
-
-### 목표
-
-Gate A에서 승인된 아마사와 린을 첫 최종 캐릭터로 완성해 약 7등신 2D, 5~6등신 3D,
-Unity 파이프라인과 타깃 매력을 검증한다. Gate A 이전에는 이 단계에 진입하지 않는다.
-
-| ID 범위 | 작업 | 상태 |
+| 범위 | 상태 | 남은 완료 조건 |
 |---|---|---|
-| ART-2001~2004 | 3D 규격·Unity Presentation 계약·5.2~5.8 수용 Base Mesh·Rig·Toon 규칙 | Todo |
-| ART-2005~2006 | CH101 5.3~5.4등신 Blockout·Unity 쿼터뷰·Android Gate C | Todo |
-| ART-2007~2010 | CH101 최종 모델·Rig·표정·애니메이션·VFX·Prefab | Todo |
-| ART-2011 | 신호 주자 훅과 타깃 사용자 매력 검증 | Todo |
+| Scene 흐름 | Done | 회귀 유지 |
+| 이동·카메라·아레나 | Done | 최종 아트 framing 재검토 |
+| 기본 전투·적·Wave·Boss | Done | 밸런스·피드백 폴리시 |
+| 자원·귀환·결과·저장 | Done | Android Lifecycle·손상/업데이트 확대 |
+| PC/Touch 공통 입력 | Review | 실기기 입력 감도·중단/복귀 |
+| 전투·정산 통합 테스트 | Done | Current migration 후 재실행 |
 
-승인된 약 7등신 2D와 같은 아마사와 린으로 보이고, 얼굴·신호 리본·단일 세이버의 쿼터뷰
-식별성·관통·성능·플레이 검증을 통과해야 한다.
+## Sprint 3 — 역할 Prototype
 
-## Sprint 6. Vertical Slice
+| 범위 | 상태 | 남은 완료 조건 |
+|---|---|---|
+| 공용 Stats·Ability·선택 | Done | Current Runtime handoff 전까지 회귀 기반으로 유지 |
+| 기존 5개 Gameplay 역할 | Review | 수동 밸런스·Current 표현 매핑 검증 |
+| 자동 Ability 테스트 | Done | Current migration 후 재실행 |
+| CHR-0360 역할 중복 검토 | Review | 실제 플레이 기록 |
 
-| ID | 작업 | 우선순위 | 상태 |
-|---|---|---:|---|
-| VS-6001 | 버려진 거리 Color Key·Blockout·최종 환경 | High | Todo |
-| VS-6002 | 일반 몬스터 3종 최종 제작 | High | Todo |
-| VS-6003 | 첫 보스 최종 제작 | High | Todo |
-| VS-6004 | 캠프 시설 3종 최종 제작 | High | Todo |
-| VS-6005 | 로비·전투·결과·캠프 UI | High | Todo |
-| VS-6006 | CH101 스킬·VFX·타격감 폴리시 | High | Todo
-| VS-6007 | 저장·튜토리얼·설정 | High | Todo |
-| VS-6008 | 사운드·음악 1차 | Medium | Todo |
-| VS-6009 | 성능·메모리·로딩 최적화 | High | Todo |
-| VS-6010 | 외부 Vertical Slice 테스트 | High | Todo |
+Legacy 외형을 유지한다는 의미가 아니라 **검증된 Gameplay 구조를 Current Generation에서 재사용하기 위한 기능 Proof**다.
 
-외부 사용자가 캐릭터 매력, 전투, 탐험, 귀환, 캠프 성장의 핵심 재미를 한 구간에서 경험하면 완료한다.
+## Sprint 4 — Current 캐릭터 2D
 
-## Sprint 7. 나머지 캐릭터와 전체 콘텐츠
+세부 산출물 ID와 상태는 `planning/art_production_backlog.md`가 소유한다.
 
-| ID | 작업 | 우선순위 | 상태 |
-|---|---|---:|---|
-| PROD-7001~7004 | CH102·CH103·CH104·CH105 최종 모델·애니메이션·VFX | High | Todo
-| PROD-7005 | 폐쇄된 연구소 | High | Todo |
-| PROD-7006 | 추가 몬스터 3종·보스 1종 | High | Todo |
-| PROD-7007 | 캠프 시설 4종 이상과 성장 연출 | High | Todo |
-| PROD-7008 | 캐릭터 해금 임무와 친밀도 | Medium | Todo |
-| PROD-7009 | 캐릭터별 대화·로비 상호작용 | Medium | Todo |
-| PROD-7010 | 전체 UI·VFX·사운드 | High | Todo |
+Exit 조건:
 
-5명, 2개 스테이지, 일반 몬스터 6종, 보스 2종과 성장 루프를 처음부터 끝까지 플레이할 수 있어야 한다.
+- 캐릭터별 후보와 동일 조건 비교.
+- 사람 Gate A.
+- Approved 제작 시트.
+- 2D→3D 변환표.
+- metadata·review 추적.
 
-## Sprint 8. QA와 출시 준비
+## Sprint 5 — CH101 Character Proof
 
-| ID | 작업 | 우선순위 | 상태 |
-|---|---|---:|---|
-| REL-8001 | 전체 회귀 테스트 | High | Todo |
-| REL-8002 | 저장 안정화·마이그레이션 | High | Todo |
-| REL-8003 | 실제 Android 기기와 개발 PC 사양 검증 | High | Todo |
-| REL-8004 | CPU·GPU·메모리·GC·Draw Call 최적화 | High | Todo |
-| REL-8005 | 해상도·입력·키 설정 | High | Todo |
-| REL-8006 | 리깅·관통·애니메이션 폴리시 | High | Todo |
-| REL-8007 | 승인되지 않은 WIP 제거 | High | Todo |
-| REL-8008 | 라이선스·AI 생성 메타데이터·외부 IP 유사성 | High | Todo |
-| REL-8009 | 약 7등신 스토어 이미지·트레일러·설명 | Medium | Todo |
-| REL-8010 | 체험판 또는 외부 베타 | High | Todo |
-| REL-8011 | Release Candidate 승인 | High | Todo |
+| 범위 | 상태 |
+|---|---|
+| Approved 2D 시트 | Todo |
+| 3D Blockout·Gate B/C | Todo |
+| 공용 Rig·Shader·Animator Proof | Todo |
+| 최종 Model·Motion·VFX·Audio | Todo |
+| Runtime handoff | Todo |
+| Android Character Proof | Todo |
+
+## Sprint 6 — Vertical Slice
+
+| ID | 작업 | 상태 |
+|---|---|---|
+| VS-6001 | 첫 환경 세트 | Todo |
+| VS-6002 | 일반 적 세트 | Todo |
+| VS-6003 | 첫 보스 | Todo |
+| VS-6004 | 캠프 핵심 시설 Presentation | Todo |
+| VS-6005 | 로비·전투·결과·캠프 UI | Todo |
+| VS-6006 | CH101 VFX·타격감 | Todo |
+| VS-6007 | 저장·튜토리얼·설정 | Todo |
+| VS-6008 | 사운드·음악 | Todo |
+| VS-6009 | 성능·메모리·로딩 | Todo |
+| VS-6010 | 외부 테스트 | Todo |
+
+## Sprint 7 — 나머지 캐릭터·출시 콘텐츠
+
+| ID | 작업 | 상태 |
+|---|---|---|
+| PROD-7001~7004 | 나머지 Current 캐릭터 최종 자산 | Todo |
+| PROD-7005 | 추가 환경 | Todo |
+| PROD-7006 | 추가 적·보스 | Todo |
+| PROD-7007 | 캠프 성장 연출 | Todo |
+| PROD-7008 | 해금·관계 콘텐츠 | Todo |
+| PROD-7009 | 로비 상호작용 | Todo |
+| PROD-7010 | 전체 UI·VFX·Audio | Todo |
+
+## Sprint 8 — QA·Release
+
+| ID | 작업 | 상태 |
+|---|---|---|
+| REL-8001 | 전체 회귀 | Todo |
+| REL-8002 | Save Migration·손상 방지 | Todo |
+| REL-8003 | Android 기기 매트릭스 | Todo |
+| REL-8004 | CPU·GPU·메모리·GC·Draw Call | Todo |
+| REL-8005 | 화면비·입력·Lifecycle | Todo |
+| REL-8006 | Rig·관통·Animation 폴리시 | Todo |
+| REL-8007 | WIP·Placeholder 제거 | Todo |
+| REL-8008 | 라이선스·AI metadata·유사성 | Todo |
+| REL-8009 | Store 자산 | Todo |
+| REL-8010 | 외부 베타 | Todo |
+| REL-8011 | Release Candidate 승인 | Todo |
 
 ## 운영 규칙
 
-- 작업 시작 전에 ID를 `In Progress`로 바꾼다.
-- 구현 경로와 검증 근거는 `planning/IMPLEMENTATION_STATUS.md`에 기록한다.
-- 코드가 동작해도 필요한 자동 테스트·직접 검증이 없으면 `Done`으로 바꾸지 않는다.
-- 아트는 사람 승인 전까지 `APPROVED`나 최종 게임 자산으로 취급하지 않는다.
-- 플레이어블은 전원 성인 여성으로 제작하고 남성 생성 결과는 승인 후보로 올리지 않는다.
-- 과거 v003 라인업을 새 캐릭터 제작 앵커로 사용하지 않는다.
-- 약 7등신 2D 제작 시트와 캐릭터별 2D→3D 변환표 없이 최종 3D Blockout을 시작하지 않는다.
-- CH101 Approved 2D 시트와 Character Proof 전에 나머지 최종 3D를 대량 제작하지 않는다.
-- ComfyUI·대용량 모델은 현재 선행 조건이 아니며 실제 아트 병목이 생길 때만 `ART-0108`을 `Ready`로 전환한다.
-- Git 커밋·push·PR은 사용자가 명시적으로 요청할 때 수행한다.
+- 전역 방향은 Baseline에서만 변경한다.
+- 이 파일은 ID·순서·상태·완료 조건만 소유한다.
+- 실제 실행 결과와 테스트 수치는 `IMPLEMENTATION_STATUS.md`에만 기록한다.
+- 디자인 상세는 Character Bible/Anchor/Art Direction의 소유 범위만 따른다.
+- 날짜형 리셋 문서를 새 실행 기준으로 사용하지 않는다.
+- Legacy와 Current를 직접 병합하지 않는다.
