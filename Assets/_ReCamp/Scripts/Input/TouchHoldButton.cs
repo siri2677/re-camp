@@ -12,16 +12,20 @@ namespace ReCamp.Input
         Extract,
     }
 
-    /// <summary>Converts one UI pointer gesture into a battle command.</summary>
+    /// <summary>Converts one owned UI pointer gesture into a battle command.</summary>
     [DisallowMultipleComponent]
     public sealed class TouchHoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, ICancelHandler
     {
+        private const int NoPointer = int.MinValue;
+
         [SerializeField] private TouchAction action;
 
         private BattleInputRouter inputRouter;
-        private bool held;
+        private int activePointerId = NoPointer;
 
         public TouchAction Action => action;
+        public bool IsHeld => activePointerId != NoPointer;
+        public int ActivePointerId => activePointerId;
 
         public void Configure(TouchAction configuredAction)
         {
@@ -35,57 +39,73 @@ namespace ReCamp.Input
 
         private void OnDisable()
         {
-            Release();
+            ReleaseActivePointer();
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (held || !IsInteractable())
+            if (eventData == null || IsHeld || !IsInteractable())
             {
                 return;
             }
 
-            held = true;
+            activePointerId = eventData.pointerId;
+            var router = inputRouter ??= BattleInputRouter.EnsureInstance();
             switch (action)
             {
                 case TouchAction.Attack:
-                    inputRouter.SubmitAttackPressed();
+                    router.SubmitAttackPressed();
                     break;
                 case TouchAction.Signature:
-                    inputRouter.SubmitSignaturePressed();
+                    router.SubmitSignaturePressed();
                     break;
                 case TouchAction.Utility:
-                    inputRouter.SubmitUtilityPressed();
+                    router.SubmitUtilityPressed();
                     break;
                 case TouchAction.Extract:
-                    inputRouter.SubmitExtractPressed();
+                    router.SubmitExtractPressed();
                     break;
             }
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            Release();
+            ReleasePointer(eventData);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Release();
+            ReleasePointer(eventData);
         }
 
         public void OnCancel(BaseEventData eventData)
         {
-            Release();
-        }
-
-        private void Release()
-        {
-            if (!held)
+            if (eventData is PointerEventData pointerEvent && pointerEvent.pointerId != activePointerId)
             {
                 return;
             }
 
-            held = false;
+            ReleaseActivePointer();
+        }
+
+        private void ReleasePointer(PointerEventData eventData)
+        {
+            if (eventData == null || eventData.pointerId != activePointerId)
+            {
+                return;
+            }
+
+            ReleaseActivePointer();
+        }
+
+        private void ReleaseActivePointer()
+        {
+            if (!IsHeld)
+            {
+                return;
+            }
+
+            activePointerId = NoPointer;
             if (inputRouter == null)
             {
                 return;
