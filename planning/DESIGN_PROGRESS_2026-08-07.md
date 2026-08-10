@@ -1,59 +1,24 @@
-# Re:Camp 디자인 작업 진척도 — 2026-08-09 리셋 반영
+# Re:Camp Design Progress Snapshot — 2026-08-09
 
-## 결론
+> 상태: `HISTORICAL SNAPSHOT`
+> Current execution status: `planning/sprint_backlog.md`
+> Current product/design baseline: `docs/00_project/CURRENT_PROJECT_BASELINE.md`
 
-기존 루나·미유·코코·이리스·노아 2D REVIEW 패키지는 새 방향의 기준에서 제외하고 `HISTORY ONLY`로 전환했다.
-새 로스터의 역할·성격·비주얼 훅·Anchor·공통 Art Direction·후보 생성 프롬프트·Gate A 검토표는 문서로 작성했다.
-2026-08-09에 내장 `image_gen.imagegen`으로 신규 5인 공통 라인업 WIP PNG 1장을 생성했다.
-따라서 제작은 시작됐지만 캐릭터별 3안·검토 보드·사람 Gate A 승인은 아직 완료되지 않았다.
+이 문서는 2026-08-09 시점 디자인 리셋 직후의 진행 상황을 보존하는 스냅샷이다. Current Generation의 최신 진행률이나 로스터·비율·장비 기준을 판단할 때 사용하지 않는다.
 
-## 신규 로스터 기준
+## 당시 확인된 사실
 
-| ID | 캐릭터 | 2D 목표 | 3D 목표 | 대표 장비 | 현재 상태 |
-|---|---|---:|---:|---|---|
-| CH101 | 아마사와 린 | 6.9~7.1H | 5.3~5.4H | 단일 와이어 세이버·신호 리본 | Lineup WIP / REVIEW |
-| CH102 | 키사라기 마오 | 6.8~7.0H | 5.2~5.3H | 접이식 자기 활·구조 링 | Lineup WIP / REVIEW |
-| CH103 | 카나데 노조미 | 7.0~7.2H | 5.5~5.6H | 공명 배턴·응급 베일 | Lineup WIP / REVIEW |
-| CH104 | 시온 타테가미 | 7.1~7.3H | 5.6~5.7H | 프리즘 측량 부채·지도 링 | Lineup WIP / REVIEW |
-| CH105 | 쿠로가네 아카리 | 7.2~7.4H | 5.7~5.8H | 키네틱 건틀릿·앵커 케이블 | Lineup WIP / REVIEW |
+- 기존 디자인 자료는 신규 제작 앵커에서 제외됐다.
+- Current Generation의 캐릭터 설정·Anchor·공통 Art Direction 초안이 작성됐다.
+- 공통 라인업 WIP 1장이 생성됐고 metadata/review가 기록됐다.
+- 캐릭터별 통제 후보와 사람 Gate A는 아직 진행 전이었다.
+- Approved 2D 제작 시트와 최종 3D는 존재하지 않았다.
 
-## 작업 상태
+## 이후 진행 상태 확인 위치
 
-| 계획 항목 | 상태 | 근거 |
-|---|---|---|
-| 5인 역할·전투 계약 | 완료 | `docs/05_art_concept/CHARACTER_BIBLE.md` v3.0 |
-| 5인 성격·비주얼 훅 | 완료 | Character Bible·Art Direction v3.0 |
-| 공통 고정·가변·금지 앵커 | 완료 | `CHARACTER_ANCHOR_SPEC.md` v3.0 |
-| 5인 후보 생성 프롬프트 | 완료 | `planning/ART_DIRECTION_RESET_BRIEF_2026-08-09.md` |
-| Gate A 검토표 | 준비 완료 | Reset Brief·`ART_REVIEW_CHECKLIST.md` v3.0 |
-| 신규 5인 공통 라인업 WIP PNG | 생성 완료 | `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_WIP_v001.png`; 메타데이터·리뷰 기록 포함 |
-| 캐릭터별 후보 PNG 이미지 | 진행 예정 | 공통 WIP를 기준으로 CH101~CH105 각 3안 생성 필요 |
-| 2D 제작 시트·Turnaround | 대기 | 사람 Gate A 이후 |
-| 2D→3D 변환표 | 대기 | 선택된 후보·제작 시트 이후 |
-| 3D Blockout·Unity Proof | 대기 | Gate A/B 승인 이후 |
-| 사람 Gate A 승인 | 0/5 | 사용자 판정 필요 |
-| 최종 Unity 아트 적용 | 0/5 | 3D Gate B/C 이후 |
+- 전체 작업 상태: `planning/sprint_backlog.md`
+- 아트 작업 상태: `planning/art_production_backlog.md`
+- 구현·테스트 증거: `planning/IMPLEMENTATION_STATUS.md`
+- 자산별 승인 상태: 해당 `.metadata.md` / `.review.md`
 
-## 기존 자산 상태
-
-- 과거 라인업·캐릭터별 REVIEW 이미지: `HISTORY ONLY`, 신규 디자인 입력 아님
-- 신규 기준과 섞지 않음
-- 실제 신규 승인안이 생기면 관련 자료를 `SUPERSEDED` 또는 `ARCHIVE`로 기록
-- 기존 Unity Gray Box 캐릭터와 테스트는 기능 검증용 레거시이며 이번 아트 리셋의 승인 증거가 아님
-
-## 다음 실행
-
-1. 공통 WIP 라인업을 기준선으로 고정하고 캐릭터별 프롬프트로 각 3안씩 생성한다.
-2. 동일 캔버스에서 얼굴·전신·장비 포함/제거 실루엣·팔레트를 비교한다.
-3. 사용자 Gate A에서 5인 방향을 선택한다.
-4. 선택된 캐릭터만 제작 시트와 2D→3D 변환표로 확장한다.
-
-`APPROVED`: `NOT GRANTED`
-`Human Gate A`: `0/5`
-
-### 2026-08-09 제작 증거
-
-- 공통 라인업 WIP: `art_refs/characters/lineup/ReCamp_FiveCharacterLineup_WIP_v001.png`
-- 메타데이터: 동명 `.metadata.md`
-- Gate A 리뷰: 동명 `.review.md`
-- 현재 산출량: 공통 라인업 `1/1`, 캐릭터별 3안 `0/15`, 사람 승인 `0/5`
+이 파일은 숫자나 상태를 최신화하지 않는다. 역사적 비교에만 사용한다.
