@@ -30,12 +30,12 @@ OWNED_FILES = {
     "Art Backlog": ROOT / "planning/art_production_backlog.md",
 }
 
-HISTORICAL_DOCS = (
+HISTORICAL_DOCS = {
     ROOT / "planning/DESIGN_DIRECTION_2026-08-09.md",
     ROOT / "planning/ART_DIRECTION_RESET_BRIEF_2026-08-09.md",
     ROOT / "planning/DESIGN_PROGRESS_2026-08-07.md",
     ROOT / "docs/plans/DESIGN_REFACTOR_ALIGNMENT_2026-08-09.md",
-)
+}
 
 STALE_PHRASES = (
     "2D 일반 등신",
@@ -46,7 +46,7 @@ STALE_PHRASES = (
     "Steam Windows — 1차 상용 출시",
 )
 
-# Global decisions must not be copied into the routing/index files.
+# Global decisions must not be copied into routing/index files.
 ROUTING_DUPLICATION_PHRASES = (
     "6.8~7.4",
     "5.2~5.8",
@@ -67,12 +67,37 @@ REQUIRED_BASELINE_MARKERS = (
     "scripts/validate_project_docs.py",
 )
 
+SKIP_DIR_NAMES = {
+    ".git",
+    "Library",
+    "Temp",
+    "Logs",
+    "bin",
+    "obj",
+    "art_refs",  # asset metadata/reviews may quote historical decisions accurately
+}
+
 
 def read(path: Path, errors: list[str]) -> str:
     if not path.is_file():
         errors.append(f"missing required file: {path.relative_to(ROOT)}")
         return ""
     return path.read_text(encoding="utf-8")
+
+
+def active_markdown_files() -> list[Path]:
+    files: set[Path] = set()
+    for base in (ROOT, ROOT / "docs", ROOT / "planning", ROOT / ".agents"):
+        if not base.exists():
+            continue
+        for path in base.rglob("*.md"):
+            relative = path.relative_to(ROOT)
+            if any(part in SKIP_DIR_NAMES for part in relative.parts):
+                continue
+            if path in HISTORICAL_DOCS:
+                continue
+            files.add(path)
+    return sorted(files)
 
 
 def validate_baseline(errors: list[str]) -> None:
@@ -96,19 +121,17 @@ def validate_routing(errors: list[str]) -> None:
 
 
 def validate_owned_files(errors: list[str]) -> None:
+    baseline_markers = ("CURRENT_PROJECT_BASELINE.md", "Canonical Baseline")
     for label, path in OWNED_FILES.items():
         text = read(path, errors)
         if not text:
             continue
-        if "CURRENT_PROJECT_BASELINE.md" not in text:
+        if not any(marker in text for marker in baseline_markers):
             errors.append(f"{label} must reference the Canonical Baseline: {path.relative_to(ROOT)}")
-        for phrase in STALE_PHRASES:
-            if phrase in text:
-                errors.append(f"{label} contains stale guidance {phrase!r}: {path.relative_to(ROOT)}")
 
 
 def validate_historical_docs(errors: list[str]) -> None:
-    for path in HISTORICAL_DOCS:
+    for path in sorted(HISTORICAL_DOCS):
         text = read(path, errors)
         if not text:
             continue
@@ -116,6 +139,14 @@ def validate_historical_docs(errors: list[str]) -> None:
             errors.append(f"date-stamped design document is not marked historical/superseded: {path.relative_to(ROOT)}")
         if "CURRENT_PROJECT_BASELINE.md" not in text:
             errors.append(f"historical design document does not route current decisions to Baseline: {path.relative_to(ROOT)}")
+
+
+def validate_all_active_docs(errors: list[str]) -> None:
+    for path in active_markdown_files():
+        text = path.read_text(encoding="utf-8")
+        for phrase in STALE_PHRASES:
+            if phrase in text:
+                errors.append(f"stale generation guidance {phrase!r} in active document: {path.relative_to(ROOT)}")
 
 
 def validate_branch_language(errors: list[str]) -> None:
@@ -133,6 +164,7 @@ def main() -> int:
     validate_routing(errors)
     validate_owned_files(errors)
     validate_historical_docs(errors)
+    validate_all_active_docs(errors)
     validate_branch_language(errors)
 
     if errors:
@@ -141,7 +173,7 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
-    print("Current Generation documentation validation passed.")
+    print(f"Current Generation documentation validation passed ({len(active_markdown_files())} active Markdown files checked).")
     return 0
 
 
