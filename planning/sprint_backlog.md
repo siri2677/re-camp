@@ -21,18 +21,17 @@
 
 | 순서 | ID | 작업 | 상태 | 다음 완료 조건 |
 |---:|---|---|---|---|
-| 1 | GEN-0001 | Legacy / Current Generation 분리·문서 단일화 | In Progress | Current 문서 정합성 검사 통과, 활성 진입 문서가 Baseline만 참조 |
-| 2 | DEV-0115 | Landscape·Safe Area | Review | 화면비·Cutout 자동/실기기 증거 |
-| 3 | DEV-0116 | Touch 입력·HUD | Review | Android 기기 Smoke와 입력 회귀 |
-| 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity AndroidPlayer·SDK·NDK·OpenJDK 설치 |
-| 5 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | 선행 Android 작업 + 식별자 결정 + 테스트 기기 |
-| 6 | ART-0103·0111 | 제작 시트 도구 실사용 검증 | Review | Import·Clone·한글·PNG/PDF Export·사람 사용성 |
-| 7 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | In Progress | 캐릭터별 통제 후보, 비교 보드, 사람 Gate A, 제작 시트 |
-| 8 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Todo | 얼굴·실루엣·저채도·원작성 비교 증거 |
-| 9 | ART-0112 | 2D→3D 변환표 Proof | Todo | Gate A 선택 후보의 단순화·제작 위험 검증 |
-| 10 | ART-0104 | Blender 소품 Export Proof | Ready | 명명 규격 Source→FBX→기록 |
-| 11 | ART-0109·0110 | 자산·Animation Handoff 계약 | Review | Current/Legacy 경계와 공용/고유 Motion 검토 |
-| 12 | CHR-0360 | 역할 밸런스·중복 검토 | Review | 수동 플레이 기록·수치 보정 |
+| 1 | DEV-0115 | Landscape·Safe Area | Review | 화면비·Cutout 자동/실기기 증거 |
+| 2 | DEV-0116 | Touch 입력·HUD | Review | Android 기기 Smoke와 입력 회귀 |
+| 3 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity AndroidPlayer·SDK·NDK·OpenJDK 설치 |
+| 4 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | 선행 Android 작업 + 식별자 결정 + 테스트 기기 |
+| 5 | ART-0103·0111 | 제작 시트 도구 실사용 검증 | Review | Import·Clone·한글·PNG/PDF Export·사람 사용성 |
+| 6 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | In Progress | 캐릭터별 통제 후보, 비교 보드, 사람 Gate A, 제작 시트 |
+| 7 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Todo | 얼굴·실루엣·저채도·원작성 비교 증거 |
+| 8 | ART-0112 | 2D→3D 변환표 Proof | Todo | Gate A 선택 후보의 단순화·제작 위험 검증 |
+| 9 | ART-0104 | Blender 소품 Export Proof | Ready | 명명 규격 Source→FBX→기록 |
+| 10 | ART-0109·0110 | 자산·Animation Handoff 계약 | Review | Current/Legacy 경계와 공용/고유 Motion 검토 |
+| 11 | CHR-0360 | 역할 밸런스·중복 검토 | Review | 수동 플레이 기록·수치 보정 |
 
 ## Sprint 0 — 저장소·세대·문서 기반
 
@@ -40,9 +39,9 @@
 |---|---|---|---|
 | RC-0001~0012 | 저장소·기획·LFS·문서 기반 | Done | 기존 근거 유지 |
 | RC-0013 | Canonical Baseline | Done | 전역 결정 단일 소스 존재 |
-| GEN-0001 | Legacy / Current Generation 분리 | In Progress | `legacy/recamp-pre-generation`, `current/recamp-unified` 역할 고정 |
-| GEN-0002 | Current 문서 소유권 정리 | In Progress | AGENTS·Skill·README·Planning·Design 문서 중복 제거 |
-| GEN-0003 | Current 문서 정합성 CI | Ready | validator와 Workflow가 Current PR/Push에서 통과 |
+| GEN-0001 | Legacy / Current Generation 분리 | Done | `legacy/recamp-pre-generation`, `current/recamp-unified` 역할 고정 |
+| GEN-0002 | Current 문서 소유권 정리 | Done | AGENTS·Skill·README·Planning·Design 문서가 소유 범위만 관리 |
+| GEN-0003 | Current 문서 정합성 CI | Done | PR #9에서 전체 활성 Markdown 정합성 검사 통과 |
 
 ## Sprint 1 — Unity·Core·Android 기반
 
@@ -54,7 +53,7 @@
 | DEV-0108~0109 | Core 감사·경계 결정 | Done | 없음 |
 | DEV-0110 | Domain 상태와 Presentation 연결 | Review | 잔여 중복 규칙 정리 |
 | DEV-0111 | 테스트 Assembly | Done | 없음 |
-| DEV-0112 | Core·Unity CI | Review | Hosted run 및 Current branch parity 확인 |
+| DEV-0112 | Core·Unity CI | Review | Hosted Unity license 설정 후 실제 Test Runner 성공 결과 |
 | DEV-0113 | Domain 정산·스킬 Command/Event 통합 | Done | 현재 회귀 기준 유지 |
 | DEV-0114 | Android Build Support | Blocked | Module·SDK·NDK·JDK 설치 |
 | DEV-0115 | Landscape·Safe Area | Review | 실기기·화면비 증거 |
