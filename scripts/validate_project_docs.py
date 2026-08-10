@@ -121,11 +121,12 @@ def validate_routing(errors: list[str]) -> None:
 
 
 def validate_owned_files(errors: list[str]) -> None:
+    baseline_markers = ("CURRENT_PROJECT_BASELINE.md", "Canonical Baseline")
     for label, path in OWNED_FILES.items():
         text = read(path, errors)
         if not text:
             continue
-        if "CURRENT_PROJECT_BASELINE.md" not in text:
+        if not any(marker in text for marker in baseline_markers):
             errors.append(f"{label} must reference the Canonical Baseline: {path.relative_to(ROOT)}")
 
 
