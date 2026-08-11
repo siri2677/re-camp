@@ -12,6 +12,7 @@
 | Equipment ON/OFF silhouette | `PASS FOR WIP` | ON/OFF/LOW-SAT support board is present and linked as Gate A input. |
 | Unified character-sheet REVIEW | `PASS FOR REVIEW` | Front/back/side anchor and A/B/C state strip are now packaged for human review. |
 | Expression-sheet REVIEW | `PASS FOR REVIEW` | Six restrained identity-preserving expressions are now packaged as supporting evidence. |
+| Equipment-detail REVIEW | `PASS FOR REVIEW` | Prism-fan structure, single map-ring read, carry scale, and provisional art sockets are documented. |
 | Human Gate A | `PENDING` | This is a WIP state board, not an approval. |
 | Runtime permission | `NO` | No Unity or Runtime use. |
 
