@@ -179,9 +179,12 @@ art_refs/characters/rin/concept/CH101_Rin_GateA_Validation_Board_WIP_v001.review
 ```
 
 통합 보드는 A/B/C 방향을 한 화면에서 비교하기 위한 WIP다. 개별 A/B/C PNG, Face128, 장비 ON/OFF 실루엣,
-Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기록하지 않는다.
+최종 제작 시트·Turnaround·표정·장비·컬러/재질 REVIEW가 사람 검토되기 전에는 `ART-1001` 완료 또는
+`APPROVED`로 기록하지 않는다.
 
-CH101 A안은 2026-08-11 사람 Gate A 승인을 받았다. `ART-1001`은 개별 후보·제작 시트 정리가 남아 있어 In Progress로 유지하며, 최종 제작 시트·Turnaround·2D→3D handoff 전에는 Unity에 적용하지 않는다.
+CH101 A안은 2026-08-11 사람 Gate A 승인을 받았다. `ART-1001`은 개별 후보와 제작 패키지 정리가 남아 있어
+In Progress로 유지한다. `CH101_Rin_Production_Handoff_REVIEW_v001.md`와 현재 REVIEW PNG/PDF는 제작 준비
+자료이며, 최종 시트 승인·Gate B 전에는 Unity에 적용하지 않는다.
 
 ## 7. Gate A 다음 단계
 
@@ -193,5 +196,23 @@ A안 선택 및 Gate A 승인 후 다음 순서로 진행한다.
 4. 저채도 비교.
 5. `CHA-A01~A19` 판정.
 6. 사람 선택 또는 전부 재작업.
+7. 사람 Gate A 승인 후 제작 시트 REVIEW 패키지와 2D→3D handoff를 검토.
 
-Approved 2D 제작 시트와 2D→3D handoff 전에는 Runtime CH101 치환과 3D Blockout을 시작하지 않는다.
+사람이 REVIEW 제작 시트를 승인하고 Gate B 증거가 완료되기 전에는 Runtime CH101 치환과 3D Blockout을 시작하지 않는다.
+
+## 8. Current production review package
+
+```text
+art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_REVIEW_v001.png
+art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_REVIEW_v001.pdf
+art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_REVIEW_v001.metadata.md
+art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_REVIEW_v001.review.md
+art_refs/characters/rin/concept/CH101_Rin_Turnaround_REVIEW_v001.png
+art_refs/characters/rin/concept/CH101_Rin_ExpressionSheet_REVIEW_v001.png
+art_refs/characters/rin/concept/CH101_Rin_EquipmentSheet_REVIEW_v001.png
+art_refs/characters/rin/concept/CH101_Rin_MaterialPalette_REVIEW_v001.png
+art_source/manifests/CH101_Rin_Production_Handoff_REVIEW_v001.md
+```
+
+이 패키지는 Gate A 승인 방향을 제작용으로 묶은 REVIEW 초안이다. PNG/PDF 자체는 아직 `APPROVED`가 아니며,
+사람 검토 후 수정 또는 새 APPROVED 버전을 별도 생성한다.
