@@ -65,7 +65,7 @@
 | ART-1103 | 패션·체형·실루엣 | Done | Equipment ON/OFF and state silhouette evidence approved |
 | ART-1104 | Turnaround | In Progress | CH102 Front·Side·Back review asset created; 3D cross-check remains |
 | ART-1105 | 표정 시트 | In Progress | CH102 six-expression review asset created; deformation proof remains |
-| ART-1106 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
+| ART-1106 | 대표 장비 상세 | In Progress | CH102 bow state/detail review asset created; socket proof remains |
 | ART-1107 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
 | ART-1108 | 2D→3D 변환표 | In Progress | CH102 state-aware handoff and Gate B preflight |
 | ART-1109 | 사람 Gate A | Done | Approval record and APPROVED path |
