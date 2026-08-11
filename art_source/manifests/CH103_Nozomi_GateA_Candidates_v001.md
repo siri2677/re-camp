@@ -1,7 +1,7 @@
 # CH103 Kanade Nozomi - Gate A Candidate Manifest v001
 
 > Backlog: `ART-1201`
-> Status: `APPROVED CURRENT 2D INPUT / unified sheet REVIEW / Gate A pending`
+> Status: `APPROVED / 2D production sheet / Gate B pending`
 > Generation: Current Generation only
 > Primary visual source: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
 > Source commit: `418ef96` - `art: refine current roster gate A visuals`
@@ -45,6 +45,9 @@ art_refs/characters/nozomi/concept/CH103_Nozomi_Silhouette_ON_OFF_WIP_A_v001.rev
 art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_REVIEW_v001.png
 art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_REVIEW_v001.metadata.md
 art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_REVIEW_v001.review.md
+art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_APPROVED_v001.png
+art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_APPROVED_v001.metadata.md
+art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_APPROVED_v001.review.md
 ```
 
 ## 4. Forbidden visual drift
@@ -59,6 +62,6 @@ art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_REVIEW_v001.revie
 1. Confirm the morning-roster identity and unified A/B/C state interpretation.
 2. Use the approved Face128 comparison and hair/face support evidence.
 3. Use the approved equipment ON/OFF and low-saturation silhouette evidence.
-4. Complete the CH103 unified character sheet REVIEW package before requesting final human Gate A review.
+4. Use the approved CH103 production sheet to begin the separate turnaround and Gate B preparation tasks.
 
 No CH103 Runtime replacement, Unity import, or 3D Blockout is authorized by this WIP manifest.

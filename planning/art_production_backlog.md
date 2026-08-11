@@ -82,7 +82,7 @@
 | ART-1206 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
 | ART-1207 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
 | ART-1208 | 2D→3D 변환표 | Todo | 확대·삭제·결합·물리 제거 |
-| ART-1209 | 사람 Gate A | In Progress | CH103 unified character-sheet REVIEW + final approval record |
+| ART-1209 | 사람 Gate A | Done | Approval record and APPROVED path |
 
 ### ART-13 — CH104
 

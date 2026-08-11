@@ -3,7 +3,7 @@
 > Date: 2026-08-11
 > Branch: `art/current-roster-gate-a-ch102`
 > Scope: CH103 current-roster 2D evidence package approval
-> Status: `APPROVED / CURRENT 2D EVIDENCE INPUT`
+> Status: `APPROVED / CURRENT 2D EVIDENCE INPUT / superseded by final Gate A approval`
 
 ## 1. Approval
 
@@ -28,13 +28,13 @@ The package remains anchored to `art_refs/characters/roster/current/CH101-105_Ro
 
 ## 3. Approval boundary
 
-This approval authorizes the current 2D evidence as input to the unified character-sheet REVIEW package. It does not approve:
+This approval authorized the current 2D evidence as input to the unified character-sheet REVIEW package. The final unified package was subsequently approved; see `CH103_Nozomi_Production_Sheet_Approval_20260811.md`. This record does not approve:
 
 - Final CH103 Gate A production-sheet approval.
 - Turnaround, expression, equipment-detail, or final material-sheet completion.
 - Gate B, 3D Blockout, Blender/FBX model, rig, animation, collider, physics, or VFX implementation.
 - Unity import, Runtime roster replacement, release, or Android proof.
 
-## 4. Next work
+## 4. Subsequent work
 
-Use `CH103_Nozomi_CharacterSheet_REVIEW_v001.png` and the approved support evidence to complete the unified character-sheet REVIEW package, then request separate final Gate A approval.
+Use `CH103_Nozomi_CharacterSheet_APPROVED_v001.png` as the current 2D production reference. Continue with separate turnaround and Gate B preparation tasks.
