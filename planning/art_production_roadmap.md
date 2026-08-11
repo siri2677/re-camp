@@ -54,7 +54,7 @@ Exit: 한 캐릭터를 후보→승인→제작 시트까지 반복할 수 있�
 
 정확한 캐릭터 특징은 Character Bible/Anchor를 읽으며 이 Roadmap에 복제하지 않는다.
 
-## A3 — CH101 Character Proof — Todo
+## A3 — CH101 Character Proof — In Progress
 
 - Approved 2D 시트.
 - 2D→3D 변환표.
@@ -66,7 +66,7 @@ Exit: 한 캐릭터를 후보→승인→제작 시트까지 반복할 수 있�
 
 Exit: 매력·가독성·Gameplay 훅·모델링 비용·모바일 성능이 함께 증명된다.
 
-## A4 — 공용 3D 기반 — Todo
+## A4 — 공용 3D 기반 — In Progress
 
 - 공용 Base Mesh/Rig/Shader/Animator/Prefab 구조.
 - Visual Root와 Gameplay Root 분리.

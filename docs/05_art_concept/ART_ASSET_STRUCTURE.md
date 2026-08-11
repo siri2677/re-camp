@@ -109,8 +109,8 @@ FBX, Texture, Material, Animation, Prefab만 사용한다. 현재 `Assets/_ReCam
 생성돼 있으나 다수는 최종 자산 제작 전 빈 구조다. 신규 CH101~CH105 후보 폴더와 이미지는
 provider 연결 전에는 생성하지 않는다.
 
-위 문서 트리는 목표 구조다. `CHARACTER_3D_SPEC.md`는 `ART-2001`에서 작성할 계획 산출물이며
-실제 파일이 생기기 전에는 현재 기준으로 인용하지 않는다. `ASSET_NAMING_GUIDE.md`와
+위 문서 트리는 목표 구조다. `CHARACTER_3D_SPEC.md`는 `ART-2001`에서 작성한 현재 3D proof 계약이며
+실제 Model/FBX/Android 측정이 생기기 전에는 최종 출시 예산으로 해석하지 않는다. `ASSET_NAMING_GUIDE.md`와
 `ANIMATION_GUIDE.md`는 각각 `ART-0109`, `ART-0110`에서 작성한 활성 기준이다.
 
 현재 로컬의 빈 `art_refs/character`, `art_refs/background`는 초기 레거시 폴더다. 새 Export는
@@ -128,7 +128,7 @@ provider 연결 전에는 생성하지 않는다.
 | CHARACTER_ANCHOR_SPEC.md | 5인 얼굴·헤어·실루엣·의상·장비·팔레트 일관성 기준 |
 | ART_REVIEW_CHECKLIST.md | 캐릭터·환경·UI/VFX의 Gate A/B/C 공통 판정표와 증거 규칙 |
 | CHARACTER_SHEET_TEMPLATE_SPEC.md | 캐릭터 제작 시트 Frame·Component·Gate 증거·Export 규격 |
-| CHARACTER_3D_SPEC.md (planned: ART-2001) | 폴리곤, 텍스처, Rig, LOD, 셰이더 규격 |
+| CHARACTER_3D_SPEC.md (`ART-2001`, Review) | 폴리곤, 텍스처, Rig, LOD, 셰이더 규격 |
 | ANIMATION_GUIDE.md | 공용·5인 고유 Motion, Animator, Event·Import·Gate 규격 |
 | ASSET_NAMING_GUIDE.md | Unity·Blender·이미지 세부 이름·Export·LOD·Socket·GUID 계약 |
 
