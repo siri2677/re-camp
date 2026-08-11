@@ -1,0 +1,31 @@
+# CH104 Shion Tategami - State Reference Manifest v001
+
+> Backlog: `ART-1301`
+> Status: `WIP / unified state package / Gate A pending`
+> Primary visual source: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
+> Source commit: `418ef96` - `art: refine current roster gate A visuals`
+> WIP board: `art_refs/characters/shion/concept/CH104_Shion_GateA_Candidates_WIP_v001.png`
+
+This manifest defines the CH104 A/B/C board as one unified character state package. A is the neutral anchor; B/C are controlled prism-fan and map-ring deployment references.
+
+## Shared identity lock
+
+- Fourth figure from the left in the morning roster is the only visual source for this WIP package.
+- Narrow indigo eyes, straight brows, angular jaw, asymmetrical bangs, indigo hair with magenta tips, adult vertical body read, ivory/indigo geometric outfit, one prism fan, and one map ring are shared across A/B/C.
+- No state may introduce a new costume, body type, unrelated weapon, or second orbit-ring system.
+
+## State map
+
+| State | Use | Prism fan / map ring read |
+|---|---|---|
+| `A` Neutral | idle, profile, roster, neutral reference | folded/quiet; lowered |
+| `B` Ready | surveying preparation and transition | partly opened; activated |
+| `C` Full Survey | precision mapping presentation | fully opened; one active ring |
+
+## Production rules
+
+1. Use A as the neutral face/hair/body anchor.
+2. Use B/C as the same character's fan deployment and mapping references.
+3. Keep Face128, turnaround, expression, palette, and 2D-to-3D evidence consistent across all states.
+4. Treat the prism fan as one representative equipment object and the map ring as one controlled visual object.
+5. Do not authorize Unity import, Runtime replacement, or 3D Blockout from this WIP manifest.

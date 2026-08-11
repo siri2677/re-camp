@@ -88,7 +88,7 @@
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1301 | 전신 후보 3안 | Ready | 동일 Character Anchor로 3안 + metadata |
+| ART-1301 | 전신 후보 3안 | In Progress | CH104 morning-roster A/B/C state board + metadata |
 | ART-1302 | 얼굴·헤어 선택 | Todo | 128px 얼굴 비교 + 사람 선택 |
 | ART-1303 | 패션·체형·실루엣 | Todo | 장비 on/off 비교 |
 | ART-1304 | Turnaround | Todo | Front·Side·Back 일치 |
