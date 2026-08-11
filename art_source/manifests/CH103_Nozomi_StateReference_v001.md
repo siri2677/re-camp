@@ -11,6 +11,7 @@
 > Approved sheet: `art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_APPROVED_v001.png`
 > Turnaround review: `art_refs/characters/nozomi/concept/CH103_Nozomi_Turnaround_REVIEW_v001.png`
 > Expression review: `art_refs/characters/nozomi/concept/CH103_Nozomi_ExpressionSheet_REVIEW_v001.png`
+> Equipment review: `art_refs/characters/nozomi/concept/CH103_Nozomi_EquipmentSheet_REVIEW_v001.png`
 
 This manifest defines the approved CH103 A/B/C board as one usable character state package. It follows the same package logic used for the approved CH102 sheet: A is the neutral anchor, while B/C are controlled equipment and action-state references.
 
@@ -37,6 +38,7 @@ This manifest defines the approved CH103 A/B/C board as one usable character sta
 5. The approved 2D sheet does not authorize Unity import, Runtime replacement, or 3D Blockout.
 6. Use the neutral turnaround for construction checks; use the approved A/B/C sheet for deployed veil states.
 7. Expression references must preserve the shared identity across A/B/C and remain separate from runtime deformation proof.
+8. Equipment detail must keep one baton object and one controlled veil panel system; proposed sockets remain Gate B inputs only.
 
 ## Approval and supporting evidence
 
