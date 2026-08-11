@@ -1,6 +1,6 @@
 # CH103 Kanade Nozomi - State Reference Manifest v001
 
-> Backlog: `ART-1201`, `ART-1202`, `ART-1203`, `ART-1209`
+> Backlog: `ART-1201`-`ART-1207`, `ART-1209`
 > Status: `APPROVED / 2D production sheet / Gate B pending`
 > Primary visual source: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
 > Source commit: `418ef96` - `art: refine current roster gate A visuals`
@@ -12,6 +12,7 @@
 > Turnaround review: `art_refs/characters/nozomi/concept/CH103_Nozomi_Turnaround_REVIEW_v001.png`
 > Expression review: `art_refs/characters/nozomi/concept/CH103_Nozomi_ExpressionSheet_REVIEW_v001.png`
 > Equipment review: `art_refs/characters/nozomi/concept/CH103_Nozomi_EquipmentSheet_REVIEW_v001.png`
+> Material palette review: `art_refs/characters/nozomi/concept/CH103_Nozomi_MaterialPalette_REVIEW_v001.png`
 
 This manifest defines the approved CH103 A/B/C board as one usable character state package. It follows the same package logic used for the approved CH102 sheet: A is the neutral anchor, while B/C are controlled equipment and action-state references.
 
@@ -39,6 +40,7 @@ This manifest defines the approved CH103 A/B/C board as one usable character sta
 6. Use the neutral turnaround for construction checks; use the approved A/B/C sheet for deployed veil states.
 7. Expression references must preserve the shared identity across A/B/C and remain separate from runtime deformation proof.
 8. Equipment detail must keep one baton object and one controlled veil panel system; proposed sockets remain Gate B inputs only.
+9. Color/material evidence must preserve the roster palette and low-saturation value hierarchy; final shaders and slots remain Gate B inputs only.
 
 ## Approval and supporting evidence
 

@@ -80,7 +80,7 @@
 | ART-1204 | Turnaround | In Progress | CH103 front·side·back review + identity continuity |
 | ART-1205 | 표정 시트 | In Progress | CH103 six-expression review + identity continuity |
 | ART-1206 | 대표 장비 상세 | In Progress | CH103 baton/veil structure, activation, socket proposal, simplification record |
-| ART-1207 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
+| ART-1207 | 컬러·재질 | In Progress | CH103 palette, material separation, and low-saturation review |
 | ART-1208 | 2D→3D 변환표 | Todo | 확대·삭제·결합·물리 제거 |
 | ART-1209 | 사람 Gate A | Done | Approval record and APPROVED path |
 
