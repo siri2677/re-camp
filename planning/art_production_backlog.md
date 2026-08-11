@@ -75,8 +75,8 @@
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
 | ART-1201 | 전신 후보 3안 | In Progress | CH103 morning-roster A/B/C state board created + metadata |
-| ART-1202 | 얼굴·헤어 선택 | Todo | 128px 얼굴 비교 + 사람 선택 |
-| ART-1203 | 패션·체형·실루엣 | Todo | 장비 on/off 비교 |
+| ART-1202 | 얼굴·헤어 선택 | In Progress | CH103 Face128-equivalent identity board + human confirmation |
+| ART-1203 | 패션·체형·실루엣 | In Progress | CH103 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
 | ART-1204 | Turnaround | Todo | Front·Side·Back 일치 |
 | ART-1205 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1206 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |

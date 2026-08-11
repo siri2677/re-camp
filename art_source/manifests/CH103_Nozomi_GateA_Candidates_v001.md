@@ -36,6 +36,12 @@ All states share face, hair, body read, ivory/coral outfit, baton identity, and 
 art_refs/characters/nozomi/concept/CH103_Nozomi_GateA_Candidates_WIP_v001.png
 art_refs/characters/nozomi/concept/CH103_Nozomi_GateA_Candidates_WIP_v001.metadata.md
 art_refs/characters/nozomi/concept/CH103_Nozomi_GateA_Candidates_WIP_v001.review.md
+art_refs/characters/nozomi/concept/CH103_Nozomi_Face128_WIP_A_v001.png
+art_refs/characters/nozomi/concept/CH103_Nozomi_Face128_WIP_A_v001.metadata.md
+art_refs/characters/nozomi/concept/CH103_Nozomi_Face128_WIP_A_v001.review.md
+art_refs/characters/nozomi/concept/CH103_Nozomi_Silhouette_ON_OFF_WIP_A_v001.png
+art_refs/characters/nozomi/concept/CH103_Nozomi_Silhouette_ON_OFF_WIP_A_v001.metadata.md
+art_refs/characters/nozomi/concept/CH103_Nozomi_Silhouette_ON_OFF_WIP_A_v001.review.md
 ```
 
 ## 4. Forbidden visual drift
@@ -48,8 +54,8 @@ art_refs/characters/nozomi/concept/CH103_Nozomi_GateA_Candidates_WIP_v001.review
 ## 5. Gate A next sequence
 
 1. Confirm the morning-roster identity and unified A/B/C state interpretation.
-2. Create a Face128 comparison and hair/face support evidence.
-3. Create equipment ON/OFF and low-saturation silhouette evidence.
+2. Human-review the Face128 comparison and hair/face support evidence now recorded in the WIP package.
+3. Human-review the equipment ON/OFF and low-saturation silhouette evidence now recorded in the WIP package.
 4. Build the CH103 unified character sheet REVIEW package before requesting human Gate A review.
 
 No CH103 Runtime replacement, Unity import, or 3D Blockout is authorized by this WIP manifest.
