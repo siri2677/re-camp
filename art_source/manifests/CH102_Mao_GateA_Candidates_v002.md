@@ -57,3 +57,7 @@ art_refs/characters/mao/concept/CH102_Mao_GateA_Candidates_REVIEW_v002.review.md
 5. Only after Gate A approval, create the 2D production sheet and 2D→3D handoff.
 
 No CH102 Runtime replacement, Unity import, or 3D Blockout is authorized by this candidate manifest.
+
+## 6. Provisional A validation
+
+`art_source/manifests/CH102_Mao_GateA_Validation_A_v001.md` contains a non-approval validation package for the source-faithful A direction. It is a review aid only; human A/B/C selection remains pending.

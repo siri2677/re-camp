@@ -61,8 +61,8 @@
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
 | ART-1101 | 전신 후보 3안 | In Progress | 동일 Character Anchor로 3안 + metadata |
-| ART-1102 | 얼굴·헤어 선택 | Todo | 128px 얼굴 비교 + 사람 선택 |
-| ART-1103 | 패션·체형·실루엣 | Todo | 장비 on/off 비교 |
+| ART-1102 | 얼굴·헤어 선택 | In Progress | 128px 얼굴 비교 + 사람 선택 |
+| ART-1103 | 패션·체형·실루엣 | In Progress | 장비 on/off 비교 |
 | ART-1104 | Turnaround | Todo | Front·Side·Back 일치 |
 | ART-1105 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1106 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
