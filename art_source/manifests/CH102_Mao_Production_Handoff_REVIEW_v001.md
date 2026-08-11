@@ -19,6 +19,7 @@ This document hands the approved CH102 2D sheet into Gate B preparation. It is a
 - `art_refs/characters/mao/concept/CH102_Mao_Turnaround_REVIEW_v001.png`
 - `art_refs/characters/mao/concept/CH102_Mao_ExpressionSheet_REVIEW_v001.png`
 - `art_refs/characters/mao/concept/CH102_Mao_EquipmentSheet_REVIEW_v001.png`
+- `art_refs/characters/mao/concept/CH102_Mao_MaterialPalette_REVIEW_v001.png`
 
 The visual anchor remains the second figure from the left in `CH101-105_Roster_FaceDiversity_WIP_v003.png`, from morning source commit `418ef96`. The approved sheet preserves the same identity across A/B/C.
 
@@ -64,7 +65,7 @@ The bow should be one controlled equipment object with A/B/C presentation states
 
 ## 5. Material and performance direction
 
-Proposed slots are `Face`, `Hair`, `Skin`, `Outfit`, `BowMetal`, and `BowPurple`. The final slot count, texture sizes, shader values, LOD transitions, and Android measurements must be proven during Gate B. Use shader/emission cues for the active bow read before adding dynamic geometry.
+Palette evidence is recorded in `CH102_Mao_MaterialPalette_REVIEW_v001.png` and its metadata. Proposed slots are `Face`, `Hair`, `Skin`, `Outfit`, `BowMetal`, and `BowPurple`. The final slot count, texture sizes, shader values, LOD transitions, and Android measurements must be proven during Gate B. Use shader/emission cues for the active bow read before adding dynamic geometry.
 
 Physics policy: cloth, cable, and free-hanging multi-part bow physics are out of scope for the first proof. Prefer transforms, a single controlled driver, or a shader/VFX cue. `Hurtbox_Body` may be a temporary Gate B probe only.
 
