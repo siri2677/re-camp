@@ -12,6 +12,7 @@
 > Equipment-sheet review: `art_refs/characters/shion/concept/CH104_Shion_EquipmentSheet_REVIEW_v001.png`
 > Material-palette review: `art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.png`
 > 2D-to-3D translation: `art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md`
+> Gate A review request: `art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md`
 
 This manifest defines the CH104 A/B/C board as one unified character state package. A is the neutral anchor; B/C are controlled prism-fan and map-ring deployment references.
 

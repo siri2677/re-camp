@@ -55,6 +55,7 @@ art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.png
 art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.metadata.md
 art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.review.md
 art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md
+art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md
 ```
 
 ## 4. Forbidden visual drift
@@ -75,5 +76,6 @@ art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md
 6. Keep the equipment-detail REVIEW package linked as supporting structure and state evidence.
 7. Keep the color-material REVIEW package linked as palette and value evidence.
 8. Keep the 2D-to-3D translation contract as planning evidence only; it does not authorize technical implementation.
+9. Use the Gate A review-request manifest for a direct human decision; do not create an APPROVED sibling until that decision is recorded.
 
 No CH104 Runtime replacement, Unity import, or 3D Blockout is authorized by this WIP manifest.

@@ -96,7 +96,7 @@
 | ART-1306 | 대표 장비 상세 | In Progress | CH104 prism-fan/map-ring structure, state, provisional socket, and simplification review |
 | ART-1307 | 컬러·재질 | In Progress | CH104 palette roles, material separation, and low-saturation review |
 | ART-1308 | 2D→3D 변환표 | In Progress | CH104 keep/enlarge/simplify/remove, state, provisional socket, material, and physics contract |
-| ART-1309 | 사람 Gate A | Todo | 승인 기록과 Approved 경로 |
+| ART-1309 | 사람 Gate A | Review | CH104 full 2D package consolidated; awaiting explicit human decision |
 
 ### ART-14 — CH105
 
