@@ -1,7 +1,7 @@
 # CH102 키사라기 마오 — Gate A Candidate Manifest v002
 
 > Backlog: `ART-1101`
-> Status: `REVIEW / source-faithful candidate selection pending`
+> Status: `REVIEW / source-faithful unified state package pending`
 > Generation: Current Generation only
 > Primary visual source: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
 > Source commit: `418ef96` — `art: refine current roster gate A visuals`
@@ -9,7 +9,7 @@
 > Anchor: `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md`
 > Review: `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`
 
-이 Manifest는 오늘 오전 신규 커밋 이미지의 두 번째 인물(CH102 마오)을 시각 기준으로 고정한 Gate A 후보를 기록한다. 텍스트 문서는 기능·금지 조건을 보조하며, 얼굴·헤어·체형·의상·장비·색감의 시각 기준은 오전 커밋 이미지에서 변경하지 않는다.
+이 Manifest는 오늘 오전 신규 커밋 이미지의 두 번째 인물(CH102 마오)을 시각 기준으로 고정한 통합 상태 패키지를 기록한다. A/B/C는 서로 배타적인 디자인 후보가 아니라 같은 캐릭터의 활 전개 상태와 포즈 상태다. 텍스트 문서는 기능·금지 조건을 보조하며, 얼굴·헤어·체형·의상·장비·색감의 시각 기준은 오전 커밋 이미지에서 변경하지 않는다.
 
 ## 1. Morning roster visual lock
 
@@ -40,24 +40,24 @@ art_refs/characters/mao/concept/CH102_Mao_GateA_Candidates_REVIEW_v002.metadata.
 art_refs/characters/mao/concept/CH102_Mao_GateA_Candidates_REVIEW_v002.review.md
 ```
 
-## 4. Candidate map
+## 4. State map
 
-| Candidate | Main variable | Locked read |
+| State | Main variable | Locked read |
 |---|---|---|
-| A | Bow folded and carried at the side | Same Mao identity and large purple mechanical bow |
-| B | Bow half-deployed for a workshop shot | Same Mao identity and source outfit silhouette |
-| C | Bow fully deployed in a survey stance | Same Mao identity and source equipment silhouette |
+| A | Neutral / bow folded and carried at the side | Same Mao identity and large purple mechanical bow |
+| B | Ready / bow half-deployed for a workshop shot | Same Mao identity and source outfit silhouette |
+| C | Full deploy / bow fully deployed in an aim stance | Same Mao identity and source equipment silhouette |
 
 ## 5. Gate A next sequence
 
-1. Human selects A/B/C or requests bounded rework.
-2. Generate the selected source-faithful full-body proof.
-3. Generate Face128, equipment ON/OFF silhouette, and low-saturation validation exports.
-4. Record the `CH102` Gate A decision.
-5. Only after Gate A approval, create the 2D production sheet and 2D→3D handoff.
+1. Confirm the shared identity across A/B/C; A is the neutral visual anchor.
+2. Use B and C as ready/full-deploy equipment and action-state references.
+3. Keep Face128, equipment ON/OFF, turnaround, and production-sheet identity consistent across all three states.
+4. Record the unified `CH102` Gate A decision.
+5. Only after Gate A approval, create the 2D→3D handoff.
 
 No CH102 Runtime replacement, Unity import, or 3D Blockout is authorized by this candidate manifest.
 
-## 6. Provisional A validation
+## 6. Unified state package
 
-`art_source/manifests/CH102_Mao_GateA_Validation_A_v001.md` contains a non-approval validation package for the source-faithful A direction. It is a review aid only; human A/B/C selection remains pending.
+`art_source/manifests/CH102_Mao_StateReference_v001.md` defines A/B/C as one unified state package. `art_source/manifests/CH102_Mao_GateA_Validation_A_v001.md` contains the current neutral-state validation evidence; B/C remain included as state references in the unified character sheet.

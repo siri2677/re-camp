@@ -6,7 +6,7 @@
 > Source commit: `418ef96` — `art: refine current roster gate A visuals`
 > Candidate source: `art_refs/characters/mao/concept/CH102_Mao_GateA_Candidates_WIP_v002.png`
 
-이 Manifest는 오전 신규 커밋 이미지에서 파생한 CH102 A안의 검증 패키지다. A는 원본의 큰 보라색 활을 접어 든 방향과 가장 가까운 임시 진행안이며, 사람의 최종 A/B/C 선택이나 Gate A 승인을 기록하지 않는다.
+이 Manifest는 오전 신규 커밋 이미지에서 파생한 CH102 중립 상태 A의 검증 패키지다. A는 원본의 큰 보라색 활을 접어 든 중립 상태이며, B/C는 같은 캐릭터의 준비·완전 전개 상태로 통합 시트에서 함께 사용한다. 통합 패키지의 Gate A 승인은 아직 기록하지 않는다.
 
 ## 1. Validation package
 
@@ -34,5 +34,5 @@ art_refs/characters/mao/concept/CH102_Mao_GateA_Validation_Board_WIP_v001.review
 ## 2. Gate A boundary
 
 - Face128, equipment ON/OFF, and low-saturation evidence are available for review.
-- A/B/C selection remains `PENDING`.
+- Unified A/B/C state-package approval remains `PENDING`.
 - This package does not approve a production sheet, 3D handoff, Unity import, or Runtime replacement.

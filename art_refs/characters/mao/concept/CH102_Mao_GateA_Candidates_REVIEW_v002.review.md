@@ -1,6 +1,6 @@
 # CH102 Mao Gate A Candidates REVIEW v002 — Review
 
-> State: `REVIEW / Gate A source-faithful candidate selection`
+> State: `REVIEW / Gate A source-faithful unified state package`
 
 | Gate A check | Result | Notes |
 |---|---|---|
@@ -14,9 +14,9 @@
 | Low-saturation separation | `NOT TESTED` | Generate after A/B/C selection. |
 | Originality / no Legacy regression | `PASS FOR REVIEW` | No drones, rifle, school uniform, or ring-frame redesign is used. |
 | 2D→3D feasibility | `NOT IN GATE A` | Defer to the approved sheet and Gate B handoff. |
-| Human Gate A | `PENDING` | No user selection recorded yet. |
+| Human Gate A | `PENDING` | Unified A/B/C state package has not been approved yet. |
 | Runtime permission | `NO` | REVIEW asset only. |
 
 ## Review request
 
-Select A, B, or C as the controlled direction, or request a bounded rework. After selection, create the source-faithful full-body, Face128, equipment ON/OFF, and desaturated validation exports before Gate A approval.
+Confirm A/B/C as three states of one controlled direction, or request a bounded rework. A is the neutral anchor; B/C remain equipment and action-state references. Continue with the unified character sheet and state-aware validation before Gate A approval.

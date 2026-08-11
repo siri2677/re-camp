@@ -15,4 +15,4 @@
 
 ## Next action
 
-Use the labeled REVIEW board to select A/B/C or request a bounded rework. Do not treat this raw imagegen output as a production sheet or Runtime reference.
+Use the labeled REVIEW board to confirm A/B/C as three states of one character package or request a bounded rework. Do not treat this raw imagegen output as a production sheet or Runtime reference.

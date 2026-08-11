@@ -8,10 +8,10 @@
 | Face128 identity read | `CONDITIONAL` | Face reads at target crop; comparison against the full roster remains pending. |
 | Equipment ON/OFF difference | `PASS FOR WIP` | Bow mass is visible in ON and removed in OFF. |
 | Low-saturation read | `CONDITIONAL` | Grayscale proof is present; formal blind comparison remains pending. |
-| A/B/C selection | `PENDING` | A is a provisional working direction only. |
+| Unified A/B/C state package | `PENDING` | A is the neutral validation state; B/C remain ready/full-deploy references. |
 | Production sheet approval | `NOT STARTED` | Requires human Gate A direction selection. |
 | Runtime permission | `NO` | Validation board only. |
 
 ## Next action
 
-Use this board to confirm A or switch to B/C. After human selection, regenerate only the selected direction's production sheet and handoff evidence.
+Use this board together with the unified character sheet to confirm A/B/C as one state package. After Gate A approval, generate the shared production sheet and state-aware handoff evidence.
