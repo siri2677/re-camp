@@ -8,10 +8,11 @@
 | Generated | 2026-08-11 |
 | Tool | PowerShell `System.Drawing` deterministic compositor; PDF image export verified with Poppler |
 | Source reference | Gate A-approved `CH101_Rin_FullBody_WIP_A_v002.png` plus the linked REVIEW support sheets |
-| Status | `REVIEW / Gate A direction inherited; Gate B preparation` |
-| Human approval | Pending for this sheet; upstream CH101 Gate A direction approved 2026-08-11 |
+| Status | `REVIEW ARCHIVE / APPROVED export created` |
+| Human approval | Approved by user in Codex on 2026-08-11; see the separate APPROVED export and approval record |
 | Export | 3000×2400 PNG; one-page 792×612 pt REVIEW PDF |
-| Runtime use | Not permitted; no Unity import or Runtime roster replacement |
+| Approved export | `CH101_Rin_CharacterSheet_APPROVED_v001.png` / `.pdf` |
+| Runtime use | Not permitted; review provenance only |
 
 ## Included frames
 
@@ -24,4 +25,4 @@
 
 ## Approval boundary
 
-This package is intentionally `REVIEW`. It does not approve the final 2D production sheet, Gate B, 3D Blockout, rig, animation, Unity import, or Runtime use. A user must explicitly approve this sheet before it can receive an `APPROVED` export/version.
+This file is retained as the review provenance for the approved export. The separate `APPROVED_v001` PNG/PDF and dated approval record are authoritative for the 2D production-sheet decision. Gate B, 3D Blockout, rig, animation, Unity import, and Runtime use remain excluded.

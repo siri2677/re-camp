@@ -2,15 +2,17 @@
 
 > Date: 2026-08-11
 > Branch: `art/current-roster-gate-a`
-> Status: `REVIEW / Gate B preparation`
-> Upstream approval: `art_source/manifests/CH101_Rin_GateA_Approval_20260811.md`
+> Status: `APPROVED 2D SHEET / Gate B preparation`
+> Upstream approvals: `art_source/manifests/CH101_Rin_GateA_Approval_20260811.md`, `art_source/manifests/CH101_Rin_Production_Sheet_Approval_20260811.md`
 
-이 문서는 Gate A 승인 방향을 제작 시트와 2D→3D 작업으로 넘기기 위한 REVIEW handoff다. 이 문서와 현재 REVIEW PNG/PDF는 사람의 최종 제작 시트 승인이나 Gate B 승인을 대체하지 않는다.
+이 문서는 Gate A 승인 방향과 승인된 2D 제작 시트를 2D→3D 작업으로 넘기기 위한 handoff다. 2D 제작 시트는 승인되었지만, 이 문서는 Gate B 승인이나 3D Blockout 승인을 의미하지 않는다.
 
 ## 1. Package
 
 - `art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_REVIEW_v001.png`
 - `art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_REVIEW_v001.pdf`
+- `art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_APPROVED_v001.png`
+- `art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_APPROVED_v001.pdf`
 - `art_refs/characters/rin/concept/CH101_Rin_Turnaround_REVIEW_v001.png`
 - `art_refs/characters/rin/concept/CH101_Rin_ExpressionSheet_REVIEW_v001.png`
 - `art_refs/characters/rin/concept/CH101_Rin_EquipmentSheet_REVIEW_v001.png`
@@ -47,7 +49,7 @@
 
 ## 5. Gate B exit criteria
 
-1. 사용자가 `CH101_Rin_CharacterSheet_REVIEW_v001`을 검토하고 승인 또는 수정 범위를 기록한다.
+1. 승인된 `CH101_Rin_CharacterSheet_APPROVED_v001`을 기준으로 `CHA-B01~B10` 필수 증거를 작성한다.
 2. `CHA-B01~B10` 필수 증거가 turnaround, equipment sheet, material table, simplification table, pose blockout, `CHARACTER_3D_SPEC.md`와 함께 채워진다.
 3. 공용 Humanoid 관절, socket, material slot, LOD, texture, physics, VFX 예산이 기록된다.
 4. 위 조건 전에는 3D Blockout, Unity import, Runtime roster replacement를 시작하지 않는다.

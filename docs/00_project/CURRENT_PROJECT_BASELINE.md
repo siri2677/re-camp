@@ -194,7 +194,7 @@ Noah Guard / Barrier   →    Akari 가드·공간 고정
 - 캐릭터별 통제 후보: `1/15`.
 - 128px 얼굴·장비 on/off 실루엣·저채도 CH101 검증: `1/1` 생성 및 Gate A 승인; 5인 교차 보드는 미완료.
 - 사람 Gate A 승인: `1/5` (CH101).
-- Approved 2D 제작 시트: `0/5`.
+- Approved 2D 제작 시트: `1/5` (CH101).
 - 최종 3D Model·Prefab·Animator: `0/5`.
 
 공통 라인업 WIP는 하우스 스타일 탐색 증거일 뿐 최종 디자인 앵커가 아니다. 개별 캐릭터의 사람 Gate A와 제작 시트가 승인되기 전에는 Runtime 로스터를 CH101~CH105로 자동 치환하지 않는다.
@@ -206,8 +206,7 @@ Noah Guard / Barrier   →    Akari 가드·공간 고정
 ```text
 Android 실기기 기반 완성
 + Current Generation 캐릭터 Gate A
-→ CH101 Approved 2D 제작 시트
-→ CH101 2D→3D 변환표와 Blockout
+→ CH101 Gate B: 2D→3D 변환표와 Blockout
 → 공용 Rig·Shader·Animation·Prefab Proof
 → CH101 Android Character Proof
 → 나머지 4명 확장
