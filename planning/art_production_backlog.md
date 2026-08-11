@@ -60,15 +60,15 @@
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1101 | 전신 후보 3안 | In Progress | 동일 Character Anchor로 3안 + metadata |
-| ART-1102 | 얼굴·헤어 선택 | In Progress | 128px 얼굴 비교 + 사람 선택 |
-| ART-1103 | 패션·체형·실루엣 | In Progress | 장비 on/off 비교 |
+| ART-1101 | 전신 후보 3안 | Done | A/B/C unified character sheet approved + metadata |
+| ART-1102 | 얼굴·헤어 선택 | Done | Face128 evidence and unified identity approved |
+| ART-1103 | 패션·체형·실루엣 | Done | Equipment ON/OFF and state silhouette evidence approved |
 | ART-1104 | Turnaround | Todo | Front·Side·Back 일치 |
 | ART-1105 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1106 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
 | ART-1107 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
-| ART-1108 | 2D→3D 변환표 | Todo | 확대·삭제·결합·물리 제거 |
-| ART-1109 | 사람 Gate A | Todo | 승인 기록과 Approved 경로 |
+| ART-1108 | 2D→3D 변환표 | In Progress | CH102 state-aware handoff and Gate B preflight |
+| ART-1109 | 사람 Gate A | Done | Approval record and APPROVED path |
 
 ### ART-12 — CH103
 

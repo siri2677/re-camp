@@ -1,7 +1,7 @@
 # CH102 키사라기 마오 — Gate A Candidate Manifest v002
 
 > Backlog: `ART-1101`
-> Status: `REVIEW / source-faithful unified state package pending`
+> Status: `APPROVED / source-faithful unified state package / Gate B pending`
 > Generation: Current Generation only
 > Primary visual source: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
 > Source commit: `418ef96` — `art: refine current roster gate A visuals`
@@ -50,14 +50,14 @@ art_refs/characters/mao/concept/CH102_Mao_GateA_Candidates_REVIEW_v002.review.md
 
 ## 5. Gate A next sequence
 
-1. Confirm the shared identity across A/B/C; A is the neutral visual anchor.
+1. The shared identity across A/B/C is approved; A is the neutral visual anchor.
 2. Use B and C as ready/full-deploy equipment and action-state references.
 3. Keep Face128, equipment ON/OFF, turnaround, and production-sheet identity consistent across all three states.
-4. Record the unified `CH102` Gate A decision.
-5. Only after Gate A approval, create the 2D→3D handoff.
+4. The unified `CH102` Gate A decision is recorded in `CH102_Mao_Production_Sheet_Approval_20260811.md`.
+5. Continue with the state-aware 2D→3D handoff and Gate B preflight; do not begin 3D Blockout or Unity work.
 
 No CH102 Runtime replacement, Unity import, or 3D Blockout is authorized by this candidate manifest.
 
 ## 6. Unified state package
 
-`art_source/manifests/CH102_Mao_StateReference_v001.md` defines A/B/C as one unified state package. `art_source/manifests/CH102_Mao_GateA_Validation_A_v001.md` contains the current neutral-state validation evidence; B/C remain included as state references in the unified character sheet.
+`art_source/manifests/CH102_Mao_StateReference_v001.md` defines A/B/C as one unified state package. `art_source/manifests/CH102_Mao_Production_Sheet_Approval_20260811.md` records the approval. `art_source/manifests/CH102_Mao_GateA_Validation_A_v001.md` contains the neutral-state validation evidence; B/C remain included as state references in the approved unified character sheet.
