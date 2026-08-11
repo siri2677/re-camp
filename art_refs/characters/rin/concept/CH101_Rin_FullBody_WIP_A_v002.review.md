@@ -1,6 +1,6 @@
 # CH101 Rin Full Body WIP A v002 — Review
 
-> State: `CONDITIONAL / SOURCE-FAITHFUL GATE A VALIDATION`  
+> State: `CONDITIONAL / SOURCE-FAITHFUL GATE A VALIDATION`
 > `APPROVED`: **NOT GRANTED**
 
 | Gate A check | Result | Notes |
