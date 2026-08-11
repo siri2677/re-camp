@@ -11,6 +11,7 @@
 > Expression-sheet review: `art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.png`
 > Equipment-sheet review: `art_refs/characters/shion/concept/CH104_Shion_EquipmentSheet_REVIEW_v001.png`
 > Material-palette review: `art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.png`
+> 2D-to-3D translation: `art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md`
 
 This manifest defines the CH104 A/B/C board as one unified character state package. A is the neutral anchor; B/C are controlled prism-fan and map-ring deployment references.
 
@@ -36,3 +37,4 @@ This manifest defines the CH104 A/B/C board as one unified character state packa
 4. Treat the prism fan as one representative equipment object and the map ring as one controlled visual object.
 5. Do not authorize Unity import, Runtime replacement, or 3D Blockout from this WIP manifest.
 6. Face128 and ON/OFF/LOW-SAT evidence remain Gate A review inputs; they do not authorize runtime use.
+7. The 2D-to-3D translation contract is planning evidence only; it does not authorize 3D Blockout or Unity import.

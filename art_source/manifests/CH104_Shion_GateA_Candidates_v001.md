@@ -54,6 +54,7 @@ art_refs/characters/shion/concept/CH104_Shion_EquipmentSheet_REVIEW_v001.review.
 art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.png
 art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.metadata.md
 art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.review.md
+art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md
 ```
 
 ## 4. Forbidden visual drift
@@ -73,5 +74,6 @@ art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.review
 5. Keep the expression-sheet REVIEW package linked as supporting identity evidence.
 6. Keep the equipment-detail REVIEW package linked as supporting structure and state evidence.
 7. Keep the color-material REVIEW package linked as palette and value evidence.
+8. Keep the 2D-to-3D translation contract as planning evidence only; it does not authorize technical implementation.
 
 No CH104 Runtime replacement, Unity import, or 3D Blockout is authorized by this WIP manifest.

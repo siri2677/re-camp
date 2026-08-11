@@ -14,6 +14,7 @@
 | Expression-sheet REVIEW | `PASS FOR REVIEW` | Six restrained identity-preserving expressions are now packaged as supporting evidence. |
 | Equipment-detail REVIEW | `PASS FOR REVIEW` | Prism-fan structure, single map-ring read, carry scale, and provisional art sockets are documented. |
 | Color-material REVIEW | `PASS FOR REVIEW` | Source-faithful palette, material separation, and grayscale value hierarchy are documented. |
+| 2D-to-3D translation REVIEW | `DOCUMENTED FOR REVIEW` | Keep/simplify rules, state presentation, provisional sockets, and proof boundaries are recorded without authorizing 3D work. |
 | Human Gate A | `PENDING` | This is a WIP state board, not an approval. |
 | Runtime permission | `NO` | No Unity or Runtime use. |
 
