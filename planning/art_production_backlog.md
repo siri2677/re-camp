@@ -91,7 +91,7 @@
 | ART-1301 | 전신 후보 3안 | In Progress | CH104 morning-roster A/B/C state board + metadata |
 | ART-1302 | 얼굴·헤어 선택 | In Progress | CH104 Face128-equivalent identity board + human confirmation |
 | ART-1303 | 패션·체형·실루엣 | In Progress | CH104 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
-| ART-1304 | Turnaround | Todo | Front·Side·Back 일치 |
+| ART-1304 | Turnaround | In Progress | CH104 front/side/back continuity + unified character-sheet REVIEW package |
 | ART-1305 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1306 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
 | ART-1307 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |

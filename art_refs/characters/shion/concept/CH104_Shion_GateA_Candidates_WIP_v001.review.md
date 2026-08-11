@@ -8,11 +8,12 @@
 | Shared identity across A/B/C | `PASS FOR WIP` | Face, indigo hair, magenta tips, ivory/indigo outfit, vertical body read, fan, and map ring remain shared. |
 | State differentiation | `PASS FOR WIP` | A, B, and C change fan/ring deployment rather than redesigning the character. |
 | CH103 separation anchor | `PASS FOR WIP` | Narrow indigo eyes, angular jaw, closed mouth, indigo/ivory geometry, and vertical silhouette contrast with Nozomi's round coral/curved read. |
-| Face128 / hair comparison | `NOT CREATED` | Next Gate A support evidence. |
-| Equipment ON/OFF silhouette | `NOT CREATED` | Next Gate A support evidence. |
+| Face128 / hair comparison | `PASS FOR WIP` | Support board is present and linked as Gate A input. |
+| Equipment ON/OFF silhouette | `PASS FOR WIP` | ON/OFF/LOW-SAT support board is present and linked as Gate A input. |
+| Unified character-sheet REVIEW | `PASS FOR REVIEW` | Front/back/side anchor and A/B/C state strip are now packaged for human review. |
 | Human Gate A | `PENDING` | This is a WIP state board, not an approval. |
 | Runtime permission | `NO` | No Unity or Runtime use. |
 
 ## Next action
 
-Use this source-faithful board as the CH104 visual anchor while creating Face128, equipment ON/OFF/low-saturation evidence, and the unified character-sheet review package. Do not promote this WIP to `APPROVED` without direct human review.
+Use the unified character-sheet REVIEW package with the Face128 and equipment evidence for direct human Gate A review. Do not promote this WIP to `APPROVED` without direct human review.
