@@ -17,6 +17,7 @@ This document hands the approved CH102 2D sheet into Gate B preparation. It is a
 - `art_refs/characters/mao/concept/CH102_Mao_Silhouette_OFF_WIP_A_v001.png`
 - `art_refs/characters/mao/concept/CH102_Mao_Desaturated_WIP_A_v001.png`
 - `art_refs/characters/mao/concept/CH102_Mao_Turnaround_REVIEW_v001.png`
+- `art_refs/characters/mao/concept/CH102_Mao_ExpressionSheet_REVIEW_v001.png`
 
 The visual anchor remains the second figure from the left in `CH101-105_Roster_FaceDiversity_WIP_v003.png`, from morning source commit `418ef96`. The approved sheet preserves the same identity across A/B/C.
 

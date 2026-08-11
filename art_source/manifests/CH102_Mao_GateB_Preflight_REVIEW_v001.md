@@ -18,7 +18,7 @@ This preflight records the documentation and 2D evidence currently available aft
 | `CHA-B03` | Explicit 2D-to-3D keep/enlarge/simplify/remove table | `CH102_Mao_Production_Handoff_REVIEW_v001.md` | `READY FOR GATE B REVIEW` | Technical implementation proof |
 | `CHA-B04` | 5.2-5.3H adult readability and common Humanoid compatibility | Current Baseline + 3D spec | `CONDITIONAL` | CH102 proportion guide and blockout |
 | `CHA-B05` | Major joint and outfit collision check | None | `NOT TESTED` | 3D pose blockout |
-| `CHA-B06` | Face, hair, outfit and bow material-slot separation | Handoff proposed slot table | `CONDITIONAL` | Imported material-slot proof |
+| `CHA-B06` | Face, hair, outfit and bow material-slot separation | Expression sheet + handoff proposed slot table | `CONDITIONAL` | Imported material-slot proof |
 | `CHA-B07` | Camera, rig and animation clearance | Approved sheet + handoff | `CONDITIONAL` | Quarter-view and pose proof |
 | `CHA-B08` | Hair, straps and bow physics/penetration budget | Handoff no-physics policy | `READY FOR GATE B REVIEW` | Runtime performance and penetration probe |
 | `CHA-B09` | Idle/Attack/Skill/Victory bow motion and sockets | `ANIMATION_GUIDE.md` direction only | `NOT TESTED` | CH102 motion thumbnails or clips |
@@ -35,7 +35,7 @@ This preflight records the documentation and 2D evidence currently available aft
 ## 3. Next implementation order
 
 1. Review the new CH102 turnaround against the approved sheet and keep A/B/C identity synchronized.
-2. Create the missing expression, equipment-detail, and palette evidence as 2D review assets.
+2. Review the new expression sheet, then create the missing equipment-detail and palette evidence as 2D review assets.
 3. Re-run `CHA-B01~B10` after actual 3D proof exists; request separate human Gate B approval.
 
 ## 4. Boundary
