@@ -7,6 +7,7 @@
 > WIP board: `art_refs/characters/nozomi/concept/CH103_Nozomi_GateA_Candidates_WIP_v001.png`
 > Face support: `art_refs/characters/nozomi/concept/CH103_Nozomi_Face128_WIP_A_v001.png`
 > Silhouette support: `art_refs/characters/nozomi/concept/CH103_Nozomi_Silhouette_ON_OFF_WIP_A_v001.png`
+> Unified sheet review: `art_refs/characters/nozomi/concept/CH103_Nozomi_CharacterSheet_REVIEW_v001.png`
 
 This manifest defines the CH103 A/B/C board as one usable character state package. It follows the same package logic used for the approved CH102 sheet: A is the neutral anchor, while B/C are controlled equipment and action-state references.
 
@@ -32,7 +33,8 @@ This manifest defines the CH103 A/B/C board as one usable character state packag
 4. Treat the baton as one representative equipment object and the veil as one controlled panel system.
 5. Do not authorize Unity import, Runtime replacement, or 3D Blockout from this WIP manifest.
 
-## Supporting evidence
+## Approval and supporting evidence
 
-- Face128 board: three state-linked close-ups of the same face and hair identity; human review pending.
-- ON/OFF/LOW-SAT board: deployed veil, core outfit, and value-check states; human review pending.
+- Current 2D evidence was approved by the user on 2026-08-11; final Gate A approval remains pending.
+- Face128 board: three state-linked close-ups of the same face and hair identity; approved as current 2D input.
+- ON/OFF/LOW-SAT board: deployed veil, core outfit, and value-check states; approved as current 2D input.

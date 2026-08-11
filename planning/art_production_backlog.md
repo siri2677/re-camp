@@ -74,15 +74,15 @@
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1201 | 전신 후보 3안 | In Progress | CH103 morning-roster A/B/C state board created + metadata |
-| ART-1202 | 얼굴·헤어 선택 | In Progress | CH103 Face128-equivalent identity board + human confirmation |
-| ART-1203 | 패션·체형·실루엣 | In Progress | CH103 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
+| ART-1201 | 전신 후보 3안 | Done | CH103 morning-roster A/B/C state board + current 2D evidence approval |
+| ART-1202 | 얼굴·헤어 선택 | Done | CH103 Face128-equivalent identity board + human confirmation |
+| ART-1203 | 패션·체형·실루엣 | Done | CH103 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
 | ART-1204 | Turnaround | Todo | Front·Side·Back 일치 |
 | ART-1205 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1206 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
 | ART-1207 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
 | ART-1208 | 2D→3D 변환표 | Todo | 확대·삭제·결합·물리 제거 |
-| ART-1209 | 사람 Gate A | Todo | 승인 기록과 Approved 경로 |
+| ART-1209 | 사람 Gate A | In Progress | CH103 unified character-sheet REVIEW + final approval record |
 
 ### ART-13 — CH104
 

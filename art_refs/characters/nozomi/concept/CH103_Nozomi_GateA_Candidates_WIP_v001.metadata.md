@@ -10,8 +10,8 @@
 | Primary visual source | `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png` |
 | Source commit | `418ef96` - `art: refine current roster gate A visuals` |
 | Source figure | Third figure from the left; CH103 Kanade Nozomi |
-| Status | `WIP / source-faithful unified state board` |
-| Human approval | Pending; Gate A not granted |
+| Status | `APPROVED FOR UNIFIED SHEET INPUT / Gate A pending` |
+| Human approval | Current 2D evidence approved on 2026-08-11; final Gate A not granted |
 | Runtime use | Not permitted; current-roster review evidence only |
 
 ## State map
