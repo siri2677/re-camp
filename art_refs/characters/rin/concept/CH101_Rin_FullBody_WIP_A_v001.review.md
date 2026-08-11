@@ -1,7 +1,9 @@
 # CH101 Rin Full Body WIP A v001 — Review
 
-> State: `CONDITIONAL / GATE A VALIDATION`  
+> State: `SUPERSEDED / SOURCE MISMATCH`
 > `APPROVED`: **NOT GRANTED**
+
+This WIP was generated from text only and does not match the repository's Gate A contact sheet. It is retained for provenance and superseded by `CH101_Rin_FullBody_WIP_A_v002.png`.
 
 | Gate A check | Result | Notes |
 |---|---|---|

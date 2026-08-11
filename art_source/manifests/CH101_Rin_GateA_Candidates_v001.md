@@ -125,8 +125,8 @@ completely different fashion genre
 ## 6. 파일 계획
 
 ```text
-art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.png
-art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.metadata.md
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v002.png
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v002.metadata.md
 art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_B_v001.png
 art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_B_v001.metadata.md
 art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_C_v001.png
@@ -144,10 +144,12 @@ art_refs/characters/rin/concept/CH101_Rin_GateA_Candidates_WIP_v001.review.md
 현재 생성된 A안 개별 기준 자산:
 
 ```text
-art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.png
-art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.metadata.md
-art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.review.md
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v002.png
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v002.metadata.md
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v002.review.md
 ```
+
+The v001 A full-body WIP was generated without the original contact sheet as an image reference and is superseded by source-faithful v002. Keep v001 only as provenance.
 
 통합 보드는 A/B/C 방향을 한 화면에서 비교하기 위한 WIP다. 개별 A/B/C PNG, Face128, 장비 ON/OFF 실루엣,
 Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기록하지 않는다.

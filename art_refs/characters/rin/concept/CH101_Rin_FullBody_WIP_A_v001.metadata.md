@@ -7,11 +7,13 @@
 | Backlog | `ART-1001` |
 | Generated | 2026-08-11 |
 | Tool | Built-in Codex `image_gen.imagegen` |
-| Status | `WIP / GATE A VALIDATION PENDING` |
+| Status | `SUPERSEDED / SOURCE MISMATCH` |
 | Human approval | Pending; `APPROVED: NOT GRANTED` |
 | Direction source | `art_source/manifests/CH101_Rin_GateA_Decision_20260810.md` |
 | Identity anchor | `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md` |
 | Runtime use | Not permitted; concept validation only |
+
+> Superseded by `CH101_Rin_FullBody_WIP_A_v002.png`, which uses the original Gate A contact sheet as an image reference. Do not use v001 for design decisions.
 
 ## Controlled content
 
