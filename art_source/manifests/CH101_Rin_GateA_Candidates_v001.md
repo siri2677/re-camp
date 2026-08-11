@@ -1,7 +1,7 @@
 # CH101 아마사와 린 — Gate A Candidate Manifest v001
 
 > Backlog: `ART-1001`
-> Status: WIP / Generation Ready
+> Status: WIP / Validation In Progress
 > Generation: Current Generation only
 > Canonical: `docs/00_project/CURRENT_PROJECT_BASELINE.md`
 > Character: `docs/05_art_concept/CHARACTER_BIBLE.md`
@@ -141,10 +141,18 @@ art_refs/characters/rin/concept/CH101_Rin_GateA_Candidates_WIP_v001.metadata.md
 art_refs/characters/rin/concept/CH101_Rin_GateA_Candidates_WIP_v001.review.md
 ```
 
+현재 생성된 A안 개별 기준 자산:
+
+```text
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.png
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.metadata.md
+art_refs/characters/rin/concept/CH101_Rin_FullBody_WIP_A_v001.review.md
+```
+
 통합 보드는 A/B/C 방향을 한 화면에서 비교하기 위한 WIP다. 개별 A/B/C PNG, Face128, 장비 ON/OFF 실루엣,
 Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기록하지 않는다.
 
-실제 생성 전에는 위 PNG가 존재한다고 기록하지 않는다.
+개별 A안 전신 WIP는 생성됐지만, Face128·장비 ON/OFF 실루엣·저채도·Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기록하지 않는다.
 
 ## 7. Gate A 다음 단계
 
