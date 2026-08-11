@@ -1,7 +1,7 @@
 # CH101 Rin Silhouette ON WIP A v001 — Review
 
-> State: `CONDITIONAL / EQUIPMENT SILHOUETTE`
-> `APPROVED`: **NOT GRANTED**
+> State: `APPROVED / GATE A SUPPORTING EVIDENCE`
+> Production asset `APPROVED`: **NOT GRANTED**
 
 | Gate A check | Result | Notes |
 |---|---|---|

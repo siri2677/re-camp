@@ -47,14 +47,14 @@
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
 | ART-1001 | 전신 후보 3안 | Ready | 동일 Character Anchor로 3안 + metadata |
-| ART-1002 | 얼굴·헤어 선택 | Todo | 128px 얼굴 비교 + 사람 선택 |
-| ART-1003 | 패션·체형·실루엣 | Todo | 장비 on/off 비교 |
-| ART-1004 | Turnaround | Todo | Front·Side·Back 일치 |
-| ART-1005 | 표정 시트 | Todo | 평상시·임무 대비 포함 |
-| ART-1006 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
-| ART-1007 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
-| ART-1008 | 2D→3D 변환표 | Todo | 확대·삭제·결합·물리 제거 |
-| ART-1009 | 사람 Gate A | Todo | 승인 기록과 Approved 경로 |
+| ART-1002 | 얼굴·헤어 선택 | Done | 128px 얼굴 비교 + 사람 선택 |
+| ART-1003 | 패션·체형·실루엣 | Done | 장비 on/off 비교 |
+| ART-1004 | Turnaround | Ready | Front·Side·Back 일치 |
+| ART-1005 | 표정 시트 | Ready | 평상시·임무 대비 포함 |
+| ART-1006 | 대표 장비 상세 | Ready | 구조·활성 상태·Socket·단순화 기록 |
+| ART-1007 | 컬러·재질 | Ready | 공통 Art Direction과 일치 |
+| ART-1008 | 2D→3D 변환표 | Ready | 확대·삭제·결합·물리 제거 |
+| ART-1009 | 사람 Gate A | Done | 승인 기록과 Approved 경로 |
 
 ### ART-11 — CH102
 

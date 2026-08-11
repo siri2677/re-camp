@@ -8,7 +8,7 @@
 | Export | 128×128 PNG, derived from the source-faithful WIP |
 | Generated | 2026-08-11 |
 | Status | `WIP / GATE A VALIDATION` |
-| Human approval | Pending; `APPROVED: NOT GRANTED` |
+| Human approval | Gate A support accepted on 2026-08-11; not a production-asset approval |
 | Runtime use | Not permitted; review evidence only |
 
 The image-generation source was reframed from v002 and exported to the required 128×128 validation size without changing the character design.

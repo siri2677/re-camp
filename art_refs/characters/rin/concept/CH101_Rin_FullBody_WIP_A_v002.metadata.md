@@ -8,8 +8,8 @@
 | Generated | 2026-08-11 |
 | Tool | Built-in Codex `image_gen.imagegen` |
 | Source reference | `art_refs/characters/rin/concept/CH101_Rin_GateA_Candidates_WIP_v001.png`, leftmost A panel only |
-| Status | `WIP / GATE A VALIDATION PENDING` |
-| Human approval | Pending; `APPROVED: NOT GRANTED` |
+| Status | `APPROVED / GATE A DIRECTION` |
+| Human approval | Approved by user in Codex on 2026-08-11 |
 | Direction source | `art_source/manifests/CH101_Rin_GateA_Decision_20260810.md` |
 | Runtime use | Not permitted; concept validation only |
 
@@ -21,10 +21,11 @@
 - Exactly one slim saber and one broad cyan signal ribbon with gold diamond lattice pattern.
 - Energetic forward runner pose and the original contact-sheet rendering language.
 
-## Validation still required
+## Still not approved by this record
 
-- 128px face crop and identity read.
-- Equipment ON/OFF silhouette comparison.
-- Low-saturation / grayscale comparison.
+- Final 2D production sheet and turnaround.
+- Expression sheet, equipment detail, and color/material handoff.
 - 2D-to-3D simplification notes and common-rig feasibility.
-- Human Gate A decision.
+- Unity import, Runtime use, and final production approval.
+
+Gate A approval record: `art_source/manifests/CH101_Rin_GateA_Approval_20260811.md`.

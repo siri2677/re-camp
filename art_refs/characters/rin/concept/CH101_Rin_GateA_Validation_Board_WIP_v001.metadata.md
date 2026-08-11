@@ -7,6 +7,6 @@
 | Source | `CH101_Rin_FullBody_WIP_A_v002.png` and its validation exports |
 | Panels | Face 128, Equipment ON, Equipment OFF, Low Saturation |
 | Generated | 2026-08-11 |
-| Status | `WIP / HUMAN REVIEW PENDING` |
-| Human approval | Pending; `APPROVED: NOT GRANTED` |
+| Status | `APPROVED / GATE A REVIEW EVIDENCE` |
+| Human approval | Approved by user in Codex on 2026-08-11 |
 | Runtime use | Not permitted; review board only |

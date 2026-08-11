@@ -1,7 +1,7 @@
 # CH101 Rin Full Body WIP A v002 — Review
 
-> State: `CONDITIONAL / SOURCE-FAITHFUL GATE A VALIDATION`
-> `APPROVED`: **NOT GRANTED**
+> State: `APPROVED / GATE A`
+> `APPROVED`: **GRANTED FOR CH101 DIRECTION**
 
 | Gate A check | Result | Notes |
 |---|---|---|
@@ -9,11 +9,11 @@
 | Full-body framing | `PASS FOR WIP` | Both feet, saber, and the full ribbon are visible. |
 | Route Sprint identity | `CONDITIONAL` | Forward pose and large signal ribbon communicate speed; blind 3-second read remains untested. |
 | Ribbon hierarchy | `CONDITIONAL` | The single patterned ribbon remains prominent and needs small-screen testing. |
-| 128px face crop | `NOT TESTED` | Required before face/identity selection. |
-| Equipment ON/OFF silhouette | `NOT TESTED` | Required before production sheet. |
-| Low-saturation separation | `NOT TESTED` | Required for mobile readability. |
-| 2D→3D feasibility | `NOT TESTED` | Required before Blockout or Runtime use. |
-| Human Gate A | `PENDING` | This WIP does not grant approval. |
+| 128px face crop | `PASS / GATE A` | Evidence is stored in the Face128 WIP export; five-person cross-review remains separate. |
+| Equipment ON/OFF silhouette | `PASS / GATE A` | Both supporting silhouette exports are stored; 3D simplification remains open. |
+| Low-saturation separation | `PASS / GATE A` | Supporting grayscale export is stored; five-person cross-review remains separate. |
+| 2D→3D feasibility | `NOT IN GATE A` | Must be handled in the production handoff and Gate B work. |
+| Human Gate A | `APPROVED` | User approval recorded on 2026-08-11. |
 
 ## Provenance note
 
@@ -21,4 +21,6 @@
 
 ## Next action
 
-Create the controlled 128px face, equipment ON/OFF silhouette, and low-saturation comparisons, then record the human Gate A decision. Do not import this WIP into Unity or mark `ART-1001` complete yet.
+Create the Approved 2D production sheet and handoff documents. Do not import this WIP into Unity or treat it as the final production sheet.
+
+Approval record: `art_source/manifests/CH101_Rin_GateA_Approval_20260811.md`.

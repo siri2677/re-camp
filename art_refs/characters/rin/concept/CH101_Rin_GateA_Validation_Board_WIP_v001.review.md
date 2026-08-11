@@ -1,15 +1,15 @@
 # CH101 Rin Gate A Validation Board WIP v001 — Review
 
-> State: `CONDITIONAL / HUMAN GATE A REVIEW READY`
-> `APPROVED`: **NOT GRANTED**
+> State: `APPROVED / HUMAN GATE A`
+> `APPROVED`: **GRANTED FOR CH101 DIRECTION**
 
 | Review area | Current read | Remaining decision |
 |---|---|---|
-| Face 128 | Cyan eyes, dark high ponytail, and expression remain visible at 128×128. | Compare against CH102–CH105 at the same scale. |
-| Equipment ON | Saber and broad signal ribbon are immediately visible in the silhouette. | Confirm ribbon does not dominate the mobile read. |
-| Equipment OFF | Character contour remains readable without saber or ribbon. | Confirm hair/jacket/shorts/boots are sufficient for identity. |
-| Low saturation | Face, jacket, shorts, and ribbon value blocks remain distinguishable. | Confirm separation in the five-person lineup. |
+| Face 128 | PASS for CH101 Gate A. | Five-person cross-review remains ART-1501~1504. |
+| Equipment ON | PASS for CH101 Gate A. | 3D simplification remains open for Gate B. |
+| Equipment OFF | PASS for CH101 Gate A. | Production-sheet detail remains open. |
+| Low saturation | PASS for CH101 Gate A. | Five-person cross-review remains ART-1501~1504. |
 
 ## Gate A decision boundary
 
-This board is ready for human review, but it does not itself approve CH101. Do not create an Approved 2D sheet, 2D→3D conversion table, or Unity Blockout until the human Gate A decision is recorded.
+The user approved CH101 Gate A on 2026-08-11. This board supports the direction approval; it is not the final 2D production sheet and does not authorize Unity import by itself.

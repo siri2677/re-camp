@@ -192,8 +192,8 @@ Noah Guard / Barrier   →    Akari 가드·공간 고정
 - 공통 5인 라인업 WIP: `1/1` 생성.
 - 얼굴 유사성 보정 WIP: `1/1` 생성, 128px 검증 전 `CONDITIONAL`.
 - 캐릭터별 통제 후보: `1/15`.
-- 128px 얼굴·장비 on/off 실루엣·저채도 교차 보드: 미완료.
-- 사람 Gate A 승인: `0/5`.
+- 128px 얼굴·장비 on/off 실루엣·저채도 CH101 검증: `1/1` 생성 및 Gate A 승인; 5인 교차 보드는 미완료.
+- 사람 Gate A 승인: `1/5` (CH101).
 - Approved 2D 제작 시트: `0/5`.
 - 최종 3D Model·Prefab·Animator: `0/5`.
 

@@ -1,7 +1,7 @@
 # CH101 아마사와 린 — Gate A Candidate Manifest v001
 
 > Backlog: `ART-1001`
-> Status: WIP / Validation In Progress
+> Status: APPROVED / Gate A passed; production handoff pending
 > Generation: Current Generation only
 > Canonical: `docs/00_project/CURRENT_PROJECT_BASELINE.md`
 > Character: `docs/05_art_concept/CHARACTER_BIBLE.md`
@@ -168,7 +168,7 @@ art_refs/characters/rin/concept/CH101_Rin_Desaturated_WIP_A_v001.metadata.md
 art_refs/characters/rin/concept/CH101_Rin_Desaturated_WIP_A_v001.review.md
 ```
 
-These are WIP review proxies. They do not grant human Gate A approval or permit Unity import.
+These are Gate A evidence proxies. They support the recorded CH101 approval but are not the final production sheet and do not permit Unity import.
 
 Consolidated review board:
 
@@ -181,11 +181,11 @@ art_refs/characters/rin/concept/CH101_Rin_GateA_Validation_Board_WIP_v001.review
 통합 보드는 A/B/C 방향을 한 화면에서 비교하기 위한 WIP다. 개별 A/B/C PNG, Face128, 장비 ON/OFF 실루엣,
 Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기록하지 않는다.
 
-개별 A안 전신 WIP는 생성됐지만, Face128·장비 ON/OFF 실루엣·저채도·Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기록하지 않는다.
+CH101 A안은 2026-08-11 사람 Gate A 승인을 받았다. `ART-1001`은 개별 후보·제작 시트 정리가 남아 있어 In Progress로 유지하며, 최종 제작 시트·Turnaround·2D→3D handoff 전에는 Unity에 적용하지 않는다.
 
 ## 7. Gate A 다음 단계
 
-3개 후보 생성 후 다음 순서로만 진행한다.
+A안 선택 및 Gate A 승인 후 다음 순서로 진행한다.
 
 1. 동일 크기 전신 비교.
 2. 128px 얼굴 Crop 비교.
@@ -194,4 +194,4 @@ Turnaround이 생성되기 전에는 `ART-1001` 완료 또는 `APPROVED`로 기�
 5. `CHA-A01~A19` 판정.
 6. 사람 선택 또는 전부 재작업.
 
-사람 선택 전 `ART-1002` 이후 작업, Runtime CH101 치환, 3D Blockout을 시작하지 않는다.
+Approved 2D 제작 시트와 2D→3D handoff 전에는 Runtime CH101 치환과 3D Blockout을 시작하지 않는다.

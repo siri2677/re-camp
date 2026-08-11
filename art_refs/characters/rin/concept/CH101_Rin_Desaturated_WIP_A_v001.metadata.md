@@ -8,5 +8,5 @@
 | Generated | 2026-08-11 |
 | Tool | Built-in Codex `image_gen.imagegen` edit |
 | Status | `WIP / GATE A VALIDATION` |
-| Human approval | Pending; `APPROVED: NOT GRANTED` |
+| Human approval | Gate A support accepted on 2026-08-11; not a production-asset approval |
 | Runtime use | Not permitted; review evidence only |
