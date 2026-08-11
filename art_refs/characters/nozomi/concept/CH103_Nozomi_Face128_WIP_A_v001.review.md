@@ -1,6 +1,6 @@
 # CH103 Nozomi Face128 WIP A v001 — Review
 
-> State: `WIP / GATE A VALIDATION`
+> State: `APPROVED FOR GATE B INPUT`
 
 | Gate A check | Result | Notes |
 |---|---|---|
@@ -8,7 +8,7 @@
 | Shared identity continuity | `PASS FOR WIP` | Face shape, coral eyes, hair framing, and side braid remain consistent. |
 | Source fidelity | `PASS FOR WIP` | Derived from the third figure of the morning roster and the CH103 unified state board. |
 | Actual 128px readability | `CONDITIONAL` | The board is 128px-equivalent evidence; final downsample test remains open. |
-| Human Gate A | `PENDING` | No final face/hair choice or approval recorded yet. |
+| Human 2D approval | `APPROVED` | Approved as current CH103 2D evidence on 2026-08-11. |
 | Runtime permission | `NO` | WIP evidence only. |
 
 ## Next action

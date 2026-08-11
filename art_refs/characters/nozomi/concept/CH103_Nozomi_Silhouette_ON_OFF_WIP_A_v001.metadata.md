@@ -9,8 +9,8 @@
 | Source commit | `418ef96` |
 | Generated | 2026-08-11 |
 | Tool | Built-in Codex `image_gen.imagegen` |
-| Status | `WIP / SILHOUETTE VALIDATION` |
-| Human approval | Pending; deployment read is provisional |
+| Status | `APPROVED FOR GATE B INPUT` |
+| Human approval | Approved as current 2D evidence on 2026-08-11 |
 | Runtime use | Not permitted; review evidence only |
 
 ## Panel order

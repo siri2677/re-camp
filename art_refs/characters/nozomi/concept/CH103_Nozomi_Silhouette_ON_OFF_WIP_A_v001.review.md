@@ -1,6 +1,6 @@
 # CH103 Nozomi Silhouette ON/OFF WIP A v001 — Review
 
-> State: `WIP / SILHOUETTE VALIDATION`
+> State: `APPROVED FOR GATE B INPUT`
 
 | Gate A check | Result | Notes |
 |---|---|---|
@@ -9,7 +9,7 @@
 | Equipment separation | `PASS FOR WIP` | The broad veil is isolated to ON; OFF retains the core character read. |
 | Low-saturation silhouette | `PASS FOR WIP` | The grayscale panel supports value and outer-contour checking. |
 | Production complexity | `CONDITIONAL` | Keep veil implementation to a few large panels plus shader/VFX direction. |
-| Human Gate A | `PENDING` | No final silhouette approval recorded yet. |
+| Human 2D approval | `APPROVED` | Approved as current CH103 2D evidence on 2026-08-11. |
 | Runtime permission | `NO` | WIP evidence only. |
 
 ## Next action
