@@ -94,7 +94,7 @@
 | ART-1304 | Turnaround | In Progress | CH104 front/side/back continuity + unified character-sheet REVIEW package |
 | ART-1305 | 표정 시트 | In Progress | CH104 six-expression review + identity continuity |
 | ART-1306 | 대표 장비 상세 | In Progress | CH104 prism-fan/map-ring structure, state, provisional socket, and simplification review |
-| ART-1307 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
+| ART-1307 | 컬러·재질 | In Progress | CH104 palette roles, material separation, and low-saturation review |
 | ART-1308 | 2D→3D 변환표 | Todo | 확대·삭제·결합·물리 제거 |
 | ART-1309 | 사람 Gate A | Todo | 승인 기록과 Approved 경로 |
 
