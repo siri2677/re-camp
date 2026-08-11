@@ -13,6 +13,8 @@
 > Expression review: `art_refs/characters/nozomi/concept/CH103_Nozomi_ExpressionSheet_REVIEW_v001.png`
 > Equipment review: `art_refs/characters/nozomi/concept/CH103_Nozomi_EquipmentSheet_REVIEW_v001.png`
 > Material palette review: `art_refs/characters/nozomi/concept/CH103_Nozomi_MaterialPalette_REVIEW_v001.png`
+> 2D-to-3D translation: `art_source/manifests/CH103_Nozomi_2DTo3D_Translation_REVIEW_v001.md`
+> Gate B preflight: `art_source/manifests/CH103_Nozomi_GateB_Preflight_REVIEW_v001.md`
 
 This manifest defines the approved CH103 A/B/C board as one usable character state package. It follows the same package logic used for the approved CH102 sheet: A is the neutral anchor, while B/C are controlled equipment and action-state references.
 
@@ -41,6 +43,7 @@ This manifest defines the approved CH103 A/B/C board as one usable character sta
 7. Expression references must preserve the shared identity across A/B/C and remain separate from runtime deformation proof.
 8. Equipment detail must keep one baton object and one controlled veil panel system; proposed sockets remain Gate B inputs only.
 9. Color/material evidence must preserve the roster palette and low-saturation value hierarchy; final shaders and slots remain Gate B inputs only.
+10. The translation contract and Gate B preflight are planning evidence only; they do not authorize a model, Blockout, Unity import, or Runtime replacement.
 
 ## Approval and supporting evidence
 

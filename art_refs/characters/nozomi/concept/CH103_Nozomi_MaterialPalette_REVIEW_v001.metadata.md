@@ -36,17 +36,15 @@
 
 ## Proposed Gate B material slots
 
+The visual review categories above are consolidated into the common six-slot starting budget:
+
 ```text
-Face
-Hair
-Skin
-Outfit_Ivory
-Outfit_Coral
-Utility_Black
-Baton_TurquoiseMetal
-Baton_Orb
-Veil_Translucent
-Hardware_WarmMetal
+MAT_KanadeNozomi_Face
+MAT_KanadeNozomi_Hair
+MAT_KanadeNozomi_Skin
+MAT_KanadeNozomi_Outfit
+MAT_KanadeNozomi_Equipment
+MAT_KanadeNozomi_VeilEmission
 ```
 
-These are planning proposals only. Final slot count, shader values, texture sizes, emission, and Android measurements remain Gate B work.
+`MAT_KanadeNozomi_Outfit` carries ivory/coral/black utility masks; `MAT_KanadeNozomi_Equipment` carries baton and warm hardware; `MAT_KanadeNozomi_VeilEmission` carries the translucent aqua veil and its controlled glow. These are planning proposals only. Final slot count, shader values, texture sizes, emission, and Android measurements remain Gate B work.
