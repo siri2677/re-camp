@@ -16,6 +16,7 @@ This document hands the approved CH102 2D sheet into Gate B preparation. It is a
 - `art_refs/characters/mao/concept/CH102_Mao_Silhouette_ON_WIP_A_v001.png`
 - `art_refs/characters/mao/concept/CH102_Mao_Silhouette_OFF_WIP_A_v001.png`
 - `art_refs/characters/mao/concept/CH102_Mao_Desaturated_WIP_A_v001.png`
+- `art_refs/characters/mao/concept/CH102_Mao_Turnaround_REVIEW_v001.png`
 
 The visual anchor remains the second figure from the left in `CH101-105_Roster_FaceDiversity_WIP_v003.png`, from morning source commit `418ef96`. The approved sheet preserves the same identity across A/B/C.
 
@@ -67,7 +68,7 @@ Physics policy: cloth, cable, and free-hanging multi-part bow physics are out of
 
 ## 6. Gate B readiness
 
-- `CHA-B01` Front/Side/Back identity consistency: `NOT TESTED` - turnaround is not yet created.
+- `CHA-B01` Front/Side/Back identity consistency: `READY FOR GATE B REVIEW` - 2D turnaround exists; 3D proportion cross-check remains.
 - `CHA-B02` Equipment structure and state transitions: `CONDITIONAL` - state sheet exists; equipment detail and socket proof remain.
 - `CHA-B03` 2D-to-3D simplification: `READY FOR GATE B REVIEW` - this handoff records the first controlled table.
 - `CHA-B04` 5.2-5.3H adult readability and Humanoid compatibility: `CONDITIONAL` - proportion guide and blockout remain.
