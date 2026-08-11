@@ -4,6 +4,7 @@
 > Branch: `art/current-roster-gate-a-ch102`
 > Status: `CONDITIONAL / Gate B not approved`
 > Source: `CH102_Mao_CharacterSheet_APPROVED_v001`
+> 2D package index: `art_refs/characters/mao/CH102_Mao_ART-1101-1108_REVIEW_Package.md`
 > Checklist: `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`
 > 3D spec: `docs/05_art_concept/CHARACTER_3D_SPEC.md`
 
@@ -28,14 +29,15 @@ This preflight records the documentation and 2D evidence currently available aft
 
 - Gate A: `PASS` - user approval recorded in `CH102_Mao_Production_Sheet_Approval_20260811.md`.
 - 2D Production Sheet: `APPROVED` - A/B/C are one inclusive state package.
+- 2D Support Package: `REVIEW EVIDENCE ASSEMBLED` - turnaround, expressions, equipment, and palette sheets are linked in the package index.
 - Gate B: `CONDITIONAL / NOT APPROVED`.
 - 3D Blockout: `NOT STARTED`.
 - Unity Import / Runtime roster replacement: `BLOCKED`.
 
 ## 3. Next implementation order
 
-1. Review the new CH102 turnaround against the approved sheet and keep A/B/C identity synchronized.
-2. Review the new expression, equipment, and palette sheets as one CH102 2D package.
+1. Review the assembled CH102 2D support package against the approved unified sheet.
+2. Keep A/B/C identity synchronized while preparing the remaining Gate B evidence.
 3. Re-run `CHA-B01~B10` after actual 3D proof exists; request separate human Gate B approval.
 
 ## 4. Boundary
