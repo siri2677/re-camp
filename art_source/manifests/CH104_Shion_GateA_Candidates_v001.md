@@ -45,6 +45,9 @@ art_refs/characters/shion/concept/CH104_Shion_Silhouette_ON_OFF_WIP_A_v001.revie
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.png
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.metadata.md
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.review.md
+art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.png
+art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.metadata.md
+art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.review.md
 ```
 
 ## 4. Forbidden visual drift
@@ -61,5 +64,6 @@ art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.review.
 2. Review the Face128 comparison and hair/face support evidence now recorded in the WIP package.
 3. Review the equipment ON/OFF and low-saturation silhouette evidence now recorded in the WIP package.
 4. Use the CH104 unified character-sheet REVIEW package for direct human Gate A review.
+5. Keep the expression-sheet REVIEW package linked as supporting identity evidence.
 
 No CH104 Runtime replacement, Unity import, or 3D Blockout is authorized by this WIP manifest.

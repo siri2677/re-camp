@@ -8,6 +8,7 @@
 > Face support: `art_refs/characters/shion/concept/CH104_Shion_Face128_WIP_A_v001.png`
 > Silhouette support: `art_refs/characters/shion/concept/CH104_Shion_Silhouette_ON_OFF_WIP_A_v001.png`
 > Character-sheet review: `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.png`
+> Expression-sheet review: `art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.png`
 
 This manifest defines the CH104 A/B/C board as one unified character state package. A is the neutral anchor; B/C are controlled prism-fan and map-ring deployment references.
 
