@@ -18,7 +18,7 @@
 | ART-1105 | Expression sheet | `concept/CH102_Mao_ExpressionSheet_REVIEW_v001.png` | Six expression directions present; deformation budget remains open |
 | ART-1106 | Representative equipment detail | `concept/CH102_Mao_EquipmentSheet_REVIEW_v001.png` | A/B/C bow states and structural close-up present; socket/collider proof remains |
 | ART-1107 | Color and material direction | `concept/CH102_Mao_MaterialPalette_REVIEW_v001.png` | Review tokens and material roles present; shader and Android budget remain |
-| ART-1108 | 2D-to-3D translation and simplification | `art_source/manifests/CH102_Mao_Production_Handoff_REVIEW_v001.md` | State-aware keep/enlarge/simplify/remove contract is in progress |
+| ART-1108 | 2D-to-3D translation and simplification | `art_source/manifests/CH102_Mao_2DTo3D_Translation_REVIEW_v001.md`, production handoff | State-aware keep/enlarge/simplify/remove contract is ready for Gate B review |
 
 ## 2. Locked 2D identity
 

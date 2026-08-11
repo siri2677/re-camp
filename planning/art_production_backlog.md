@@ -67,7 +67,7 @@
 | ART-1105 | 표정 시트 | Review | CH102 six-expression review asset assembled; deformation proof remains |
 | ART-1106 | 대표 장비 상세 | Review | CH102 bow state/detail review asset assembled; socket proof remains |
 | ART-1107 | 컬러·재질 | Review | CH102 palette/material review asset assembled; shader proof remains |
-| ART-1108 | 2D→3D 변환표 | In Progress | CH102 state-aware handoff and Gate B preflight |
+| ART-1108 | 2D→3D 변환표 | Review | CH102 state-aware translation contract ready for Gate B review |
 | ART-1109 | 사람 Gate A | Done | Approval record and APPROVED path |
 
 ### ART-12 — CH103

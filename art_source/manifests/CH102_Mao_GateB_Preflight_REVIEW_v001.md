@@ -16,7 +16,7 @@ This preflight records the documentation and 2D evidence currently available aft
 |---|---|---|---|---|
 | `CHA-B01` | Front/Side/Back face, hair, outfit and proportion consistency | `CH102_Mao_Turnaround_REVIEW_v001.png` + approved sheet | `READY FOR GATE B REVIEW` | 3D proportion and blockout cross-check |
 | `CHA-B02` | Bow size, grip, fold/deploy states and attachment structure | `CH102_Mao_EquipmentSheet_REVIEW_v001.png` + handoff | `READY FOR GATE B REVIEW` | Socket transforms and collider probe |
-| `CHA-B03` | Explicit 2D-to-3D keep/enlarge/simplify/remove table | `CH102_Mao_Production_Handoff_REVIEW_v001.md` | `READY FOR GATE B REVIEW` | Technical implementation proof |
+| `CHA-B03` | Explicit 2D-to-3D keep/enlarge/simplify/remove table | `CH102_Mao_2DTo3D_Translation_REVIEW_v001.md` + production handoff | `READY FOR GATE B REVIEW` | Technical implementation proof |
 | `CHA-B04` | 5.2-5.3H adult readability and common Humanoid compatibility | Current Baseline + 3D spec | `CONDITIONAL` | CH102 proportion guide and blockout |
 | `CHA-B05` | Major joint and outfit collision check | None | `NOT TESTED` | 3D pose blockout |
 | `CHA-B06` | Face, hair, outfit and bow material-slot separation | `CH102_Mao_MaterialPalette_REVIEW_v001.png` + handoff | `READY FOR GATE B REVIEW` | Imported material-slot proof |

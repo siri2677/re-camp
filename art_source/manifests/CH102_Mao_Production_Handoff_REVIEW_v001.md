@@ -4,6 +4,7 @@
 > Branch: `art/current-roster-gate-a-ch102`
 > Status: `APPROVED 2D SHEET / Gate B preparation`
 > Upstream approval: `art_source/manifests/CH102_Mao_Production_Sheet_Approval_20260811.md`
+> Translation contract: `art_source/manifests/CH102_Mao_2DTo3D_Translation_REVIEW_v001.md`
 
 This document hands the approved CH102 2D sheet into Gate B preparation. It is a 2D production contract and does not approve a 3D Blockout, Unity import, or Runtime roster replacement.
 
