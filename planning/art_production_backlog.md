@@ -77,7 +77,7 @@
 | ART-1201 | 전신 후보 3안 | Done | CH103 morning-roster A/B/C state board + current 2D evidence approval |
 | ART-1202 | 얼굴·헤어 선택 | Done | CH103 Face128-equivalent identity board + human confirmation |
 | ART-1203 | 패션·체형·실루엣 | Done | CH103 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
-| ART-1204 | Turnaround | Todo | Front·Side·Back 일치 |
+| ART-1204 | Turnaround | In Progress | CH103 front·side·back review + identity continuity |
 | ART-1205 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1206 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
 | ART-1207 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
