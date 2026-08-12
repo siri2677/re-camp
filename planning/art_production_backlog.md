@@ -110,7 +110,7 @@
 | ART-1406 | 대표 장비 상세 | Review | CH105 single anchor-ring/gauntlet structure, A/B/C state, provisional planning labels, and simplification review assembled |
 | ART-1407 | 컬러·재질 | Review | CH105 source-faithful palette roles, material separation, and low-saturation review assembled; shader proof remains open |
 | ART-1408 | 2D→3D 변환표 | Review | CH105 keep/enlarge/simplify/remove, provisional socket, material category, state, and no-physics contract recorded; technical proof remains open |
-| ART-1409 | 사람 Gate A | Todo | 승인 기록과 Approved 경로 |
+| ART-1409 | 사람 Gate A | Review | CH105 전체 2D 패키지 검토 요청서와 승인 경계를 정리함; 사용자 결정 대기, 별도 APPROVED 산출물은 아직 없음 |
 
 ## ART-15 — 5인 교차 리뷰
 

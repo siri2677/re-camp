@@ -1,6 +1,6 @@
 # CH105 Kurogane Akari Gate A Review Manifest v001
 
-> Backlog: `ART-1401`, `ART-1402`, `ART-1403`, `ART-1404`
+> Backlog: `ART-1401`, `ART-1402`, `ART-1403`, `ART-1404`, `ART-1409`
 > Cross-review support: `ART-1501`, `ART-1502`
 > Status: `WIP / CONDITIONAL GATE A REVIEW`
 > `APPROVED`: **NOT GRANTED**
@@ -38,6 +38,7 @@ art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.png
 art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.metadata.md
 art_source/manifests/CH105_Akari_2DTo3D_Translation_REVIEW_v001.md
+art_source/manifests/CH105_Akari_GateA_Review_Request_20260812.md
 ```
 
 ## Identity and state contract
@@ -80,6 +81,8 @@ This manifest records current 2D review progress only. It does not approve CH105
 Blender/FBX, Unity import, Runtime roster replacement, Android proof, or release use.
 
 ## Next action
+
+- Gate A review request: `art_source/manifests/CH105_Akari_GateA_Review_Request_20260812.md`
 
 1. Human-review the CH105 package beside the current CH101–CH104 approved 2D sheets.
 2. Human-review the complete CH105 package and record the separate Gate A decision.
