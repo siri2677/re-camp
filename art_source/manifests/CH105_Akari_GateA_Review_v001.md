@@ -28,6 +28,9 @@ art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.metad
 art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.png
 art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.metadata.md
+art_refs/characters/akari/concept/CH105_Akari_ExpressionSheet_REVIEW_v001.png
+art_refs/characters/akari/concept/CH105_Akari_ExpressionSheet_REVIEW_v001.review.md
+art_refs/characters/akari/concept/CH105_Akari_ExpressionSheet_REVIEW_v001.metadata.md
 ```
 
 ## Identity and state contract
@@ -50,6 +53,7 @@ art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.metadat
 | Face identity support | `CONDITIONAL` | Face128-equivalent board present; actual same-scale 128px review open |
 | Equipment ON/OFF | `CONDITIONAL` | ON/OFF/LOW-SAT board present; same-scale human comparison open |
 | Unified character sheet | `PASS FOR REVIEW` | Front/side/back plus A/B/C state strip is now assembled; human Gate A remains open |
+| Expression sheet | `PASS FOR REVIEW` | Six restrained identity-preserving expressions are assembled; deformation proof remains open |
 | 5-person separation | `CONDITIONAL` | Source-level palette, hair, face, and equipment separation is visible; final human verdict open |
 | 2D→3D proof | `NOT TESTED` | No mesh, blockout, socket, rig, shader, or Unity proof |
 | Human Gate A | `PENDING` | No approval recorded |
@@ -68,5 +72,5 @@ Blender/FBX, Unity import, Runtime roster replacement, Android proof, or release
 ## Next action
 
 1. Human-review the CH105 package beside the current CH101–CH104 approved 2D sheets.
-2. Continue with the CH105 expression and equipment-detail REVIEW sheets while keeping this identity package unchanged.
+2. Continue with the CH105 equipment-detail REVIEW sheet while keeping this identity package unchanged.
 3. Re-run ART-1501/1502 after the five-character same-scale review; keep the result at REVIEW until human approval.
