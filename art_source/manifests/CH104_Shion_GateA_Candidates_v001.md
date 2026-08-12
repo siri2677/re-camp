@@ -60,6 +60,7 @@ art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.review
 art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md
 art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md
 art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260812.md
+art_source/manifests/CH104_Shion_GateB_Preflight_REVIEW_v001.md
 ```
 
 ## 4. Forbidden visual drift
@@ -81,5 +82,6 @@ art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260812.md
 7. Keep the color-material REVIEW package linked as palette and value evidence.
 8. Keep the 2D-to-3D translation contract as planning evidence only; it does not authorize technical implementation.
 9. Use the APPROVED sibling as the current 2D production anchor; keep the review-request and approval manifests as decision history.
+10. Use the Gate B preflight as conditional planning evidence only; it does not authorize technical implementation.
 
 No CH104 Runtime replacement, Unity import, or 3D Blockout is authorized by this manifest.
