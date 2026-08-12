@@ -1,9 +1,10 @@
 # CH101 아마사와 린 — Gate B Preflight REVIEW v001
 
-> Date: 2026-08-11
-> Branch: `art/current-roster-gate-a`
+> Date: 2026-08-12
+> Branch: `art/current-roster-gate-a-ch102`
+> Source commit: `418ef96` - `art: refine current roster gate A visuals`
 > Status: `CONDITIONAL / Gate B not approved`
-> Source: `CH101_Rin_CharacterSheet_APPROVED_v001`
+> Source: `art_refs/characters/rin/concept/CH101_Rin_CharacterSheet_APPROVED_v001.png`
 > Checklist: `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`
 > 3D spec: `docs/05_art_concept/CHARACTER_3D_SPEC.md`
 

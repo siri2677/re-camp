@@ -2,6 +2,7 @@
 
 > Date: 2026-08-12
 > Branch: `art/current-roster-gate-a-ch102`
+> Source commit: `418ef96` - `art: refine current roster gate A visuals`
 > Status: `CONDITIONAL / Gate B not approved`
 > Source: `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png`
 > State reference: `art_source/manifests/CH104_Shion_StateReference_v001.md`

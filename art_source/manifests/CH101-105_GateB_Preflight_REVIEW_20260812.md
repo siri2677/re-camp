@@ -6,6 +6,8 @@
 > Status: `REVIEW / FIVE-CHARACTER GATE B PREFLIGHT ASSEMBLED`
 > Gate B: `NOT APPROVED`
 > 3D/Unity proof: `NOT TESTED`
+> Common checklist: `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`
+> Common 3D spec: `docs/05_art_concept/CHARACTER_3D_SPEC.md`
 > Backlog: `ART-0112`, character-level `ART-1104~ART-1108`, `ART-1204~ART-1208`, `ART-1304~ART-1308`, `ART-1404~ART-1408`
 
 This is the current five-character Gate B preparation index. It connects the approved 2D production sheets, current-generation support evidence, translation contracts, per-character preflight records, and common 3D budget. It is a documentation and handoff package only; it does not claim Blender, FBX, Unity, Android, or Runtime evidence.

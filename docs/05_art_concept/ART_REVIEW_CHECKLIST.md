@@ -193,6 +193,25 @@ UI 컴포넌트와 3D Blockout 직전에 적용한다.
 | CHA-B09 | 대표 Idle·Attack·Skill·Victory의 장비 동작과 소켓이 정의 | 모션 썸네일 | |
 | CHA-B10 | 폴리곤·Texture·Bone·BlendShape·LOD·Shader 예산을 `CHARACTER_3D_SPEC.md`에서 확인 | 규격 링크 | |
 
+#### Documentation-side Gate B preflight
+
+Current CH101~CH105의 2D 승인 이후에는 다음 문서 패키지를 먼저 준비한다.
+
+- 통합 인덱스: `art_source/manifests/CH101-105_GateB_Preflight_REVIEW_20260812.md`
+- 캐릭터별 프리플라이트: `CH101_Rin`, `CH102_Mao`, `CH103_Nozomi`, `CH104_Shion`, `CH105_Akari`의 `GateB_Preflight_REVIEW` 문서
+- 2D→3D 및 handoff: 캐릭터별 translation contract와 `Production_Handoff_REVIEW` 문서
+
+문서 프리플라이트의 상태는 기술 Gate B 판정과 다르다.
+
+| 상태 | 의미 | 다음 조치 |
+|---|---|---|
+| `READY FOR GATE B REVIEW` | 2D 근거·변환 규칙·계획 소켓이 문서화됨 | 실제 3D 증거 대기 |
+| `CONDITIONAL` | 공통 규격은 있으나 비율·카메라·예산 증거가 없음 | Blockout/Import 캡처 필요 |
+| `NOT TESTED` | 2D만으로 검증할 수 없음 | 포즈·모션·실제 Import 필요 |
+| `BLOCKED` | Unity/Blender/Android 환경 또는 승인 없음 | 환경·권한 준비 후 재개 |
+
+이 문서 프리플라이트가 통과해도 `Gate B APPROVED`가 아니다. 3D Blockout, Humanoid, Socket, Material, LOD, Motion, Android 측정 증거와 별도 사람 승인이 필요하다.
+
 다음은 Gate B `FAIL`이다.
 
 - 2D를 단순 축소해 3D의 얼굴·장비·실루엣이 읽히지 않음

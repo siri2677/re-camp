@@ -26,7 +26,7 @@
 | 3 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity AndroidPlayer·SDK·NDK·OpenJDK 설치 |
 | 4 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | 선행 Android 작업 + 식별자 결정 + 테스트 기기 |
 | 5 | ART-0103·0111 | 제작 시트 도구 실사용 검증 | Review | Import·Clone·한글·PNG/PDF Export·사람 사용성 |
-| 6 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | In Progress | CH101~CH105 2D production sheet 승인 완료; 각 캐릭터의 Gate B·기술 증거는 별도 |
+| 6 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | Review | CH101~CH105 2D production sheet 승인 및 Gate B 문서 preflight 완료; 각 캐릭터의 3D 기술 증거는 별도 |
 | 7 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Done | 현재 로스터 비교 시트와 5인 2D PASS 판정 완료; ART-1503 정식 IP clearance는 별도 |
 | 8 | ART-0112 | 2D→3D 변환표·Gate B Preflight | Review | CH101~CH105 통합 변환표·5인 Gate B preflight·CHA-B01~B10 문서 감사 연결; 실제 3D/Unity 증거는 별도 작업 |
 | 9 | ART-0104 | Blender 소품 Export Proof | Ready | 명명 규격 Source→FBX→기록 |

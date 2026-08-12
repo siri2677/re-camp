@@ -5,13 +5,15 @@ on:
     paths:
       - "**/*.md"
       - "scripts/validate_project_docs.py"
+      - "scripts/validate_gate_b_preflight.py"
       - ".github/workflows/docs-consistency.yml"
   push:
     branches:
-      - current/recamp-unified
+      - '**'
     paths:
       - "**/*.md"
       - "scripts/validate_project_docs.py"
+      - "scripts/validate_gate_b_preflight.py"
       - ".github/workflows/docs-consistency.yml"
   workflow_dispatch:
 
@@ -32,3 +34,6 @@ jobs:
 
       - name: Validate Current Generation document ownership
         run: python scripts/validate_project_docs.py
+
+      - name: Validate current roster Gate B preflight package
+        run: python scripts/validate_gate_b_preflight.py

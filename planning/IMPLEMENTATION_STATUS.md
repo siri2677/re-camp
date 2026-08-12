@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Implementation Status
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-12
 > 상태: Active Evidence Snapshot
 > 기준 브랜치: `current/recamp-unified`
 > Unity: `6000.5.3f1`
@@ -33,7 +33,7 @@
 - 날짜형 디자인 리셋·정렬 문서를 `HISTORICAL / SUPERSEDED` 변경 이력으로 전환.
 - PR #9 `Current docs consistency`에서 전체 활성 Markdown 정합성 검사 성공.
 
-동일 PR에서 `Unity Tests` Workflow는 코드 테스트 실패가 아니라 GitHub Actions의 `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`가 비어 있어 Unity Test Runner가 시작되지 못했다. 따라서 Hosted Unity CI는 아직 성공 증거가 없으며 DEV-0112는 `Review`를 유지한다.
+동일 PR에서 `Unity Tests` Workflow는 코드 테스트 실패가 아니라 GitHub Actions의 `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`가 비어 있어 Unity Test Runner가 시작되지 못했다. 2026-08-12 최신 run에서도 같은 원인과 빈 아티팩트 경로 후속 오류가 확인됐다. CI는 다음 변경에서 자격 증명 사전 점검과 고정 아티팩트 경로로 분리한다. Hosted Unity CI 성공 증거는 아직 없으며 DEV-0112는 `Review`를 유지한다.
 
 ## 3. Unity 프로젝트·Scene
 
@@ -110,13 +110,10 @@ Current Generation Runtime handoff에서는 이 Gameplay 축을 재사용하되 
 현재 저장소에 확인되는 디자인 제작 증거:
 
 - Current Character Bible·Anchor·Art Direction 계약 존재.
-- 공통 5인 라인업 WIP 1장 + metadata + review 존재.
-- 해당 라인업은 `WIP / GATE A PENDING`이며 Approved가 아니다.
-- 얼굴 유사성·화풍/피부 톤·상체 비율 보정 WIP v003 1장 + metadata + review가 추가됐다.
-- Gate A 비교 프록시(얼굴·장비 OFF 실루엣·저채도) WIP 1장 + metadata + review가 추가됐다.
-- CH101 A/B/C 통합 후보 비교 보드 WIP 1장 + metadata + review가 추가됐다.
-- 캐릭터별 통제 후보·128px 얼굴·장비 on/off·저채도 보드는 아직 완료되지 않았다.
-- 사람 Gate A, Approved 2D 제작 시트, 최종 3D는 아직 없다.
+- CH101~CH105의 2D 제작 시트와 Gate A 승인 기록이 존재한다.
+- 현재 5인 교차 2D 판정은 `PASS`이며, Face128·비교 보드는 REVIEW 증거로 유지한다.
+- CH101~CH105 통합 Gate B 프리플라이트와 캐릭터별 handoff 문서가 준비됐다.
+- Gate B, 3D Blockout, Unity Import, Android·Runtime 증거는 아직 없다.
 
 정확한 디자인 내용은 이 문서에서 반복하지 않고 Canonical Baseline과 직접 소유 문서를 읽는다.
 
@@ -130,11 +127,11 @@ PlayMode 21 / 21 PASS
 _ReCamp Console Error 0
 ```
 
-2026-08-10 GitHub Actions PR #9:
+2026-08-08~2026-08-12 GitHub Actions:
 
 ```text
-Current docs consistency: PASS
-Unity Tests: NOT EXECUTED — Unity license credentials missing
+Current docs consistency: PASS on the prior successful run.
+Unity Tests: NOT EXECUTED — Unity license credentials missing; latest run also attempted artifact upload with an empty output path.
 ```
 
 Unity Workflow 실패를 테스트 assertion 실패로 기록하지 않는다. 라이선스 설정 후 Hosted CI를 다시 실행해야 한다.
@@ -146,8 +143,8 @@ Unity Workflow 실패를 테스트 assertion 실패로 기록하지 않는다. �
 - Android Build Support 전체 설치와 재현 가능한 APK.
 - 실제 Android 기기의 Touch·Safe Area·Lifecycle.
 - 저·중·고사양 기기 성능·발열·메모리.
-- Current Generation 캐릭터 사람 Gate A/B/C.
-- final 2D·3D·환경·UI·VFX·Audio.
+- Current Generation 캐릭터 Gate B/C.
+- final 3D·환경·UI·VFX·Audio.
 - Current Generation Runtime roster migration과 Save compatibility.
 
 ## 11. 기록 규칙

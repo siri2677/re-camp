@@ -15,8 +15,45 @@ permissions:
   contents: read
 
 jobs:
+  license_preflight:
+    name: Unity credentials preflight
+    runs-on: ubuntu-latest
+    outputs:
+      available: ${{ steps.check.outputs.available }}
+    steps:
+      - name: Check Unity credentials without exposing secrets
+        id: check
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        shell: bash
+        run: |
+          if [[ -n "${UNITY_LICENSE}" || ( -n "${UNITY_SERIAL}" && -n "${UNITY_EMAIL}" && -n "${UNITY_PASSWORD}" ) ]]; then
+            echo "available=true" >> "${GITHUB_OUTPUT}"
+            echo "Unity credentials are configured; hosted tests will run."
+            {
+              echo "## Unity credentials preflight"
+              echo ""
+              echo "Credentials detected. The hosted Unity test runner will execute."
+            } >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "available=false" >> "${GITHUB_OUTPUT}"
+            echo "::warning::Unity tests are blocked: configure UNITY_LICENSE or UNITY_SERIAL with UNITY_EMAIL and UNITY_PASSWORD repository secrets."
+            {
+              echo "## Unity credentials preflight"
+              echo ""
+              echo "BLOCKED - Unity test runner was not executed."
+              echo ""
+              echo "Configure UNITY_LICENSE or UNITY_SERIAL + UNITY_EMAIL + UNITY_PASSWORD repository secrets."
+            } >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
   editmode-playmode:
     name: EditMode and PlayMode
+    needs: license_preflight
+    if: needs.license_preflight.outputs.available == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -28,6 +65,7 @@ jobs:
         uses: game-ci/unity-test-runner@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
@@ -41,5 +79,23 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: unity-test-artifacts
-          path: ${{ steps.unity-tests.outputs.artifactsPath }}
+          path: artifacts
           if-no-files-found: warn
+
+  blocked-no-credentials:
+    name: Unity tests blocked (credentials missing)
+    needs: license_preflight
+    if: needs.license_preflight.outputs.available != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Record blocked status
+        run: |
+          echo "Unity Test Runner was not executed."
+          echo "Configure UNITY_LICENSE or UNITY_SERIAL + UNITY_EMAIL + UNITY_PASSWORD in repository secrets."
+          {
+            echo "## Unity tests blocked"
+            echo ""
+            echo "The Unity test runner was intentionally skipped because the required repository secrets are not configured."
+            echo ""
+            echo "This is a blocked preflight, not a Unity test pass."
+          } >> "${GITHUB_STEP_SUMMARY}"

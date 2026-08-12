@@ -6,11 +6,13 @@ Make the Unity EditMode and PlayMode regression suites reproducible in GitHub Ac
 
 ## Existing Architecture
 
-The Unity project is `re-camp-verify-https/` on Unity `6000.5.3f1`. The project owns `ReCamp.Domain`, `ReCamp.UnityAdapter`, `ReCamp.Runtime`, EditMode tests, and PlayMode tests. GameCI's Unity Test Runner is the repository CI transport.
+The Unity project is the repository root (`.`) on Unity `6000.5.3f1`. The project owns `ReCamp.Domain`, `ReCamp.UnityAdapter`, `ReCamp.Runtime`, EditMode tests, and PlayMode tests. GameCI's Unity Test Runner is the repository CI transport.
 
 ## Files to Modify
 
 - `.github/workflows/unity-tests.yml`
+- `.github/workflows/docs-consistency.yml`
+- `scripts/validate_gate_b_preflight.py`
 - `planning/DEV-0113_CORE_INTEGRATION_RESULT.md`
 - `planning/IMPLEMENTATION_STATUS.md`
 - `planning/sprint_backlog.md`
@@ -38,10 +40,12 @@ The Unity project is `re-camp-verify-https/` on Unity `6000.5.3f1`. The project 
 - Fresh clone Unity `6000.5.3f1` compile: exit code `0`.
 - Fresh clone EditMode: `31/31` passed.
 - Fresh clone PlayMode: `19/19` passed.
-- Workflow YAML parsed successfully locally. A hosted GitHub Actions result is intentionally not claimed because the workflow has not been pushed and no Unity license secrets were changed.
+- Workflow YAML was inspected locally. Hosted Unity CI has not succeeded because the repository Unity credentials are missing; the workflow now reports this as a blocked preflight and skips the runner instead of failing during license activation.
+- Current-generation Gate B documentation is validated separately by `scripts/validate_gate_b_preflight.py`.
 
 ## Completion Criteria
 
-- Workflow runs EditMode and PlayMode with Unity `6000.5.3f1` and uploads artifacts on failure or success.
+- Workflow runs EditMode and PlayMode with Unity `6000.5.3f1` when credentials are available, and uploads the fixed `artifacts/` directory on failure or success.
+- Workflow reports a successful blocked-preflight status when credentials are unavailable; this is not a Unity test pass.
 - A clean checkout compiles and passes the same `31` EditMode and `19` PlayMode tests.
 - Status documents distinguish local and hosted CI evidence.
