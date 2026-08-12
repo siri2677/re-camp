@@ -73,6 +73,7 @@ art_source/manifests/CH105_Akari_GateA_Review_Request_20260812.md
 
 - `ART-1501`: CH105 now has a current-roster-faithful candidate package, but the 5/5 roster verdict remains pending.
 - `ART-1502`: CH105 now has Face128-equivalent and ON/OFF/LOW-SAT support, but same-scale 5/5 comparison remains pending.
+- Current cross-review package: `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1501-1504_REVIEW_Package_20260812.md`
 - The earlier 2026-08-07 lineup package is not evidence for this roster; it covers the retired Luna/Miyu/Coco/Iris/Noah set.
 
 ## Approval boundary
