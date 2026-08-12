@@ -37,6 +37,7 @@ art_refs/characters/akari/concept/CH105_Akari_EquipmentSheet_REVIEW_v001.metadat
 art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.png
 art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.metadata.md
+art_source/manifests/CH105_Akari_2DTo3D_Translation_REVIEW_v001.md
 ```
 
 ## Identity and state contract
@@ -62,6 +63,7 @@ art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.metada
 | Expression sheet | `PASS FOR REVIEW` | Six restrained identity-preserving expressions are assembled; deformation proof remains open |
 | Equipment sheet | `PASS FOR REVIEW` | Single ring, heavy gauntlet, A/B/C states, and 2D simplification direction are assembled; technical proof remains open |
 | Color/material sheet | `PASS FOR REVIEW` | Source-faithful palette roles, material separation, and low-saturation value hierarchy are assembled; shader proof remains open |
+| 2D→3D translation | `DOCUMENTED FOR REVIEW` | Keep/enlarge/simplify/remove rules, state presentation, provisional sockets, material categories, and no-physics policy are recorded; technical proof remains open |
 | 5-person separation | `CONDITIONAL` | Source-level palette, hair, face, and equipment separation is visible; final human verdict open |
 | 2D→3D proof | `NOT TESTED` | No mesh, blockout, socket, rig, shader, or Unity proof |
 | Human Gate A | `PENDING` | No approval recorded |
@@ -80,5 +82,5 @@ Blender/FBX, Unity import, Runtime roster replacement, Android proof, or release
 ## Next action
 
 1. Human-review the CH105 package beside the current CH101–CH104 approved 2D sheets.
-2. Continue with the CH105 equipment-detail REVIEW sheet while keeping this identity package unchanged.
-3. Re-run ART-1501/1502 after the five-character same-scale review; keep the result at REVIEW until human approval.
+2. Human-review the complete CH105 package and record the separate Gate A decision.
+3. If Gate A is approved, prepare a separate Gate B preflight from this translation contract; keep ART-1501/1502 at REVIEW until the five-character same-scale review.
