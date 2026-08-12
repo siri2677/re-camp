@@ -22,6 +22,7 @@ This is the current-generation cross-review package for the five figures in the 
 | Human decision record | `art_source/manifests/CH101-105_CurrentRoster_CrossReview_Decision_20260812.md` |
 | 2D-to-3D proof audit | `art_source/manifests/CH101-105_2DTo3D_Translation_Proof_REVIEW_20260812.md` |
 | CH103-CH104 2D support audit | `art_source/manifests/CH103-104_2D_Support_Package_Audit_REVIEW_20260812.md` |
+| Same-scale face review | `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` plus metadata/review |
 
 The excluded package is retained for history only. It is not evidence for the current CH101-CH105 roster and must not be used for character selection, 3D handoff, or Unity migration.
 

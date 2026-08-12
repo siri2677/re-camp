@@ -40,7 +40,7 @@ The review concerns whether these five identities form a distinct and coherent c
 | ID | Question | Evidence | Decision |
 |---|---|---|---|
 | CR-01 | Is the morning source order correct: CH101, CH102, CH103, CH104, CH105? | Source-lock panel and `418ef96` roster image | `PENDING` |
-| CR-02 | Are the five faces sufficiently distinct at the reviewed scale? | Roster face proxy and individual Face128 support | `PENDING` |
+| CR-02 | Are the five faces sufficiently distinct at the reviewed scale? | `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` and individual Face128 support | `PENDING` |
 | CR-03 | Are equipment-OFF silhouettes sufficiently distinct? | Current roster proxy and individual silhouette boards | `PENDING` |
 | CR-04 | Are low-saturation value blocks sufficiently separated? | Current roster proxy and material/silhouette evidence | `PENDING` |
 | CR-05 | Are role, equipment, and palette hooks distinct without breaking one project style? | ART-1504 comparison and Character Bible | `PENDING` |

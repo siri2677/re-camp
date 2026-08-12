@@ -33,7 +33,7 @@ The morning roster source is the controlling visual anchor. Older 2026-08-07 lin
 | Review area | Asset or document | Current result |
 |---|---|---|
 | Unified A/B/C state anchor | `art_refs/characters/akari/concept/CH105_Akari_GateA_Candidates_WIP_v001.png` | `PASS FOR REVIEW` |
-| Face and hair identity | `art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.png` | `CONDITIONAL / equivalent board; same-scale 128px review remains` |
+| Face and hair identity | `art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.png` plus `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` | `REVIEW READY / same-scale human comparison remains` |
 | ON/OFF/LOW-SAT silhouette | `art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.png` | `CONDITIONAL / same-scale human comparison remains` |
 | Turnaround and state sheet | `art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.png` | `PASS FOR REVIEW` |
 | Expression continuity | `art_refs/characters/akari/concept/CH105_Akari_ExpressionSheet_REVIEW_v001.png` | `PASS FOR REVIEW` |
@@ -50,7 +50,7 @@ The linked REVIEW and WIP files are preserved as evidence. No file in this reque
 |---|---|---|
 | Is the fifth morning-roster figure the correct CH105 identity source? | Roster lock and linked candidate boards | `PENDING` |
 | Do A/B/C read as one inclusive Akari package? | Candidate board, character sheet, and state references | `PENDING` |
-| Are face, hair, body, palette, and five-person separation acceptable? | Face, silhouette, character, expression, and material sheets | `PENDING / same-scale human verdict open` |
+| Are face, hair, body, palette, and five-person separation acceptable? | Face, silhouette, character, expression, material sheets, and current-roster Face128 board | `PENDING / human verdict open` |
 | Is the single anchor ring, heavy gauntlet, and restrained line direction acceptable? | Equipment sheet and 2D-to-3D contract | `PENDING` |
 | Is the palette and material/value hierarchy acceptable? | Material palette and low-saturation panel | `PENDING` |
 | Is the 2D-to-3D contract acceptable as planning input? | Translation contract is documented | `PENDING / technical proof is not approval` |

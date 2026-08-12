@@ -22,6 +22,9 @@ art_refs/characters/akari/concept/CH105_Akari_GateA_Candidates_WIP_v001.metadata
 art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.png
 art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.metadata.md
+art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png
+art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.metadata.md
+art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.png
 art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.metadata.md
@@ -58,21 +61,21 @@ art_source/manifests/CH105_Akari_GateA_Review_Request_20260812.md
 |---|---|---|
 | Morning source fidelity | `PASS FOR WIP` | Fifth roster figure is used as the only identity source |
 | A/B/C shared identity | `PASS FOR WIP` | Candidate board and source invariants |
-| Face identity support | `CONDITIONAL` | Face128-equivalent board present; actual same-scale 128px review open |
+| Face identity support | `REVIEW READY` | Individual face board plus current-roster exact 128px comparison board; human verdict remains open |
 | Equipment ON/OFF | `CONDITIONAL` | ON/OFF/LOW-SAT board present; same-scale human comparison open |
 | Unified character sheet | `PASS FOR REVIEW` | Front/side/back plus A/B/C state strip is now assembled; human Gate A remains open |
 | Expression sheet | `PASS FOR REVIEW` | Six restrained identity-preserving expressions are assembled; deformation proof remains open |
 | Equipment sheet | `PASS FOR REVIEW` | Single ring, heavy gauntlet, A/B/C states, and 2D simplification direction are assembled; technical proof remains open |
 | Color/material sheet | `PASS FOR REVIEW` | Source-faithful palette roles, material separation, and low-saturation value hierarchy are assembled; shader proof remains open |
 | 2D→3D translation | `DOCUMENTED FOR REVIEW` | Keep/enlarge/simplify/remove rules, state presentation, provisional sockets, material categories, and no-physics policy are recorded; technical proof remains open |
-| 5-person separation | `CONDITIONAL` | Source-level palette, hair, face, and equipment separation is visible; final human verdict open |
+| 5-person separation | `REVIEW READY` | Current-roster Face128 and ON/OFF/LOW-SAT evidence are linked; final human verdict remains open |
 | 2D→3D proof | `NOT TESTED` | No mesh, blockout, socket, rig, shader, or Unity proof |
 | Human Gate A | `PENDING` | No approval recorded |
 
 ## Cross-review impact
 
 - `ART-1501`: CH105 now has a current-roster-faithful candidate package, but the 5/5 roster verdict remains pending.
-- `ART-1502`: CH105 now has Face128-equivalent and ON/OFF/LOW-SAT support, but same-scale 5/5 comparison remains pending.
+- `ART-1502`: CH105 now has an exact 128px current-roster comparison board plus ON/OFF/LOW-SAT support, but the 5/5 human verdict remains pending.
 - Current cross-review package: `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1501-1504_REVIEW_Package_20260812.md`
 - The earlier 2026-08-07 lineup package is not evidence for this roster; it covers the retired Luna/Miyu/Coco/Iris/Noah set.
 
