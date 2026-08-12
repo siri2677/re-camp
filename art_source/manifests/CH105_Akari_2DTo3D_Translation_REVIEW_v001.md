@@ -1,10 +1,10 @@
 # CH105 Kurogane Akari — 2D-to-3D Translation REVIEW v001
 
-> Date: 2026-08-12  
-> Branch: `art/current-roster-gate-a-ch102`  
-> Status: `REVIEW / 2D-to-3D planning contract / Gate B not approved`  
-> Backlog: `ART-1408`  
-> Source package: `art_source/manifests/CH105_Akari_GateA_Review_v001.md`  
+> Date: 2026-08-12
+> Branch: `art/current-roster-gate-a-ch102`
+> Status: `REVIEW / 2D-to-3D planning contract / Gate B not approved`
+> Backlog: `ART-1408`
+> Source package: `art_source/manifests/CH105_Akari_GateA_Review_v001.md`
 > Common contract: `docs/05_art_concept/CHARACTER_3D_SPEC.md`
 
 This document translates the current CH105 2D REVIEW package into a controlled 3D planning contract. It defines what must survive
