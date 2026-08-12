@@ -19,6 +19,7 @@ This is the current-generation cross-review package for the five figures in the 
 | Excluded historical package | `art_refs/characters/lineup/ReCamp_ART-1501-1504_REVIEW_Package.md` and its 2026-08-07 Luna/Miyu/Coco/Iris/Noah imagery |
 | IP similarity review | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1503_IPReview_REVIEW_20260812.md` |
 | Final comparison sheet | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1504_FinalComparison_REVIEW_20260812.png` plus `.metadata.md` and `.review.md` |
+| Human decision record | `art_source/manifests/CH101-105_CurrentRoster_CrossReview_Decision_20260812.md` |
 
 The excluded package is retained for history only. It is not evidence for the current CH101-CH105 roster and must not be used for character selection, 3D handoff, or Unity migration.
 
@@ -82,6 +83,6 @@ Until CH105 receives a separate human Gate A decision and the five-person review
 ## 8. Next action
 
 1. Human-review this current CH101-CH105 package against the morning source image.
-2. Record the five-person cross-review result without changing the source image.
+2. Record the five-person cross-review result in `art_source/manifests/CH101-105_CurrentRoster_CrossReview_Decision_20260812.md` without changing the source image.
 3. Complete the separate CH105 Gate A decision; if approved, create a separately named APPROVED sibling and approval record.
 4. Only after those decisions, revise or promote the comparison record and prepare any later Gate B preflight.
