@@ -91,7 +91,7 @@
 | ART-1301 | 전신 후보 3안 | Done | CH104 morning-roster A/B/C state board + current 2D package approval |
 | ART-1302 | 얼굴·헤어 선택 | Done | CH104 Face128-equivalent identity board + human confirmation |
 | ART-1303 | 패션·체형·실루엣 | Done | CH104 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
-| ART-1304 | Turnaround | In Progress | CH104 turnaround asset is still missing; approved sheet and other support evidence remain linked |
+| ART-1304 | Turnaround | Review | CH104 front/back/side turnaround asset and companion records assembled from approved sheet; 3D cross-check remains |
 | ART-1305 | 표정 시트 | Review | CH104 six-expression review asset assembled; identity continuity and deformation proof remain |
 | ART-1306 | 대표 장비 상세 | Review | CH104 prism-fan/map-ring structure, state, provisional socket, and simplification review assembled |
 | ART-1307 | 컬러·재질 | Review | CH104 palette roles, material separation, and low-saturation review assembled; shader proof remains |

@@ -48,6 +48,9 @@ art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.review.
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.metadata.md
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.review.md
+art_refs/characters/shion/concept/CH104_Shion_Turnaround_REVIEW_v001.png
+art_refs/characters/shion/concept/CH104_Shion_Turnaround_REVIEW_v001.metadata.md
+art_refs/characters/shion/concept/CH104_Shion_Turnaround_REVIEW_v001.review.md
 art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.png
 art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.metadata.md
 art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.review.md

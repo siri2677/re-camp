@@ -9,6 +9,7 @@
 > Face support: `art_refs/characters/shion/concept/CH104_Shion_Face128_WIP_A_v001.png`
 > Silhouette support: `art_refs/characters/shion/concept/CH104_Shion_Silhouette_ON_OFF_WIP_A_v001.png`
 > Character-sheet review: `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.png`
+> Turnaround review: `art_refs/characters/shion/concept/CH104_Shion_Turnaround_REVIEW_v001.png`
 > Expression-sheet review: `art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.png`
 > Equipment-sheet review: `art_refs/characters/shion/concept/CH104_Shion_EquipmentSheet_REVIEW_v001.png`
 > Material-palette review: `art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.png`

@@ -25,7 +25,7 @@ This audit reconciles the current-morning-roster 2D support files for CH103 Kana
 | Character | 2D anchor | Turnaround | Expression | Equipment | Material | Translation / Gate B | Audit result |
 |---|---|---|---|---|---|---|---|
 | CH103 Nozomi | `APPROVED` | `REVIEW asset present` | `REVIEW asset present` | `REVIEW asset present` | `REVIEW asset present` | Contract + Gate B preflight present | `REVIEW / 2D support assembled` |
-| CH104 Shion | `APPROVED` | **missing** | `REVIEW asset present` | `REVIEW asset present` | `REVIEW asset present` | Contract + handoff + Gate B preflight present | `REVIEW / turnaround remains open` |
+| CH104 Shion | `APPROVED` | `REVIEW asset present` | `REVIEW asset present` | `REVIEW asset present` | `REVIEW asset present` | Contract + handoff + Gate B preflight present | `REVIEW / 2D support assembled` |
 
 ## 3. CH103 package
 
@@ -46,7 +46,7 @@ The CH103 2D support package can move from active assembly to review tracking. T
 | Area | Evidence | Result |
 |---|---|---|
 | Approved identity | `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png` and approval record | `PASS / current 2D anchor` |
-| Turnaround | No `CH104_Shion_Turnaround_REVIEW_v001.png`, companion files, or manifest found in the current package | `OPEN / ART-1304` |
+| Turnaround | `CH104_Shion_Turnaround_REVIEW_v001.png` plus metadata/review and `art_source/manifests/CH104_Shion_Turnaround_REVIEW_v001.md` | `ASSEMBLED / REVIEW` |
 | Expression | `CH104_Shion_ExpressionSheet_REVIEW_v001.png` plus metadata/review and manifest | `ASSEMBLED / REVIEW` |
 | Equipment | `CH104_Shion_EquipmentSheet_REVIEW_v001.png` plus metadata/review and manifest | `ASSEMBLED / REVIEW` |
 | Material | `CH104_Shion_MaterialPalette_REVIEW_v001.png` plus metadata/review and manifest | `ASSEMBLED / REVIEW` |
@@ -54,21 +54,21 @@ The CH103 2D support package can move from active assembly to review tracking. T
 | Production handoff | `art_source/manifests/CH104_Shion_Production_Handoff_REVIEW_v001.md` | `READY FOR GATE B PREPARATION` |
 | Gate B preflight | `art_source/manifests/CH104_Shion_GateB_Preflight_REVIEW_v001.md` | `CONDITIONAL / 3D proof missing` |
 
-CH104 remains a valid approved 2D character anchor, but its support package is not complete because a turnaround evidence asset is absent. Do not infer side/back continuity from the character sheet alone.
+CH104 remains a valid approved 2D character anchor. The turnaround support is now assembled as a deterministic crop/layout from the approved sheet; it remains `REVIEW` evidence and does not imply separate human turnaround approval.
 
 ## 5. Backlog reconciliation
 
 The following status changes reflect existing evidence only:
 
 - `ART-1204~ART-1208`: `In Progress` → `Review`; all listed 2D support assets and planning contracts are assembled, while technical proof remains open.
-- `ART-1304`: remains `In Progress`; the CH104 turnaround asset and companion record are still missing.
+- `ART-1304`: `In Progress` → `Review`; the CH104 turnaround asset, companion records, and manifest are assembled; 3D cross-check remains open.
 - `ART-1305~ART-1308`: `In Progress` → `Review`; expression, equipment, material, translation, handoff, and Gate B preflight documents are assembled, while technical proof remains open.
 - `ART-1209` and `ART-1309`: remain `Done` because their separate 2D approval records already exist.
 
 ## 6. Explicit next action
 
 1. Keep the CH103 support package at `Review` and use it as Gate B documentation input only.
-2. Produce or attach a source-faithful CH104 front/side/back turnaround asset from the approved CH104 sheet and morning roster source. Until that exists, keep `ART-1304` open.
+2. Keep the CH104 turnaround at `Review` and confirm its side/back construction during the next human review; do not treat the deterministic crop as 3D proof.
 3. Keep the five-character cross-review and CH105 Gate A decision separate from this audit.
 4. Do not begin Blender/FBX or Unity work until the technical environment and separate human Gate B approval exist.
 

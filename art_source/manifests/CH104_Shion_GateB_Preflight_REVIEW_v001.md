@@ -16,7 +16,7 @@ This preflight records the 2D evidence and planning contracts available after CH
 
 | ID | Gate B requirement | Evidence | Preflight result | Missing proof |
 |---|---|---|---|---|
-| `CHA-B01` | Front/side/back face, hair, outfit, and proportion consistency | Approved sheet + Face128 + silhouette support | `READY FOR GATE B REVIEW` | 3D proportion and blockout cross-check |
+| `CHA-B01` | Front/side/back face, hair, outfit, and proportion consistency | Approved sheet + Turnaround + Face128 + silhouette support | `READY FOR GATE B REVIEW` | 3D proportion and blockout cross-check |
 | `CHA-B02` | Prism-fan/map-ring size, state transitions, and attachment structure | Equipment sheet + state reference + socket proposal | `READY FOR GATE B REVIEW` | socket transforms and collider probe |
 | `CHA-B03` | Explicit 2D-to-3D keep/enlarge/simplify/remove table | `CH104_Shion_2DTo3D_Translation_REVIEW_v001.md` | `READY FOR GATE B REVIEW` | technical implementation proof |
 | `CHA-B04` | `5.2~5.8H` adult readability and common Humanoid compatibility | Approved sheet + common 3D spec | `CONDITIONAL` | CH104 proportion guide and blockout |

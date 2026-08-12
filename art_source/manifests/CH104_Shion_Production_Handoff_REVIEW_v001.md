@@ -14,6 +14,7 @@ This document hands the approved CH104 2D sheet into Gate B preparation. It is a
 - `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png`
 - `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.png`
 - `art_source/manifests/CH104_Shion_StateReference_v001.md`
+- `art_refs/characters/shion/concept/CH104_Shion_Turnaround_REVIEW_v001.png`
 - `art_refs/characters/shion/concept/CH104_Shion_Face128_WIP_A_v001.png`
 - `art_refs/characters/shion/concept/CH104_Shion_Silhouette_ON_OFF_WIP_A_v001.png`
 - `art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.png`
