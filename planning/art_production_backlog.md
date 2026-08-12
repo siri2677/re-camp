@@ -102,24 +102,24 @@
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1401 | 전신 후보 3안 | Review | CH105 오전 로스터 5번째 인물 기준 A/B/C 상태 후보 보드와 통합 CharacterSheet REVIEW assembled; Gate A 리뷰 대기 |
-| ART-1402 | 얼굴·헤어 선택 | Review | CH105 Face128-equivalent 보드 연결; 동일 스케일 사람 검토 남음 |
-| ART-1403 | 패션·체형·실루엣 | Review | CH105 장비 ON/OFF/LOW-SAT 보드 연결; 동일 스케일 사람 검토 남음 |
+| ART-1401 | 전신 후보 3안 | Done | CH105 오전 로스터 5번째 인물 기준 A/B/C 통합 CharacterSheet APPROVED sibling 생성; Gate B 준비 입력으로 제한 |
+| ART-1402 | 얼굴·헤어 선택 | Done | CH105 Face128-equivalent 보드와 5인 교차 판정 PASS 기록; Face128 보드는 REVIEW 증거로 유지 |
+| ART-1403 | 패션·체형·실루엣 | Done | CH105 장비 ON/OFF/LOW-SAT 보드와 5인 교차 판정 PASS 기록; 기술 증거는 별도 |
 | ART-1404 | Turnaround | Review | CH105 front·side·back continuity is assembled in the unified character-sheet REVIEW package; 3D cross-check remains open |
 | ART-1405 | 표정 시트 | Review | CH105 six-expression identity board assembled; deformation and human review remain open |
 | ART-1406 | 대표 장비 상세 | Review | CH105 single anchor-ring/gauntlet structure, A/B/C state, provisional planning labels, and simplification review assembled |
 | ART-1407 | 컬러·재질 | Review | CH105 source-faithful palette roles, material separation, and low-saturation review assembled; shader proof remains open |
 | ART-1408 | 2D→3D 변환표 | Review | CH105 keep/enlarge/simplify/remove, provisional socket, material category, state, and no-physics contract recorded; technical proof remains open |
-| ART-1409 | 사람 Gate A | Review | CH105 전체 2D 패키지 검토 요청서와 승인 경계를 정리함; 사용자 결정 대기, 별도 APPROVED 산출물은 아직 없음 |
+| ART-1409 | 사람 Gate A | Done | 사용자 승인 기록, APPROVED 2D production-sheet sibling, Gate B 준비 전용 경계 완료 |
 
 ## ART-15 — 5인 교차 리뷰
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1501 | 후보 일관성 리뷰 | Review | 현재 로스터 전용 CH101~CH105 교차 검토 패키지 연결; 최종 5/5 사람 판정 대기 |
-| ART-1502 | 128px·실루엣·저채도 리뷰 | Review | 현재 로스터 전용 exact 128px 얼굴·장비 OFF·저채도 근거 연결; 동일 스케일 5/5 사람 판정 대기 |
+| ART-1501 | 후보 일관성 리뷰 | Done | 현재 로스터 전용 CH101~CH105 교차 검토와 5인 2D PASS 판정 기록 완료 |
+| ART-1502 | 128px·실루엣·저채도 리뷰 | Done | 현재 로스터 전용 exact 128px 얼굴·장비 OFF·저채도 근거의 5인 PASS 판정 기록 완료; 보드는 REVIEW 유지 |
 | ART-1503 | 외부 IP 유사성 리뷰 | Review | 현재 CH101~CH105 원작성 사전 점검과 외부/법률 검토 경계를 기록함; 정식 clearance는 미실시 |
-| ART-1504 | 최종 비교 시트 | Review | 오전 로스터 기반 CH101~CH105 비교 시트와 metadata/review 연결; 5인 사람 판정 및 CH105 Gate A 대기 |
+| ART-1504 | 최종 비교 시트 | Done | 오전 로스터 기반 CH101~CH105 비교 시트와 5인 2D PASS·CH105 Gate A 기록 연결; 비교 이미지는 REVIEW 유지 |
 
 ## ART-20 — CH101 3D Character Proof
 

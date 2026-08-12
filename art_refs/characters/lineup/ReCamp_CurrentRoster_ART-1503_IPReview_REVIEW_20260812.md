@@ -18,7 +18,7 @@ It is not a legal opinion, trademark clearance, copyright clearance, reverse-ima
 | Controlling morning source | `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png` |
 | Source commit | `418ef96` |
 | Current five-person comparison | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1501-1504_REVIEW_Package_20260812.md` |
-| Individual package manifests | CH101-CH104 approval records plus `art_source/manifests/CH105_Akari_GateA_Review_v001.md` |
+| Individual package manifests | CH101-CH104 approval records plus `art_source/manifests/CH105_Akari_Production_Sheet_Approval_20260812.md` |
 | Historical exclusion | The 2026-08-07 Luna/Miyu/Coco/Iris/Noah package is not used as current-roster evidence |
 
 The review covers the current source-faithful package only. It does not authorize a new visual direction, replacement character, or Runtime migration.
@@ -41,7 +41,7 @@ The combination of face, hair, body read, role, palette, silhouette, and equipme
 |---|---|---|
 | Current source lock | `PASS FOR REVIEW` | Uses the morning roster source commit `418ef96` |
 | Current-versus-historical separation | `PASS FOR REVIEW` | Retired Luna/Miyu/Coco/Iris/Noah package is explicitly excluded |
-| Character identity separation | `REVIEW READY` | Five distinct identity combinations are documented; human verdict remains open |
+| Character identity separation | `PASS FOR 2D CROSS-ROSTER` | Five distinct identity combinations were accepted in the dated cross-roster decision |
 | Direct-copy indicator audit in repository | `NO INDICATOR RECORDED` | This is not an external search or legal clearance |
 | Trademark, logo, faction, and named-IP scan | `NOT PERFORMED` | Requires a targeted external and legal review |
 | Reverse-image or reference search | `NOT PERFORMED` | No search result may be inferred from this document |
@@ -73,4 +73,4 @@ Attach the external search or legal review evidence as a separate dated record. 
 
 `ART-1503` is ready for human originality review but is not complete. This document does not authorize Gate A approval, 3D Blockout, Blender/FBX, Unity import, Runtime roster replacement, Android proof, commercial release, or legal use of any asset.
 
-`ART-1504` final comparison remains open until the current five-person human review and the individual CH105 Gate A decision are recorded.
+`ART-1504` 2D comparison and the individual CH105 Gate A decision are recorded. `ART-1503` remains open for formal external/legal clearance.

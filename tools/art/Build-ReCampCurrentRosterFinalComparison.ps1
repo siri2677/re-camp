@@ -116,8 +116,8 @@ $characters = @(
     },
     [pscustomobject]@{
         Id='CH105'; Name='AKARI'; Role='Anchor Warden'; Hook='Black/teal hair / gauntlet pair / one anchor ring';
-        Palette='Deep black / forest green / copper gold'; Ratio2D='7.2-7.4H'; Ratio3D='5.7-5.8H'; Accent='#D39A42'; Status='GATE A PENDING';
-        Sheet='art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.png'; Contract='art_source/manifests/CH105_Akari_GateA_Review_Request_20260812.md'
+        Palette='Deep black / forest green / copper gold'; Ratio2D='7.2-7.4H'; Ratio3D='5.7-5.8H'; Accent='#D39A42'; Status='2D APPROVED';
+        Sheet='art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_APPROVED_v001.png'; Contract='art_source/manifests/CH105_Akari_Production_Sheet_Approval_20260812.md'
     }
 )
 
@@ -160,7 +160,7 @@ try {
         $graphics.FillRectangle($background, 0, 0, $canvas.Width, $canvas.Height)
         Draw-Text $graphics 'RE:CAMP / CURRENT ROSTER FINAL COMPARISON' $fonts.Title $white ([Drawing.RectangleF]::new(48, 28, 2700, 62))
         Draw-Text $graphics 'ART-1504 / morning roster source-faithful / 2D review package + 2D-to-3D target visibility' $fonts.Subtitle $muted ([Drawing.RectangleF]::new(51, 96, 3000, 34))
-        Draw-Text $graphics 'REVIEW / HUMAN VERDICT PENDING / NOT GRANTED' $fonts.Status $warning ([Drawing.RectangleF]::new(2750, 52, 1298, 34)) ([Drawing.StringAlignment]::Far)
+        Draw-Text $graphics 'REVIEW / CROSS-ROSTER PASS RECORDED' $fonts.Status $warning ([Drawing.RectangleF]::new(2750, 52, 1298, 34)) ([Drawing.StringAlignment]::Far)
 
         $sourceBounds = [Drawing.Rectangle]::new(48, 165, 2460, 440)
         $summaryBounds = [Drawing.Rectangle]::new(2540, 165, 1508, 440)
@@ -177,9 +177,9 @@ try {
         Draw-Text $graphics '2D targets  6.8-7.4H per character' $fonts.Body $muted ([Drawing.RectangleF]::new(2570, 274, 1400, 28))
         Draw-Text $graphics '3D targets  5.2-5.8H planning contract only' $fonts.Body $muted ([Drawing.RectangleF]::new(2570, 310, 1400, 28))
         Draw-Text $graphics 'CH101-CH104  2D approved references' $fonts.Body $white ([Drawing.RectangleF]::new(2570, 360, 1400, 28))
-        Draw-Text $graphics 'CH105  Gate A decision pending' $fonts.Body $warning ([Drawing.RectangleF]::new(2570, 396, 1400, 28))
+        Draw-Text $graphics 'CH105  2D Gate A approved' $fonts.Body $white ([Drawing.RectangleF]::new(2570, 396, 1400, 28))
         Draw-Text $graphics 'No 3D mesh / rig / Unity asset is included.' $fonts.Body $warning ([Drawing.RectangleF]::new(2570, 450, 1400, 28))
-        Draw-Text $graphics 'Final five-person result remains human review.' $fonts.Body $warning ([Drawing.RectangleF]::new(2570, 486, 1400, 28))
+        Draw-Text $graphics 'Five-person 2D result  PASS recorded' $fonts.Body $white ([Drawing.RectangleF]::new(2570, 486, 1400, 28))
         Draw-Text $graphics 'Historical Luna/Miyu/Coco/Iris/Noah imagery excluded.' $fonts.Small $muted ([Drawing.RectangleF]::new(2570, 535, 1400, 28))
 
         $margin = 48
@@ -201,7 +201,7 @@ try {
             $graphics.FillRectangle($accentBrush, $x, $panelTop, 8, $panelHeight)
             Draw-Text $graphics "$($character.Id) / $($character.Name)" $fonts.Name $white ([Drawing.RectangleF]::new($x + 26, $panelTop + 18, $panelWidth - 50, 44))
             Draw-Text $graphics $character.Role $fonts.Role $accentBrush ([Drawing.RectangleF]::new($x + 27, $panelTop + 68, $panelWidth - 50, 30))
-            Draw-Text $graphics $character.Status $fonts.Status $(if ($character.Status -eq 'GATE A PENDING') { $warning } else { $white }) ([Drawing.RectangleF]::new($x + 27, $panelTop + 104, $panelWidth - 50, 28))
+            Draw-Text $graphics $character.Status $fonts.Status $white ([Drawing.RectangleF]::new($x + 27, $panelTop + 104, $panelWidth - 50, 28))
             $imageBounds = [Drawing.RectangleF]::new($x + 20, $panelTop + 150, $panelWidth - 40, 790)
             $graphics.FillRectangle($panelAlt, $imageBounds)
             Draw-ImageFit $graphics $entry.Sheet $imageBounds
@@ -219,7 +219,7 @@ try {
         $graphics.FillRectangle($panel, $footer)
         $graphics.DrawRectangle($border, $footer)
         Draw-Text $graphics 'ART-1504 REVIEW RESULT' $fonts.Role $warning ([Drawing.RectangleF]::new(76, 2130, 700, 28))
-        Draw-Text $graphics 'Current five-person comparison is assembled from the morning source and source-faithful character sheets. Human 5/5 separation, CH105 Gate A, and formal cross-review decisions remain pending.' $fonts.Body $white ([Drawing.RectangleF]::new(76, 2164, 2500, 52))
+        Draw-Text $graphics 'Current five-person comparison is assembled from the morning source and source-faithful character sheets. 2D PASS is recorded; Gate B, 3D, Unity, and formal IP clearance remain separate.' $fonts.Body $white ([Drawing.RectangleF]::new(76, 2164, 2500, 52))
         Draw-Text $graphics 'No APPROVED comparison export / no Gate B / no 3D / no Unity / no Runtime migration' $fonts.Status $warning ([Drawing.RectangleF]::new(2580, 2160, 1420, 54)) ([Drawing.StringAlignment]::Far)
         Save-Canvas $canvas $outputPath
     }
@@ -243,7 +243,7 @@ try {
         Dimensions = '4096x2304'
         Source = $sourcePath
         Characters = $characters.Count
-        Status = 'REVIEW / HUMAN VERDICT PENDING / NOT GRANTED'
+        Status = 'REVIEW / CROSS-ROSTER PASS RECORDED'
     }
 }
 finally {

@@ -11,8 +11,8 @@
 | Tool | `tools/art/Build-CurrentRosterFace128Review.ps1` using System.Drawing deterministic crops/layout |
 | Canvas | `960x214` |
 | Face cells | Five `128x128` display cells, ordered CH101, CH102, CH103, CH104, CH105 |
-| Status | `REVIEW / SAME-SCALE HUMAN COMPARISON PENDING` |
-| Human approval | Pending; `APPROVED: NOT GRANTED` |
+| Status | `REVIEW / CROSS-ROSTER PASS RECORDED` |
+| Human approval | This board is not an approved production asset; `APPROVED: NOT GRANTED` |
 | Runtime use | Not permitted; review evidence only |
 
 This board is a same-scale review aid, not a runtime portrait export. It uses only current-generation support boards derived from the morning roster source; no retired roster image, external reference, repaint, or character redesign is used.

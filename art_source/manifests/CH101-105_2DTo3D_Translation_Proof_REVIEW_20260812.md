@@ -20,7 +20,7 @@ It is not a Blender/FBX, mesh, rig, shader, animation, Unity, Android, or Runtim
 | CH102 Mao | `art_refs/characters/mao/CH102_Mao_ART-1101-1108_REVIEW_Package.md` | `art_source/manifests/CH102_Mao_2DTo3D_Translation_REVIEW_v001.md` | `2D APPROVED / Gate B not approved` |
 | CH103 Nozomi | `art_source/manifests/CH103_Nozomi_StateReference_v001.md` | `art_source/manifests/CH103_Nozomi_2DTo3D_Translation_REVIEW_v001.md` | `2D APPROVED / Gate B not approved` |
 | CH104 Shion | `art_source/manifests/CH104_Shion_StateReference_v001.md` | `art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md` | `2D APPROVED / Gate B not approved` |
-| CH105 Akari | `art_source/manifests/CH105_Akari_GateA_Review_v001.md` | `art_source/manifests/CH105_Akari_2DTo3D_Translation_REVIEW_v001.md` | `Gate A pending / 2D APPROVED not granted` |
+| CH105 Akari | `art_source/manifests/CH105_Akari_GateA_Review_v001.md` | `art_source/manifests/CH105_Akari_2DTo3D_Translation_REVIEW_v001.md` | `2D APPROVED / Gate B not approved` |
 
 Common technical contract: `docs/05_art_concept/CHARACTER_3D_SPEC.md`.
 Common Gate B checklist: `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`, items `CHA-B01` through `CHA-B10`.
@@ -33,7 +33,7 @@ Common Gate B checklist: `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`, items `C
 | CH102 Mao | `6.8-7.0H` | `5.2-5.3H` | Approved sheet and translation contract | proportion blockout, socket/collider proof, Android measurements |
 | CH103 Nozomi | `7.0-7.2H` | `5.5-5.6H` | Approved sheet and translation contract | proportion blockout, veil/baton socket proof, Android measurements |
 | CH104 Shion | `7.1-7.3H` | `5.6-5.7H` | Approved sheet and translation contract | proportion blockout, fan/ring socket proof, Android measurements |
-| CH105 Akari | `7.2-7.4H` | `5.7-5.8H` | REVIEW sheet and translation contract | human Gate A, proportion blockout, gauntlet/ring socket proof |
+| CH105 Akari | `7.2-7.4H` | `5.7-5.8H` | Approved 2D sheet and translation contract | proportion blockout, gauntlet/ring socket proof |
 
 The targets are planning values from the Canonical Baseline and character contracts. They are not measured 3D results.
 
@@ -45,7 +45,7 @@ The targets are planning values from the Canonical Baseline and character contra
 | CH102 Mao | face, silver-lavender hair mass, asymmetric sleeve, large purple bow silhouette | loose strands, tiny fasteners, repeated bow micro-mechanics | one bow object with controlled deployment; no multi-part mechanical simulation | bow string/pivot intersection, long coat clipping |
 | CH103 Nozomi | round face, coral braid, ivory/coral outfit, orb baton, large veil panels | micro strands, small print, duplicate trim, many veil pieces | one baton object; a small number of large veil panels with shader/VFX; no Cloth | veil occlusion, translucent overdraw, arm clearance |
 | CH104 Shion | angular face, indigo/magenta hair mass, ivory/indigo vertical outfit, prism fan, one map ring | micro hair, tiny gold lines, internal prism detail, orbit simulation | one fan root and one ring; presentation state only; no orbit/cloth physics | fan/ring camera read, coat clipping, value collapse |
-| CH105 Akari | mature face, black/teal hair boundary, shoulder/waist break, boots, gauntlets, one anchor ring | micro hair, tiny buckles, hidden mechanisms, loose cable links | paired gauntlet reads, one ring, one/two line segments; no Cloth/Cable physics | wrist/elbow/torso penetration, dark-value collapse, Gate A pending |
+| CH105 Akari | mature face, black/teal hair boundary, shoulder/waist break, boots, gauntlets, one anchor ring | micro hair, tiny buckles, hidden mechanisms, loose cable links | paired gauntlet reads, one ring, one/two line segments; no Cloth/Cable physics | wrist/elbow/torso penetration, dark-value collapse, proportion cross-check |
 
 The matrix preserves one representative equipment hook per character. It does not authorize adding alternate weapons or replacing the morning-roster identity.
 
@@ -81,7 +81,7 @@ These are proof budgets, not measured Android performance results.
 
 The 2D-to-3D translation documentation is `REVIEW READY` for later Gate B preparation. The following gates remain closed:
 
-- CH105 human Gate A and the five-person cross-review decision.
+- CH105 2D Gate A and the five-person 2D cross-review decision are recorded; Gate B remains closed.
 - Blender/FBX, 3D Blockout, common Humanoid, socket, collider, material import, animation, and shader proof.
 - Unity import, Runtime roster replacement, Android readability/performance, and release use.
 
@@ -89,7 +89,6 @@ No character should be marked `Gate B APPROVED` from this document.
 
 ## 7. Next action
 
-1. Record the human five-person decision in `art_source/manifests/CH101-105_CurrentRoster_CrossReview_Decision_20260812.md`.
-2. Record the separate CH105 Gate A decision.
-3. If the technical environment becomes available and the required human gates are complete, open a separate CH101 Character Proof task and create actual CHA-B05/B07/B09 evidence.
-4. Keep this document as the documentation baseline; update it only when a versioned contract or real technical proof changes.
+1. Keep the recorded five-person decision and CH105 2D approval linked to this documentation baseline.
+2. If the technical environment becomes available and the required Gate B approval is granted, open a separate character proof task and create actual CHA-B05/B07/B09 evidence.
+3. Keep this document as the documentation baseline; update it only when a versioned contract or real technical proof changes.

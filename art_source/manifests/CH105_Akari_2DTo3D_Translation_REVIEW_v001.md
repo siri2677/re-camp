@@ -7,14 +7,14 @@
 > Source package: `art_source/manifests/CH105_Akari_GateA_Review_v001.md`
 > Common contract: `docs/05_art_concept/CHARACTER_3D_SPEC.md`
 
-This document translates the current CH105 2D REVIEW package into a controlled 3D planning contract. It defines what must survive
-the reduction from the source-faithful 2D target to the common `5.2~5.8H` stylized 3D target. It does not claim an approved
-2D sheet, model, rig, blockout, Unity import, or Gate B approval.
+This document translates the current CH105 approved 2D production reference and its supporting REVIEW package into a controlled
+3D planning contract. It defines what must survive the reduction from the source-faithful 2D target to the common `5.2~5.8H`
+stylized 3D target. It does not claim a model, rig, blockout, Unity import, or Gate B approval.
 
 ## 1. Identity and state lock
 
 - The morning roster remains the visual authority: the fifth figure from the left in `CH101-105_Roster_FaceDiversity_WIP_v003.png`, source commit `418ef96`.
-- The CH105 unified character-sheet REVIEW is the current identity anchor; Face128, silhouette, expression, equipment, and material boards are supporting references.
+- The CH105 approved unified character sheet is the current identity anchor; Face128, silhouette, expression, equipment, and material boards remain supporting REVIEW references.
 - CH105's locked visual hook is a grounded anchor warden: black hair with teal inner/back hair, mature amber eyes, black/forest-green utility layers, copper-gold hardware, broad shoulders, and a low defensive stance.
 - A/B/C are states of one identity and one controlled equipment package:
 
@@ -111,7 +111,7 @@ Final shader values, texture sizes, emission, SetPass, overdraw, Android memory,
 
 | Gate B item | Contract evidence | Current status | Missing proof |
 |---|---|---|---|
-| `CHA-B01` | CH105 character-sheet REVIEW + turnaround read | `CONDITIONAL` | human 2D approval and 3D proportion cross-check |
+| `CHA-B01` | CH105 approved character sheet + turnaround read | `CONDITIONAL` | 3D proportion cross-check |
 | `CHA-B02` | Equipment sheet + A/B/C state contract + proposed sockets | `CONDITIONAL` | socket transforms, hand clearance, and collider probe |
 | `CHA-B03` | This translation table + keep/simplify rules | `READY FOR GATE B REVIEW` | technical implementation proof |
 | `CHA-B04` | Common `5.2~5.8H` target + 3D spec | `CONDITIONAL` | proportion guide and Humanoid blockout |
@@ -127,5 +127,5 @@ Final shader values, texture sizes, emission, SetPass, overdraw, Android memory,
 This contract is a 2D planning input for later Gate B review. It does not authorize Blender/FBX export, 3D Blockout, Unity import,
 Runtime roster replacement, or release. Human Gate A, the five-person same-scale review, and the missing 3D proof environment remain prerequisites.
 
-Next 2D action after this document is human review of the complete CH105 package. If Gate A is approved, prepare a separate Gate B preflight;
+The 2D Gate A decision is recorded. Prepare a separate Gate B preflight only after the technical prerequisites are available;
 do not promote this REVIEW contract or any WIP image to an APPROVED runtime asset.

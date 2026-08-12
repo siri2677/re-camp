@@ -3,16 +3,17 @@
 > Date: 2026-08-12
 > Branch: `art/current-roster-gate-a-ch102`
 > Scope: CH105 source-faithful 2D package and Gate A decision request
-> Status: `REVIEW / HUMAN DECISION PENDING`
+> Status: `DECISION RECORDED / APPROVED`
 > Backlog: `ART-1409`
 > Roster source commit: `418ef96` - `art: refine current roster gate A visuals`
 
-This document gathers the current CH105 2D evidence for direct human Gate A review. It does not record approval and does not create an APPROVED export.
+This document gathers the current CH105 2D evidence that was used for direct human Gate A review. The decision is recorded in the separate approval record below; the original REVIEW evidence remains preserved.
 
 ## Decision status
 
-- Human decision: `PENDING`
-- Approved sibling: `NOT CREATED`
+- Human decision: `APPROVED` by user in Codex on 2026-08-12
+- Approved sibling: `CH105_Akari_CharacterSheet_APPROVED_v001.png`
+- Approval record: `art_source/manifests/CH105_Akari_Production_Sheet_Approval_20260812.md`
 - Approval boundary: if approved, 2D production reference and Gate B preparation only; no 3D, Unity, or Runtime authorization.
 
 ## 1. Decision scope
@@ -32,28 +33,28 @@ The morning roster source is the controlling visual anchor. Older 2026-08-07 lin
 
 | Review area | Asset or document | Current result |
 |---|---|---|
-| Unified A/B/C state anchor | `art_refs/characters/akari/concept/CH105_Akari_GateA_Candidates_WIP_v001.png` | `PASS FOR REVIEW` |
-| Face and hair identity | `art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.png` plus `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` | `REVIEW READY / same-scale human comparison remains` |
-| ON/OFF/LOW-SAT silhouette | `art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.png` | `CONDITIONAL / same-scale human comparison remains` |
-| Turnaround and state sheet | `art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.png` | `PASS FOR REVIEW` |
+| Unified A/B/C state anchor | `art_refs/characters/akari/concept/CH105_Akari_GateA_Candidates_WIP_v001.png` and approved CharacterSheet sibling | `PASS / 2D APPROVED` |
+| Face and hair identity | `art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.png` plus `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` | `PASS FOR GATE B INPUT / board remains REVIEW` |
+| ON/OFF/LOW-SAT silhouette | `art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.png` | `PASS FOR GATE B INPUT / technical proof remains open` |
+| Turnaround and state sheet | `art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_APPROVED_v001.png` | `PASS / 2D APPROVED` |
 | Expression continuity | `art_refs/characters/akari/concept/CH105_Akari_ExpressionSheet_REVIEW_v001.png` | `PASS FOR REVIEW` |
 | Equipment structure and carry | `art_refs/characters/akari/concept/CH105_Akari_EquipmentSheet_REVIEW_v001.png` | `PASS FOR REVIEW` |
 | Color and material hierarchy | `art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.png` | `PASS FOR REVIEW` |
 | 2D-to-3D planning boundary | `art_source/manifests/CH105_Akari_2DTo3D_Translation_REVIEW_v001.md` | `DOCUMENTED / Gate B not approved` |
-| Full package manifest | `art_source/manifests/CH105_Akari_GateA_Review_v001.md` | `WIP / CONDITIONAL GATE A REVIEW` |
+| Full package manifest | `art_source/manifests/CH105_Akari_GateA_Review_v001.md` | `APPROVED / 2D PRODUCTION SHEET` |
 
-The linked REVIEW and WIP files are preserved as evidence. No file in this request should be interpreted as an approved production source.
+The linked REVIEW and WIP files are preserved as evidence. The separately named `CH105_Akari_CharacterSheet_APPROVED_v001.png` is the approved 2D production reference; the Face128 board itself remains REVIEW evidence.
 
 ## 3. Gate A checklist
 
 | Gate A question | Current evidence | Decision state |
 |---|---|---|
-| Is the fifth morning-roster figure the correct CH105 identity source? | Roster lock and linked candidate boards | `PENDING` |
-| Do A/B/C read as one inclusive Akari package? | Candidate board, character sheet, and state references | `PENDING` |
-| Are face, hair, body, palette, and five-person separation acceptable? | Face, silhouette, character, expression, material sheets, and current-roster Face128 board | `PENDING / human verdict open` |
-| Is the single anchor ring, heavy gauntlet, and restrained line direction acceptable? | Equipment sheet and 2D-to-3D contract | `PENDING` |
-| Is the palette and material/value hierarchy acceptable? | Material palette and low-saturation panel | `PENDING` |
-| Is the 2D-to-3D contract acceptable as planning input? | Translation contract is documented | `PENDING / technical proof is not approval` |
+| Is the fifth morning-roster figure the correct CH105 identity source? | Roster lock and linked candidate boards | `PASS` |
+| Do A/B/C read as one inclusive Akari package? | Candidate board, character sheet, and state references | `PASS` |
+| Are face, hair, body, palette, and five-person separation acceptable? | Face, silhouette, character, expression, material sheets, and current-roster Face128 board | `PASS / cross-roster decision recorded` |
+| Is the single anchor ring, heavy gauntlet, and restrained line direction acceptable? | Equipment sheet and 2D-to-3D contract | `PASS FOR 2D / technical proof remains open` |
+| Is the palette and material/value hierarchy acceptable? | Material palette and low-saturation panel | `PASS FOR 2D / shader proof remains open` |
+| Is the 2D-to-3D contract acceptable as planning input? | Translation contract is documented | `PASS FOR GATE B PLANNING / not technical approval` |
 
 ## 4. Human review questions
 
@@ -64,6 +65,10 @@ The linked REVIEW and WIP files are preserved as evidence. No file in this reque
 5. Should this 2D package be promoted to `APPROVED`?
 
 ## 5. Decision handling
+
+### Recorded decision
+
+The user approved the CH105 2D package. The approval sibling and separate approval record were created without overwriting any REVIEW evidence.
 
 ### If approved
 
@@ -86,6 +91,6 @@ Keep `ART-1409` in `Review` and leave all Gate B, 3D, Unity, and Runtime work bl
 
 ## 6. Current boundary
 
-This request is a human Gate A review handoff only. Until a separate approval record exists, CH105 remains `WIP / CONDITIONAL GATE A REVIEW` and `APPROVED: NOT GRANTED`.
+This request is retained as the Gate A review handoff. CH105 now has a separate `APPROVED / 2D PRODUCTION SHEET` record; Gate B, 3D, Unity, Runtime, Android, release, and legal/IP clearance remain separate.
 
 The request does not authorize Blender/FBX, 3D Blockout, Unity import, Runtime roster replacement, Android proof, or release use.

@@ -4,8 +4,8 @@
 > Branch: `art/current-roster-gate-a-ch102`
 > Source commit: `418ef96` - `art: refine current roster gate A visuals`
 > Scope: current five-person 2D cross-roster review only
-> Status: `PENDING / HUMAN DECISION REQUIRED`
-> `APPROVED`: `NOT GRANTED`
+> Status: `PASS / HUMAN DECISION RECORDED`
+> `APPROVED`: `CROSS-ROSTER PASS RECORDED`
 
 This record is the decision surface for the current CH101-CH105 cross-roster review. It does not replace individual character Gate A or 2D production-sheet approval records, and it does not authorize 3D or Unity work.
 
@@ -31,7 +31,7 @@ Review the five current figures together:
 | CH102 Mao | silver-lavender hair, one folding mechanical bow, maker read | `2D APPROVED` |
 | CH103 Nozomi | coral braid, orb baton, controlled rescue veil | `2D APPROVED` |
 | CH104 Shion | indigo vertical read, prism fan, one map ring | `2D APPROVED` |
-| CH105 Akari | black/teal hair, gauntlet pair, one anchor ring | `GATE A PENDING` |
+| CH105 Akari | black/teal hair, gauntlet pair, one anchor ring | `2D APPROVED / GATE A` |
 
 The review concerns whether these five identities form a distinct and coherent current roster. It is not a request to choose one image from each A/B/C row; A/B/C remain inclusive states of each character.
 
@@ -39,14 +39,14 @@ The review concerns whether these five identities form a distinct and coherent c
 
 | ID | Question | Evidence | Decision |
 |---|---|---|---|
-| CR-01 | Is the morning source order correct: CH101, CH102, CH103, CH104, CH105? | Source-lock panel and `418ef96` roster image | `PENDING` |
-| CR-02 | Are the five faces sufficiently distinct at the reviewed scale? | `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` and individual Face128 support | `PENDING` |
-| CR-03 | Are equipment-OFF silhouettes sufficiently distinct? | Current roster proxy and individual silhouette boards | `PENDING` |
-| CR-04 | Are low-saturation value blocks sufficiently separated? | Current roster proxy and material/silhouette evidence | `PENDING` |
-| CR-05 | Are role, equipment, and palette hooks distinct without breaking one project style? | ART-1504 comparison and Character Bible | `PENDING` |
-| CR-06 | Do each character's A/B/C states read as one identity rather than alternate character choices? | Individual unified character sheets | `PENDING` |
-| CR-07 | Is the CH105 package ready for its separate Gate A decision? | `CH105_Akari_GateA_Review_Request_20260812.md` | `PENDING / separate decision` |
-| CR-08 | Is the current five-person roster acceptable for the next 2D planning step? | Full package and ART-1504 sheet | `PENDING` |
+| CR-01 | Is the morning source order correct: CH101, CH102, CH103, CH104, CH105? | Source-lock panel and `418ef96` roster image | `PASS` |
+| CR-02 | Are the five faces sufficiently distinct at the reviewed scale? | `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` and individual Face128 support | `PASS` |
+| CR-03 | Are equipment-OFF silhouettes sufficiently distinct? | Current roster proxy and individual silhouette boards | `PASS` |
+| CR-04 | Are low-saturation value blocks sufficiently separated? | Current roster proxy and material/silhouette evidence | `PASS` |
+| CR-05 | Are role, equipment, and palette hooks distinct without breaking one project style? | ART-1504 comparison and Character Bible | `PASS` |
+| CR-06 | Do each character's A/B/C states read as one identity rather than alternate character choices? | Individual unified character sheets | `PASS` |
+| CR-07 | Is the CH105 package ready for its separate Gate A decision? | `CH105_Akari_GateA_Review_Request_20260812.md` and approval record | `PASS / CH105 APPROVED` |
+| CR-08 | Is the current five-person roster acceptable for the next 2D planning step? | Full package and ART-1504 sheet | `PASS` |
 
 ## 4. Decision options
 
@@ -63,11 +63,11 @@ Choose one overall result and record any required changes:
 Fill this section only after reviewing the linked package and image:
 
 ```text
-Overall result: PENDING / PASS / CONDITIONAL / REVISION REQUIRED
-Reviewer: PENDING
-Date: PENDING
+Overall result: PASS
+Reviewer: User in Codex
+Date: 2026-08-12
 Required changes: None recorded
-Notes: PENDING
+Notes: CH105 Gate A and the five-person 2D cross-roster direction were approved. The Face128 board remains REVIEW evidence and does not become a runtime asset.
 ```
 
 For a `CONDITIONAL` or `REVISION REQUIRED` result, list the affected character and the smallest bounded change. Do not overwrite the morning source or current REVIEW evidence.
@@ -88,6 +88,6 @@ Keep the current package as review history, record the affected character or com
 
 ## 7. Boundary
 
-Until the human decision entry is completed, `ART-1501`, `ART-1502`, and `ART-1504` remain `Review`. ART-1503 remains a repository-level precheck with formal external/legal clearance still pending.
+The human decision entry is complete. `ART-1501`, `ART-1502`, and `ART-1504` may advance to `Done` for the recorded 2D cross-review result. ART-1503 remains a repository-level precheck with formal external/legal clearance still pending.
 
 No part of this record authorizes Blender/FBX, 3D Blockout, rigging, animation, shader proof, Unity import, Runtime roster replacement, Android proof, commercial release, or legal/IP clearance.

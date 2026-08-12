@@ -13,7 +13,7 @@ APPROVED 개별 캐릭터 제작 시트
 → WIP·STYLE REJECTED HISTORY
 ```
 
-현재 사람 승인된 2D 제작 시트는 CH101~CH104에 있으며, CH105와 5인 교차 판정은 아직 대기 중이다. `REVIEW` 이미지는 제작 방향 비교용이며 출시 자산이나 3D 모델링 시트로 직접 사용하지 않는다.
+현재 사람 승인된 2D 제작 시트는 CH101~CH105이며, 현재 CH101~CH105 5인 2D 교차 판정은 `PASS`로 기록되어 있다. `REVIEW` 이미지는 제작 방향 비교용이며 출시 자산이나 3D 모델링 시트로 직접 사용하지 않는다.
 
 ## 현재 기준 파일
 
@@ -23,6 +23,7 @@ APPROVED 개별 캐릭터 제작 시트
 - `characters/lineup/ReCamp_FiveCharacterCrossReview_REVIEW_v002.png`: 새 KeyArt 기반 exact 128px 얼굴과 저채도·실루엣 교차 증거다.
 - `characters/lineup/ReCamp_CurrentRoster_ART-1504_FinalComparison_REVIEW_20260812.png`: 오전 로스터 `418ef96` 기준 CH101~CH105 현재 2D 시트와 2D/3D 목표를 비교하는 ART-1504 REVIEW 시트다.
 - `characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png`: 오전 로스터 `418ef96`에서 직접 추출한 CH101~CH105 동일 스케일 128px 얼굴 비교 REVIEW 보드다.
+- `characters/akari/concept/CH105_Akari_CharacterSheet_APPROVED_v001.png`: CH105 아카리의 A/B/C 통합 2D 제작 시트 승인본이다. Gate B 준비 입력으로만 사용하며 3D·Unity 권한은 포함하지 않는다.
 - `../art_source/manifests/CH101-105_2DTo3D_Translation_Proof_REVIEW_20260812.md`: CH101~CH105 변환 계약과 CHA-B01~B10 문서 증거를 통합 감사한 ART-0112 REVIEW 문서다.
 - `../art_source/manifests/CH103-104_2D_Support_Package_Audit_REVIEW_20260812.md`: 오전 로스터 기준 CH103·CH104 2D 지원 패키지와 CH104 Turnaround 결정적 추출 결과를 감사한 REVIEW 문서다.
 - `characters/shion/concept/CH104_Shion_Turnaround_REVIEW_v001.png`: 승인된 CH104 시트 상단 3뷰만 결정적으로 추출한 front/back/side REVIEW 지원 자산이다.
