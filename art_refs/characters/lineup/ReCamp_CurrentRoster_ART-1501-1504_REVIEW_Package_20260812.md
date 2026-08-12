@@ -21,6 +21,7 @@ This is the current-generation cross-review package for the five figures in the 
 | Final comparison sheet | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1504_FinalComparison_REVIEW_20260812.png` plus `.metadata.md` and `.review.md` |
 | Human decision record | `art_source/manifests/CH101-105_CurrentRoster_CrossReview_Decision_20260812.md` |
 | 2D-to-3D proof audit | `art_source/manifests/CH101-105_2DTo3D_Translation_Proof_REVIEW_20260812.md` |
+| CH103-CH104 2D support audit | `art_source/manifests/CH103-104_2D_Support_Package_Audit_REVIEW_20260812.md` |
 
 The excluded package is retained for history only. It is not evidence for the current CH101-CH105 roster and must not be used for character selection, 3D handoff, or Unity migration.
 

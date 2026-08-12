@@ -77,11 +77,11 @@
 | ART-1201 | 전신 후보 3안 | Done | CH103 morning-roster A/B/C state board + current 2D evidence approval |
 | ART-1202 | 얼굴·헤어 선택 | Done | CH103 Face128-equivalent identity board + human confirmation |
 | ART-1203 | 패션·체형·실루엣 | Done | CH103 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
-| ART-1204 | Turnaround | In Progress | CH103 front·side·back review + identity continuity |
-| ART-1205 | 표정 시트 | In Progress | CH103 six-expression review + identity continuity |
-| ART-1206 | 대표 장비 상세 | In Progress | CH103 baton/veil structure, activation, socket proposal, simplification record |
-| ART-1207 | 컬러·재질 | In Progress | CH103 palette, material separation, and low-saturation review |
-| ART-1208 | 2D→3D 변환표 | In Progress | CH103 keep/enlarge/simplify/remove, Socket, material, and physics contract |
+| ART-1204 | Turnaround | Review | CH103 front·side·back review asset and identity continuity assembled; 3D cross-check remains |
+| ART-1205 | 표정 시트 | Review | CH103 six-expression review asset assembled; deformation proof remains |
+| ART-1206 | 대표 장비 상세 | Review | CH103 baton/veil structure, activation, socket proposal, simplification record assembled |
+| ART-1207 | 컬러·재질 | Review | CH103 palette, material separation, and low-saturation review assembled; shader proof remains |
+| ART-1208 | 2D→3D 변환표 | Review | CH103 translation contract assembled; Gate B technical proof remains open |
 | ART-1209 | 사람 Gate A | Done | Approval record and APPROVED path |
 
 ### ART-13 — CH104
@@ -91,11 +91,11 @@
 | ART-1301 | 전신 후보 3안 | Done | CH104 morning-roster A/B/C state board + current 2D package approval |
 | ART-1302 | 얼굴·헤어 선택 | Done | CH104 Face128-equivalent identity board + human confirmation |
 | ART-1303 | 패션·체형·실루엣 | Done | CH104 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
-| ART-1304 | Turnaround | In Progress | CH104 front/side/back continuity + unified character-sheet REVIEW package |
-| ART-1305 | 표정 시트 | In Progress | CH104 six-expression review + identity continuity |
-| ART-1306 | 대표 장비 상세 | In Progress | CH104 prism-fan/map-ring structure, state, provisional socket, and simplification review |
-| ART-1307 | 컬러·재질 | In Progress | CH104 palette roles, material separation, and low-saturation review |
-| ART-1308 | 2D→3D 변환표 | In Progress | CH104 translation contract + Gate B preflight/handoff; technical proof remains open |
+| ART-1304 | Turnaround | In Progress | CH104 turnaround asset is still missing; approved sheet and other support evidence remain linked |
+| ART-1305 | 표정 시트 | Review | CH104 six-expression review asset assembled; identity continuity and deformation proof remain |
+| ART-1306 | 대표 장비 상세 | Review | CH104 prism-fan/map-ring structure, state, provisional socket, and simplification review assembled |
+| ART-1307 | 컬러·재질 | Review | CH104 palette roles, material separation, and low-saturation review assembled; shader proof remains |
+| ART-1308 | 2D→3D 변환표 | Review | CH104 translation contract, Gate B preflight, and handoff assembled; technical proof remains open |
 | ART-1309 | 사람 Gate A | Done | Approval record and APPROVED 2D production-sheet path |
 
 ### ART-14 — CH105
