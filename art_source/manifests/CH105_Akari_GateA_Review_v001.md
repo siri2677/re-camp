@@ -34,6 +34,9 @@ art_refs/characters/akari/concept/CH105_Akari_ExpressionSheet_REVIEW_v001.metada
 art_refs/characters/akari/concept/CH105_Akari_EquipmentSheet_REVIEW_v001.png
 art_refs/characters/akari/concept/CH105_Akari_EquipmentSheet_REVIEW_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_EquipmentSheet_REVIEW_v001.metadata.md
+art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.png
+art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.review.md
+art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.metadata.md
 ```
 
 ## Identity and state contract
@@ -58,6 +61,7 @@ art_refs/characters/akari/concept/CH105_Akari_EquipmentSheet_REVIEW_v001.metadat
 | Unified character sheet | `PASS FOR REVIEW` | Front/side/back plus A/B/C state strip is now assembled; human Gate A remains open |
 | Expression sheet | `PASS FOR REVIEW` | Six restrained identity-preserving expressions are assembled; deformation proof remains open |
 | Equipment sheet | `PASS FOR REVIEW` | Single ring, heavy gauntlet, A/B/C states, and 2D simplification direction are assembled; technical proof remains open |
+| Color/material sheet | `PASS FOR REVIEW` | Source-faithful palette roles, material separation, and low-saturation value hierarchy are assembled; shader proof remains open |
 | 5-person separation | `CONDITIONAL` | Source-level palette, hair, face, and equipment separation is visible; final human verdict open |
 | 2D→3D proof | `NOT TESTED` | No mesh, blockout, socket, rig, shader, or Unity proof |
 | Human Gate A | `PENDING` | No approval recorded |
