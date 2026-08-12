@@ -17,6 +17,7 @@ This is the current-generation cross-review package for the five figures in the 
 | Current roster proxy | `art_refs/characters/roster/current/CH101-105_Roster_GateA_Evidence_WIP_v001.png` |
 | Individual package manifests | `art_source/manifests/CH101_Rin_Production_Sheet_Approval_20260811.md`, `CH102_Mao_Production_Sheet_Approval_20260811.md`, `CH103_Nozomi_Production_Sheet_Approval_20260811.md`, `CH104_Shion_Production_Sheet_Approval_20260812.md`, `CH105_Akari_GateA_Review_v001.md` |
 | Excluded historical package | `art_refs/characters/lineup/ReCamp_ART-1501-1504_REVIEW_Package.md` and its 2026-08-07 Luna/Miyu/Coco/Iris/Noah imagery |
+| IP similarity review | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1503_IPReview_REVIEW_20260812.md` |
 
 The excluded package is retained for history only. It is not evidence for the current CH101-CH105 roster and must not be used for character selection, 3D handoff, or Unity migration.
 
@@ -67,13 +68,17 @@ Current result: `REVIEW READY / SAME-SCALE HUMAN VERDICT PENDING`.
 5. Is the CH105 package acceptable for the separate Gate A decision described in `CH105_Akari_GateA_Review_Request_20260812.md`?
 6. Should the current five-person cross-review be recorded as `PASS`, `CONDITIONAL`, or `REVISION REQUIRED`?
 
-## 6. Decision boundary
+## 6. ART-1503 - originality review boundary
+
+The repository-level IP similarity precheck is documented separately in `ReCamp_CurrentRoster_ART-1503_IPReview_REVIEW_20260812.md`. It records the current identity combinations and review questions, but formal external search, trademark review, copyright review, and legal clearance have not been performed.
+
+## 7. Decision boundary
 
 This package does not authorize Blender/FBX, 3D Blockout, rigging, animation, shader proof, Unity import, Runtime roster replacement, Android proof, or release use.
 
 Until CH105 receives a separate human Gate A decision and the five-person review is recorded, keep `ART-1501` and `ART-1502` in review, keep `ART-1504` open, and do not migrate the current roster into Runtime.
 
-## 7. Next action
+## 8. Next action
 
 1. Human-review this current CH101-CH105 package against the morning source image.
 2. Record the five-person cross-review result without changing the source image.
