@@ -105,7 +105,7 @@
 | ART-1401 | 전신 후보 3안 | In Progress | CH105 오전 로스터 5번째 인물 기준 A/B/C 상태 후보 보드 생성; Gate A 리뷰 대기 |
 | ART-1402 | 얼굴·헤어 선택 | Review | CH105 Face128-equivalent 보드 연결; 동일 스케일 사람 검토 남음 |
 | ART-1403 | 패션·체형·실루엣 | Review | CH105 장비 ON/OFF/LOW-SAT 보드 연결; 동일 스케일 사람 검토 남음 |
-| ART-1404 | Turnaround | Todo | Front·Side·Back 일치 |
+| ART-1404 | Turnaround | Review | CH105 front·side·back continuity is assembled in the unified character-sheet REVIEW package; 3D cross-check remains open |
 | ART-1405 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1406 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
 | ART-1407 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |

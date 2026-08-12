@@ -1,6 +1,6 @@
 # CH105 Kurogane Akari Gate A Review Manifest v001
 
-> Backlog: `ART-1401`, `ART-1402`, `ART-1403`
+> Backlog: `ART-1401`, `ART-1402`, `ART-1403`, `ART-1404`
 > Cross-review support: `ART-1501`, `ART-1502`
 > Status: `WIP / CONDITIONAL GATE A REVIEW`
 > `APPROVED`: **NOT GRANTED**
@@ -25,6 +25,9 @@ art_refs/characters/akari/concept/CH105_Akari_Face128_WIP_A_v001.metadata.md
 art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.png
 art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.review.md
 art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.metadata.md
+art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.png
+art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.review.md
+art_refs/characters/akari/concept/CH105_Akari_CharacterSheet_REVIEW_v001.metadata.md
 ```
 
 ## Identity and state contract
@@ -46,6 +49,7 @@ art_refs/characters/akari/concept/CH105_Akari_Silhouette_ON_OFF_WIP_A_v001.metad
 | A/B/C shared identity | `PASS FOR WIP` | Candidate board and source invariants |
 | Face identity support | `CONDITIONAL` | Face128-equivalent board present; actual same-scale 128px review open |
 | Equipment ON/OFF | `CONDITIONAL` | ON/OFF/LOW-SAT board present; same-scale human comparison open |
+| Unified character sheet | `PASS FOR REVIEW` | Front/side/back plus A/B/C state strip is now assembled; human Gate A remains open |
 | 5-person separation | `CONDITIONAL` | Source-level palette, hair, face, and equipment separation is visible; final human verdict open |
 | 2D→3D proof | `NOT TESTED` | No mesh, blockout, socket, rig, shader, or Unity proof |
 | Human Gate A | `PENDING` | No approval recorded |
@@ -64,5 +68,5 @@ Blender/FBX, Unity import, Runtime roster replacement, Android proof, or release
 ## Next action
 
 1. Human-review the CH105 package beside the current CH101–CH104 approved 2D sheets.
-2. If accepted, assemble `CH105_Akari_CharacterSheet_REVIEW_v001` with unified A/B/C production views.
+2. Continue with the CH105 expression and equipment-detail REVIEW sheets while keeping this identity package unchanged.
 3. Re-run ART-1501/1502 after the five-character same-scale review; keep the result at REVIEW until human approval.
