@@ -102,9 +102,9 @@
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1401 | 전신 후보 3안 | Ready | 동일 Character Anchor로 3안 + metadata |
-| ART-1402 | 얼굴·헤어 선택 | Todo | 128px 얼굴 비교 + 사람 선택 |
-| ART-1403 | 패션·체형·실루엣 | Todo | 장비 on/off 비교 |
+| ART-1401 | 전신 후보 3안 | In Progress | CH105 오전 로스터 5번째 인물 기준 A/B/C 상태 후보 보드 생성; Gate A 리뷰 대기 |
+| ART-1402 | 얼굴·헤어 선택 | Review | CH105 Face128-equivalent 보드 연결; 동일 스케일 사람 검토 남음 |
+| ART-1403 | 패션·체형·실루엣 | Review | CH105 장비 ON/OFF/LOW-SAT 보드 연결; 동일 스케일 사람 검토 남음 |
 | ART-1404 | Turnaround | Todo | Front·Side·Back 일치 |
 | ART-1405 | 표정 시트 | Todo | 성격 대비 포함 |
 | ART-1406 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
@@ -116,8 +116,8 @@
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1501 | 후보 일관성 리뷰 | Todo | 얼굴·패션·실루엣·장비가 5/5 구분 |
-| ART-1502 | 128px·실루엣·저채도 리뷰 | Todo | 장비 on/off에서도 5/5 식별 |
+| ART-1501 | 후보 일관성 리뷰 | In Progress | CH105 현재 로스터 Gate A 패키지 추가; CH101~CH104 앵커와 최종 5/5 사람 검토 진행 중 |
+| ART-1502 | 128px·실루엣·저채도 리뷰 | In Progress | CH105 Face128-equivalent 및 ON/OFF/LOW-SAT 증거 추가; 동일 스케일 5/5 비교와 사람 검토 진행 중 |
 | ART-1503 | 외부 IP 유사성 리뷰 | Todo | 직접 복제 없음과 차별화 기록 |
 | ART-1504 | 최종 비교 시트 | Todo | Approved 후보와 변환표를 한 화면에서 비교 |
 
