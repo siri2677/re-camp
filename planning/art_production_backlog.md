@@ -36,7 +36,7 @@
 | ART-0109 | Asset/Export Naming | Done | Version·LOD·Socket·GUID 규칙 |
 | ART-0110 | Animation Handoff | Review | Current/Legacy 경계·공용/고유 Motion 계약 확인 |
 | ART-0111 | 제작 시트 실사용 검증 | Review | 한글·이미지 교체·PNG/PDF·사용성 |
-| ART-0112 | 2D→3D 변환표 Proof | In Progress | 선택 후보의 단순화·물리 위험 기록 |
+| ART-0112 | 2D→3D 변환표 Proof | Review | CH101~CH105 통합 변환표 Proof와 CHA-B01~B10 문서 감사 완료; 실제 3D/Unity 증거는 미실시 |
 
 ## 캐릭터별 2D 작업
 

@@ -22,6 +22,7 @@ APPROVED 개별 캐릭터 제작 시트
 - `characters/lineup/ReCamp_FiveCharacterLineup_REVIEW_v002.png`: 새 일본 서브컬처 KeyArt 5종을 인체 높이 기준으로 정규화한 현재 교차 비교판이다.
 - `characters/lineup/ReCamp_FiveCharacterCrossReview_REVIEW_v002.png`: 새 KeyArt 기반 exact 128px 얼굴과 저채도·실루엣 교차 증거다.
 - `characters/lineup/ReCamp_CurrentRoster_ART-1504_FinalComparison_REVIEW_20260812.png`: 오전 로스터 `418ef96` 기준 CH101~CH105 현재 2D 시트와 2D/3D 목표를 비교하는 ART-1504 REVIEW 시트다.
+- `../art_source/manifests/CH101-105_2DTo3D_Translation_Proof_REVIEW_20260812.md`: CH101~CH105 변환 계약과 CHA-B01~B10 문서 증거를 통합 감사한 ART-0112 REVIEW 문서다.
 - `moodboard/battle_vertical_slice_concept.png`: 기존 원본 전투 콘셉트. 캐릭터 감성, 쿼터뷰, 환경, 색 대비의 `PRIMARY REVIEW` 앵커다. 정확한 체형 비율은 최신 Baseline을 따른다.
 - `art_direction/ReCamp_CharacterLineup_REVIEW_v003.png`: 과거 4~4.5등신 시도 이력을 보존한 파생 `REVIEW` 라인업이다. Gate A 자동 리뷰 권고는 `FAIL`이며 새 캐릭터 제작의 외형·비율 앵커로 사용하지 않는다.
 - `art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md`: 모티프 충돌·얼굴·실루엣 수정 지시와 Unity 적용 제한을 기록한다.
