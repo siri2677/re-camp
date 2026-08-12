@@ -119,7 +119,7 @@
 | ART-1501 | 후보 일관성 리뷰 | Review | 현재 로스터 전용 CH101~CH105 교차 검토 패키지 연결; 최종 5/5 사람 판정 대기 |
 | ART-1502 | 128px·실루엣·저채도 리뷰 | Review | 현재 로스터 전용 Face128·장비 OFF·저채도 근거 연결; 동일 스케일 5/5 사람 판정 대기 |
 | ART-1503 | 외부 IP 유사성 리뷰 | Review | 현재 CH101~CH105 원작성 사전 점검과 외부/법률 검토 경계를 기록함; 정식 clearance는 미실시 |
-| ART-1504 | 최종 비교 시트 | Todo | Approved 후보와 변환표를 한 화면에서 비교 |
+| ART-1504 | 최종 비교 시트 | Review | 오전 로스터 기반 CH101~CH105 비교 시트와 metadata/review 연결; 5인 사람 판정 및 CH105 Gate A 대기 |
 
 ## ART-20 — CH101 3D Character Proof
 

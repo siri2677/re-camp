@@ -18,6 +18,7 @@ This is the current-generation cross-review package for the five figures in the 
 | Individual package manifests | `art_source/manifests/CH101_Rin_Production_Sheet_Approval_20260811.md`, `CH102_Mao_Production_Sheet_Approval_20260811.md`, `CH103_Nozomi_Production_Sheet_Approval_20260811.md`, `CH104_Shion_Production_Sheet_Approval_20260812.md`, `CH105_Akari_GateA_Review_v001.md` |
 | Excluded historical package | `art_refs/characters/lineup/ReCamp_ART-1501-1504_REVIEW_Package.md` and its 2026-08-07 Luna/Miyu/Coco/Iris/Noah imagery |
 | IP similarity review | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1503_IPReview_REVIEW_20260812.md` |
+| Final comparison sheet | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1504_FinalComparison_REVIEW_20260812.png` plus `.metadata.md` and `.review.md` |
 
 The excluded package is retained for history only. It is not evidence for the current CH101-CH105 roster and must not be used for character selection, 3D handoff, or Unity migration.
 
@@ -76,11 +77,11 @@ The repository-level IP similarity precheck is documented separately in `ReCamp_
 
 This package does not authorize Blender/FBX, 3D Blockout, rigging, animation, shader proof, Unity import, Runtime roster replacement, Android proof, or release use.
 
-Until CH105 receives a separate human Gate A decision and the five-person review is recorded, keep `ART-1501` and `ART-1502` in review, keep `ART-1504` open, and do not migrate the current roster into Runtime.
+Until CH105 receives a separate human Gate A decision and the five-person review is recorded, keep `ART-1501`, `ART-1502`, and `ART-1504` in review and do not migrate the current roster into Runtime.
 
 ## 8. Next action
 
 1. Human-review this current CH101-CH105 package against the morning source image.
 2. Record the five-person cross-review result without changing the source image.
 3. Complete the separate CH105 Gate A decision; if approved, create a separately named APPROVED sibling and approval record.
-4. Only after those decisions, prepare the final comparison sheet and any later Gate B preflight.
+4. Only after those decisions, revise or promote the comparison record and prepare any later Gate B preflight.
