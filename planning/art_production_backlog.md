@@ -107,7 +107,7 @@
 | ART-1403 | 패션·체형·실루엣 | Review | CH105 장비 ON/OFF/LOW-SAT 보드 연결; 동일 스케일 사람 검토 남음 |
 | ART-1404 | Turnaround | Review | CH105 front·side·back continuity is assembled in the unified character-sheet REVIEW package; 3D cross-check remains open |
 | ART-1405 | 표정 시트 | Review | CH105 six-expression identity board assembled; deformation and human review remain open |
-| ART-1406 | 대표 장비 상세 | Todo | 구조·활성 상태·Socket·단순화 기록 |
+| ART-1406 | 대표 장비 상세 | Review | CH105 single anchor-ring/gauntlet structure, A/B/C state, provisional planning labels, and simplification review assembled |
 | ART-1407 | 컬러·재질 | Todo | 공통 Art Direction과 일치 |
 | ART-1408 | 2D→3D 변환표 | Todo | 확대·삭제·결합·물리 제거 |
 | ART-1409 | 사람 Gate A | Todo | 승인 기록과 Approved 경로 |
