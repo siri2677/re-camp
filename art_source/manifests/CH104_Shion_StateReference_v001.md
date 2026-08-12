@@ -16,6 +16,7 @@
 > Gate A review request: `art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md`
 > Approval record: `art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260812.md`
 > Gate B preflight: `art_source/manifests/CH104_Shion_GateB_Preflight_REVIEW_v001.md`
+> Production handoff: `art_source/manifests/CH104_Shion_Production_Handoff_REVIEW_v001.md`
 
 This manifest defines the CH104 A/B/C board as one unified character state package. A is the neutral anchor; B/C are controlled prism-fan and map-ring deployment references.
 
@@ -44,3 +45,4 @@ This manifest defines the CH104 A/B/C board as one unified character state packa
 7. The 2D-to-3D translation contract is planning evidence only; it does not authorize 3D Blockout or Unity import.
 8. The approved sheet is the current CH104 2D production anchor; Gate B and technical implementation remain separate decisions.
 9. The Gate B preflight is conditional planning evidence; it does not authorize 3D Blockout or Unity import.
+10. The production handoff is Gate B preparation input only; technical proof and Gate B approval remain open.

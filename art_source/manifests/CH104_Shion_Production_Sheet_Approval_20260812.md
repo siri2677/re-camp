@@ -42,4 +42,4 @@ This approval authorizes the approved export as the current CH104 2D production 
 2. Prepare the CH104 Gate B preflight package using the approved 2D sheet.
 3. Request separate human approval before 3D Blockout or Unity work.
 
-The Gate B preflight is recorded in `CH104_Shion_GateB_Preflight_REVIEW_v001.md`; its status remains conditional and not approved.
+The Gate B preflight is recorded in `CH104_Shion_GateB_Preflight_REVIEW_v001.md`; its status remains conditional and not approved. The production handoff is recorded in `CH104_Shion_Production_Handoff_REVIEW_v001.md`.

@@ -6,6 +6,7 @@
 > Source: `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png`
 > State reference: `art_source/manifests/CH104_Shion_StateReference_v001.md`
 > Translation contract: `art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md`
+> Production handoff: `art_source/manifests/CH104_Shion_Production_Handoff_REVIEW_v001.md`
 > Checklist: `docs/05_art_concept/ART_REVIEW_CHECKLIST.md`
 > 3D spec: `docs/05_art_concept/CHARACTER_3D_SPEC.md`
 

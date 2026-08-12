@@ -61,6 +61,7 @@ art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md
 art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md
 art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260812.md
 art_source/manifests/CH104_Shion_GateB_Preflight_REVIEW_v001.md
+art_source/manifests/CH104_Shion_Production_Handoff_REVIEW_v001.md
 ```
 
 ## 4. Forbidden visual drift
@@ -83,5 +84,6 @@ art_source/manifests/CH104_Shion_GateB_Preflight_REVIEW_v001.md
 8. Keep the 2D-to-3D translation contract as planning evidence only; it does not authorize technical implementation.
 9. Use the APPROVED sibling as the current 2D production anchor; keep the review-request and approval manifests as decision history.
 10. Use the Gate B preflight as conditional planning evidence only; it does not authorize technical implementation.
+11. Use the production handoff as Gate B preparation input only; it does not authorize a model, prefab, or Unity import.
 
 No CH104 Runtime replacement, Unity import, or 3D Blockout is authorized by this manifest.
