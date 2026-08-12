@@ -3,11 +3,17 @@
 > Date: 2026-08-11
 > Branch: `art/current-roster-gate-a-ch102`
 > Scope: CH104 source-faithful 2D package and Gate A decision request
-> Status: `REVIEW / awaiting human decision`
+> Status: `APPROVED / 2D production sheet`
 > Backlog: `ART-1309`
 > Roster source commit: `418ef96` - `art: refine current roster gate A visuals`
 
-This document packages the current CH104 2D evidence for direct human Gate A review. It is a request for a decision, not an approval record. No visual asset is promoted to `APPROVED` by this document.
+This document packaged the CH104 2D evidence for direct human Gate A review. The user approved the package on 2026-08-12; the authoritative approval record is `CH104_Shion_Production_Sheet_Approval_20260812.md`.
+
+## Decision recorded
+
+- Human decision: `APPROVED`
+- Approved sibling: `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png`
+- Approval boundary: 2D production reference and Gate B preparation only; no 3D, Unity, or Runtime authorization.
 
 ## 1. Decision scope
 
@@ -36,22 +42,22 @@ Review the fourth figure from the left in the morning roster as one CH104 Shion 
 
 | Gate A question | Current evidence | Decision state |
 |---|---|---|
-| Is the fourth morning-roster figure the correct CH104 identity source? | Roster lock and all linked boards | `AWAITING HUMAN DECISION` |
-| Do A/B/C read as one inclusive Shion package? | Unified state board and state reference | `AWAITING HUMAN DECISION` |
-| Are face, hair, vertical silhouette, and CH103 separation acceptable? | Face128, character sheet, expression sheet | `AWAITING HUMAN DECISION` |
-| Is the single prism fan and single map ring direction acceptable? | Equipment sheet and silhouette evidence | `AWAITING HUMAN DECISION` |
-| Is the ivory/indigo/magenta palette and value hierarchy acceptable? | Material palette and low-saturation panel | `AWAITING HUMAN DECISION` |
+| Is the fourth morning-roster figure the correct CH104 identity source? | Roster lock and all linked boards | `APPROVED` |
+| Do A/B/C read as one inclusive Shion package? | Unified state board and state reference | `APPROVED` |
+| Are face, hair, vertical silhouette, and CH103 separation acceptable? | Face128, character sheet, expression sheet | `APPROVED` |
+| Is the single prism fan and single map ring direction acceptable? | Equipment sheet and silhouette evidence | `APPROVED` |
+| Is the ivory/indigo/magenta palette and value hierarchy acceptable? | Material palette and low-saturation panel | `APPROVED` |
 
 ## 4. Decision handling
 
-### If approved
+### Approved result
 
-Create these as separate siblings without changing the REVIEW source:
+The following separate siblings were created without changing the REVIEW source:
 
 - `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png`
 - `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.metadata.md`
 - `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.review.md`
-- `art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260811.md`
+- `art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260812.md`
 
 Approval would authorize the approved CH104 2D reference as Gate B preparation input only. It would not approve 3D Blockout, Blender/FBX export, Unity import, Runtime replacement, animation, physics, VFX, or Android proof.
 
@@ -65,4 +71,4 @@ Keep `ART-1309` in Review and leave all Gate B, 3D, Unity, and Runtime work bloc
 
 ## 5. Current boundary
 
-Until the human decision is recorded, the CH104 package remains `REVIEW / Gate A pending`. This request does not grant runtime permission.
+The CH104 package is now `APPROVED / 2D production sheet`. The approval does not grant runtime permission.

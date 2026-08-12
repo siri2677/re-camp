@@ -1,7 +1,7 @@
 # CH104 Shion Tategami - Gate A Candidate Manifest v001
 
 > Backlog: `ART-1301`
-> Status: `WIP / source-faithful unified state board / Gate A pending`
+> Status: `APPROVED / 2D production sheet / Gate B pending`
 > Generation: Current Generation only
 > Primary visual source: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
 > Source commit: `418ef96` - `art: refine current roster gate A visuals`
@@ -45,6 +45,9 @@ art_refs/characters/shion/concept/CH104_Shion_Silhouette_ON_OFF_WIP_A_v001.revie
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.png
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.metadata.md
 art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.review.md
+art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png
+art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.metadata.md
+art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.review.md
 art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.png
 art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.metadata.md
 art_refs/characters/shion/concept/CH104_Shion_ExpressionSheet_REVIEW_v001.review.md
@@ -56,6 +59,7 @@ art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.metada
 art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.review.md
 art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md
 art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md
+art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260812.md
 ```
 
 ## 4. Forbidden visual drift
@@ -76,6 +80,6 @@ art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md
 6. Keep the equipment-detail REVIEW package linked as supporting structure and state evidence.
 7. Keep the color-material REVIEW package linked as palette and value evidence.
 8. Keep the 2D-to-3D translation contract as planning evidence only; it does not authorize technical implementation.
-9. Use the Gate A review-request manifest for a direct human decision; do not create an APPROVED sibling until that decision is recorded.
+9. Use the APPROVED sibling as the current 2D production anchor; keep the review-request and approval manifests as decision history.
 
-No CH104 Runtime replacement, Unity import, or 3D Blockout is authorized by this WIP manifest.
+No CH104 Runtime replacement, Unity import, or 3D Blockout is authorized by this manifest.

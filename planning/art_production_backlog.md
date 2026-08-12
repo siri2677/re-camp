@@ -88,15 +88,15 @@
 
 | ID | 작업 | 상태 | 완료 조건 |
 |---|---|---|---|
-| ART-1301 | 전신 후보 3안 | In Progress | CH104 morning-roster A/B/C state board + metadata |
-| ART-1302 | 얼굴·헤어 선택 | In Progress | CH104 Face128-equivalent identity board + human confirmation |
-| ART-1303 | 패션·체형·실루엣 | In Progress | CH104 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
+| ART-1301 | 전신 후보 3안 | Done | CH104 morning-roster A/B/C state board + current 2D package approval |
+| ART-1302 | 얼굴·헤어 선택 | Done | CH104 Face128-equivalent identity board + human confirmation |
+| ART-1303 | 패션·체형·실루엣 | Done | CH104 ON/OFF/LOW-SAT silhouette evidence + human confirmation |
 | ART-1304 | Turnaround | In Progress | CH104 front/side/back continuity + unified character-sheet REVIEW package |
 | ART-1305 | 표정 시트 | In Progress | CH104 six-expression review + identity continuity |
 | ART-1306 | 대표 장비 상세 | In Progress | CH104 prism-fan/map-ring structure, state, provisional socket, and simplification review |
 | ART-1307 | 컬러·재질 | In Progress | CH104 palette roles, material separation, and low-saturation review |
 | ART-1308 | 2D→3D 변환표 | In Progress | CH104 keep/enlarge/simplify/remove, state, provisional socket, material, and physics contract |
-| ART-1309 | 사람 Gate A | Review | CH104 full 2D package consolidated; awaiting explicit human decision |
+| ART-1309 | 사람 Gate A | Done | Approval record and APPROVED 2D production-sheet path |
 
 ### ART-14 — CH105
 

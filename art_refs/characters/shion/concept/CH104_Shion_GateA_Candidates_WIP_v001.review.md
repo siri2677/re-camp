@@ -1,6 +1,6 @@
 # CH104 Shion Gate A State Candidates WIP v001 — Review
 
-> State: `WIP / source-faithful unified state board`
+> State: `WIP / superseded by approved 2D production sheet`
 
 | Gate A check | Result | Notes |
 |---|---|---|
@@ -15,10 +15,10 @@
 | Equipment-detail REVIEW | `PASS FOR REVIEW` | Prism-fan structure, single map-ring read, carry scale, and provisional art sockets are documented. |
 | Color-material REVIEW | `PASS FOR REVIEW` | Source-faithful palette, material separation, and grayscale value hierarchy are documented. |
 | 2D-to-3D translation REVIEW | `DOCUMENTED FOR REVIEW` | Keep/simplify rules, state presentation, provisional sockets, and proof boundaries are recorded without authorizing 3D work. |
-| Human Gate A review request | `READY FOR DECISION` | Full CH104 package and approval boundary are consolidated in the review-request manifest. |
-| Human Gate A | `PENDING` | This is a WIP state board, not an approval. |
+| Human Gate A review request | `APPROVED` | Decision is recorded in `CH104_Shion_Production_Sheet_Approval_20260812.md`. |
+| Human Gate A | `APPROVED` | Approval is recorded in `CH104_Shion_Production_Sheet_Approval_20260812.md`; this WIP board remains historical evidence. |
 | Runtime permission | `NO` | No Unity or Runtime use. |
 
 ## Next action
 
-Use the unified character-sheet REVIEW package with the Face128 and equipment evidence for direct human Gate A review. Do not promote this WIP to `APPROVED` without direct human review.
+Use `CH104_Shion_CharacterSheet_APPROVED_v001.png` as the current 2D production anchor. Keep this WIP board and all supporting REVIEW evidence unchanged as historical inputs; do not use them as Unity or Runtime assets.

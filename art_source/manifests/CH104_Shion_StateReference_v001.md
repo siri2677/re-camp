@@ -1,10 +1,11 @@
 # CH104 Shion Tategami - State Reference Manifest v001
 
 > Backlog: `ART-1301`
-> Status: `WIP / unified state package / Gate A pending`
+> Status: `APPROVED / 2D production sheet / Gate B pending`
 > Primary visual source: `art_refs/characters/roster/current/CH101-105_Roster_FaceDiversity_WIP_v003.png`
 > Source commit: `418ef96` - `art: refine current roster gate A visuals`
 > WIP board: `art_refs/characters/shion/concept/CH104_Shion_GateA_Candidates_WIP_v001.png`
+> Approved sheet: `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_APPROVED_v001.png`
 > Face support: `art_refs/characters/shion/concept/CH104_Shion_Face128_WIP_A_v001.png`
 > Silhouette support: `art_refs/characters/shion/concept/CH104_Shion_Silhouette_ON_OFF_WIP_A_v001.png`
 > Character-sheet review: `art_refs/characters/shion/concept/CH104_Shion_CharacterSheet_REVIEW_v001.png`
@@ -13,6 +14,7 @@
 > Material-palette review: `art_refs/characters/shion/concept/CH104_Shion_MaterialPalette_REVIEW_v001.png`
 > 2D-to-3D translation: `art_source/manifests/CH104_Shion_2DTo3D_Translation_REVIEW_v001.md`
 > Gate A review request: `art_source/manifests/CH104_Shion_GateA_Review_Request_20260811.md`
+> Approval record: `art_source/manifests/CH104_Shion_Production_Sheet_Approval_20260812.md`
 
 This manifest defines the CH104 A/B/C board as one unified character state package. A is the neutral anchor; B/C are controlled prism-fan and map-ring deployment references.
 
@@ -37,5 +39,6 @@ This manifest defines the CH104 A/B/C board as one unified character state packa
 3. Keep Face128, turnaround, expression, palette, and 2D-to-3D evidence consistent across all states.
 4. Treat the prism fan as one representative equipment object and the map ring as one controlled visual object.
 5. Do not authorize Unity import, Runtime replacement, or 3D Blockout from this WIP manifest.
-6. Face128 and ON/OFF/LOW-SAT evidence remain Gate A review inputs; they do not authorize runtime use.
+6. Face128, ON/OFF/LOW-SAT, expression, equipment, and material evidence remain approved-sheet support inputs; they do not authorize runtime use.
 7. The 2D-to-3D translation contract is planning evidence only; it does not authorize 3D Blockout or Unity import.
+8. The approved sheet is the current CH104 2D production anchor; Gate B and technical implementation remain separate decisions.
