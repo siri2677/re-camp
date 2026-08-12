@@ -45,6 +45,8 @@ art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.review
 art_refs/characters/akari/concept/CH105_Akari_MaterialPalette_REVIEW_v001.metadata.md
 art_source/manifests/CH105_Akari_2DTo3D_Translation_REVIEW_v001.md
 art_source/manifests/CH105_Akari_GateA_Review_Request_20260812.md
+art_source/manifests/CH105_Akari_GateB_Preflight_REVIEW_v001.md
+art_source/manifests/CH105_Akari_Production_Handoff_REVIEW_v001.md
 ```
 
 ## Identity and state contract
@@ -93,4 +95,4 @@ Blender/FBX, Unity import, Runtime roster replacement, Android proof, or release
 
 1. Keep the approved CH105 2D sheet linked to the current CH101–CH104 approved sheets.
 2. Prepare a separate CH105 Gate B preflight from this translation contract.
-3. Keep 3D, Unity, Runtime, Android, and release work blocked until their separate prerequisites and approvals exist.
+3. Use `CH105_Akari_GateB_Preflight_REVIEW_v001.md` and `CH105_Akari_Production_Handoff_REVIEW_v001.md` as documentation-side Gate B inputs; keep 3D, Unity, Runtime, Android, and release work blocked until their separate prerequisites and approvals exist.

@@ -8,6 +8,8 @@
 > Gate B: `NOT APPROVED`
 > 3D/Unity proof: `NOT TESTED`
 
+The documentation-side next-step index is `art_source/manifests/CH101-105_GateB_Preflight_REVIEW_20260812.md`. It does not change the Gate B or 3D/Unity boundary below.
+
 This document audits the five current-generation 2D-to-3D translation contracts as one review package. It proves that the planned reduction rules, common proportion targets, equipment policies, material proposals, state boundaries, and missing technical evidence are recorded consistently.
 
 It is not a Blender/FBX, mesh, rig, shader, animation, Unity, Android, or Runtime proof. It does not authorize 3D implementation.
@@ -90,5 +92,6 @@ No character should be marked `Gate B APPROVED` from this document.
 ## 7. Next action
 
 1. Keep the recorded five-person decision and CH105 2D approval linked to this documentation baseline.
-2. If the technical environment becomes available and the required Gate B approval is granted, open a separate character proof task and create actual CHA-B05/B07/B09 evidence.
-3. Keep this document as the documentation baseline; update it only when a versioned contract or real technical proof changes.
+2. Use `CH101-105_GateB_Preflight_REVIEW_20260812.md` as the five-character documentation handoff.
+3. If the technical environment becomes available and the required Gate B approval is granted, open a separate character proof task and create actual CHA-B05/B07/B09 evidence.
+4. Keep this document as the documentation baseline; update it only when a versioned contract or real technical proof changes.

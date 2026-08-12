@@ -36,7 +36,7 @@
 | ART-0109 | Asset/Export Naming | Done | Version·LOD·Socket·GUID 규칙 |
 | ART-0110 | Animation Handoff | Review | Current/Legacy 경계·공용/고유 Motion 계약 확인 |
 | ART-0111 | 제작 시트 실사용 검증 | Review | 한글·이미지 교체·PNG/PDF·사용성 |
-| ART-0112 | 2D→3D 변환표 Proof | Review | CH101~CH105 통합 변환표 Proof와 CHA-B01~B10 문서 감사 완료; 실제 3D/Unity 증거는 미실시 |
+| ART-0112 | 2D→3D 변환표 Proof | Review | CH101~CH105 통합 변환표·Gate B preflight·CHA-B01~B10 문서 감사 완료; 실제 3D/Unity 증거는 미실시 |
 
 ## 캐릭터별 2D 작업
 
@@ -67,7 +67,7 @@
 | ART-1105 | 표정 시트 | Review | CH102 six-expression review asset assembled; deformation proof remains |
 | ART-1106 | 대표 장비 상세 | Review | CH102 bow state/detail review asset assembled; socket proof remains |
 | ART-1107 | 컬러·재질 | Review | CH102 palette/material review asset assembled; shader proof remains |
-| ART-1108 | 2D→3D 변환표 | Review | CH102 state-aware translation contract ready for Gate B review |
+| ART-1108 | 2D→3D 변환표 | Review | CH102 state-aware translation contract and current-raster Gate B preflight linked; technical proof remains open |
 | ART-1109 | 사람 Gate A | Done | Approval record and APPROVED path |
 
 ### ART-12 — CH103
@@ -81,7 +81,7 @@
 | ART-1205 | 표정 시트 | Review | CH103 six-expression review asset assembled; deformation proof remains |
 | ART-1206 | 대표 장비 상세 | Review | CH103 baton/veil structure, activation, socket proposal, simplification record assembled |
 | ART-1207 | 컬러·재질 | Review | CH103 palette, material separation, and low-saturation review assembled; shader proof remains |
-| ART-1208 | 2D→3D 변환표 | Review | CH103 translation contract assembled; Gate B technical proof remains open |
+| ART-1208 | 2D→3D 변환표 | Review | CH103 translation contract and current-raster Gate B preflight linked; technical proof remains open |
 | ART-1209 | 사람 Gate A | Done | Approval record and APPROVED path |
 
 ### ART-13 — CH104
@@ -105,11 +105,11 @@
 | ART-1401 | 전신 후보 3안 | Done | CH105 오전 로스터 5번째 인물 기준 A/B/C 통합 CharacterSheet APPROVED sibling 생성; Gate B 준비 입력으로 제한 |
 | ART-1402 | 얼굴·헤어 선택 | Done | CH105 Face128-equivalent 보드와 5인 교차 판정 PASS 기록; Face128 보드는 REVIEW 증거로 유지 |
 | ART-1403 | 패션·체형·실루엣 | Done | CH105 장비 ON/OFF/LOW-SAT 보드와 5인 교차 판정 PASS 기록; 기술 증거는 별도 |
-| ART-1404 | Turnaround | Review | CH105 front·side·back continuity is assembled in the unified character-sheet REVIEW package; 3D cross-check remains open |
-| ART-1405 | 표정 시트 | Review | CH105 six-expression identity board assembled; deformation and human review remain open |
-| ART-1406 | 대표 장비 상세 | Review | CH105 single anchor-ring/gauntlet structure, A/B/C state, provisional planning labels, and simplification review assembled |
-| ART-1407 | 컬러·재질 | Review | CH105 source-faithful palette roles, material separation, and low-saturation review assembled; shader proof remains open |
-| ART-1408 | 2D→3D 변환표 | Review | CH105 keep/enlarge/simplify/remove, provisional socket, material category, state, and no-physics contract recorded; technical proof remains open |
+| ART-1404 | Turnaround | Review | CH105 front·side·back continuity is assembled in the approved 2D sheet and Gate B handoff; 3D cross-check remains open |
+| ART-1405 | 표정 시트 | Review | CH105 six-expression identity board linked to Gate B handoff; deformation and human review remain open |
+| ART-1406 | 대표 장비 상세 | Review | CH105 single anchor-ring/gauntlet structure, A/B/C state, provisional sockets, and Gate B simplification handoff assembled |
+| ART-1407 | 컬러·재질 | Review | CH105 source-faithful palette roles linked to six-slot Gate B proposal; shader proof remains open |
+| ART-1408 | 2D→3D 변환표 | Review | CH105 keep/enlarge/simplify/remove, provisional socket, material category, state, no-physics contract, and Gate B preflight recorded; technical proof remains open |
 | ART-1409 | 사람 Gate A | Done | 사용자 승인 기록, APPROVED 2D production-sheet sibling, Gate B 준비 전용 경계 완료 |
 
 ## ART-15 — 5인 교차 리뷰

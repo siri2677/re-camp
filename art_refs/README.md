@@ -25,6 +25,7 @@ APPROVED 개별 캐릭터 제작 시트
 - `characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png`: 오전 로스터 `418ef96`에서 직접 추출한 CH101~CH105 동일 스케일 128px 얼굴 비교 REVIEW 보드다.
 - `characters/akari/concept/CH105_Akari_CharacterSheet_APPROVED_v001.png`: CH105 아카리의 A/B/C 통합 2D 제작 시트 승인본이다. Gate B 준비 입력으로만 사용하며 3D·Unity 권한은 포함하지 않는다.
 - `../art_source/manifests/CH101-105_2DTo3D_Translation_Proof_REVIEW_20260812.md`: CH101~CH105 변환 계약과 CHA-B01~B10 문서 증거를 통합 감사한 ART-0112 REVIEW 문서다.
+- `../art_source/manifests/CH101-105_GateB_Preflight_REVIEW_20260812.md`: 승인된 CH101~CH105 2D 패키지를 공통 3D 예산·CHA-B01~B10 순서·환경 차단 조건으로 연결한 Gate B 준비 문서다. 3D·Unity 승인은 포함하지 않는다.
 - `../art_source/manifests/CH103-104_2D_Support_Package_Audit_REVIEW_20260812.md`: 오전 로스터 기준 CH103·CH104 2D 지원 패키지와 CH104 Turnaround 결정적 추출 결과를 감사한 REVIEW 문서다.
 - `characters/shion/concept/CH104_Shion_Turnaround_REVIEW_v001.png`: 승인된 CH104 시트 상단 3뷰만 결정적으로 추출한 front/back/side REVIEW 지원 자산이다.
 - `moodboard/battle_vertical_slice_concept.png`: 기존 원본 전투 콘셉트. 캐릭터 감성, 쿼터뷰, 환경, 색 대비의 `PRIMARY REVIEW` 앵커다. 정확한 체형 비율은 최신 Baseline을 따른다.

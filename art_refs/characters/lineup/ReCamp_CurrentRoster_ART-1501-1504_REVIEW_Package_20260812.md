@@ -20,6 +20,7 @@ This is the current-generation cross-review package for the five figures in the 
 | IP similarity review | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1503_IPReview_REVIEW_20260812.md` |
 | Final comparison sheet | `art_refs/characters/lineup/ReCamp_CurrentRoster_ART-1504_FinalComparison_REVIEW_20260812.png` plus `.metadata.md` and `.review.md` |
 | Human decision record | `art_source/manifests/CH101-105_CurrentRoster_CrossReview_Decision_20260812.md` |
+| Five-character Gate B preflight | `art_source/manifests/CH101-105_GateB_Preflight_REVIEW_20260812.md` |
 | 2D-to-3D proof audit | `art_source/manifests/CH101-105_2DTo3D_Translation_Proof_REVIEW_20260812.md` |
 | CH103-CH104 2D support audit | `art_source/manifests/CH103-104_2D_Support_Package_Audit_REVIEW_20260812.md` |
 | Same-scale face review | `art_refs/characters/roster/current/CH101-105_Roster_Face128_REVIEW_v001.png` plus metadata/review |
@@ -87,4 +88,5 @@ The CH105 Gate A decision and five-person review are recorded. Keep the Face128/
 
 1. Keep this package and the source image as the current-generation 2D review evidence.
 2. Use the separate CH105 approval record and cross-review decision record as the human decision sources.
-3. Prepare later Gate B preflight work only after its own prerequisites and human approval.
+3. Use `art_source/manifests/CH101-105_GateB_Preflight_REVIEW_20260812.md` as the current documentation-side Gate B handoff.
+4. Prepare later technical Gate B work only after its own prerequisites and human approval.
