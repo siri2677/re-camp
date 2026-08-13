@@ -6,7 +6,7 @@
 
 이 문서는 Google Colab의 무료 관리형 Notebook과 Google Drive를 사용해 Blender 자동화 실험을 재현하는 방법을 정의한다. 이 패키지는 Blender GUI 작업, 최종 캐릭터 모델, Unity Import, Android 성능, 사람 Gate B 승인을 주장하지 않는다.
 
-Google Drive 권한이 보안 프로그램에 의해 차단되면 `notebooks/00_colab_blender_nodrive_test.ipynb`를 사용한다. 이 대체 경로는 Drive를 mount하지 않고, 실행 결과를 `/content`에서 ZIP으로 만들어 브라우저 다운로드한다.
+Google Drive 권한이 보안 프로그램에 의해 차단되면 `notebooks/00_colab_blender_nodrive_test.ipynb`를 사용한다. 이 대체 경로는 Drive를 mount하지 않고, 실행 결과를 `/content`에서 ZIP으로 만들어 브라우저 다운로드한다. Colab의 Blender Eevee가 화면 장치를 요구하는 런타임에서는 `xvfb-run`을 자동으로 붙인다.
 
 ## 1. 저장소 역할 분리
 
