@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Implementation Status
 
-> 최종 갱신: 2026-08-12
+> 최종 갱신: 2026-08-13
 > 상태: Active Evidence Snapshot
 > 기준 브랜치: `current/recamp-unified`
 > Unity: `6000.5.3f1`
@@ -113,6 +113,7 @@ Current Generation Runtime handoff에서는 이 Gameplay 축을 재사용하되 
 - CH101~CH105의 2D 제작 시트와 Gate A 승인 기록이 존재한다.
 - 현재 5인 교차 2D 판정은 `PASS`이며, Face128·비교 보드는 REVIEW 증거로 유지한다.
 - CH101~CH105 통합 Gate B 프리플라이트와 캐릭터별 handoff 문서가 준비됐다.
+- Colab + Google Drive 기반 Blender 자동화 scaffold와 CH101 문서용 Blockout Notebook이 추가됐다. 현재 실행 환경에는 Blender가 없어 실제 3D 산출물은 아직 생성되지 않았다.
 - Gate B, 3D Blockout, Unity Import, Android·Runtime 증거는 아직 없다.
 
 정확한 디자인 내용은 이 문서에서 반복하지 않고 Canonical Baseline과 직접 소유 문서를 읽는다.

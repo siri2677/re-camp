@@ -56,6 +56,11 @@ sysinfo.txt
 # Visual Studio Code local settings
 .vscode/*
 !.vscode/extensions.json
+
+# Python and Jupyter transient files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
 !.vscode/settings.json
 
 # Unity template and transient MCP bootstrap assets

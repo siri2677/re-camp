@@ -4,16 +4,22 @@ on:
   pull_request:
     paths:
       - "**/*.md"
+      - "**/*.ipynb"
+      - "scripts/blender/**"
       - "scripts/validate_project_docs.py"
       - "scripts/validate_gate_b_preflight.py"
+      - "scripts/validate_colab_package.py"
       - ".github/workflows/docs-consistency.yml"
   push:
     branches:
       - '**'
     paths:
       - "**/*.md"
+      - "**/*.ipynb"
+      - "scripts/blender/**"
       - "scripts/validate_project_docs.py"
       - "scripts/validate_gate_b_preflight.py"
+      - "scripts/validate_colab_package.py"
       - ".github/workflows/docs-consistency.yml"
   workflow_dispatch:
 
@@ -37,3 +43,6 @@ jobs:
 
       - name: Validate current roster Gate B preflight package
         run: python scripts/validate_gate_b_preflight.py
+
+      - name: Validate Colab Blender automation package
+        run: python scripts/validate_colab_package.py

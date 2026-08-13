@@ -28,7 +28,7 @@
 | ART-0101 | 통제 후보 생성 Workflow | In Progress | 동일 조건 후보와 metadata 반복 가능 |
 | ART-0102 | Character Anchor | Done | 캐릭터별 LOCKED/CONTROLLED/OPEN/FORBIDDEN 정의 |
 | ART-0103 | 제작 시트 Template | Review | 실제 Import·Clone·Export 검증 |
-| ART-0104 | Blender 소품 Export Proof | Ready | Source·FBX·Manifest 기록 |
+| ART-0104 | Blender 소품 Export Proof | In Progress | Colab/Drive Blender 자동화 scaffold 추가; 실제 Blender 실행·FBX·Manifest proof 대기 |
 | ART-0105 | Unity Import·Material·Prefab Proof | Todo | 테스트 자산 재현 가능 |
 | ART-0106 | `art_source/` 구조 | Done | 편집 원본·Export 경로 존재 |
 | ART-0107 | Gate A/B/C Checklist | Done | 판정 항목·증거·차단 조건 정의 |

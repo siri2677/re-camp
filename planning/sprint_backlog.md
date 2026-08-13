@@ -29,7 +29,7 @@
 | 6 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | Review | CH101~CH105 2D production sheet 승인 및 Gate B 문서 preflight 완료; 각 캐릭터의 3D 기술 증거는 별도 |
 | 7 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Done | 현재 로스터 비교 시트와 5인 2D PASS 판정 완료; ART-1503 정식 IP clearance는 별도 |
 | 8 | ART-0112 | 2D→3D 변환표·Gate B Preflight | Review | CH101~CH105 통합 변환표·5인 Gate B preflight·CHA-B01~B10 문서 감사 연결; 실제 3D/Unity 증거는 별도 작업 |
-| 9 | ART-0104 | Blender 소품 Export Proof | Ready | 명명 규격 Source→FBX→기록 |
+| 9 | ART-0104 | Blender 소품 Export Proof | In Progress | Colab/Drive Blender 자동화 scaffold 추가; 실제 Blender 실행·FBX proof 대기 |
 | 10 | ART-0109·0110 | 자산·Animation Handoff 계약 | Review | Current/Legacy 경계와 공용/고유 Motion 검토 |
 | 11 | CHR-0360 | 역할 밸런스·중복 검토 | Review | 수동 플레이 기록·수치 보정 |
 
