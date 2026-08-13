@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOKS = (
     "notebooks/00_colab_blender_setup.ipynb",
     "notebooks/01_ch101_blockout.ipynb",
+    "notebooks/00_colab_blender_nodrive_test.ipynb",
 )
 BLENDER_SCRIPTS = (
     "scripts/blender/build_blockout.py",
@@ -31,6 +32,13 @@ REQUIRED_MARKERS = {
         "build_blockout.py",
         "validate_asset.py",
         "drive_output",
+    ),
+    "notebooks/00_colab_blender_nodrive_test.ipynb": (
+        "No Google Drive access is used.",
+        "https://github.com/siri2677/re-camp.git",
+        "418ef96",
+        "files.download",
+        "CH101_Blockout_REVIEW_v001.blend",
     ),
 }
 
@@ -93,7 +101,7 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print("Colab Blender package validation passed (2 notebooks and 2 Blender scripts checked).")
+    print("Colab Blender package validation passed (3 notebooks and 2 Blender scripts checked).")
     return 0
 
 

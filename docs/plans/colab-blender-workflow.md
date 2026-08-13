@@ -6,6 +6,8 @@
 
 이 문서는 Google Colab의 무료 관리형 Notebook과 Google Drive를 사용해 Blender 자동화 실험을 재현하는 방법을 정의한다. 이 패키지는 Blender GUI 작업, 최종 캐릭터 모델, Unity Import, Android 성능, 사람 Gate B 승인을 주장하지 않는다.
 
+Google Drive 권한이 보안 프로그램에 의해 차단되면 `notebooks/00_colab_blender_nodrive_test.ipynb`를 사용한다. 이 대체 경로는 Drive를 mount하지 않고, 실행 결과를 `/content`에서 ZIP으로 만들어 브라우저 다운로드한다.
+
 ## 1. 저장소 역할 분리
 
 | 위치 | 소유 내용 | 지속성 |
@@ -25,6 +27,13 @@ Drive는 영구 작업 저장소로 쓰되, 대량의 Blender 파일을 Drive에
 5. `notebooks/01_ch101_blockout.ipynb`를 실행한다.
 6. CH101 approved 2D source를 읽기 입력으로 사용하고, 임시 `/content`에서 문서용 blockout을 만든다.
 7. Front/Side/Back PNG, `.blend`, 선택적 FBX, JSON 검증 리포트를 Drive의 `re-camp/ch101_blockout/`에 복사한다.
+
+### Drive 없는 테스트 경로
+
+1. `notebooks/00_colab_blender_nodrive_test.ipynb`를 연다.
+2. 모든 셀을 순서대로 실행한다.
+3. 마지막 셀에서 `re-camp-CH101-blockout.zip`을 다운로드한다.
+4. Colab 세션이 종료되기 전에 ZIP을 로컬에 보관한다.
 
 ## 3. 자동화 범위
 
