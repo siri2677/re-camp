@@ -1,6 +1,6 @@
 # Re:Camp Planning Index
 
-> 최종 갱신: 2026-08-07
+> 최종 갱신: 2026-08-08
 
 이 디렉터리는 Re:Camp 개발·아트 작업의 단일 실행 진입점이다. 게임 기획과 기술·아트 기준은
 `docs/`에 보관하지만 실제 작업 순서와 상태는 `planning/`을 기준으로 판단한다.
@@ -28,6 +28,9 @@
 - `battle_vertical_slice_concept.png`는 캐릭터 존재감·환경·카메라·색 대비의 전투 비주얼 참고이며
   개별 캐릭터 외형·무기·파티 구성은 공식 디자인 기준이 아니다.
 - 과거 v003 라인업은 Gate A `FAIL` 이력이며 새 캐릭터 후보의 제작 앵커로 사용하지 않는다.
+- 2026-08-07 사용자 검토에서 v002 5인 패키지도 화풍 불일치로 Gate A `FAIL` 처리했다. 현재는 5인
+  얼굴/흉상 스타일 마스터를 먼저 잠그며, 원신·승리의 여신: 니케·이환·젠레스 존 제로는 고유 디자인
+  복제가 아닌 프리미엄 동아시아 애니메이션·가챠 품질군 참고로만 사용한다.
 - 현재 Primitive·Gray Box는 기능 검증용이며 최종 아트 품질이 아니다.
 - ComfyUI·대용량 로컬 생성 모델은 세부 일관성·인페인팅이 실제 병목이 될 때 도입하는 선택 사항이다.
 
@@ -44,6 +47,8 @@
 | `DEV-0113_CORE_INTEGRATION_RESULT.md` | Domain·Adapter·Runtime 통합 결과와 잔여 범위 | Core 경계 변경 시 |
 | `art_production_roadmap.md` | 캐릭터·환경·UI·3D 아트 제작 단계 | 아트 단계 결정 |
 | `art_production_backlog.md` | 캐릭터 5명과 아트 자산의 세부 작업 | 아트 작업 시작·완료 시 |
+| `CH101_A_GATE_A_REVIEW_WIP_2026-08-16.md` | CH101-A 사람 Gate A 검토 대상과 판정 체크리스트 | CH101-A 방향 승인 시 |
+| `CH101_A_MODELING_HANDOFF_WIP_2026-08-16.md` | CH101-A 고해상도 모델 제작 입력·금지사항·검증 순서 | 실제 3D 제작 착수 시 |
 | `COPLAY_MCP_HANDOFF.md` | Unity MCP 연결·회귀·다음 작업 인계 | 연결 또는 회귀 문제 시 |
 
 ## 분야별 기준 문서
@@ -61,7 +66,7 @@
 | 캐릭터 제작 앵커 | `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md` v2.1 |
 | 캐릭터 제작 시트 템플릿 | `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md` v002 |
 | 아트 Gate 리뷰 | `docs/05_art_concept/ART_REVIEW_CHECKLIST.md` v2.1 |
-| 현재 5인 REVIEW 패키지 | `art_refs/characters/STYLE_RESET_2026-08-04.md`, `art_refs/characters/`와 `art_refs/characters/lineup/ReCamp_ART-1501-1504_REVIEW_Package.md` |
+| 현재 5인 스타일 재작업 | `art_refs/characters/STYLE_RESET_2026-08-04.md`, `art_refs/characters/style_calibration/`; 기존 lineup v002는 실패 이력 |
 | 2026-08-07 디자인 진척도 | `planning/DESIGN_PROGRESS_2026-08-07.md` |
 | 과거 5인 라인업 판정 | `art_refs/art_direction/ReCamp_CharacterLineup_REVIEW_v003.review.md` |
 | 공통 아트 방향 | `docs/05_art_concept/ART_DIRECTION.md` v2.1 |

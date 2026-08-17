@@ -4,5 +4,5 @@
 - Generated: 2026-08-07
 - Canvas: `4096x4608 RGB PNG`
 - Sources: current candidates, KeyArt, turnaround, eight-expression sheet, CASE-to-DOOR-to-WALL equipment, palette, 2D-to-3D translation, exact 128px face and silhouette evidence
-- Status: `JP SUBCULTURE STYLE RESET / REVIEW`
+- Status: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY`
 - Approval: `NOT GRANTED`

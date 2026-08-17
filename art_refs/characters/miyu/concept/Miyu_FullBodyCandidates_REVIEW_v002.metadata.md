@@ -1,6 +1,6 @@
 # Miyu Full-Body Candidates REVIEW v002 — Metadata
 
-- Status marker: `JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+- Status marker: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 - Asset: `Miyu_FullBodyCandidates_REVIEW_v002.png`
 - Character: CH002 Miyu
 - Purpose: style-reset full-body direction comparison, exactly three candidates

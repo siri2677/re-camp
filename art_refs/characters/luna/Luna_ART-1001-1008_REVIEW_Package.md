@@ -1,11 +1,11 @@
 # Luna ART-1001-1008 REVIEW Package
 
-- Package state: `JP SUBCULTURE STYLE RESET / REVIEW EVIDENCE ASSEMBLED`
+- Package state: `STYLE REJECTED / USER GATE A FAIL / HISTORY ONLY`
 - Generated/reviewed: 2026-08-07
-- Human Gate A: `PENDING`
+- Human Gate A: `FAIL — 2026-08-07`
 - `APPROVED`: `NOT GRANTED`
 - Integrated sheet: `Luna_CharacterSheet_REVIEW_v002.png`
-- Binding KeyArt: `concept/Luna_KeyArt_REVIEW_v002.png`
+- Historical KeyArt only: `concept/Luna_KeyArt_REVIEW_v002.png`
 
 | Task | Current REVIEW evidence | Result |
 |---|---|---|

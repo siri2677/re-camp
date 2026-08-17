@@ -1,6 +1,6 @@
 # Coco KeyArt REVIEW v005 Metadata
 
-`JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+`STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 
 - Character: `CH003 Coco`
 - Tool: built-in image generation, proportion-correction edit

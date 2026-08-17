@@ -1,11 +1,11 @@
 # Re:Camp Five-Character Lineup REVIEW v002 Metadata
 
-`JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+`STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 
 ```yaml
 Asset Name: ReCamp_FiveCharacterLineup_REVIEW_v002.png
 Purpose: ART-1501 and ART-1504 five-character Japanese-subculture style-reset comparison
-Status: REVIEW
+Status: STYLE REJECTED / HISTORY ONLY
 Generated Date: 2026-08-07
 Generation Tool: tools/art/Build-ReCampFiveCharacterReview.ps1
 Canvas: 4096x2304 RGB PNG

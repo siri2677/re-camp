@@ -22,13 +22,14 @@
 | 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity Hub에서 AndroidPlayer·SDK·NDK·OpenJDK 설치 후 Android Target 전환 |
 | 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
 | 6 | ART-0103·0111 | Figma 캐릭터 제작 시트 v002 실사용 검증 | Review | v002 SVG Import·Component Clone·한글 보존·PNG/PDF Export·사람 사용성 검토 |
-| 7 | ART-0112 | 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Review | 루나 7.09H→5.39H 변환표·확대/삭제/결합·Face128·실루엣·통합시트 작성. Figma Frame 05 실사용과 사람 검토 대기 |
-| 8 | ART-1001~1409 | 성인 여성 5명 2D 디자인 제작 시트 | Review | 일본 모바일 서브컬처 스타일로 5명 각 3안·선택 KeyArt·3뷰·8표정·장비·팔레트·Face128·실루엣·2D→3D·4096×4608 통합시트 작성. 5개 사람 승인만 대기 |
-| 9 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Review | 최신 4096×2304 라인업, exact 128px 얼굴·장비 포함/제거 실루엣·저채도 보드와 내부 originality precheck 작성. 사람·법률·런타임 가독성 판정 대기 |
+| 7 | ART-0112 | 2D 약 7등신 → 3D 5~6등신 변환표 샘플 | Review | 기존 루나 7.09H→5.39H 측정·확대/삭제/결합 원칙은 기술 증거로 유지. 새 Gate A KeyArt 확정 후 시각 앵커·Face128·통합시트 재작성 |
+| 8 | ART-1001~1409 | 성인 여성 5명 2D 디자인 제작 시트 | In Progress | 기존 5인 패키지는 2026-08-07 사용자 Gate A `FAIL`. 공통 얼굴 스타일 마스터 승인 후 5인 KeyArt와 파생 시트 전면 재생성 |
+| 9 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | In Progress | 기존 v002 라인업은 화풍 불일치로 `HISTORY ONLY`. 새 KeyArt 5개 확정 뒤 얼굴·실루엣·저채도·유사성 보드 재검토 |
 | 10 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
 | 11 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
 | 12 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
 | 13 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
+| 14 | ART-0113 | CH101 고품질 3D 시각 제작 모델 | In Progress | A/B 통합 WIP v002·Turnaround v003·3D LookDev 목표 v004·A canonical Turnaround v005·Expression v006·Equipment v007·Pose Board v008·Neutral Body Sculpt v009·Readability v010 및 Blender 모델링/리그 템플릿 생성, 리그 템플릿 자동 검증 PASS. 공식 CC0 MPFB 인체 바디를 CH101 리그에 자동 웨이트 바인드한 WIP 생성. 2026-08-17 스타일링 run6/7과 MPFB helper 정렬 run1도 검증했으나 실제 인체 표면에 붙은 프리미엄 의상·헤어로 읽히지 않아 반려 WIP로 기록. v005/v010 기반 2D Face/Bust Style Anchor v011·4방향 회전 시트 v012와 MPFB 와이어 바디·가이드·리그를 묶은 V012 Modeling Guide WIP을 추가했으며 사람 검토 전 production mesh 입력으로 고정하지 않음. 얼굴·헤어·의상·장비 production mesh와 시각 Gate A/B는 남음 |
 
 과거 `RC-0011 / ReCamp_CharacterLineup_REVIEW_v003`은 실패 이력으로 유지하며 새 디자인 후보의
 베이스 이미지로 사용하지 않는다.
@@ -83,18 +84,18 @@
 
 | ID | 작업 | 우선순위 | 상태 | 근거·남은 일 |
 |---|---|---:|---|---|
-| ART-0101 | 현재 이미지 도구 기반 반복 워크플로 | High | Review | 한 문장 훅·Anchor v2.1·일본 서브컬처 화풍·외부 IP 회귀 규칙으로 5인 REVIEW 반복 완료 |
+| ART-0101 | 현재 이미지 도구 기반 반복 워크플로 | High | In Progress | 얼굴/흉상 마스터 v002와 사용자 선호 노출도·신장·체형, 루나 패널 없는 차콜 쇼츠, 미유 짧은 랩 패널·바닥 케이블 제외를 반영한 전신 패션 라인업 v007 WIP 생성. 공통 스타일 락과 개별 KeyArt 참조 전파 검증 대기 |
 | ART-0102 | 도구 비종속 일관성 변수·메타데이터 v2.1 | High | Done | 5인 2D/3D 목표와 LOCKED/CONTROLLED/FORBIDDEN 규칙 확정 |
 | ART-0103 | Figma 제작 시트 템플릿 v002 | High | Review | 6-Frame 규격·v002 SVG 완료, 실제 Figma Import·Clone·Export 검증 남음 |
 | ART-0104 | Blender MCP 연결·소품 Export | Medium | Ready | 테스트 소품·Socket의 `.blend`→FBX Export 검증 |
-| ART-0105 | FBX Import·Material·Prefab | Medium | Todo | ART-0104·0109 선행 |
+| ART-0105 | FBX Import·Material·Prefab | Medium | In Progress | CH101 v010 FBX 경로·Humanoid·Socket·LOD·triangle preflight validator 추가. Blender LOD0/1/2·19,090 LOD0·6 material·2-influence review 완료; Unity Import/Prefab 증거 필요 |
 | ART-0106 | `art_source/` 구조 | Medium | Done | 소스 하위 구조 존재 |
 | ART-0107 | Gate A/B/C 공통 리뷰 체크리스트 v2.1 | High | Done | 일본 서브컬처 화풍·약 7등신·변환표·유사성·Android Gate 증거 확정 |
 | ART-0108 | ComfyUI·ComfyUI MCP 고정 워크플로 | Low | Deferred | 대량 일관성·정밀 인페인팅이 실제 병목일 때 재평가 |
 | ART-0109 | 아트 자산·Export 명명 규격 | High | Done | 이미지→Blender→Unity 이름·버전·LOD·Socket·GUID 규칙 확정 |
 | ART-0110 | 공용·캐릭터 Animation 규격 | Medium | Done | 5인 Clip·in-place·Animator·Event·장비·Import·Gate 규칙 확정 |
 | ART-0111 | v002 Figma 실사용 검증 | High | Todo | Import·Component·한글·PNG/PDF Export·사람 사용성 |
-| ART-0112 | 2D→3D 변환표 샘플 | High | Review | 루나 2D 7.09H→3D 5.39H 변환표와 자동 비율·128px·실루엣·통합시트 증거 작성. Figma·사람 검토 남음 |
+| ART-0112 | 2D→3D 변환표 샘플 | High | Review | 기존 7.09H→5.39H 수치와 확대·삭제·결합 원칙은 기술 이력. 새 루나 Gate A KeyArt로 비율·Face128·통합시트 재검증 필요 |
 
 ## Sprint 2. Scene 흐름과 Gray Box 전투
 

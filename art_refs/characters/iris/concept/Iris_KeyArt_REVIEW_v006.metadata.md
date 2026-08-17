@@ -1,6 +1,6 @@
 # Iris KeyArt REVIEW v006 Metadata
 
-`JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+`STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 
 - Character: `CH004 Iris`
 - Tool: built-in image generation, reference-guided proportion-correction edit

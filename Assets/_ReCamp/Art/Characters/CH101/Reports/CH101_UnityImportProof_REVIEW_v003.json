@@ -1,0 +1,38 @@
+{
+  "status": "BLOCKED / UNITY LICENSED EDITOR UNAVAILABLE",
+  "gate": "Gate B/C preflight only",
+  "assetPath": "Assets/_ReCamp/Art/Characters/CH101/CH101_Blockout_REVIEW_v010.fbx",
+  "sourceCommit": "183b0f0983969937d779f70b2ac51e53fc976203",
+  "importerAnimationType": "NOT TESTED",
+  "materialImportMode": "NOT TESTED",
+  "meshCount": 267,
+  "lodMeshCounts": { "LOD0": 89, "LOD1": 89, "LOD2": 89 },
+  "triangleCount": 19090,
+  "lodTriangleCounts": { "LOD0": 19090, "LOD1": 10383, "LOD2": 5704 },
+  "triangleBudgetStatus": "PASS / LOD0 COMBINED REVIEW LIMIT 20000",
+  "totalTriangleCount": 35177,
+  "skinnedRendererCount": 267,
+  "boneCount": 22,
+  "animationClipCount": 0,
+  "materialSlotCount": 6,
+  "materialBudgetStatus": "PASS / SIX MATERIAL REVIEW LIMIT",
+  "skinningStatus": "BLENDED WEIGHTS / PRODUCTION REVIEW",
+  "maxInfluencesPerVertex": 2,
+  "requiredSockets": [
+    "Socket_Equipment_Primary",
+    "Socket_Gauntlet_L",
+    "Socket_Gauntlet_R",
+    "Socket_AnchorRing_Carry",
+    "Socket_AnchorRing_Active",
+    "Socket_LineAttach",
+    "Socket_VFXCenter",
+    "Socket_CameraFocus"
+  ],
+  "missing": [
+    "Unity 6000.5.3f1 licensed Editor run"
+  ],
+  "warnings": [
+    "LOD variants are exported and require Unity LODGroup setup.",
+    "This report is a handoff record; the Unity Editor validator must overwrite it after a licensed import run."
+  ]
+}

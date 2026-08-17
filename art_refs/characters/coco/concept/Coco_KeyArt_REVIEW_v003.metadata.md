@@ -2,7 +2,7 @@
 
 - Asset: `Coco_KeyArt_REVIEW_v003.png`
 - Character: CH003 Coco
-- Status declaration: `JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+- Status declaration: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 - Created: 2026-08-04
 - Generation method: OpenAI image generation through the Codex image workflow
 - Dimensions: `863x1823`

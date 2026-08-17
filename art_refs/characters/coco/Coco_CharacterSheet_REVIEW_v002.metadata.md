@@ -6,5 +6,5 @@
 - KeyArt: `concept/Coco_KeyArt_REVIEW_v005.png`
 - Face: `concept/Coco_Face128_REVIEW_v003.png`
 - Sources: nine current design and translation evidence files
-- Status: `JP SUBCULTURE STYLE RESET / REVIEW`
+- Status: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY`
 - Approval: `NOT GRANTED`

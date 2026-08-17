@@ -1,10 +1,10 @@
 # Miyu Character Design Review Package
 
 - Package scope: `ART-1101` through `ART-1108`
-- Package status: `REVIEW`
-- Style status: `JP SUBCULTURE STYLE RESET`
+- Package status: `STYLE REJECTED / HISTORY ONLY`
+- Style status: `USER GATE A FAIL — 2026-08-07`
 - Generated/reviewed: 2026-08-07
-- Human reviewer: `Pending`
+- Human reviewer: `Failed; revision required`
 - Approval: `NOT GRANTED`
 - Runtime implementation: `Not Tested`
 

@@ -1,11 +1,11 @@
 # Noah ART-1401-1408 REVIEW Package
 
-- Package state: `JP SUBCULTURE STYLE RESET / REVIEW EVIDENCE ASSEMBLED`
-- Human approval: `PENDING`
+- Package state: `STYLE REJECTED / USER GATE A FAIL / HISTORY ONLY`
+- Human approval: `FAIL — 2026-08-07`
 - `APPROVED`: `NOT GRANTED`
 - Generated/reviewed: 2026-08-07
 - Integrated index: `Noah_CharacterSheet_REVIEW_v002.png`
-- Binding identity anchor: `concept/Noah_KeyArt_REVIEW_v003.png`
+- Historical KeyArt only: `concept/Noah_KeyArt_REVIEW_v003.png`
 - Generic style sensitivity anchor: `../../style_reference/Japanese_Subculture_CharacterStyle_REFERENCE_v001.png`
 - Selection: Candidate B structure with Candidate A calm face direction; style-reset candidate comparison remains human review
 - Palette: midnight navy / steel gray / amber

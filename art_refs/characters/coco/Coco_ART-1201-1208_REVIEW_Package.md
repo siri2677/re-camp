@@ -1,11 +1,11 @@
 # Coco ART-1201-1208 REVIEW Package
 
-- Package state: `JP SUBCULTURE STYLE RESET / REVIEW EVIDENCE ASSEMBLED`
-- Human approval: `PENDING`
+- Package state: `STYLE REJECTED / USER GATE A FAIL / HISTORY ONLY`
+- Human approval: `FAIL — 2026-08-07`
 - `APPROVED`: `NOT GRANTED`
 - Generated/reviewed: 2026-08-07
 - Integrated index: `Coco_CharacterSheet_REVIEW_v002.png`
-- Binding identity anchor: `concept/Coco_KeyArt_REVIEW_v005.png` (approximately `7.1H`)
+- Historical KeyArt only: `concept/Coco_KeyArt_REVIEW_v005.png` (approximately `7.1H`)
 
 | Task | Planned deliverable | REVIEW evidence | Package result |
 |---|---|---|---|

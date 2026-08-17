@@ -1,11 +1,11 @@
 # Iris ART-1301-1308 REVIEW Package
 
-- Package state: `JP SUBCULTURE STYLE RESET / REVIEW EVIDENCE ASSEMBLED`
-- Human approval: `PENDING`
+- Package state: `STYLE REJECTED / USER GATE A FAIL / HISTORY ONLY`
+- Human approval: `FAIL — 2026-08-07`
 - `APPROVED`: `NOT GRANTED`
 - Generated/reviewed: 2026-08-07
 - Integrated index: `Iris_CharacterSheet_REVIEW_v002.png`
-- Binding identity anchor: `concept/Iris_KeyArt_REVIEW_v006.png` (approximately `7.2H`)
+- Historical KeyArt only: `concept/Iris_KeyArt_REVIEW_v006.png` (approximately `7.2H`)
 - Selected direction: Candidate C observation-equipment coat and long gear structure, with Candidate B face and waistline
 
 | Task | Planned deliverable | REVIEW evidence | Package result |

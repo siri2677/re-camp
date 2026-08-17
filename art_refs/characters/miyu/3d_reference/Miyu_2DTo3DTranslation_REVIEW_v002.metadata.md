@@ -1,6 +1,6 @@
 # Miyu 2D-to-3D Translation REVIEW v002 — Metadata
 
-- Status marker: `JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+- Status marker: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 - Asset: `Miyu_2DTo3DTranslation_REVIEW_v002.png`
 - Character: CH002 Miyu
 - Purpose: same-identity 2D (~6.8–7.0H) to adult stylized 3D (~5.2–5.3H) translation board

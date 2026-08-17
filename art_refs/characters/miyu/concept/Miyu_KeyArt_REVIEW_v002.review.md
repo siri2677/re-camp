@@ -1,6 +1,8 @@
 # Miyu KeyArt REVIEW v002 — JP Subculture Style Reset
 
-`JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+`STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
+
+The roster-level user verdict supersedes the earlier internal `PASS FOR REVIEW` rows below.
 
 | Review gate | Result | Evidence / remaining work |
 |---|---|---|

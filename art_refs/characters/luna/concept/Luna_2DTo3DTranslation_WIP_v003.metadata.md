@@ -1,5 +1,8 @@
 # Luna 2D to 3D Translation WIP v003 Metadata
 
+> `VISUAL CONTRACT SUPERSEDED`: 비대칭 허리 천 패널은 최신 전신 WIP v007에서 폐기됐다. 현재 계약은
+> 패널 없는 차콜 하이웨이스트 유틸리티 쇼츠와 허리 스캐너·벨트 비대칭이다.
+
 ```yaml
 Asset Name: Luna_2DTo3DTranslation_WIP_v003.png
 Character/Environment: CH001 Luna

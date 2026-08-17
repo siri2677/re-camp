@@ -1,9 +1,13 @@
 # Re:Camp Art Production Backlog
 
-> 최종 갱신: 2026-08-04
+> 최종 갱신: 2026-08-07
 
 상세 실행 순서와 전체 우선순위는 `planning/sprint_backlog.md`를 우선한다. 이 문서는 아트 산출물을
 세분화한다. `Deferred`는 기술적 차단이 아니라 필요성이 확인될 때 도입하는 선택 작업이다.
+
+2026-08-07 사용자 Gate A 판정으로 기존 5인 v002 패키지는 `STYLE REJECTED / HISTORY ONLY`가 됐다.
+아래 ART-1001~1409·1501~1504의 기존 파일 수량·비율·장비 메모는 기술 이력으로 보존하지만, 얼굴·렌더링·
+통합 시트는 승인 근거가 아니며 공통 얼굴/흉상 하우스 스타일 락 이후 재생성한다.
 
 ## ART-00. 방향·관리
 
@@ -23,11 +27,11 @@
 
 | ID | 작업 | 우선순위 | 상태 | 완료 기준 |
 |---|---|---:|---|---|
-| ART-0101 | 현재 이미지 생성 도구 기반 반복 워크플로 | High | Review | 한 문장 훅·Anchor v2.1·일본 서브컬처 화풍·외부 IP 회귀 조건으로 반복 가능 |
+| ART-0101 | 현재 이미지 생성 도구 기반 반복 워크플로 | High | In Progress | 얼굴/흉상 마스터 v002→사용자 선호 노출도·신장·체형과 루나/미유 하체 분리를 반영한 전신 라인업 v007→전체 스타일 락→공통 참조 전파 순서로 재설계 |
 | ART-0102 | 도구 비종속 캐릭터 앵커·메타데이터 규칙 v2.1 | High | Done | 얼굴·헤어·체형·패션·장비·팔레트·2D/3D 비율·회귀 조건 확정 |
 | ART-0103 | Figma 캐릭터 제작 시트 템플릿 v002 | High | Review | 6-Frame v002 SVG 완료, Figma Import·Component·Export 검증 필요 |
 | ART-0104 | Blender MCP 소품 생성·FBX Export | Medium | Ready | ART-0109 명명 규격으로 테스트 소품 저장·Export 성공 |
-| ART-0105 | FBX Import·Material·Prefab 테스트 | Medium | Todo | ART-0104·0109 결과가 Unity Prefab으로 동작 |
+| ART-0105 | FBX Import·Material·Prefab 테스트 | Medium | In Progress | `ReCampCharacterImportProof` preflight validator와 CH101 v010 production-skinning-review FBX 연결. Blender LOD/6-material/2-influence 검증 완료; Unity LODGroup·Prefab·실행 캡처 대기 |
 | ART-0106 | `art_source/` 디렉터리 | Medium | Done | figma_exports·blender·textures·comfyui_workflows 존재 |
 | ART-0107 | Gate A/B/C 리뷰 체크리스트 v2.1 | High | Done | 일본 서브컬처 화풍·약 7등신 Key Art·2D→3D 변환·외부 IP 유사성·Unity Gate 반영 |
 | ART-0108 | ComfyUI·ComfyUI MCP 고정 워크플로 | Low | Deferred | 대량 일관성·정밀 인페인팅·고정 Seed/LoRA/ControlNet/IP-Adapter가 병목일 때만 Ready |
@@ -35,6 +39,7 @@
 | ART-0110 | `ANIMATION_GUIDE.md` | Medium | Done | 공용/전용 상태·in-place·Animator·Event·Socket·파일·Import·Gate 규칙 확정 |
 | ART-0111 | v002 Figma 실사용 검증 | High | Todo | SVG Import, Component Clone, 한글 보존, PNG/PDF Export, 사람 사용성 검토 |
 | ART-0112 | 2D→3D 변환표 샘플 검증 | High | Review | 루나 v004에서 2D 7.09H→3D 5.39H, 확대·삭제·결합·물리 위험, Face128·실루엣 증거와 통합 시트까지 작성. Figma Frame 05 실사용·사람 검토는 ART-0111 및 승인 Gate에서 확인 |
+| ART-0113 | CH101 고품질 3D 시각 제작 모델 | In Progress | A/B 통합 WIP v002, Turnaround WIP v003, 3D LookDev 목표 v004, A canonical Turnaround v005, Expression v006, Equipment v007, Pose Board v008, Neutral Body Sculpt v009, Readability v010, Blender 모델링/리그·소켓 템플릿과 리그 자동 검증 PASS를 기록. 공식 CC0 MPFB 인체 바디를 CH101 리그에 자동 웨이트 바인드한 WIP도 생성했으나 얼굴·헤어·의상·장비 스타일링은 미완료. 2026-08-17 스타일링 run6/7과 MPFB helper 정렬 run1도 실제 인체 표면에 붙은 프리미엄 모델로 읽히지 않아 반려 WIP로 기록. v005/v010 기반 2D Face/Bust Style Anchor v011·4방향 회전 시트 v012와 MPFB 와이어 바디·가이드·리그를 묶은 V012 Modeling Guide WIP을 추가했으며 사람 검토 전 production mesh 입력으로 고정하지 않는다. 공통 베이스 run3/4·연결 Skin run2·voxel run1은 시각 반려. Gate B·Unity 후보로 취급하지 않음 |
 
 로컬 모델 보유, GPU 준비, ComfyUI 설치는 현재 완료 조건이나 개발 선행 조건이 아니다.
 
@@ -42,80 +47,80 @@
 
 | ID | 작업 | 상태 | 완료 기준 |
 |---|---|---|---|
-| ART-1001 | 약 7등신 단독 전신 WIP 후보 | Review | 3안 비교와 선택 KeyArt 7.09H, metadata/review 근거 작성. 사람 방향 승인 대기 |
-| ART-1002 | 얼굴·헤어 확정 | Review | 밝고 영리한 성인 얼굴·민트 실버 헤어를 KeyArt·표정·128px 얼굴에 정리. 사람 매력 판정 대기 |
-| ART-1003 | 패션·체형·실루엣 확정 | Review | 크림 재킷·비대칭 패널·센서 후드·장비 포함/제거 실루엣 증거 작성 |
-| ART-1004 | 약 7등신 Turnaround | Review | v003 Front 7.03H·Side 7.08H·Back 7.02H, 후드 포함 3뷰 작성. 케이블·패널 후면 구조는 Conditional |
-| ART-1005 | 표정 8종 | Review | 평상시 장난기와 임무 집중을 포함한 8종 시트 작성 |
-| ART-1006 | 장비 상세 시트 | Review | 센서 후드·쌍단검·손목 스캐너·백팩·발광 구조 시트 작성 |
-| ART-1007 | 컬러·재질표 | Review | 민트 실버·차콜·크림·시안 중심 exact sRGB·명도 행 작성 |
-| ART-1008 | 2D→3D 변환표 | Review | 7.09H→5.39H 확대·삭제·결합·물리 위험과 3D Notes 작성 |
-| ART-1009 | 루나 2D 제작 시트 승인 | Review | 통합 REVIEW 시트와 CHA-A/B precheck 준비 완료. 사람 검토 후에만 Approved |
+| ART-1001 | 약 7등신 단독 전신 WIP 후보 | In Progress | 통합 전신 패션 v007에서 패널 없는 차콜 하이웨이스트 유틸리티 쇼츠 루나 방향 1안 생성. 신규 단독 3안·선택 KeyArt·사용자 방향 승인 남음 |
+| ART-1002 | 얼굴·헤어 확정 | In Progress | 새 공통 얼굴 시스템으로 밝고 영리한 인상과 기계식 센서 귀를 재검증 |
+| ART-1003 | 패션·체형·실루엣 확정 | In Progress | 슬림 애슬레틱 체형·패널 없는 짧은 차콜 쇼츠·센서 허리 장비를 v007에서 검토, 개별 KeyArt 확정 남음 |
+| ART-1004 | 약 7등신 Turnaround | In Progress | 기존 비율 이력 유지, 새 KeyArt 확정 후 3뷰 재전파 |
+| ART-1005 | 표정 8종 | In Progress | 새 얼굴 스타일과 성격 대비로 재생성 |
+| ART-1006 | 장비 상세 시트 | In Progress | 구조 메모 유지, 새 패션·렌더링 기준으로 재전파 |
+| ART-1007 | 컬러·재질표 | In Progress | 팔레트 수치는 유지하고 공통 재질 렌더링으로 재검증 |
+| ART-1008 | 2D→3D 변환표 | In Progress | 기존 수치는 초안, 새 KeyArt로 재측정 |
+| ART-1009 | 루나 2D 제작 시트 승인 | In Progress | 신규 통합 시트와 Gate A 재시험 필요 |
 
 ## ART-11. 미유 2D 디자인
 
 | ID | 작업 | 상태 | 완료 기준 |
 |---|---|---|---|
-| ART-1101 | 약 7등신 단독 전신 WIP 후보 | Review | 3안 비교와 선택 KeyArt 6.890H 작성. 사람 방향 승인 대기 |
-| ART-1102 | 얼굴·헤어 확정 | Review | 졸린 성인 눈매·스모키 라일락 비대칭 보브를 KeyArt·표정·128px 얼굴에 정리 |
-| ART-1103 | 패션·체형·실루엣 확정 | Review | 한쪽 큰 소매·작은 성인 체형·서로 다른 드론 2기 실루엣 증거 작성 |
-| ART-1104 | 약 7등신 Turnaround | Review | Front·Left·Back 6.905H와 드론 기준 위치·비대칭 방향 정리 |
-| ART-1105 | 표정 8종 | Review | 무표정·미세한 미소·기계 집중을 포함한 정확히 8종 작성 |
-| ART-1106 | 장비 상세 시트 | Review | 둥근/각진 드론·제어 건틀릿·홀로패드·공구 키트 상세 작성 |
-| ART-1107 | 컬러·재질표 | Review | 스모키 라일락·그래파이트·시안 exact sRGB·명도 행 작성 |
-| ART-1108 | 2D→3D 변환표 | Review | 6.890H→5.245H, 드론·큰 소매·헤어 확대/삭제/결합과 위험 기록 |
-| ART-1109 | 미유 2D 제작 시트 승인 | Review | 통합 REVIEW 시트와 CHA-A/B precheck 준비 완료. 사람 검토 후에만 Approved |
+| ART-1101 | 약 7등신 단독 전신 WIP 후보 | In Progress | 통합 전신 패션 v007에서 테크 쇼츠 위 짧은 라일락 비대칭 랩 패널·바닥 케이블 없는 미유 방향 1안 생성. 신규 단독 3안·선택 KeyArt·사용자 방향 승인 남음 |
+| ART-1102 | 얼굴·헤어 확정 | In Progress | 새 공통 얼굴 시스템에서 졸린 성인 눈매와 비대칭 보브 재검증 |
+| ART-1103 | 패션·체형·실루엣 확정 | In Progress | 큰 소매·성인 소형 체형·드론 2기·쇼츠가 보이는 짧은 라일락 비대칭 랩 패널을 v007에서 검토, 개별 KeyArt 확정 남음 |
+| ART-1104 | 약 7등신 Turnaround | In Progress | 기존 비율 이력 유지, 새 KeyArt 확정 후 3뷰 재전파 |
+| ART-1105 | 표정 8종 | In Progress | 새 얼굴 스타일과 기계 집중 반전으로 재생성 |
+| ART-1106 | 장비 상세 시트 | In Progress | 구조 메모 유지, 새 렌더링 기준으로 재전파 |
+| ART-1107 | 컬러·재질표 | In Progress | 팔레트 수치는 유지하고 공통 재질 렌더링으로 재검증 |
+| ART-1108 | 2D→3D 변환표 | In Progress | 기존 수치는 초안, 새 KeyArt로 재측정 |
+| ART-1109 | 미유 2D 제작 시트 승인 | In Progress | 신규 통합 시트와 Gate A 재시험 필요 |
 
 ## ART-12. 코코 2D 디자인
 
 | ID | 작업 | 상태 | 완료 기준 |
 |---|---|---|---|
-| ART-1201 | 약 7등신 단독 전신 WIP 후보 | Review | 일본 서브컬처 3안과 Coco KeyArt v005 약 7.1H 작성. 사람 방향 승인 대기 |
-| ART-1202 | 얼굴·헤어 확정 | Review | 따뜻한 일본 애니메이션 성인 얼굴·코랄 코퍼 웨이브를 KeyArt v005·표정 v002·Face128 v003에 정리 |
-| ART-1203 | 패션·체형·실루엣 확정 | Review | 구조복·하프 케이프·건강한 곡선 체형·인젝터 실루엣 증거 작성 |
-| ART-1204 | 약 7등신 Turnaround | Review | v002 Front·Left·Back 3뷰와 하네스·케이프·앰플 구조 작성. 후면 연속성은 Conditional |
-| ART-1205 | 표정 8종 | Review | v002에서 다정함과 응급 지휘를 포함한 정확히 8종 작성 |
-| ART-1206 | 장비 상세 시트 | Review | v002 인젝터 배턴·팩·생체 스캐너·투명 보호장 프로젝터 상세 작성 |
-| ART-1207 | 컬러·재질표 | Review | 코랄 코퍼·아이보리·제이드·투명 폴리머 exact sRGB·명도 행 작성 |
-| ART-1208 | 2D→3D 변환표 | Review | v002에서 약 7.1H→5.55H, 케이프·앰플·보호장 단순화와 3D Notes 작성 |
-| ART-1209 | 코코 2D 제작 시트 승인 | Review | `Coco_CharacterSheet_REVIEW_v002.png`와 CHA-A/B precheck 준비 완료. 사람 검토 후에만 Approved |
+| ART-1201 | 약 7등신 단독 전신 WIP 후보 | In Progress | 통합 전신 패션 v007에서 코코 방향 1안 생성. 신규 단독 3안·선택 KeyArt·사용자 방향 승인 남음 |
+| ART-1202 | 얼굴·헤어 확정 | In Progress | 서양 핀업 드리프트를 제거하고 따뜻한 성인 애니 얼굴로 전면 재설계 |
+| ART-1203 | 패션·체형·실루엣 확정 | In Progress | 구조대장 패션·하프 케이프·건강한 곡선 체형을 새 KeyArt로 재검토 |
+| ART-1204 | 약 7등신 Turnaround | In Progress | 기존 구조 이력 유지, 새 KeyArt 확정 후 3뷰 재전파 |
+| ART-1205 | 표정 8종 | In Progress | 새 얼굴 스타일과 다정함↔지휘 반전으로 재생성 |
+| ART-1206 | 장비 상세 시트 | In Progress | 구조 메모 유지, 새 패션·렌더링 기준으로 재전파 |
+| ART-1207 | 컬러·재질표 | In Progress | 팔레트 수치는 유지하고 공통 재질 렌더링으로 재검증 |
+| ART-1208 | 2D→3D 변환표 | In Progress | 기존 수치는 초안, 새 KeyArt로 재측정 |
+| ART-1209 | 코코 2D 제작 시트 승인 | In Progress | 신규 통합 시트와 Gate A 재시험 필요 |
 
 ## ART-13. 이리스 2D 디자인
 
 | ID | 작업 | 상태 | 완료 기준 |
 |---|---|---|---|
-| ART-1301 | 약 7등신 단독 전신 WIP 후보 | Review | 일본 서브컬처 3안과 Iris KeyArt v006 약 7.2H 작성. 사람 방향 승인 대기 |
-| ART-1302 | 얼굴·헤어 확정 | Review | 날카로운 일본 애니메이션 성인 눈매·딥 플럼 긴 헤어·관측 밴드를 KeyArt v006·표정 v002·Face128 v003에 정리 |
-| ART-1303 | 패션·체형·실루엣 확정 | Review | 콜드 화이트 분할 롱 코트·우아한 장신·긴 세로 실루엣 증거 작성 |
-| ART-1304 | 약 7등신 Turnaround | Review | v003 Front·Left·Back와 코트 분할·긴 헤어·장비 휴대 구조 작성. 헤어/코트 연속성은 Conditional |
-| ART-1305 | 표정 8종 | Review | v002에서 냉정함·당황·칭찬 반응·생활 실수를 포함한 정확히 8종 작성 |
-| ART-1306 | 장비 상세 시트 | Review | v002 가상 비발사 에너지 관측 랜스·단안 장치·거리 링·접힘 구조 작성 |
-| ART-1307 | 컬러·재질표 | Review | 딥 플럼·콜드 화이트·잉크·크림슨 exact sRGB·명도 행 작성 |
-| ART-1308 | 2D→3D 변환표 | Review | v002에서 약 7.2H→5.75H, 코트·헤어·관측 장비 길이와 물리 위험 기록 |
-| ART-1309 | 이리스 2D 제작 시트 승인 | Review | `Iris_CharacterSheet_REVIEW_v002.png`와 CHA-A/B precheck 준비 완료. 사람 검토 후에만 Approved |
+| ART-1301 | 약 7등신 단독 전신 WIP 후보 | In Progress | 통합 전신 패션 v007에서 이리스 방향 1안 생성. 신규 단독 3안·선택 KeyArt·사용자 방향 승인 남음 |
+| ART-1302 | 얼굴·헤어 확정 | In Progress | 길어진 얼굴과 별도 SF 렌더를 제거하고 우아한 성인 애니 눈매로 재설계 |
+| ART-1303 | 패션·체형·실루엣 확정 | In Progress | 콜드 화이트 롱 코트·우아한 장신을 새 KeyArt로 재검토 |
+| ART-1304 | 약 7등신 Turnaround | In Progress | 기존 구조 이력 유지, 새 KeyArt 확정 후 3뷰 재전파 |
+| ART-1305 | 표정 8종 | In Progress | 새 얼굴 스타일과 냉정함↔생활 실수 반전으로 재생성 |
+| ART-1306 | 장비 상세 시트 | In Progress | 관측 랜스 구조 메모 유지, 새 렌더링 기준으로 재전파 |
+| ART-1307 | 컬러·재질표 | In Progress | 팔레트 수치는 유지하고 공통 재질 렌더링으로 재검증 |
+| ART-1308 | 2D→3D 변환표 | In Progress | 기존 수치는 초안, 새 KeyArt로 재측정 |
+| ART-1309 | 이리스 2D 제작 시트 승인 | In Progress | 신규 통합 시트와 Gate A 재시험 필요 |
 
 ## ART-14. 노아 2D 디자인
 
 | ID | 작업 | 상태 | 완료 기준 |
 |---|---|---|---|
-| ART-1401 | 약 7등신 단독 전신 WIP 후보 | Review | 3안 비교와 선택 KeyArt 7.30H 작성. 사람 방향 승인 대기 |
-| ART-1402 | 얼굴·헤어 확정 | Review | 침착한 성인 얼굴·네이비 짧은 보브·앰버 언더라이트를 KeyArt·표정·128px 얼굴에 정리 |
-| ART-1403 | 패션·체형·실루엣 확정 | Review | 탄탄한 장신·테일러드 방호복·수직 방벽 실루엣 증거 작성 |
-| ART-1404 | 약 7등신 Turnaround | Review | Front·Left·Back 7.30H와 방패·재킷·하프 케이프 구조 작성. 정투상 정리는 Conditional |
-| ART-1405 | 표정 8종 | Review | 무뚝뚝함·걱정·작은 미소·전투 집중을 포함한 정확히 8종 작성 |
-| ART-1406 | 장비 상세 시트 | Review | 케이스→문→벽 다단 전개 방패·충격 흡수·통신·Socket 구조 작성 |
-| ART-1407 | 컬러·재질표 | Review | 미드나이트 네이비·스틸·앰버·방벽 유리 exact sRGB·명도 행 작성 |
-| ART-1408 | 2D→3D 변환표 | Review | 7.30H→5.75H, 방패 단계·장갑 면적·관통/물리 위험 기록 |
-| ART-1409 | 노아 2D 제작 시트 승인 | Review | 통합 REVIEW 시트와 CHA-A/B precheck 준비 완료. 사람 검토 후에만 Approved |
+| ART-1401 | 약 7등신 단독 전신 WIP 후보 | In Progress | 통합 전신 패션 v007에서 노아 방향 1안 생성. 신규 단독 3안·선택 KeyArt·사용자 방향 승인 남음 |
+| ART-1402 | 얼굴·헤어 확정 | In Progress | 3D 세미리얼 얼굴·광원을 제거하고 강인한 성인 애니 얼굴로 전면 재설계 |
+| ART-1403 | 패션·체형·실루엣 확정 | In Progress | 탄탄한 장신·여성적 허리선·방벽 실루엣을 새 KeyArt로 재검토 |
+| ART-1404 | 약 7등신 Turnaround | In Progress | 기존 구조 이력 유지, 새 KeyArt 확정 후 3뷰 재전파 |
+| ART-1405 | 표정 8종 | In Progress | 새 얼굴 스타일과 침착함↔온기 반전으로 재생성 |
+| ART-1406 | 장비 상세 시트 | In Progress | 방벽 구조 메모 유지, 새 패션·렌더링 기준으로 재전파 |
+| ART-1407 | 컬러·재질표 | In Progress | 팔레트 수치는 유지하고 공통 재질 렌더링으로 재검증 |
+| ART-1408 | 2D→3D 변환표 | In Progress | 기존 수치는 초안, 새 KeyArt로 재측정 |
+| ART-1409 | 노아 2D 제작 시트 승인 | In Progress | 신규 통합 시트와 Gate A 재시험 필요 |
 
 ## ART-15. 5인 일관성 리뷰
 
 | ID | 작업 | 상태 | 완료 기준 |
 |---|---|---|---|
-| ART-1501 | 약 7등신 후보 일관성 리뷰 | Review | 5인 선택 KeyArt·훅·역할·팔레트·장비를 통합 라인업에 정리. 사람 매력·응집도 판정 대기 |
-| ART-1502 | 128px 얼굴·흑백 실루엣·저채도 검토 | Review | exact 128px 얼굴 5종, 장비 포함/제거 실루엣 5종, 결정론적 저채도 보드 작성. 장비 제거·런타임 명도는 사람/Gate C 확인 필요 |
-| ART-1503 | 외부 IP 유사성 리뷰 | Review | 의도적 직접 복제 지표가 없음을 캐릭터별로 기록. 역이미지 검색·법률·상표·최종 심볼 검토는 별도 사람 승인 필요 |
-| ART-1504 | 최종 라인업 비교 시트 | Review | 최신 Coco v005·Iris v006을 포함한 5인 선택 방향과 2D 약 7등신→3D 5~6등신 목표를 4096×2304 v002 시트로 작성 |
+| ART-1501 | 약 7등신 후보 일관성 리뷰 | In Progress | 전신 패션 v007은 동일 게임 응집도·신장·체형·하체 패션 사전 점검 WIP. 최종 판정은 새 KeyArt 5개 확정 뒤 수행 |
+| ART-1502 | 128px 얼굴·흑백 실루엣·저채도 검토 | In Progress | 기존 크기·합성 절차만 유지하고 새 얼굴·전신으로 전부 재생성 |
+| ART-1503 | 외부 IP 유사성 리뷰 | In Progress | 새 디자인 확정 후 차이 분석·역이미지·법률·상표 검토 재수행 |
+| ART-1504 | 최종 라인업 비교 시트 | In Progress | 새 5인 KeyArt와 공통 하우스 스타일을 기준으로 v003 작성 필요 |
 
 ## ART-20. 공용 3D 규격과 루나 Proof
 

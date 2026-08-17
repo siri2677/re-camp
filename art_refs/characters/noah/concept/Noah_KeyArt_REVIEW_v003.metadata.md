@@ -4,7 +4,7 @@
 Asset Name: Noah_KeyArt_REVIEW_v003.png
 Character: CH005 Noah
 Purpose: Japanese-subculture 2D key-art style reset
-Status: JP SUBCULTURE STYLE RESET / REVIEW
+Status: STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY
 Generated Date: 2026-08-04
 Generation Tool: Built-in image generation / gpt-image
 Generation Passes: Initial generation plus one targeted body-proportion correction

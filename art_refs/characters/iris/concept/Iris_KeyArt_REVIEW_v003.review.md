@@ -1,6 +1,6 @@
 # Iris Key Art REVIEW v003
 
-- Status declaration: `JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+- Status declaration: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 - Human reviewer: `Pending`
 - Approval: `NOT GRANTED`
 

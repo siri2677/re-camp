@@ -1,0 +1,30 @@
+{
+  "status": "BLOCKED / UNITY LICENSED EDITOR UNAVAILABLE",
+  "gate": "Gate B/C preflight only",
+  "assetPath": "Assets/_ReCamp/Art/Characters/CH101/CH101_Blockout_REVIEW_v007.fbx",
+  "sourceCommit": "183b0f0983969937d779f70b2ac51e53fc976203",
+  "importerAnimationType": "NOT TESTED",
+  "materialImportMode": "NOT TESTED",
+  "meshCount": 89,
+  "triangleCount": 26584,
+  "skinnedRendererCount": 89,
+  "boneCount": 22,
+  "animationClipCount": 0,
+  "requiredSockets": [
+    "Socket_Equipment_Primary",
+    "Socket_Gauntlet_L",
+    "Socket_Gauntlet_R",
+    "Socket_AnchorRing_Carry",
+    "Socket_AnchorRing_Active",
+    "Socket_LineAttach",
+    "Socket_VFXCenter",
+    "Socket_CameraFocus"
+  ],
+  "missing": [
+    "Unity 6000.5.3f1 licensed Editor run"
+  ],
+  "warnings": [
+    "Triangle count exceeds the combined review budget of 20000 until body/equipment are split and LODs are produced.",
+    "This report is a handoff record; the Unity Editor validator must overwrite it after a licensed import run."
+  ]
+}

@@ -1,7 +1,7 @@
 # Noah Key Art REVIEW v003
 
-- State: `JP SUBCULTURE STYLE RESET / REVIEW`
-- Human approval: `PENDING`
+- State: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY`
+- Human approval: `FAIL / REVISION REQUIRED`
 - `APPROVED`: `NOT GRANTED`
 
 | Review check | Result | Evidence / boundary |

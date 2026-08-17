@@ -1,6 +1,6 @@
 # Luna Equipment Sheet REVIEW v002 — Metadata
 
-- Status marker: `JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+- Status marker: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 - Asset: `Luna_EquipmentSheet_REVIEW_v002.png`
 - Character: CH001 Luna
 - Purpose: weapon, hood, scanner, backpack and cable construction review

@@ -7,6 +7,19 @@ game concept art rather than attractive Japanese subculture character art. The a
 review history, but they are no longer valid selection anchors for final character approval, 3D modeling, UI
 portraits, marketing art, or new expression/turnaround propagation.
 
+On 2026-08-07 the user also rejected the replacement v002 five-character package. Although several individual
+images use anime facial features, the roster mixes different line weight, facial construction, lighting, skin,
+hair, material and background rendering. It does not reach the requested premium anime-gacha quality associated
+with the broad appeal of Genshin Impact, Goddess of Victory: NIKKE, Neverness to Everness and Zenless Zone Zero.
+
+On 2026-08-08 the user preferred the first new full-body fashion lineup over the conservative lower-body edit,
+specifically because its short hemlines and visible thighs better support the intended male-oriented subculture
+appeal. `ReCamp_FiveCharacterFullBodyFashionLineup_WIP_v007.png` keeps that exposure direction and separates the five
+heights and adult body types. It removes Luna's mint skirt-like hip panel in favor of panel-free charcoal utility
+shorts, while Miyu keeps a short lilac asymmetric wrap panel over visible technician shorts without the floor cable.
+This is a direction preference, not final Gate A approval.
+This is a second Gate A `FAIL`, not an approval-pending result.
+
 ## Style-rejected selected assets
 
 | Character | Rejected visual anchor | Reason |
@@ -44,26 +57,32 @@ but their face/rendering decisions must not be treated as selected art.
 ## State boundary
 
 - Previous package state: `STYLE REJECTED / HISTORY ONLY`
-- Replacement Key Art: `5/5 REVIEW CANDIDATES GENERATED AND VISUALLY PRECHECKED`
-- Replacement 128px faces: `5/5 EXACT 128x128`
-- Replacement lineup and cross-review: `v002 REVIEW EVIDENCE ASSEMBLED`
-- Turnaround, expressions, equipment and 2D-to-3D propagation: `5/5 REVIEW EVIDENCE ASSEMBLED`
-- Integrated 4096x4608 character sheets: `5/5 v002 BUILT AND VISUALLY CHECKED`
-- Final evidence rebuild and validation: `2026-08-07 COMPLETE`
-- Human approval: `PENDING`
+- Replacement Key Art v002 set: `USER STYLE REJECTED / HISTORY ONLY`
+- Replacement 128px faces: `5/5 TECHNICAL SIZE EVIDENCE ONLY`
+- Replacement lineup and cross-review v002: `GATE A FAIL / HISTORY ONLY`
+- Turnaround, expressions, equipment and 2D-to-3D propagation: `STRUCTURAL NOTES RETAINED / VISUAL STYLE INVALID`
+- Integrated 4096x4608 character sheets: `5/5 TECHNICALLY BUILT / STYLE REJECTED`
+- New full-body calibration: `style_calibration/ReCamp_FiveCharacterStyleCalibration_WIP_v001.png`
+- New face style master: `style_calibration/ReCamp_FiveCharacterFaceStyleMaster_WIP_v002.png` (`v001` sensor-ear error superseded)
+- Active full-body fashion WIP: `style_calibration/ReCamp_FiveCharacterFullBodyFashionLineup_WIP_v007.png`
+- Lower-body allocation intermediate: `style_calibration/ReCamp_FiveCharacterFullBodyFashionLineup_WIP_v006.png` (`SUPERSEDED WIP`; Luna shorts material drift)
+- Miyu tech-shorts experiment: `style_calibration/ReCamp_FiveCharacterFullBodyFashionLineup_WIP_v005.png` (`SUPERSEDED WIP`)
+- Proportion base: `style_calibration/ReCamp_FiveCharacterFullBodyFashionLineup_WIP_v004.png` (`SUPERSEDED WIP`)
+- Exposure-cleanup base: `style_calibration/ReCamp_FiveCharacterFullBodyFashionLineup_WIP_v003.png` (`SUPERSEDED WIP`)
+- Rejected conservative lower-body edit: `style_calibration/ReCamp_FiveCharacterFullBodyFashionLineup_WIP_v002.png` (`HISTORY ONLY`)
+- Human approval: `0/5 / REVISION REQUIRED`
 - `APPROVED`: `NOT GRANTED`
 
-## Current Japanese-subculture REVIEW anchors
+## Rejected v002 replacement anchors
 
 | Character | Current replacement anchor | Precheck |
 |---|---|---|
-| Luna | `luna/concept/Luna_KeyArt_REVIEW_v002.png` | Japanese anime face/hair/cel rendering present |
-| Miyu | `miyu/concept/Miyu_KeyArt_REVIEW_v002.png` | Japanese anime face/hair/cel rendering present |
-| Coco | `coco/concept/Coco_KeyArt_REVIEW_v005.png` | Japanese anime face/hair/cel rendering present; approximately 7.1H target correction |
-| Iris | `iris/concept/Iris_KeyArt_REVIEW_v006.png` | Japanese anime face/hair/cel rendering present; approximately 7.2H target correction |
-| Noah | `noah/concept/Noah_KeyArt_REVIEW_v003.png` | Japanese anime face/hair/cel rendering present |
+| Luna | `luna/concept/Luna_KeyArt_REVIEW_v002.png` | `STYLE REJECTED`; anime-adjacent but shared roster render is not locked |
+| Miyu | `miyu/concept/Miyu_KeyArt_REVIEW_v002.png` | `STYLE REJECTED`; renderer and face family do not match the full roster |
+| Coco | `coco/concept/Coco_KeyArt_REVIEW_v005.png` | `STYLE REJECTED`; Western pin-up/line-art drift and different background treatment |
+| Iris | `iris/concept/Iris_KeyArt_REVIEW_v006.png` | `STYLE REJECTED`; thin-line high-density SF render and elongated facial/body read |
+| Noah | `noah/concept/Noah_KeyArt_REVIEW_v003.png` | `STYLE REJECTED`; strongest 3D/semi-realistic face, lighting and material drift |
 
-The current anchors are REVIEW candidates, not automatic final selections. The v002 five-character lineup uses
-body-height normalization, and its face row is rebuilt from the current anchors. All planned paper-design artifacts
-are now assembled for review. A person must still decide whether the roster is attractive enough and whether any
-character needs another targeted revision.
+The files remain useful for role equipment, palette, measured proportion and pipeline history only. None is a
+current face/rendering anchor. The next valid sequence is one shared face/bust style master, user style approval,
+one shared full-body flat-color lineup, and only then five individual KeyArts and derived sheets.

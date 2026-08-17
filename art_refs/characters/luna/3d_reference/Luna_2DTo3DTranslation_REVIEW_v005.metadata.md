@@ -1,6 +1,6 @@
 # Luna 2D-to-3D Translation REVIEW v005 — Metadata
 
-- Status marker: `JP SUBCULTURE STYLE RESET / REVIEW / HUMAN APPROVAL PENDING / NOT GRANTED`
+- Status marker: `STYLE REJECTED / USER GATE A FAIL 2026-08-07 / HISTORY ONLY / NOT GRANTED`
 - Asset: `Luna_2DTo3DTranslation_REVIEW_v005.png`
 - Character: CH001 Luna
 - Purpose: same-identity 2D (~7H) to adult stylized 3D (~5.3–5.4H) translation board

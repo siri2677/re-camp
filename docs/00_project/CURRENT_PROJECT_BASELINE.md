@@ -147,14 +147,15 @@ Android와 PC·iOS 동시 정식 출시
 | Gate A/B/C 공통 판정 | `ART_REVIEW_CHECKLIST.md` v2.1 완료 |
 | 캐릭터 제작 시트 템플릿 | v002 규격·SVG 존재, Figma 실사용 검증 Pending |
 | 통합 라인업 v003 | `REVIEW / Gate A FAIL`, 실패 이력으로만 보존 |
-| 일본 서브컬처 Style Reset KeyArt | 5/5 `REVIEW`, Coco v005·Iris v006 비율 교정 포함, 사람 매력·원작성 승인 Pending |
+| 일본 서브컬처 Style Reset KeyArt | 기존 5/5 v002 패키지는 2026-08-07 사용자 Gate A `FAIL / HISTORY ONLY`; 공통 얼굴·전신 스타일 캘리브레이션 WIP 재진행 |
 | 개별 Approved 2D 제작 시트 | 0/5 |
 | 최종 3D Model·Prefab·Animator | 0/5 |
 | 최종 HUD 초상화·Icon·VFX·Audio | 0/5 |
 | Unity 적용 | ID·수치·능력·대표색·텍스트 HUD까지 Gray Box 연결 |
 
-현재 5인 제작은 Character Bible·Anchor v2.1의 한 문장 훅과 일본 모바일 서브컬처 계약으로 다시 작성한
-`REVIEW` 패키지를 사용한다. 과거 서양식 세미리얼 결과는 실패 이력으로만 보존하며, 사람 승인 전
+현재 5인은 Character Bible·Anchor v2.1의 한 문장 훅과 역할·팔레트·대표 장비만 유지한다. 기존
+v002 KeyArt·파생 시트·라인업은 캐릭터별 화풍이 달라 실패 이력으로만 보존한다. 동일 화면의 5인
+얼굴/흉상 스타일 마스터를 먼저 승인한 뒤 전신과 개별 KeyArt를 재생성하며, 사람 승인 전
 `Direction Approved`나 `APPROVED`로 기록하지 않는다.
 
 ## 8. 제작 도구 기준
