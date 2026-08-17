@@ -76,7 +76,8 @@ jobs:
 
       - name: Report skipped Unity tests
         if: steps.license.outputs.available != 'true'
-        run: echo "Unity tests skipped: configure UNITY_LICENSE or UNITY_SERIAL (and account credentials) to enable the runner."
+        run: |
+          echo "Unity tests skipped: configure UNITY_LICENSE or UNITY_SERIAL (and account credentials) to enable the runner."
 
       - name: Upload Unity test artifacts
         if: always()
