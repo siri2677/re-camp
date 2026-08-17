@@ -216,7 +216,7 @@ EditMode/PlayMode를 재실행하지 못했다(반환 코드 198). CI의 Fresh c
 | DEV-0111 | EditMode·PlayMode Assembly | Done | 현재 25 + 18 테스트 기준선 |
 | DEV-0112 | Core·Unity CI | Todo | GitHub Actions 또는 Runner에서 Domain·EditMode·PlayMode 실행 |
 | TEST-0201 | Scene 흐름 자동화 | Review | 실제 Scene 전환과 상태 전달 통합 테스트 |
-| TEST-0202 | 전투·보상·정산 자동화 | Review | 사망 드랍부터 Result·Camp 저장까지 단일 통합 테스트 |
+| TEST-0202 | 전투·보상·정산 자동화 | Review | `RunSettlementIntegrationRuntimeTests`가 Run 시작·Expired 보상·1회 Event·중복 정산 차단을 검증한다. 전체 Scene 전환과 라이선스 환경 실행은 남아 있다. |
 | Fresh Clone | Review | 별도 디렉터리 Clone·LFS·Unity Open·Compile·Tests 재현 |
 | Android Player | Blocked | Module 설치·Build·기기 실행 필요 |
 
