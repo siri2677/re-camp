@@ -58,5 +58,17 @@ namespace ReCamp.Tests.EditMode
                 () => new ResolveRunCommand(0, RunOutcome.Extracted, 0, 0, 0),
                 Throws.TypeOf<System.ArgumentOutOfRangeException>());
         }
+
+        [Test]
+        public void SettlementBook_RejectsDuplicateRunId()
+        {
+            var book = new RunSettlementBook();
+            var command = new ResolveRunCommand(21, RunOutcome.Extracted, 2, 0, 1);
+
+            Assert.That(book.TryResolve(command, out var first), Is.True);
+            Assert.That(first, Is.Not.Null);
+            Assert.That(book.TryResolve(command, out var duplicate), Is.False);
+            Assert.That(duplicate, Is.Null);
+        }
     }
 }

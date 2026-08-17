@@ -131,7 +131,7 @@ ReCamp.Domain
 | Food↔Rations 변환 | Done | Adapter와 Contract Test 반영 |
 | 시설 저장 왕복 | Done | Generator·Workshop·RationStorage 레벨 복원 검증 |
 | PlayerPrefs v1→v2 | Done | Legacy Key 읽기·변환·v2 재저장 구현 |
-| 탐험 Outcome 정산 | Review | `ResolveRunCommand`·`RunSettlementPolicy`·`RunResolvedEvent`를 Domain에 추가하고 `GameManager`가 결과만 적용하도록 연결했다. Run ID 증가와 비활성 런 중복 정산 차단도 반영했으며 Scene 통합 테스트는 남아 있다. |
+| 탐험 Outcome 정산 | Review | `ResolveRunCommand`·`RunSettlementPolicy`·`RunResolvedEvent`·`RunSettlementBook`을 Domain에 추가하고 `GameManager`가 결과만 적용하도록 연결했다. Run ID 증가와 중복 Command 거부를 반영했으며 Scene 통합 테스트는 남아 있다. |
 | 스킬 Command/Event | Review | `UseAbilityCommand`·`AbilityResolvedEvent`를 Domain에 추가하고 `CharacterAbilityController`가 발행하도록 연결했다. 효과 수치·상태의 Domain 이전과 HUD Adapter 연결은 남아 있다. |
 | 중복 수치 제거 | Review | 캠프 비용·효과의 최종 단일 소유자 정리 필요 |
 
