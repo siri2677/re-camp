@@ -17,6 +17,8 @@ namespace ReCamp.Runtime
 
         public RunState CurrentRunState { get; private set; } = RunState.Lobby;
         public bool HasActiveRun { get; private set; }
+        public int CurrentRunId { get; private set; }
+        public int LastSettledRunId { get; private set; }
         public int LastRunResourceCount { get; private set; }
         public ResourceLedger CurrentRunRewards { get; private set; } = new();
         public ResourceLedger LastRunRewards { get; private set; } = new();
@@ -83,6 +85,7 @@ namespace ReCamp.Runtime
         {
             CurrentRunState = RunState.Battle;
             HasActiveRun = true;
+            CurrentRunId = ++nextRunId;
             LastRunResourceCount = 0;
             CurrentRunRewards = new ResourceLedger();
             LastRunSettlement = null;
@@ -104,7 +107,13 @@ namespace ReCamp.Runtime
 
         public void CompleteRun(BattleResolutionReason reason)
         {
+            if (!HasActiveRun || CurrentRunId <= 0)
+            {
+                return;
+            }
+
             var command = new ResolveRunCommand(
+                CurrentRunId,
                 ToRunOutcome(reason),
                 CurrentRunRewards.Scrap,
                 CurrentRunRewards.Food,
@@ -113,6 +122,7 @@ namespace ReCamp.Runtime
 
             CurrentRunState = RunState.Result;
             HasActiveRun = false;
+            LastSettledRunId = settlement.RunId;
             LastRunSettlement = settlement;
             LastRunRewards = ToRuntimeLedger(settlement);
             LastRunResourceCount = LastRunRewards.Total;
@@ -159,5 +169,7 @@ namespace ReCamp.Runtime
             ledger.Add(ResourceType.DataFragment, settlement.DataFragments);
             return ledger;
         }
+
+        private int nextRunId;
     }
 }

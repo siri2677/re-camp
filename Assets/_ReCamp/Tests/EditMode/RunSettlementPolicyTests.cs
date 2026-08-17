@@ -9,8 +9,9 @@ namespace ReCamp.Tests.EditMode
         public void ExtractedRun_PreservesAllRewards()
         {
             var result = RunSettlementPolicy.Resolve(
-                new ResolveRunCommand(RunOutcome.Extracted, 5, 3, 2));
+                new ResolveRunCommand(12, RunOutcome.Extracted, 5, 3, 2));
 
+            Assert.That(result.RunId, Is.EqualTo(12));
             Assert.That(result.Outcome, Is.EqualTo(RunOutcome.Extracted));
             Assert.That(result.PreservesRewards, Is.True);
             Assert.That(result.Scrap, Is.EqualTo(5));
@@ -23,8 +24,9 @@ namespace ReCamp.Tests.EditMode
         public void ExpiredRun_PreservesAllRewardsForForcedReturn()
         {
             var result = RunSettlementPolicy.Resolve(
-                new ResolveRunCommand(RunOutcome.Expired, 4, 1, 6));
+                new ResolveRunCommand(13, RunOutcome.Expired, 4, 1, 6));
 
+            Assert.That(result.RunId, Is.EqualTo(13));
             Assert.That(result.Outcome, Is.EqualTo(RunOutcome.Expired));
             Assert.That(result.PreservesRewards, Is.True);
             Assert.That(result.Total, Is.EqualTo(11));
@@ -34,7 +36,7 @@ namespace ReCamp.Tests.EditMode
         public void DefeatedRun_DiscardsTemporaryRewards()
         {
             var result = RunSettlementPolicy.Resolve(
-                new ResolveRunCommand(RunOutcome.Defeated, 9, 8, 7));
+                new ResolveRunCommand(14, RunOutcome.Defeated, 9, 8, 7));
 
             Assert.That(result.Outcome, Is.EqualTo(RunOutcome.Defeated));
             Assert.That(result.PreservesRewards, Is.False);
@@ -45,7 +47,15 @@ namespace ReCamp.Tests.EditMode
         public void ResolveRunCommand_RejectsNegativeRewards()
         {
             Assert.That(
-                () => new ResolveRunCommand(RunOutcome.Extracted, -1, 0, 0),
+                () => new ResolveRunCommand(15, RunOutcome.Extracted, -1, 0, 0),
+                Throws.TypeOf<System.ArgumentOutOfRangeException>());
+        }
+
+        [Test]
+        public void ResolveRunCommand_RejectsNonPositiveRunId()
+        {
+            Assert.That(
+                () => new ResolveRunCommand(0, RunOutcome.Extracted, 0, 0, 0),
                 Throws.TypeOf<System.ArgumentOutOfRangeException>());
         }
     }
