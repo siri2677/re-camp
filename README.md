@@ -227,7 +227,6 @@ docs/00_project/CURRENT_PROJECT_BASELINE.md의 제품·플랫폼·비주얼 기�
 
 ```text
 main      : 안정된 데모와 승인된 문서·자산
- develop   : 개발 통합 브랜치
 feature/* : 기능 개발 브랜치
 art/*     : 아트 작업 브랜치
 fix/*     : 버그 수정 브랜치

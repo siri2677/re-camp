@@ -233,3 +233,20 @@ Gate를 건너뛰지 않는다.
 
 테스트 개수처럼 자주 바뀌는 수치는 여기에서 이력화하지 않는다. 최신 상세 결과는
 `planning/IMPLEMENTATION_STATUS.md`에 기록하고, 이 문서에는 기준선이 바뀔 때만 반영한다.
+
+## 12. LLM 작업별 필수 Read Set
+
+작업을 시작할 때 `planning/README.md`와 이 Baseline을 먼저 읽고, 선택한 작업의 소유 문서만
+추가로 읽는다. 문서 정합성 변경은 `scripts/validate_project_docs.py`를 실행해 확인한다.
+
+## 13. 문서 역할과 갱신 규칙
+
+전역 결정은 이 Baseline이 소유하고, 실행 상태는 `planning/sprint_backlog.md`, 구현 증거는
+`planning/IMPLEMENTATION_STATUS.md`가 소유한다. 다른 문서는 기준을 복제하지 않고 필요한
+링크와 분야별 세부 계약만 유지한다.
+
+## 14. Branch와 PR 기준
+
+통합 기준은 `main`이며 작업 브랜치는 짧은 수명의 `codex/<scope>` 형식을 사용한다. 변경은
+검증 결과와 함께 PR로 통합하고, 커밋·푸시·PR·병합은 사용자가 명시적으로 요청한 경우에만
+수행한다. 문서 변경은 `scripts/validate_project_docs.py` 통과를 완료 조건으로 한다.

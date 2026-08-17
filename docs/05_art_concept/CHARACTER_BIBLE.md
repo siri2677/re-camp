@@ -4,6 +4,8 @@
 > 최종 갱신: 2026-08-04
 > 상태: Active Design Baseline
 
+전역 제품·플랫폼·비주얼·로스터·Gate 기준은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`를 따른다.
+
 이 문서는 플레이어블 캐릭터의 설정·외형·전투 정체성을 통합 관리하는 단일 기준이다.
 세부 고정·가변 항목은 `CHARACTER_ANCHOR_SPEC.md`, 공통 표현 방식은 `ART_DIRECTION.md`를 따른다.
 사람 승인을 받은 개별 `APPROVED` 제작 시트가 생기면 얼굴·의상·장비 구조는 해당 시트가 최우선이다.

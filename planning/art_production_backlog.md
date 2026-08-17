@@ -2,6 +2,8 @@
 
 > 최종 갱신: 2026-08-07
 
+전역 비주얼·로스터·허용 비율은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`가 소유한다.
+
 상세 실행 순서와 전체 우선순위는 `planning/sprint_backlog.md`를 우선한다. 이 문서는 아트 산출물을
 세분화한다. `Deferred`는 기술적 차단이 아니라 필요성이 확인될 때 도입하는 선택 작업이다.
 

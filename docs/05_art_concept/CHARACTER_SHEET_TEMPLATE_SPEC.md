@@ -39,7 +39,7 @@ Runtime Asset: No
 | `art_source/figma_exports/ReCamp_CharacterSheet_Template_REVIEW_v002.svg` | Figma import 가능한 6-Frame 벡터 템플릿 |
 | `art_refs/characters/<character>/...` | 사람 검토에 올릴 캐릭터별 PNG/PDF Export |
 
-기존 `ReCamp_CharacterSheet_Template_REVIEW_v001.svg`는 과거 2D 일반 등신·3D 비율 기준의 이력으로
+기존 `ReCamp_CharacterSheet_Template_REVIEW_v001.svg`는 과거 2D 비율·3D 비율 기준의 이력으로
 보존하며 새 캐릭터 시트에는 v002를 사용한다.
 
 Figma 원본 URL이나 파일 키는 저장소에 비밀값으로 기록하지 않는다. 팀 공유가 필요하면 접근

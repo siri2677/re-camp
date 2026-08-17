@@ -4,6 +4,8 @@
 > 최종 갱신: 2026-08-04
 > 상태: Active Design Baseline
 
+전역 제품·플랫폼·비주얼·로스터·Gate 기준은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`를 따른다.
+
 ## 1. 최종 비주얼 정의
 
 Re:Camp의 비주얼은 **매력적인 성인 여성 서브컬처 캐릭터 + 자연에 잠식된 부드러운 포스트 아포칼립스 + 희망적인 캠프 생활**의 조합이다.
