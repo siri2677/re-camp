@@ -143,11 +143,16 @@ DEV-0113 전체 상태는 `In Progress`를 유지한다. 상세 완료·잔여 �
 | ID | 항목 | 상태 | 현재 증거와 완료 조건 |
 |---|---|---|---|
 | DEV-0114 | Android Build Support | Blocked | AndroidPlayer·SDK·NDK·OpenJDK 설치와 Android Target 전환 필요 |
-| DEV-0115 | Landscape·Safe Area | Review | `Screen.safeArea` 보정 코드는 존재. Landscape 고정·Cutout·다중 화면비·실기기 검증 필요 |
-| DEV-0116 | Touch Control·HUD | Ready | 일부 Gameplay가 `Keyboard.current` 직접 사용. On-screen Stick·Attack·Ability·Extract 필요 |
+| DEV-0115 | Landscape·Safe Area | Review | `ProjectSettings.asset` Landscape 직렬화 값과 Battle HUD Safe Area 계층·anchor 매핑 회귀 테스트를 추가했다. Cutout·다중 화면비·실기기 검증은 남아 있다. |
+| DEV-0116 | Touch Control·HUD | Review | `TouchHoldButton`이 활성 Pointer ID를 소유해 다른 손가락의 Up/Exit가 Hold를 해제하지 않도록 수정했고 멀티터치 EditMode 회귀 테스트를 추가했다. 실기기 입력 검증은 남아 있다. |
 | DEV-0117 | App ID·첫 APK | Blocked | 템플릿 App ID 교체, Build Profile, APK 설치·3~5분 Loop·중단/복귀 증거 필요 |
 
 현재 Windows Editor HUD 검증은 Android Touch HUD 또는 모바일 UI 완료를 의미하지 않는다.
+
+2026-08-17 기준 Android 사전 검증 변경은 `codex/android-safearea-touch-validation`에서 최신
+`main`으로 이식했다. 문서·코드 변경은 반영됐지만 이 환경에서는 Unity 라이선스가 없어 Editor
+EditMode/PlayMode를 재실행하지 못했다(반환 코드 198). CI의 Fresh checkout preflight는 별도
+검증 대상이며, Android APK·실기기·Lifecycle 검증 전에는 `Done`으로 승격하지 않는다.
 
 ## 7. Scene 흐름과 Gray Box 전투
 
