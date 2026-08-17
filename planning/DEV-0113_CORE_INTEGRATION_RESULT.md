@@ -92,6 +92,14 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 - `BattleSceneController`는 종료 사유를 Domain Outcome으로 전달하며 `TimeExpired`가 수동 귀환으로
   잘못 정산되지 않도록 `CompleteRun(reason)`을 사용한다.
 
+### 스킬 Command·Event 경계 (2026-08-17)
+
+- `ReCamp.Domain.UseAbilityCommand`가 캐릭터 ID·능력 슬롯·능력 키·쿨타임을 Unity API 없이 표현한다.
+- `AbilityResolvedEvent`가 Runtime 실행 결과를 성공/실패와 원본 Command로 전달한다.
+- `CharacterAbilityController`는 키보드·Touch가 같은 `TryActivate`/`TryActivateUtility` 경로를 통과할 때
+  Command를 발행하고, 실제 Gray Box 효과 실행 뒤 Event를 발행한다. Iris 차지 해제도 같은 계약을 사용한다.
+- 전투 효과·상태 수치는 아직 Runtime에 남겨 두고, 다음 단계에서 Domain 이전 후보를 선별한다.
+
 ### 검증
 
 마지막 직접 검증은 2026년 7월 19일 Unity `6000.5.3f1`에서 수행됐다.
@@ -110,12 +118,11 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 
 DEV-0113을 `Done`으로 변경하려면 다음이 필요하다.
 
-1. Runtime의 스킬 수치·상태 변경 중 Domain으로 옮길 범위 확정
-2. Domain 상태를 HUD와 Scene Presentation에 전달하는 Adapter 계약 정리
-3. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
-4. 전체 Scene 전환·보상 정산 통합 테스트 추가
-5. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
-6. Core·Unity CI에서 실제 Unity 라이선스 테스트 실행
+1. Domain 상태를 HUD와 Scene Presentation에 전달하는 Adapter 계약 정리
+2. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
+3. 전체 Scene 전환·보상 정산 통합 테스트 추가
+4. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
+5. Core·Unity CI에서 실제 Unity 라이선스 테스트 실행
 
 ## 5. 금지 사항
 

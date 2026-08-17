@@ -132,7 +132,7 @@ ReCamp.Domain
 | 시설 저장 왕복 | Done | Generator·Workshop·RationStorage 레벨 복원 검증 |
 | PlayerPrefs v1→v2 | Done | Legacy Key 읽기·변환·v2 재저장 구현 |
 | 탐험 Outcome 정산 | Review | `ResolveRunCommand`·`RunSettlementPolicy`·`RunResolvedEvent`를 Domain에 추가하고 `GameManager`가 결과만 적용하도록 연결했다. Run ID 증가와 비활성 런 중복 정산 차단도 반영했으며 Scene 통합 테스트는 남아 있다. |
-| 스킬 Command/Event | Review | 역할 Gray Box는 동작하지만 Domain·Presentation 경계 미완료 |
+| 스킬 Command/Event | Review | `UseAbilityCommand`·`AbilityResolvedEvent`를 Domain에 추가하고 `CharacterAbilityController`가 발행하도록 연결했다. 효과 수치·상태의 Domain 이전과 HUD Adapter 연결은 남아 있다. |
 | 중복 수치 제거 | Review | 캠프 비용·효과의 최종 단일 소유자 정리 필요 |
 
 DEV-0113 전체 상태는 `In Progress`를 유지한다. 상세 완료·잔여 범위는
