@@ -1,285 +1,264 @@
 # Re:Camp Character Production Sheet Template Specification
 
-> Version: v003
-> 최종 갱신: 2026-07-27
+> Version: v002
+> 최종 갱신: 2026-07-24
 > 상태: REVIEW
-> Backlog: `ART-0103`, `ART-0111`
 
-이 문서는 캐릭터 제작 시트의 Frame·Component·필드·Gate 증거·Export 계약만 정의한다. 제품·전역 비율은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`, 캐릭터별 목표와 내용은 `CHARACTER_BIBLE.md`, 외형 Anchor는 `CHARACTER_ANCHOR_SPEC.md`, 판정은 `ART_REVIEW_CHECKLIST.md`가 소유한다.
+이 문서는 `ART-0103`의 저장소 기준 산출물이다. Figma 또는 동등한 벡터 편집 도구에서
+루나·미유·코코·이리스·노아의 약 7등신 2D 제작 시트를 같은 구조로 만들기 위한 Frame,
+Component, 필드, Gate 증거와 Export 계약을 정의한다.
 
-템플릿은 디자인 결정을 새로 만들지 않는다. 소유 문서와 사람 승인 결과를 일관된 형식으로 조립한다.
+템플릿은 디자인 내용을 새로 정의하지 않는다. 캐릭터 설정은 `CHARACTER_BIBLE.md`, 고정·가변
+앵커는 `CHARACTER_ANCHOR_SPEC.md`, 판정은 `ART_REVIEW_CHECKLIST.md`, 경로·상태는
+`ART_ASSET_STRUCTURE.md`, 파일명·Export는 `ASSET_NAMING_GUIDE.md`를 링크해 사용한다.
 
-## 1. 템플릿 상태
+## 1. 범위와 상태
 
 ```yaml
-Backlog: ART-0103 / ART-0111
-Template Version: v003
+Backlog ID: ART-0103
+Template Version: v002
 Template Status: REVIEW
-Runtime Asset: false
-Primary Use: character production and review sheet
-Human Approval: pending template usability review
+Human Approval: Pending
+Primary Scope: 2D seven-head adult anime character production sheet
+Secondary Scope: 3D five-to-six-head stylized translation notes only
+Runtime Asset: No
 ```
 
-`art_source/figma_exports/ReCamp_CharacterSheet_Template_REVIEW_v002.svg`는 기존 Import Proof 파일이다. v003 문서 계약에 맞춘 Figma Component 정리는 ART-0111에서 검증한다.
+- 템플릿 상태 `REVIEW`는 레이아웃의 사용성 검토 상태다.
+- 이 템플릿으로 만든 캐릭터 시트가 자동으로 `APPROVED`되는 것은 아니다.
+- 2D Frame에는 캐릭터별 약 6.8~7.4등신 목표를 적용한다.
+- 3D 이미지는 2D와 섞지 않고 `Palette_Materials_3DTranslation` Frame의 참고 슬롯에만 배치한다.
+- 과거 v003 통합 라인업은 Gate A `FAIL` 권고인 비교 자료이며 승인 이미지로 삽입하지 않는다.
+- 실제 Figma Import·Component 변환·Clone·PNG/PDF Export를 확인하기 전 ART-0103은 최대 `Review`다.
 
-## 2. 파일 구조
+## 2. 저장소 산출물
 
-권장 Page:
+| 파일 | 역할 |
+|---|---|
+| `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md` | Frame·Component·필드·Export 단일 규격 |
+| `art_source/figma_exports/ReCamp_CharacterSheet_Template_REVIEW_v002.svg` | Figma import 가능한 6-Frame 벡터 템플릿 |
+| `art_refs/characters/<character>/...` | 사람 검토에 올릴 캐릭터별 PNG/PDF Export |
+
+기존 `ReCamp_CharacterSheet_Template_REVIEW_v001.svg`는 과거 2D 비율·3D 비율 기준의 이력으로
+보존하며 새 캐릭터 시트에는 v002를 사용한다.
+
+Figma 원본 URL이나 파일 키는 저장소에 비밀값으로 기록하지 않는다. 팀 공유가 필요하면 접근
+권한이 있는 연결에서 관리하고, Git에는 승인 판단에 사용한 버전 고정 Export를 반드시 둔다.
+
+## 3. 기준 입력
+
+| 구분 | 단일 소스 | 템플릿에서의 사용 |
+|---|---|---|
+| 캐릭터 설정 | `CHARACTER_BIBLE.md` v2.1 | Character ID·한 문장 훅·역할·2D/3D 목표 |
+| 고정/가변 디자인 | `CHARACTER_ANCHOR_SPEC.md` v2.1 | `LOCKED`, `CONTROLLED`, `FORBIDDEN` 필드 |
+| 공통 아트 방향 | `ART_DIRECTION.md` v2.1 | 일본 모바일 서브컬처 2D 약 7등신·3D 5~6등신 Scope |
+| Gate 판정 | `ART_REVIEW_CHECKLIST.md` v2.1 | `CHA-Axx`, `CHA-Bxx` 증거 슬롯 |
+| AI 생성 이력 | `AI_ASSET_METADATA_TEMPLATE.md` | companion metadata 경로 |
+| 경로·상태 | `ART_ASSET_STRUCTURE.md` | Export manifest |
+| 파일명·Export | `ASSET_NAMING_GUIDE.md` | Export basename·버전·동반 파일 |
+| 과거 라인업 판정 | `ReCamp_CharacterLineup_REVIEW_v003.review.md` | 실패 원인 참고만 허용 |
+
+문서 전문을 Figma에 복사하지 않는다. 필드에는 문서 경로, Anchor ID, Check ID와 현재 버전만
+기록해 중복 기준을 만들지 않는다.
+
+## 4. Canvas와 Frame 구성
+
+기본 Canvas는 `3840 × 2160`이며 6개의 `1200 × 920` Frame을 3열 × 2행으로 배치한다.
+실제 Figma에서는 아래 그룹을 각각 독립 Frame으로 변환한다.
+
+| Frame | 이름 | 필수 내용 |
+|---:|---|---|
+| 01 | `Identity_KeyArt` | ID·상태·한 문장 훅·약 7등신 전신·대표 특징·앵커 링크 |
+| 02 | `Turnaround` | 약 7등신 Front·Side·Back, 머리 단위 가이드, 장비 크기, 구조 주석 |
+| 03 | `Face_Expressions` | 얼굴 앵커와 표정 8종, 128px 비교, 평상시↔임무 상태 대비 |
+| 04 | `Outfit_Equipment` | 패션 레이어·기능 근거·장비 접힘/발광/손잡이·Socket 후보 |
+| 05 | `Palette_Materials_3DTranslation` | 색·재질·2D→3D 확대/삭제/결합·캐릭터별 3D 목표 등신 |
+| 06 | `Gate_Evidence_Approval` | 실루엣·128px 얼굴·저채도·색각·유사성 검토와 사람 결정 |
+
+각 Frame 상단에는 Character ID, Name, Sheet Version, Asset Status, 2D/3D Scope, Owner,
+Updated Date, Character Bible Version, Anchor Spec Version을 표시한다.
+
+## 5. 공통 Component
+
+| Component 이름 | 내용 | Variant |
+|---|---|---|
+| `CMP/Sheet/Header` | Character ID·Name·Version·Scope | `WIP`, `REVIEW`, `APPROVED` |
+| `CMP/Sheet/ReferenceLink` | 기준 문서·자산 경로 | `Primary`, `Supporting`, `Rejected` |
+| `CMP/Sheet/ArtSlot` | 이미지 자리·캡션·Scale 기준 | `Portrait`, `FullBody`, `Detail`, `Evidence`, `3DTranslation` |
+| `CMP/Sheet/Annotation` | 번호·제목·설명·Anchor 강도 | `LOCKED`, `CONTROLLED`, `OPEN`, `FORBIDDEN` |
+| `CMP/Sheet/PaletteChip` | HEX·sRGB·용도·재질 | `Primary`, `Secondary`, `Accent`, `Neutral`, `Emission` |
+| `CMP/Sheet/GateCell` | Check ID·Result·Evidence·Required Change | `PASS`, `CONDITIONAL`, `FAIL`, `N/A`, `NOT TESTED` |
+| `CMP/Sheet/Approval` | 사람 Reviewer·Date·Decision·Scope | `Pending`, `Approved`, `Rejected` |
+
+상태색은 템플릿 관리용이며 최종 게임 UI Design System 색 토큰이 아니다.
 
 ```text
-00_Cover
-01_Turnaround
-02_Face_Expressions
-03_Outfit_Equipment
-04_Color_Material
-05_Poses_Silhouette
-06_2D_to_3D
-07_Review_Approval
+WIP         #E9B44C
+REVIEW      #58C7B4
+APPROVED    #75C46B
+REJECTED    #E36A6A
+SUPERSEDED  #9298A2
+PANEL       #172327 / #223439
+TEXT        #F2F0E9 / #AFC1BD
 ```
 
-각 캐릭터는 같은 Page·Frame 구조를 복제한다. 캐릭터별 임의 Page 이름을 만들지 않는다.
+## 6. Frame별 필드
 
-## 3. 공통 Header
+### 6.1 Identity / Key Art
 
-모든 Frame에 다음 정보를 표시한다.
+- 약 7등신 전신 1개와 대표 포즈 1개
+- 캐릭터별 `2D Proportion Target`과 머리 단위 가이드
+- 한 문장 비주얼 훅
+- `Signature Feature` 1개, `Secondary Feature` 2개
+- 역할, 평상시↔임무 상태 성격 키워드, 대표 장비와 팔레트
+- `LOCKED`, `CONTROLLED`, `FORBIDDEN` 요약 ID
+- Source Image·metadata·review 경로
+- 다른 4명과 겹칠 수 있는 모티프와 외부 레퍼런스 유사성 경고
 
-- Character ID·Name.
-- Sheet Version·Status.
-- Owning Bible·Anchor Version.
-- Source Asset Version.
-- Artist/Tool·Reviewer.
-- Updated Date.
-- Usage Restriction.
-- Gate Status.
+### 6.2 Turnaround
 
-`APPROVED`는 Gate와 사람 승인 기록이 있을 때만 선택할 수 있다.
+- Front·Side·Back 동일 축과 발 기준선
+- 머리 정점, 턱, 어깨, 가슴, 허리, 골반, 무릎, 발 기준선
+- 캐릭터별 6.8~7.4등신 목표 범위 표기
+- 헤어 앞/뒤 덩어리와 의상 절개선
+- 장비 장착·분리·접힘 상태와 실측 상대 크기
+- 비대칭 파츠의 좌우 방향
+- AI 생성 측·후면은 `REFERENCE ONLY`로 표시하고 사람이 정리한 구조와 구분
 
-## 4. Frame 01 — Turnaround
+### 6.3 Face / Expressions
 
-필수:
+- 얼굴 정면·3/4 앵커
+- 눈매, 홍채, 눈썹, 코, 입, 턱선, 화장과 헤어라인 Detail
+- 기본·미소·장난/호감·놀람·임무 집중·화남·슬픔·당황 8종
+- 평상시와 임무 상태의 반전 매력을 보여주는 최소 2종 비교
+- `128px` 축소 Preview와 다른 4명 얼굴 비교 슬롯
+- 얼굴 가림 장비의 투명/가동/해제 상태
 
-- Front.
-- Side.
-- Back.
-- 선택: 3/4 Front·3/4 Back.
-- 키 기준선·머리 높이 가이드.
-- 발바닥·골반·어깨·정수리 기준선.
-- 장비 장착·제거 상태.
+### 6.4 Outfit / Equipment
 
-검토:
+- 패션 Layer 분해와 앞·뒤 결합 구조
+- 각 Layer의 기능 또는 캐릭터 서사 근거
+- 대표 무기·역할 장비·소형 소품
+- 손잡이, 접힘, 개폐, 발광부, 탄도/효과 발생부
+- 소재, 두께, 봉제/절개, 수리 흔적, 겹침과 관절 간섭 주석
+- `Weapon`, `BladeTip`, `Muzzle`, `Scanner`, `Drone`, `Shield`, `VFXCenter` 중 해당 Socket 후보
+- 다른 캐릭터 전용 모티프 침범 여부
+- 외부 작품과 유사해 보일 수 있는 절개·무기 구조의 차별화 기록
 
-- 얼굴·헤어라인·귀·눈 위치 일치.
-- 의상 절개·레이어·잠금 장치의 앞뒤 연결.
-- 무기 휴대와 접힘 구조.
-- 장비 없는 상태에서도 캐릭터 실루엣 구분.
-- 캐릭터별 목표는 Bible·Approved review를 참조하고 템플릿에 전역 수치를 하드코딩하지 않는다.
+### 6.5 Palette / Materials / 3D Translation
 
-## 5. Frame 02 — Face·Expressions
+- Primary·Secondary·Accent와 피부·헤어·눈·금속·발광색
+- HEX, sRGB 0–255, 용도, 예상 Material Slot
+- 저채도와 명암만 남긴 Palette 비교
+- `2D Proportion Target`과 `3D Proportion Target`
+- 2D 약 7등신에서 3D 5~6등신으로 옮길 때 확대할 요소
+- 삭제할 미세 장식, 결합할 Layer, 줄일 헤어·천 길이
+- 머리·손·발·대표 장비 크기, 관절·Rig·관통 위험
+- Toon Face/Hair/Outfit/Equipment/Emission 분리 계획
+- Poly·Texture·Bone·LOD 수치는 `CHARACTER_3D_SPEC.md`가 생기기 전 `TBD` 유지
 
-필수 얼굴:
+### 6.6 Gate Evidence / Approval
 
-- Front Neutral.
-- 3/4 Neutral.
-- Side.
-- 눈·눈썹·코·입·귀·헤어라인 상세.
+- 장비 포함·제거 흑백 실루엣
+- 5인 동일 크기 실루엣 비교
+- 128px 얼굴 스트립
+- 원색·저채도·색각 보정 Preview
+- 대표 특징 1개·보조 특징 2개 주석
+- 한 문장 훅 전달 여부
+- 외부 IP 유사성 검토와 차별화 기록
+- `CHA-A01~A16` 결과와 차단 수정
+- Gate B용 `CHA-B01~B10` 증거 링크 자리
+- 사람 Reviewer·Date·Decision·Approved Scope
 
-표정 8종:
+`FAIL`이 하나라도 있으면 Frame Header를 `APPROVED`로 바꾸지 않는다. `CONDITIONAL`과
+`NOT TESTED`가 남아 있으면 승인 범위와 재검토 조건을 기록한다.
 
-1. Neutral.
-2. Smile.
-3. Focus.
-4. Angry or Command.
-5. Hurt.
-6. Surprised.
-7. Embarrassed or Soft reaction.
-8. Victory or Character-specific signature.
+## 7. 캐릭터별 Instance
 
-추가 증거:
+| Character ID | Page/Frame Prefix | 기본 Accent | 2D 목표 | 3D 목표 | 시작 상태 |
+|---|---|---|---:|---:|---|
+| CH001 | `Luna/` | Mint | 6.9~7.1 | 5.3~5.4 | WIP |
+| CH002 | `Miyu/` | Electric Cyan | 6.8~7.0 | 5.2~5.3 | WIP |
+| CH003 | `Coco/` | Jade | 7.0~7.2 | 5.5~5.6 | WIP |
+| CH004 | `Iris/` | Crimson | 7.2~7.4 | 5.7~5.8 | WIP |
+| CH005 | `Noah/` | Amber | 7.2~7.4 | 5.7~5.8 | WIP |
 
-- 128px 얼굴 비교.
-- 평상시↔임무 상태 비교.
-- 눈·입을 가리는 장비 여부.
+공통 Component를 Detach하지 않고 Instance 속성으로 텍스트·상태·Accent만 바꾼다. 캐릭터별
+페이지 안에서는 `01`부터 `06`까지 Frame 순서를 유지한다.
 
-## 6. Frame 03 — Outfit·Equipment
+## 8. Layer 이름
 
-### 의상 분해
-
-- Base inner.
-- Outer layer.
-- Lower body.
-- Footwear.
-- Protection and utility parts.
-- Fastener·stitch·camp symbol.
-
-### 장비 분해
-
-- Front·Side·Back.
-- Folded·Idle·Active 상태.
-- 손 Grip과 장착 위치.
-- VFX·Emission 발생 위치.
-- Socket 이름.
-- 분리 Prefab 여부.
-- Animation 또는 Collider 주의점.
-
-장비의 장식과 기능을 구분해 주석으로 표시한다.
-
-## 7. Frame 04 — Color·Material
-
-필수:
-
-- Primary·Secondary·Accent·Emission.
-- Skin·Hair·Eye·Makeup.
-- Fabric·Plastic·Metal·Transparent·Emission 재질.
-- Lit·Shadow·Emission 상태 예시.
-- 색약·저채도 비교.
-- 배경과의 명도 대비.
-
-정확한 팔레트는 Character Bible·Approved 시트가 소유한다. 이 Frame은 최종 값을 기록하는 장소다.
-
-## 8. Frame 05 — Poses·Silhouette
-
-필수 Pose:
-
-- Lobby Signature Idle.
-- Combat Ready.
-- Primary Skill 또는 대표 장비 사용.
-
-검토 증거:
-
-- 흑백 실루엣.
-- 대표 장비 포함·제거.
-- 작은 화면 Thumbnail.
-- 쿼터뷰 3/4 방향.
-- 얼굴·손·장비 가림.
-- 다른 캐릭터와 나란히 비교.
-
-## 9. Frame 06 — 2D to 3D Simplification
-
-필수 표:
-
-| 항목 | 2D 유지 | 3D 확대 | 3D 단순화·삭제 | 제작 위험 |
-|---|---|---|---|---|
-| 얼굴 |  |  |  |  |
-| 헤어 |  |  |  |  |
-| 상체 |  |  |  |  |
-| 하체 |  |  |  |  |
-| 대표 장비 |  |  |  |  |
-| 천·케이블 |  |  |  |  |
-| 발광·VFX |  |  |  |  |
-
-추가 필드:
-
-- Character-specific 2D target.
-- Character-specific 3D target.
-- Camera readability priority.
-- Bone·Physics candidate count.
-- Expected Socket·Material Slot.
-- LOD·Texture·VFX 주의점.
-
-이 Frame 없이 최종 3D Blockout을 시작하지 않는다.
-
-## 10. Frame 07 — Review·Approval
-
-### Gate A
-
-- 성인 인상과 캐릭터 매력.
-- 한 문장 훅.
-- 얼굴·체형·패션·역할·실루엣·팔레트.
-- 다른 캐릭터와의 구분.
-- 외부 IP 유사성.
-
-### Gate B
-
-- Turnaround 일치.
-- 장비 구조와 Grip.
-- 2D→3D 변환 가능성.
-- Rig·Animation·물리 본 위험.
-- Material·Socket·Prefab 분리 가능성.
-
-### 승인 필드
-
-```yaml
-Gate A: Pass | Conditional | Fail
-Gate B: Pass | Conditional | Fail
-Reviewer:
-Review Date:
-Required Changes:
-Approved Source:
-Approved Export:
-Next Version:
-Runtime Permission: No | Proof Only | Yes
+```text
+PAGE/CH001_Luna
+FRAME/01_Identity_KeyArt
+FRAME/02_Turnaround
+FRAME/03_Face_Expressions
+FRAME/04_Outfit_Equipment
+FRAME/05_Palette_Materials_3DTranslation
+FRAME/06_Gate_Evidence_Approval
+GROUP/Reference
+GROUP/Artwork
+GROUP/Annotation
+GROUP/GateEvidence
+GROUP/Translation
+COMP/Header
+COMP/Status
+COMP/PaletteChip
+COMP/Approval
 ```
 
-## 11. Component 규칙
+레이어 이름에 임시 숫자, 개인명, `final_final`, 공백만 있는 이름을 사용하지 않는다.
 
-공통 Component 후보:
+## 9. Export Manifest
 
-- Header.
-- Status Badge.
-- Character Info Card.
-- Front/Side/Back Slot.
-- Expression Cell.
-- Equipment Callout.
-- Color Token.
-- Material Swatch.
-- Gate Checklist.
-- Approval Block.
+사람 검토에 사용한 Frame만 Export한다.
 
-Component는 구조를 재사용하고 디자인 내용을 내부 텍스트로 하드코딩하지 않는다.
+| Export | 형식 | Scale | 저장 위치 |
+|---|---|---:|---|
+| 각 Frame 검토본 | PNG | 1x | `art_refs/characters/<character>/<category>/` |
+| 6-Frame 통합본 | PDF | 1x | `art_refs/characters/<character>/` |
+| 128px 얼굴 증거 | PNG | 정확히 128px 높이 | `art_refs/characters/<character>/expressions/` |
+| Palette·실루엣 증거 | PNG | 1x | 해당 concept/review 디렉터리 |
+| 2D→3D 변환 비교 | PNG | 1x | `art_refs/characters/<character>/turnaround/` |
 
-## 12. Figma Import·사용성 검증
+파일명은 `ASSET_NAMING_GUIDE.md`, 경로와 상태 의미는 `ART_ASSET_STRUCTURE.md`를 따른다.
+Export 후 다음을 확인한다.
 
-ART-0111에서 다음을 확인한다.
+- Frame 밖 객체·숨김 WIP·개인 메모가 포함되지 않음
+- 폰트 대체, 잘림, 투명 배경, 색 공간 이상 없음
+- 파일 상태·버전과 Frame Header가 일치
+- metadata와 review 기록 경로가 존재
+- 대형 PNG/PDF에 Git LFS 규칙 적용
 
-- SVG Import 성공.
-- Frame·Group·Text Layer 구조 유지.
-- 공통 Component 생성과 Instance Clone.
-- 한글 Font 대체와 깨짐 없음.
-- 이미지 교체 후 Layout 유지.
-- PNG/PDF Export에서 잘림·누락 없음.
-- 5명 복제 시 Page·Layer 이름 충돌 없음.
-- 사람이 수정·Review·승인하기에 충분히 명확함.
+## 10. 사용 절차
 
-## 13. Export
+1. v002 SVG를 Figma 또는 동등한 도구로 Import한다.
+2. 6개 Board 그룹을 독립 Frame으로 변환하고 공통 요소를 Component로 만든다.
+3. 캐릭터 Page를 만들고 Component Instance를 복제한다.
+4. Character ID, 한 문장 훅, 2D·3D 목표 비율과 기준 문서 버전을 먼저 입력한다.
+5. WIP 이미지를 배치하되 이미지 상태보다 Frame 상태를 높이지 않는다.
+6. 약 7등신 Turnaround와 2D→3D 변환표를 함께 작성한다.
+7. Gate A 증거와 차단 수정까지 채운다.
+8. 사람 검토용 PNG/PDF를 Export해 Git에 저장한다.
+9. 사람 Reviewer가 범위·날짜·결정을 기록한 경우에만 승인 상태를 바꾼다.
 
-필수 Export:
+## 11. ART-0103 완료 판정
 
-- REVIEW PNG.
-- REVIEW PDF.
-- APPROVED PNG/PDF는 승인 후 별도 Version.
-- 필요한 개별 Crop: Face·Turnaround·Equipment·Palette.
+저장소 문서로 충족해야 하는 항목:
 
-Export Manifest:
+- 6개 Frame 구조와 필수 필드
+- 약 7등신 2D와 5~6등신 3D 분리
+- 공통 Component·Variant·Layer 이름
+- Gate A/B 증거와 사람 승인 슬롯
+- 캐릭터 5인 Instance 규칙
+- PNG/PDF Export manifest
+- Figma import 가능한 v002 SVG
 
-- Figma File·Page·Frame.
-- Sheet Version·Status.
-- Export Date·Tool Version.
-- 출력 크기·Scale.
-- Source Asset Version.
-- Reviewer.
-- 출력 경로.
+남은 검증:
 
-파일명은 `ASSET_NAMING_GUIDE.md`를 따른다.
+- 실제 Figma Import 시 6개 Board와 한글 텍스트 보존
+- Component/Variant 변환과 캐릭터 Page Clone
+- 샘플 1개 Frame의 PNG·PDF Export
+- 사람이 템플릿 가독성과 누락 필드를 검토
 
-## 14. 금지
-
-- 승인되지 않은 이미지에 `APPROVED` 표시.
-- 빈 Frame을 완료로 제출.
-- 정면만 있고 측면·후면 구조를 추측하게 하는 시트.
-- 장비 접힘·Grip·Socket 없는 모델링 인계.
-- 다른 캐릭터의 Component 내용이 복사된 채 남아 있는 Export.
-- 역사·REJECTED·Gate 실패 자산을 최종 Reference로 배치.
-- 템플릿에서 제품·전역 비율·플랫폼 결정을 별도로 정의.
-
-## 15. 완료 판정
-
-템플릿 자체는 다음을 만족하면 `Done`으로 전환한다.
-
-- Figma Import와 Component Clone 성공.
-- 한글과 이미지 교체 정상.
-- PNG/PDF Export 정상.
-- Gate와 Approval 필드 사용 가능.
-- 2D→3D 변환표 작성 가능.
-- 사용자 사용성 검토 통과.
-
-개별 캐릭터 시트의 승인은 각 캐릭터 Backlog와 review에서 별도로 판정한다.
+위 네 항목 전에는 ART-0103을 `Done`이 아니라 `Review`로 유지한다.

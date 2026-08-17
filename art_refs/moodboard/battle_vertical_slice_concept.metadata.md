@@ -5,7 +5,7 @@
 ```yaml
 Asset Name: battle_vertical_slice_concept.png
 Character/Environment: Prototype survivor / ruined eco-camp battle arena
-Purpose: Original battle visual anchor for the female-player feel, SD-lite in-game direction, environment, camera, palette, and readability
+Purpose: Original battle visual anchor for character presence, environment, camera, palette, and readability; exact proportions follow the latest Baseline
 Status: REVIEW
 Priority: PRIMARY VISUAL ANCHOR
 Generated Date: 2026-07-13
@@ -22,7 +22,7 @@ Reviewer: Pending
 
 | Scope | Status | Allowed Use | Notes |
 |---|---|---|---|
-| Character feel and proportion | PRIMARY REVIEW | 여성 SD 주인공의 화면 존재감과 4~5등신 SD-lite 방향의 우선 앵커 | 정확한 얼굴·체형은 Luna Approved 제작 시트에서 확정 |
+| Character feel and framing | PRIMARY REVIEW | 성인 여성 주인공의 화면 존재감·서브컬처 감성·전투 프레이밍 참고 | 정확한 얼굴·체형·등신은 최신 Baseline과 개별 Approved 제작 시트에서 확정 |
 | Costume and weapon mood | REVIEW | 민트 계열 택티컬 스트리트 감성과 가벼운 SF 장비 참고 | 소총을 그대로 채택하지 않으며 Luna의 단검·탐지 장치 구조는 별도 확정 |
 | Environment mood and battle composition | REVIEW | Blockout과 구도 검토 참고만 허용 | 자연에 잠식된 폐허, 낮은 채도의 전장, 플레이 공간 경계와 자원 배치 방향은 검토 후보로 유지 |
 | Camera and readability | REVIEW | Unity 쿼터뷰 가독성 검토 참고만 허용 | 고정 쿼터뷰에서 캐릭터·적·드롭·위험 영역을 분리하는 구도 참고 |
@@ -42,4 +42,5 @@ Reviewer: Pending
 | Date | Reviewer | Decision | Notes |
 |---|---|---|---|
 | 2026-07-14 | Codex classification | Partial supersession | 캐릭터 디자인은 최신 아트 방향과 충돌하여 SUPERSEDED, 환경 구도는 REVIEW 유지 |
-| 2026-07-14 | User direction correction | PRIMARY REVIEW restored | 이 파일이 기존 원본 전투 콘셉트임을 확인. 전원 성인 여성·남성향·4~5등신 SD-lite 방향의 우선 시각 앵커로 복원 |
+| 2026-07-14 | User direction correction | PRIMARY REVIEW restored | 이 파일이 기존 원본 전투 콘셉트임을 확인하고 성인 여성·남성향·전투 구도의 우선 시각 앵커로 복원 |
+| 2026-08-04 | Baseline synchronization | Scope clarified | 캐릭터 감성·환경·카메라·가독성 앵커는 유지하되 정확한 3D 체형은 캐릭터별 5~6등신 최신 Baseline이 우선함을 명시 |
