@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Action = System.Action;
 using ReCamp.Combat;
 using ReCamp.Data;
+using ReCamp.Domain;
 using ReCamp.Enemy;
 using ReCamp.GameFlow;
 using ReCamp.Item;
@@ -44,6 +46,8 @@ namespace ReCamp.Player
         private EnergyBarrier activeBarrier;
 
         public CharacterDefinition Definition => definition;
+        public event Action<UseAbilityCommand> AbilityCommandIssued;
+        public event Action<AbilityResolvedEvent> AbilityResolved;
         public string AbilityName => definition == null ? "대표 능력" : definition.SignatureAbilityName;
         public string UtilityAbilityName => definition == null
             ? "역할 능력"
@@ -202,8 +206,16 @@ namespace ReCamp.Player
 
         public bool TryActivate()
         {
+            if (definition == null || stats == null)
+            {
+                return false;
+            }
+
+            var command = CreateAbilityCommand(AbilitySlot.Signature);
+            AbilityCommandIssued?.Invoke(command);
             if (!CanUseAbility(IsReady))
             {
+                AbilityResolved?.Invoke(new AbilityResolvedEvent(command, false));
                 return false;
             }
 
@@ -227,13 +239,22 @@ namespace ReCamp.Player
                 nextReadyTime = Time.time + definition.AbilityCooldown;
             }
 
+            AbilityResolved?.Invoke(new AbilityResolvedEvent(command, activated));
             return activated;
         }
 
         public bool TryActivateUtility()
         {
+            if (definition == null || stats == null)
+            {
+                return false;
+            }
+
+            var command = CreateAbilityCommand(AbilitySlot.Utility);
+            AbilityCommandIssued?.Invoke(command);
             if (!CanUseAbility(IsUtilityReady))
             {
+                AbilityResolved?.Invoke(new AbilityResolvedEvent(command, false));
                 return false;
             }
 
@@ -252,6 +273,7 @@ namespace ReCamp.Player
                 nextUtilityReadyTime = Time.time + UtilityCooldownDuration;
             }
 
+            AbilityResolved?.Invoke(new AbilityResolvedEvent(command, activated));
             return activated;
         }
 
@@ -274,14 +296,18 @@ namespace ReCamp.Player
                 return false;
             }
 
+            var command = CreateAbilityCommand(AbilitySlot.Signature);
+            AbilityCommandIssued?.Invoke(command);
             var chargeRatio = ChargeRatio;
             CancelCharge();
             if (!CanUseAbility(IsReady) || !ActivateIrisFocusShot(chargeRatio))
             {
+                AbilityResolved?.Invoke(new AbilityResolvedEvent(command, false));
                 return false;
             }
 
             nextReadyTime = Time.time + definition.AbilityCooldown;
+            AbilityResolved?.Invoke(new AbilityResolvedEvent(command, true));
             return true;
         }
 
@@ -513,6 +539,13 @@ namespace ReCamp.Player
         private bool CanUseAbility(bool ready)
         {
             return ready && stats?.Health != null && !stats.Health.IsDead;
+        }
+
+        private UseAbilityCommand CreateAbilityCommand(AbilitySlot slot)
+        {
+            var abilityKey = slot == AbilitySlot.Signature ? AbilityName : UtilityAbilityName;
+            var cooldown = slot == AbilitySlot.Signature ? CooldownDuration : UtilityCooldownDuration;
+            return new UseAbilityCommand((int)definition.Id, slot, abilityKey, cooldown);
         }
 
         private Vector3 GetPlanarForward()

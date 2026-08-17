@@ -74,7 +74,7 @@
 | DEV-0110 | Core 상태를 Unity Presentation에 연결 | High | Review | 현재 기능 동작, 중복 규칙 정리 필요 |
 | DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 25/25, PlayMode 18/18 통과 |
 | DEV-0112 | Core·Unity CI | Medium | Todo | 로컬 테스트 기준선 존재 |
-| DEV-0113 | 기존 비종속 Core 통합 | High | In Progress | Domain 정산 Command/Event·Run ID·비활성 런 중복 정산 차단 완료. 스킬 포트·Presentation 경계·통합 회귀 남음 |
+| DEV-0113 | 기존 비종속 Core 통합 | High | In Progress | Domain 정산·Run ID·중복 정산 차단과 `UseAbilityCommand`/`AbilityResolvedEvent` 발행 연결 완료. 효과 Domain 이전·Presentation 경계·통합 회귀 남음 |
 | DEV-0114 | Android Build Support·SDK·NDK·OpenJDK | High | Blocked | 설치된 Unity `6000.5.3f1`에 `PlaybackEngines/AndroidPlayer` 없음; Module 설치 필요 |
 | DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | `Screen.safeArea` 대응은 있으나 Landscape 고정·종횡비/Cutout 테스트·실기기 확인 필요 |
 | DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Ready | Touch 이동·공격·능력·귀환 UI와 입력 계약 필요 |
