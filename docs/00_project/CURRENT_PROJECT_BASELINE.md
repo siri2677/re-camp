@@ -1,29 +1,35 @@
 # Re:Camp Current Project Baseline
 
-> 최종 갱신: 2026-07-27
-> 상태: Active / Canonical
-> 기준 브랜치: `main`
-> 목적: 사람과 LLM이 프로젝트 전역 결정을 한 곳에서만 읽도록 하는 단일 기준
+> 최종 갱신: 2026-08-04
+> 상태: Active
+> 목적: 제품 방향과 현재 검증 상태가 문서마다 달라질 때 적용할 단일 기준
 
-## 1. 반드시 먼저 읽는 문서
+## 1. 적용 범위와 우선순위
 
-모든 Re:Camp 작업은 이 문서를 가장 먼저 읽는다. 제품·플랫폼·비주얼·로스터·현재 Gate·문서 우선순위는 다른 문서에서 다시 정의하지 않는다.
+이 문서는 Re:Camp의 제품·플랫폼·비주얼 방향과 현재 단계만 고정한다. 세부 작업 상태나
+제작 규격을 복제하지 않고 아래 단일 소스로 연결한다.
 
 ```text
-사용자의 최신 명시적 지시
-→ CURRENT_PROJECT_BASELINE.md
+CURRENT_PROJECT_BASELINE.md
 → planning/sprint_backlog.md
-→ 작업 분야의 세부 계약 문서
+→ planning/roadmap.md
+→ 분야별 docs/와 planning/art_production_backlog.md
 → tables/
-→ APPROVED 자산과 review 기록
-→ 코드·Scene·Project Settings의 실제 상태
+→ APPROVED art_refs/
+→ REVIEW·WIP art_refs/
 ```
 
-충돌 시 위 순서를 적용한다. `README.md`, `AGENTS.md`, 프로젝트 Skill, Roadmap과 Backlog는 이 문서를 요약하거나 링크할 수 있지만 전역 결정을 복제하지 않는다.
+- 실행 상태는 `planning/sprint_backlog.md`가 유일한 기준이다.
+- 구현·검증 근거는 `planning/IMPLEMENTATION_STATUS.md`에만 누적한다.
+- 아트 산출물 상태는 자산의 metadata와 review 기록을 우선한다.
+- 캐릭터 외형은 사람 승인을 받은 개별 `APPROVED` 제작 시트가 생긴 뒤 해당 시트를
+  텍스트 설명과 통합 라인업보다 우선한다.
+- `AGENTS.md`와 Re:Camp 전용 스킬의 작업·검증 규칙은 이 문서와 별개의 운영 기준이다.
 
 ## 2. 제품 정의
 
-Re:Camp는 자연에 잠식된 포스트 아포칼립스 위험 구역을 짧게 탐험하고 자원을 회수해 캠프를 성장시키는 싱글플레이 3D 고정 쿼터뷰 로그라이트 RPG다.
+Re:Camp는 자연에 잠식된 포스트 아포칼립스 위험 구역을 짧게 탐험하고 자원을 회수해
+캠프를 성장시키는 가로형 모바일 3D 고정 쿼터뷰 로그라이트 RPG다.
 
 ```text
 3~5분 탐험의 긴장감
@@ -32,7 +38,7 @@ Re:Camp는 자연에 잠식된 포스트 아포칼립스 위험 구역을 짧게
 + 성인 여성 캐릭터 5인에 대한 애착
 ```
 
-핵심 흐름:
+핵심 루프는 다음과 같다.
 
 ```text
 로비·탐험 준비
@@ -43,23 +49,34 @@ Re:Camp는 자연에 잠식된 포스트 아포칼립스 위험 구역을 짧게
 → 다음 탐험
 ```
 
-## 3. 고정 제품 결정
+## 3. 플랫폼 기준
 
 | 항목 | 단일 기준 |
 |---|---|
-| 1차 제품 목표 | Google Play Android 정식 배포 가능한 Landscape 모바일 게임 |
+| 1차 제품 목표 | Google Play Android 정식 배포 가능한 가로형 모바일 게임 |
 | 개발·자동 테스트 | Windows Unity Editor |
 | 1차 외부 테스트 | Android APK와 Google Play 테스트 트랙 |
-| 입력 | 양손 Touch UI와 조준 보조, PC 입력은 개발·QA용 |
+| 입력 제품 기준 | Landscape 양손 Touch UI와 조준 보조 |
+| PC 입력 | 개발·QA용 Keyboard/Mouse·Gamepad |
+| 후속 플랫폼 | Android 안정화 후 Windows 공개 빌드·Steam·iOS 별도 판단 |
 | 플레이·저장 | 싱글플레이·로컬 저장 |
-| 플레이어블 | 루나·미유·코코·이리스·노아, 성인 여성 5명 |
-| 타깃 표현 | 남성향 서브컬처, 캐릭터 매력·역할·성격 구분 우선 |
-| 해금 | 등급·가챠 없이 스토리·탐험 진행으로 확정 해금 |
-| 초기 Proof | 루나 1명을 먼저 완성한 뒤 검증된 구조를 나머지 4명에 확장 |
-| Unity | `6000.5.3f1`, URP |
-| 카메라 | 고정 Orthographic 쿼터뷰 |
 
-초기 출시 제외:
+Android-first는 제품·UX 목표다. 현재 Windows Editor에서 동작하는 기능이 자동으로 Android
+완료를 뜻하지 않는다. APK, Safe Area, 화면비, Touch 입력, Lifecycle, 발열, 메모리와 실기기
+성능은 별도 증거가 있을 때만 `Done`으로 판정한다. 출시 시점의 Google Play 정책과 등록
+요건은 공식 자료로 다시 확인한다.
+
+## 4. 고정 게임·콘텐츠 방향
+
+- 한 판 목표 시간은 3~5분이다.
+- 탐험 중 더 진행할지 안전하게 귀환할지 선택하는 위험/보상 구조를 유지한다.
+- 캠프 성장은 다음 탐험의 생존력과 선택지를 넓힌다.
+- 플레이어블 로스터는 루나·미유·코코·이리스·노아, 성인 여성 5명이다.
+- 타깃 표현은 남성향 일본 모바일 서브컬처이며 캐릭터의 매력·역할·성격 구분을 우선한다.
+- 초기 Character Proof와 Vertical Slice는 루나 1명을 기준으로 완성한 뒤 나머지 4명에
+  검증된 구조를 확장한다.
+
+초기 출시 범위에 포함하지 않는다.
 
 ```text
 멀티플레이·PvP·길드·실시간 계정 서버
@@ -69,10 +86,13 @@ Re:Camp는 자연에 잠식된 포스트 아포칼립스 위험 구역을 짧게
 Android와 PC·iOS 동시 정식 출시
 ```
 
-## 4. 고정 비주얼 결정
+수익은 필수 성공 기준이 아니다. 완성·배포 가능성, 모바일 적합성, 캐릭터와 핵심 루프의
+품질, 유지 가능한 비용, 포트폴리오 설명 가능성을 우선한다.
+
+## 5. 고정 비주얼 방향
 
 ```text
-2D 약 7등신 성인 서브컬처 캐릭터 일러스트
+2D 약 7등신 성인 일본 모바일 서브컬처 캐릭터 일러스트
 + 3D 5~6등신 스타일라이즈드 인게임 캐릭터
 + 툰 셰이딩
 + 자연에 잠식된 부드러운 포스트 아포칼립스
@@ -80,135 +100,136 @@ Android와 PC·iOS 동시 정식 출시
 + 고정 Orthographic 쿼터뷰 전투
 ```
 
-- 2D 대표 일러스트 기본 목표: 약 7등신, 캐릭터별 약 6.8~7.4등신.
-- 인게임 3D: 캐릭터별 약 5.2~5.8등신, 전체 허용 범위 5~6등신.
-- 2D는 얼굴·패션·체형·표정·재질을, 3D는 얼굴·헤어·대표 장비·전투 실루엣을 우선한다.
-- 3D는 2D를 단순 축소하지 않는다. 머리·손·발·대표 장비를 확대하고 미세 장식을 단순화한다.
-- 2D 대표 Key Art에서 6.5등신 미만으로 어려 보이는 결과는 사용하지 않는다.
-- 3D에서 2~3등신 유아형 치비 또는 6등신을 초과하는 길고 가는 체형은 사용하지 않는다.
-- `art_refs/moodboard/battle_vertical_slice_concept.png`는 화면 구도·카메라·환경·색 대비 참고다. 이미지 속 개별 캐릭터 외형·무기·파티 구성은 공식 디자인이 아니다.
-- 과거 `ReCamp_CharacterLineup_REVIEW_v003`은 Gate A 실패 이력으로만 보존한다. 새 디자인의 기반 이미지나 교정 출발점으로 사용하지 않는다.
-- 현재 Primitive·Gray Box는 기능 검증용이며 최종 아트 품질이 아니다.
+- 2D 대표 일러스트의 기본 목표는 약 7등신이며 캐릭터별 약 6.8~7.4등신 범위를 허용한다.
+- 인게임 3D는 캐릭터별 약 5.2~5.8등신을 사용하며 전체 허용 범위는 5~6등신이다.
+- 2D는 큰 보석형 눈·짧은 중안부·작은 코/입의 일본 애니메이션 얼굴, 패션·체형·표정·재질을 우선한다.
+- 2D 헤어는 읽기 쉬운 애니메이션 덩어리와 제한된 광택 띠, 채색은 깨끗한 셀 색면과 절제된 소프트 그라데이션을 사용한다. 서양권 반실사 얼굴·피부·페인터리 렌더링은 현재 기준이 아니다.
+- 3D는 얼굴·헤어·대표 장비·전투 실루엣을 우선한다.
+- 3D는 2D를 단순 축소하지 않고 머리·손·발·대표 무기를 확대하고 미세 장식을 단순화한다.
+- `art_refs/moodboard/battle_vertical_slice_concept.png`를 캐릭터 존재감, 환경 구성, 카메라와
+  색 대비의 원본 전투 비주얼 앵커로 사용한다. 해당 이미지의 개별 캐릭터 외형과 파티 구성은 공식 기준이 아니다.
+- 현재 Capsule·Sphere·Cube·단색 Material은 기능 검증용 Gray Box이며 최종 품질이 아니다.
+- 2D와 3D는 용도가 다르지만 같은 캐릭터로 인식돼야 한다.
+- 2D에서 6.5등신 미만으로 어려 보이는 대표 Key Art와 3D에서 2~3등신 유아형 치비 또는
+  6등신 초과의 길고 가는 체형은 현재 기준에 포함하지 않는다.
+- 과거 v003 통합 라인업은 Gate A 실패 이력으로 보존하며 새 캐릭터 후보의 제작 앵커로 사용하지 않는다.
 
-## 5. 캐릭터 디자인 소유권
+## 6. 현재 검증된 Unity 기준선
 
-전역 로스터와 비율은 이 문서가 소유한다. 캐릭터별 고유 설정은 다음 문서가 소유한다.
+2026-07-19 기준 로컬 프로젝트에서 확인된 사실은 다음과 같다.
 
-| 내용 | 소유 문서 |
+| 항목 | 현재 근거 |
 |---|---|
-| 캐릭터별 한 문장 훅·성격·관계·역할·개별 목표 비율 | `docs/05_art_concept/CHARACTER_BIBLE.md` |
-| 얼굴·헤어·체형·패션·장비의 고정·가변·금지 항목 | `docs/05_art_concept/CHARACTER_ANCHOR_SPEC.md` |
-| 색·재질·환경·UI·VFX 표현 규칙 | `docs/05_art_concept/ART_DIRECTION.md` |
-| 제작 시트 Frame·Export | `docs/05_art_concept/CHARACTER_SHEET_TEMPLATE_SPEC.md` |
-| Gate A/B/C 판정 | `docs/05_art_concept/ART_REVIEW_CHECKLIST.md` |
-| 자산 이름·버전·Export·GUID | `docs/05_art_concept/ASSET_NAMING_GUIDE.md` |
-| Motion·Animator·Event·Import | `docs/05_art_concept/ANIMATION_GUIDE.md` |
-| 자산별 승인 상태 | 해당 `.metadata.md`, `.review.md`, 개별 `APPROVED` 제작 시트 |
-
-사람 승인을 받은 개별 `APPROVED` 제작 시트가 생기면 해당 캐릭터의 얼굴·의상·장비 구조는 텍스트 설명과 통합 라인업 이미지보다 우선한다.
-
-## 6. 현재 검증된 구현 기준선
-
-최근 직접 검증 기준:
-
-- Unity `6000.5.3f1`, URP.
-- Bootstrap·Title·Lobby·Battle·Result Scene 5개.
-- `Lobby → Battle → Result → Lobby` 흐름.
-- XZ 이동, 자동 공격, 적 Wave·Boss, 승리·패배, 자원 드랍·흡수·정산.
-- 5분 탐험, 귀환·사망·시간 만료 종료.
-- 캠프 자원·시설·로컬 저장과 PlayerPrefs v1→v2 migration.
-- 성인 여성 5인의 선택·수치·대표 능력 Gray Box.
-- `ReCamp.Domain → ReCamp.UnityAdapter → ReCamp.Runtime` Assembly 경계.
-- EditMode 25개, PlayMode 18개 테스트 기준선.
-- `_ReCamp` Console 오류 0건.
+| Unity | `6000.5.3f1`, URP 프로젝트 |
+| Scene | Bootstrap·Title·Lobby·Battle·Result 5종 |
+| 핵심 흐름 | Lobby → Battle → Result → Lobby |
+| 전투 | XZ 이동, 자동 공격, 적 Wave·Boss, 승리·패배, 5분 타이머·조기 귀환 |
+| 성장·저장 | 자원 3종, 결과 정산, 캠프 시설 강화, 로컬 저장과 v1→v2 migration |
+| 캐릭터 기능 | 성인 여성 5인의 선택·수치·대표/역할 능력 Gray Box |
+| Core 경계 | `ReCamp.Domain` + `ReCamp.UnityAdapter` 방향과 캠프·저장 포트 구현 중 |
+| 자동 테스트 | EditMode 25/25, PlayMode 18/18 |
+| Console | `_ReCamp` 오류 0 |
 
 이 기준선은 Windows Editor 기능 검증이다. 다음은 아직 증명하지 않았다.
 
-- 탐험·스킬 Domain Command/Event 통합과 중복 규칙 제거.
-- Core·Unity CI.
-- Fresh Clone 후 Unity Open·Build·Test 재현.
-- Android Build Support·SDK·NDK·OpenJDK.
-- Landscape 고정·Touch HUD·App ID·첫 APK.
-- Android 화면비·Cutout·Lifecycle·성능·발열·메모리.
-- 승인된 캐릭터 2D 제작 시트와 최종 3D·UI·VFX·Audio.
+- Android Build Support 전체 설정과 재현 가능한 APK Build
+- Landscape 고정, Cutout·Safe Area, Touch Control Scheme의 실기기 동작
+- Android 저·중·고 기기 성능·발열·메모리·중단/복귀
+- fresh clone 후 Unity open·build·test 재현
+- 출시 품질 캐릭터·환경·UI·VFX·사운드
 
-최신 상세 근거는 `planning/IMPLEMENTATION_STATUS.md`만 갱신한다.
+## 7. 현재 아트·디자인 상태
 
-## 7. 현재 Gate와 실행 순서
+| 항목 | 현재 상태 |
+|---|---|
+| Art Direction·Character Bible | v2.1 일본 모바일 서브컬처 기준 문서 존재 |
+| 5인 캐릭터 앵커 | `CHARACTER_ANCHOR_SPEC.md` v2.1 완료 |
+| Gate A/B/C 공통 판정 | `ART_REVIEW_CHECKLIST.md` v2.1 완료 |
+| 캐릭터 제작 시트 템플릿 | v002 규격·SVG 존재, Figma 실사용 검증 Pending |
+| 통합 라인업 v003 | `REVIEW / Gate A FAIL`, 실패 이력으로만 보존 |
+| 일본 서브컬처 Style Reset KeyArt | 기존 5/5 v002 패키지는 2026-08-07 사용자 Gate A `FAIL / HISTORY ONLY`; 공통 얼굴·전신 스타일 캘리브레이션 WIP 재진행 |
+| 개별 Approved 2D 제작 시트 | 0/5 |
+| 최종 3D Model·Prefab·Animator | 0/5 |
+| 최종 HUD 초상화·Icon·VFX·Audio | 0/5 |
+| Unity 적용 | ID·수치·능력·대표색·텍스트 HUD까지 Gray Box 연결 |
 
-실제 작업 상태와 순서는 `planning/sprint_backlog.md`가 유일한 기준이다. 현재 큰 흐름은 다음과 같다.
+현재 5인은 Character Bible·Anchor v2.1의 한 문장 훅과 역할·팔레트·대표 장비만 유지한다. 기존
+v002 KeyArt·파생 시트·라인업은 캐릭터별 화풍이 달라 실패 이력으로만 보존한다. 동일 화면의 5인
+얼굴/흉상 스타일 마스터를 먼저 승인한 뒤 전신과 개별 KeyArt를 재생성하며, 사람 승인 전
+`Direction Approved`나 `APPROVED`로 기록하지 않는다.
+
+## 8. 제작 도구 기준
+
+| 도구 | 현재 역할 |
+|---|---|
+| 이미지 생성 도구 | 초기 2D 후보와 교정 WIP |
+| Figma 또는 동등한 편집 도구 | 약 7등신 제작 시트·UI Design System·리뷰 Export |
+| Blender | 소품 Export Proof, Approved 시트 이후 5~6등신 캐릭터 Blockout |
+| Coplay/unityMCP | Unity Scene·Prefab·Material·Animator·검증 자동화 |
+| 코드 에이전트 | Runtime·Adapter·Importer·Validation Tool·테스트 |
+| ComfyUI | 대량 일관성·정밀 인페인팅이 실제 병목일 때만 도입하는 `Deferred` 선택 사항 |
+
+별도 유료 도구와 대용량 모델 설치를 현재 개발·아트의 필수 선행 조건으로 두지 않는다.
+자동 생성 결과는 사람 검토와 제작 시트 없이 출시 자산으로 승격하지 않는다.
+
+## 9. 현재 Gate와 다음 순서
+
+현재 프로젝트는 기능 Gray Box를 보존하면서 Android 제품 기준과 루나 Character Proof를
+연결하는 단계다. 실제 실행 순서와 상태는 `planning/sprint_backlog.md`만 갱신한다.
 
 ```text
-Core Domain·Presentation 잔여 통합
-→ Android Landscape·Safe Area·Touch·첫 APK
-→ Figma 제작 시트 v002 실사용 검증
-→ 5인 캐릭터 후보 재탐색과 Gate A 승인
-→ 루나 2D→3D 변환과 Character Proof
-→ Android Vertical Slice
-→ 나머지 캐릭터·콘텐츠
-→ QA·출시 준비
+문서·플랫폼·2D/3D 비율 기준 충돌 제거
+→ 진행 중인 Core Domain·Adapter 범위 완료
+→ Android Landscape·Safe Area·Touch 입력 기준과 첫 APK
+→ ART-0103·0111 캐릭터 제작 시트 v002 실사용 검증
+→ 새 한 문장 훅 기반 5인 약 7등신 WIP 비교
+→ 루나 약 7등신 Gate A 제작 시트·사람 승인
+→ 캐릭터별 2D→3D 변환표와 3D 규격·Unity Presentation 계약
+→ 루나 5.3~5.4등신 Blockout·Gate B/C·Android 실기기 Character Proof
+→ 환경·UI·VFX를 포함한 Android Vertical Slice
+→ 외부 테스트·출시 범위 확정
 ```
 
 Gate를 건너뛰지 않는다.
 
-- Gate A: 캐릭터 매력·성인 여성 가독성·한 문장 훅·역할·실루엣·팔레트·유사성.
-- Gate B: Turnaround·2D→3D 변환·장비·재질·Rig·Animation 제작 가능성.
-- Gate C: Unity 쿼터뷰 가독성·기능 회귀·성능·피드백.
-- Android Gate: Touch·Safe Area·Lifecycle·APK·실기기 성능.
+- Gate A: 매력·성인 여성 가독성·한 문장 훅·역할·실루엣·팔레트·약 7등신 Key Art 적합성
+- Gate B: Turnaround·2D→3D 변환·장비·재질·Rig·Animation 제작 가능성
+- Gate C: 5~6등신 Unity 쿼터뷰 가독성·기능 회귀·성능
+- Android Gate: Touch·Safe Area·Lifecycle·APK·실기기 성능
 
-## 8. LLM 작업별 필수 Read Set
-
-| 작업 유형 | 반드시 읽는 문서 |
-|---|---|
-| 모든 작업 | 이 문서, `planning/sprint_backlog.md`의 해당 ID |
-| Unity Gameplay | `MVP_SYSTEM_ARCHITECTURE.md`, `IMPLEMENTATION_STATUS.md`, 관련 코드·테스트 |
-| Core·저장 | `DEV-0113_CORE_INTEGRATION_RESULT.md`, `SAVE_DATA_SPEC.md`, 관련 Domain·Adapter 코드 |
-| Android | `MOBILE_INPUT_AND_LIFECYCLE.md`, `ANDROID_BUILD_AND_RELEASE.md`, 관련 Project Settings |
-| 캐릭터 디자인 | `CHARACTER_BIBLE.md`, `CHARACTER_ANCHOR_SPEC.md`, `ART_DIRECTION.md`, `ART_REVIEW_CHECKLIST.md`, 해당 최신 metadata/review |
-| 3D·Animation | 승인된 제작 시트, `CHARACTER_3D_SPEC.md`, `ASSET_NAMING_GUIDE.md`, `ANIMATION_GUIDE.md` |
-| 테스트·QA | 해당 계약 문서, `IMPLEMENTATION_STATUS.md`, 실제 테스트 코드와 실행 결과 |
-
-역사 문서, `REJECTED`, `INVALID`, Gate 실패 자산은 비교 근거로만 읽고 제작 기준으로 사용하지 않는다.
-
-## 9. 문서 역할과 갱신 규칙
+## 10. 문서 소유권
 
 | 내용 | 단일 소스 |
 |---|---|
-| 제품·플랫폼·전역 비주얼·로스터·현재 Gate·LLM 우선순위 | 이 문서 |
+| 현재 제품·플랫폼·비주얼·검증 단계 | 이 문서 |
 | 실행 순서·상태 | `planning/sprint_backlog.md` |
-| 마일스톤 | `planning/roadmap.md` |
+| 전체 마일스톤·Gate | `planning/roadmap.md` |
 | 구현·테스트 증거 | `planning/IMPLEMENTATION_STATUS.md` |
 | 아트 단계 | `planning/art_production_roadmap.md` |
 | 아트 세부 작업 | `planning/art_production_backlog.md` |
-| 게임 규칙·기능 계약 | 분야별 `docs/`와 `tables/` |
+| 게임 콘셉트·MVP 범위 | `GAME_CONCEPT.md`, `MVP_SCOPE.md` |
+| 캐릭터 설정·시각 앵커 | `CHARACTER_BIBLE.md`, `CHARACTER_ANCHOR_SPEC.md` |
+| 공통 아트 표현 | `ART_DIRECTION.md` |
+| 아트 디렉터리·승인 상태 | `ART_ASSET_STRUCTURE.md` |
+| 자산 이름·버전·Export·LOD·Socket·GUID | `ASSET_NAMING_GUIDE.md` |
+| 공용·캐릭터 Motion·Animator·Event·Import | `ANIMATION_GUIDE.md` |
+| Gate 판정 항목 | `ART_REVIEW_CHECKLIST.md` |
+| 자산별 판정 | 해당 `.metadata.md`, `.review.md` |
 
-규칙:
+다른 문서는 위 내용을 요약하거나 링크할 수 있지만 독립 실행 큐, 별도 상태표, 서로 다른
+수치·승인 상태를 새로 만들지 않는다.
 
-1. 다른 문서에 플랫폼·로스터·전역 비율·현재 Gate를 다시 적지 않는다.
-2. 다른 문서는 이 문서를 링크하고 자신의 분야 세부사항만 기록한다.
-3. 자주 변하는 테스트 개수와 실행 결과는 `IMPLEMENTATION_STATUS.md`에만 기록한다.
-4. Roadmap은 마일스톤과 Gate만, Backlog는 ID·상태·완료 조건만 관리한다.
-5. 코드나 자산이 존재해도 검증 근거가 없으면 `Done`이나 `APPROVED`로 올리지 않는다.
-6. 전역 결정 변경 시 이 문서를 먼저 수정하고 관련 세부 계약만 함께 갱신한다.
-7. `scripts/validate_project_docs.py` 검사를 통과해야 문서 정합성 작업을 완료한다.
-
-## 10. Branch와 PR 기준
-
-- `main`은 통합된 최신 기준과 검증된 구현의 유일한 장기 브랜치다.
-- 기능·아트·문서 작업은 짧은 작업 브랜치에서 진행하고 PR로 `main`에 병합한다.
-- 장기 `develop` 브랜치는 사용하지 않는다.
-- 병합된 작업 브랜치와 대체된 PR은 더 이상 기준으로 사용하지 않는다.
-- 브랜치에만 존재하는 문서는 `main`에 병합되기 전까지 공식 기준이 아니다.
-- LLM은 시작 시 현재 브랜치, HEAD, 변경 상태를 확인하고 `main`과의 차이를 인지한다.
-
-## 11. 변경 시 반드시 다시 검토할 항목
+## 11. 갱신 조건
 
 다음 결정이 바뀌면 이 문서와 직접 소유 문서를 같은 변경 범위에서 갱신한다.
 
-- 1차 제품 플랫폼·입력 방식.
-- 한 판 시간·핵심 루프·출시 Scope.
-- 캐릭터 수·성별 방향·전역 2D/3D 비율.
-- 캐릭터별 한 문장 훅·대표 장비.
-- Unity 메이저 기준선·Render Pipeline.
-- 개별 제작 시트의 사람 승인 상태.
-- Android 첫 APK·실기기 Gate 통과.
+- 1차 제품 플랫폼이나 입력 방식
+- 한 판 시간·핵심 루프·출시 Scope
+- 캐릭터 수·성별 방향·2D/3D 비율
+- 캐릭터별 한 문장 훅과 대표 장비
+- Unity 메이저 기준선과 Render Pipeline
+- 라인업 또는 개별 제작 시트의 사람 승인 상태
+- Android 첫 APK·실기기 Gate 통과
+
+테스트 개수처럼 자주 바뀌는 수치는 여기에서 이력화하지 않는다. 최신 상세 결과는
+`planning/IMPLEMENTATION_STATUS.md`에 기록하고, 이 문서에는 기준선이 바뀔 때만 반영한다.

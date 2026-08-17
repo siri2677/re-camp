@@ -1,0 +1,79 @@
+{
+  "character": "CH101",
+  "variant": "A / Route Sprint / canonical",
+  "status": "WIP / WAITING FOR HIGH-RES MESH / NOT APPROVED",
+  "source_design_lock": "art/current-roster-gate-a / 183b0f0983969937d779f70b2ac51e53fc976203",
+  "target_proportion": "5.3-5.4 heads",
+  "references": [
+    {
+      "path": "art_refs/characters/rin/concept/CH101_A_Canonical_Turnaround_WIP_v005.png",
+      "role": "canonical front/side/back/3-4/face reference",
+      "status": "WIP / NOT APPROVED"
+    },
+    {
+      "path": "art_refs/characters/rin/expressions/CH101_A_ExpressionSheet_WIP_v006.png",
+      "role": "eight expression and blendshape reference",
+      "status": "WIP / NOT APPROVED"
+    },
+    {
+      "path": "art_refs/characters/rin/equipment/CH101_A_EquipmentSheet_WIP_v007.png",
+      "role": "saber/ribbon/outfit hardware/pouch/boot reference",
+      "status": "WIP / NOT APPROVED"
+    },
+    {
+      "path": "art_refs/characters/rin/poses/CH101_A_PoseBoard_WIP_v008.png",
+      "role": "A-pose/idle/attack/skill/victory deformation reference",
+      "status": "WIP / NOT APPROVED"
+    },
+    {
+      "path": "art_refs/characters/rin/3d_reference/CH101_A_NeutralBodySculpt_WIP_v009.png",
+      "role": "neutral high-resolution body and face reference",
+      "status": "WIP / NOT APPROVED"
+    },
+    {
+      "path": "art_refs/characters/rin/concept/CH101_A_ReadabilitySheet_WIP_v010.png",
+      "role": "128px/grayscale/silhouette readability reference",
+      "status": "WIP / NOT APPROVED"
+    }
+  ],
+  "technical_templates": [
+    {
+      "path": "re-camp-blender/artifacts/CH101_mpfb_bound_run2/CH101_A_MPFBody_RigBound_WIP_v001.blend",
+      "role": "CC0 human topology source with CH101 rig and automatic weights",
+      "status": "WIP / BODY ONLY / STYLING INCOMPLETE"
+    },
+    {
+      "path": "re-camp-blender/artifacts/CH101_targeted_bound_run1/CH101_A_TargetedBody_RigBound_WIP_v001.blend",
+      "role": "MPFB body with face/eye/body target deltas and CH101 rig binding",
+      "status": "WIP / BODY ONLY / STYLING INCOMPLETE / VALIDATION PASS"
+    },
+    {
+      "path": "re-camp-blender/artifacts/CH101_modeling_guide_run3/CH101_A_ModelingGuide_WIP_v001.blend",
+      "role": "reference images, construction guides and production collections",
+      "status": "WIP / NO MESH"
+    },
+    {
+      "path": "re-camp-blender/artifacts/CH101_rig_template_run5/CH101_A_RigTemplate_WIP_v001.blend",
+      "role": "22-bone rig, seven sockets and action slots",
+      "status": "WIP / NO MESH / TEMPLATE VALIDATION PASS"
+    }
+  ],
+  "required_next_artifact": {
+    "path": "CH101_A_HighRes_Production_v001.blend",
+    "status": "MISSING / REQUIRED BEFORE GATE B",
+    "must_include": [
+      "connected body mesh",
+      "separate hair and outfit meshes",
+      "separate saber/ribbon/equipment meshes",
+      "UVs and material slots",
+      "CH101 rig binding and socket parenting",
+      "A-pose/idle/attack/skill/victory deformation evidence"
+    ]
+  },
+  "gates": {
+    "gate_a": "PENDING HUMAN REVIEW",
+    "gate_b": "BLOCKED UNTIL HIGH-RES MESH",
+    "gate_c": "BLOCKED UNTIL GATE B"
+  },
+  "approval_rule": "Never mark APPROVED from generated raster references or primitive WIP renders."
+}
