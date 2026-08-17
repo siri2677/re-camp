@@ -27,7 +27,7 @@
 | 9 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | In Progress | 기존 v002 라인업은 화풍 불일치로 `HISTORY ONLY`. 새 KeyArt 5개 확정 뒤 얼굴·실루엣·저채도·유사성 보드 재검토 |
 | 10 | ART-0109·0110 | 아트 자산·Export·Animation 규격 | Done | 이름·Socket·GUID와 공용/고유 Motion·Animator·Event·Import 계약 확정 |
 | 11 | ART-0104 | Blender 소품 Export 검증 | Ready | 명명 규격을 적용한 테스트 소품 `.blend`→FBX Export와 기록 |
-| 12 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | 전체 Scene 전환·정산 통합 자동화 |
+| 12 | TEST-0202 | 전투·보상·정산 회귀 테스트 | Review | Run 시작·Expired 보상·1회 Event·중복 정산 PlayMode 테스트 추가. 전체 Scene 전환 자동화는 남음 |
 | 13 | CHR-0360 | 캐릭터 5명 밸런스·역할 중복 검토 | Review | 수동 플레이와 수치 조정, 역할 피드백 정리 |
 | 14 | ART-0113 | CH101 고품질 3D 시각 제작 모델 | In Progress | A/B 통합 WIP v002·Turnaround v003·3D LookDev 목표 v004·A canonical Turnaround v005·Expression v006·Equipment v007·Pose Board v008·Neutral Body Sculpt v009·Readability v010 및 Blender 모델링/리그 템플릿 생성, 리그 템플릿 자동 검증 PASS. 공식 CC0 MPFB 인체 바디를 CH101 리그에 자동 웨이트 바인드한 WIP 생성. 2026-08-17 스타일링 run6/7과 MPFB helper 정렬 run1도 검증했으나 실제 인체 표면에 붙은 프리미엄 의상·헤어로 읽히지 않아 반려 WIP로 기록. v005/v010 기반 2D Face/Bust Style Anchor v011·4방향 회전 시트 v012와 MPFB 와이어 바디·가이드·리그를 묶은 V012 Modeling Guide WIP을 추가했으며 사람 검토 전 production mesh 입력으로 고정하지 않음. 얼굴·헤어·의상·장비 production mesh와 시각 Gate A/B는 남음 |
 
@@ -116,7 +116,7 @@
 | DEV-0214 | 귀환·사망·시간 종료 | High | Done | 5분, 60초 경고, 발전기 +30초/레벨, R 홀드·버튼 귀환, 종료 사유 |
 | DEV-0215 | 결과 정산·로컬 저장 | High | Done | 자원 정산·로비 유지·캠프 저장 검증 |
 | TEST-0201 | Scene 흐름 PlayMode 테스트 | High | Review | Build Settings 자동 검증과 전체 전환 회귀 남음 |
-| TEST-0202 | 전투·보상·정산 회귀 테스트 | High | Review | 전체 Scene 전환·정산 통합 자동화 |
+| TEST-0202 | 전투·보상·정산 회귀 테스트 | High | Review | Run 시작·Expired 보상·1회 Event·중복 정산 PlayMode 테스트 추가. 전체 Scene 전환 자동화는 남음 |
 
 ### 완료 기준
 

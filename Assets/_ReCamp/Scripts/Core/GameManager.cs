@@ -109,9 +109,20 @@ namespace ReCamp.Runtime
 
         public void CompleteRun(BattleResolutionReason reason)
         {
-            if (!HasActiveRun || CurrentRunId <= 0)
+            if (ResolveRun(reason) == null)
             {
                 return;
+            }
+
+            SceneLoader.Load(GameScene.Result);
+        }
+
+        /// <summary>Applies one terminal run settlement without changing scenes.</summary>
+        public RunResolvedEvent ResolveRun(BattleResolutionReason reason)
+        {
+            if (!HasActiveRun || CurrentRunId <= 0)
+            {
+                return null;
             }
 
             var command = new ResolveRunCommand(
@@ -122,7 +133,7 @@ namespace ReCamp.Runtime
                 CurrentRunRewards.DataFragments);
             if (!settlementBook.TryResolve(command, out var settlement))
             {
-                return;
+                return null;
             }
 
             CurrentRunState = RunState.Result;
@@ -133,7 +144,7 @@ namespace ReCamp.Runtime
             LastRunResourceCount = LastRunRewards.Total;
             CampManager.Instance?.Deposit(LastRunRewards);
             RunResolved?.Invoke(settlement);
-            SceneLoader.Load(GameScene.Result);
+            return settlement;
         }
 
         public void CompleteRun(int collectedResources)

@@ -99,6 +99,13 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
   snapshot으로 변환한다. Runtime `ResourceLedger`와 Domain 결과를 UI가 직접 혼합하지 않는다.
 - `ResultSceneController.LastSettlement`가 Run ID·Outcome·보존 여부·자원별 보상을 노출한다.
 
+### 통합 회귀 테스트 경계 (2026-08-17)
+
+- `GameManager.ResolveRun`이 정산과 Scene 전환을 분리해 PlayMode에서 Run 시작·보상 추가·Outcome
+  정산·중복 요청을 직접 검증할 수 있게 했다.
+- `RunSettlementIntegrationRuntimeTests`가 `Expired` 보상 보존, `RunResolved` 1회 발행, 비활성 런의
+  두 번째 정산 거부를 검증한다. 실제 Unity Editor 실행 증거는 라이선스 활성화 후 갱신한다.
+
 ### 스킬 Command·Event 경계 (2026-08-17)
 
 - `ReCamp.Domain.UseAbilityCommand`가 캐릭터 ID·능력 슬롯·능력 키·쿨타임을 Unity API 없이 표현한다.
@@ -126,7 +133,7 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 DEV-0113을 `Done`으로 변경하려면 다음이 필요하다.
 
 1. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
-2. 전체 Scene 전환·보상 정산 통합 테스트 추가
+2. 전체 Scene 전환(메뉴→Battle→Result→Lobby) 자동화 범위 확장
 3. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
 4. Core·Unity CI에서 실제 Unity 라이선스 테스트 실행
 
