@@ -18,7 +18,7 @@
 |---:|---|---|---|---|
 | 1 | DEV-0113 | 기존 비종속 Core 통합 | In Progress | 탐험·스킬 command/event를 portable domain과 Unity Presentation 경계에 연결 |
 | 2 | DEV-0115 | Android Landscape·Safe Area 기준 | Review | Landscape 고정, 기존 SafeArea 구현의 종횡비·Cutout 자동 테스트와 실기기 확인 |
-| 3 | DEV-0116 | Android Touch 조작·HUD | Ready | 이동·공격·능력·귀환 On-screen 입력과 PC 개발 입력의 병행 계약 구현 |
+| 3 | DEV-0116 | Android Touch 조작·HUD | Review | Pointer ID 소유권·멀티터치 회귀와 On-screen 입력 경로 반영. 실기기 이동·공격·능력·귀환 검증 필요 |
 | 4 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity Hub에서 AndroidPlayer·SDK·NDK·OpenJDK 설치 후 Android Target 전환 |
 | 5 | DEV-0117 | Android App ID·첫 APK·실기기 Smoke | Blocked | DEV-0114~0116과 배포용 Application Identifier 결정 후 APK·Lifecycle 증거 |
 | 6 | ART-0103·0111 | Figma 캐릭터 제작 시트 v002 실사용 검증 | Review | v002 SVG Import·Component Clone·한글 보존·PNG/PDF Export·사람 사용성 검토 |
@@ -77,7 +77,7 @@
 | DEV-0113 | 기존 비종속 Core 통합 | High | In Progress | Domain 정산·Run ID·중복 정산 차단과 `UseAbilityCommand`/`AbilityResolvedEvent` 발행 연결 완료. 효과 Domain 이전·Presentation 경계·통합 회귀 남음 |
 | DEV-0114 | Android Build Support·SDK·NDK·OpenJDK | High | Blocked | 설치된 Unity `6000.5.3f1`에 `PlaybackEngines/AndroidPlayer` 없음; Module 설치 필요 |
 | DEV-0115 | Android Landscape·Safe Area 기준 | High | Review | `Screen.safeArea` 대응은 있으나 Landscape 고정·종횡비/Cutout 테스트·실기기 확인 필요 |
-| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Ready | Touch 이동·공격·능력·귀환 UI와 입력 계약 필요 |
+| DEV-0116 | Android Touch Control Scheme·On-screen HUD | High | Review | `TouchHoldButton` Pointer ID 소유권·Safe Area HUD 회귀 테스트와 공통 입력 경로 반영. 실기기 검증 필요 |
 | DEV-0117 | Android App ID·Build Profile·첫 APK/실기기 Smoke | High | Blocked | DEV-0114~0116, 배포 식별자 결정, 테스트 기기 필요 |
 
 ### 아트 파이프라인 병행
