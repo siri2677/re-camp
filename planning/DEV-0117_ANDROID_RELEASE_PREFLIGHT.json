@@ -1,0 +1,55 @@
+{
+  "task": "DEV-0117",
+  "generatedAtUtc": "2026-08-17T13:58:04.726590+00:00",
+  "status": "BLOCKED",
+  "projectSettings": "C:\\Users\\shp80\\project\\re-camp\\ProjectSettings\\ProjectSettings.asset",
+  "buildSettings": "C:\\Users\\shp80\\project\\re-camp\\ProjectSettings\\EditorBuildSettings.asset",
+  "checks": [
+    {
+      "name": "Landscape orientation",
+      "status": "PASS",
+      "blocking": true,
+      "detail": "default=4, landscapeLeft=1, landscapeRight=1, portrait=0, portraitUpsideDown=0"
+    },
+    {
+      "name": "ARM64 architecture",
+      "status": "PASS",
+      "blocking": true,
+      "detail": "AndroidTargetArchitectures=2 (expected 2 / ARM64)"
+    },
+    {
+      "name": "Android IL2CPP backend",
+      "status": "PASS",
+      "blocking": true,
+      "detail": "scriptingBackend.Android=1 (expected 1 / IL2CPP)"
+    },
+    {
+      "name": "Release application identifier",
+      "status": "BLOCKED",
+      "blocking": true,
+      "detail": "Android identifier='com.UnityTechnologies.com.unity.template.urpblank'; choose a Re:Camp-owned reverse-DNS ID before APK/AAB"
+    },
+    {
+      "name": "Android version code",
+      "status": "PASS",
+      "blocking": true,
+      "detail": "AndroidBundleVersionCode=1"
+    },
+    {
+      "name": "Android target SDK",
+      "status": "REVIEW",
+      "blocking": false,
+      "detail": "AndroidTargetSdkVersion=0; 0 means Unity/installed module default and must be recorded at build time"
+    },
+    {
+      "name": "Build scene flow",
+      "status": "PASS",
+      "blocking": true,
+      "detail": "enabled scenes=['Assets/_ReCamp/Scenes/00_Bootstrap.unity', 'Assets/_ReCamp/Scenes/01_Title.unity', 'Assets/_ReCamp/Scenes/02_Lobby.unity', 'Assets/_ReCamp/Scenes/03_Battle.unity', 'Assets/_ReCamp/Scenes/04_Result.unity']"
+    }
+  ],
+  "blockers": [
+    "Release application identifier"
+  ],
+  "nextAction": "Choose and record the release application identifier, install AndroidPlayer, then build an ARM64 IL2CPP APK."
+}

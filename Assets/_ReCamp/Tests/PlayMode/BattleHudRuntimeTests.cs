@@ -38,20 +38,47 @@ namespace ReCamp.Tests.PlayMode
             battleObject.AddComponent<BattleSceneController>();
             battleObject.AddComponent<BattleHudController>();
             yield return null;
+
+            var safeAreaObject = GameObject.Find("BattleHUD_Runtime/SafeArea");
             var joystick = GameObject.Find("BattleHUD_Runtime/SafeArea/MoveJoystick");
-            var attackButton = GameObject.Find("BattleHUD_Runtime/SafeArea/AttackTouchButton")
-                ?.GetComponent<TouchHoldButton>();
-            var returnButton = GameObject.Find("BattleHUD_Runtime/SafeArea/ReturnToCampButton")
-                ?.GetComponent<TouchHoldButton>();
+            var attackButtonObject = GameObject.Find("BattleHUD_Runtime/SafeArea/AttackTouchButton");
+            var signatureButtonObject = GameObject.Find("BattleHUD_Runtime/SafeArea/SignatureTouchButton");
+            var utilityButtonObject = GameObject.Find("BattleHUD_Runtime/SafeArea/UtilityTouchButton");
+            var returnButtonObject = GameObject.Find("BattleHUD_Runtime/SafeArea/ReturnToCampButton");
+
+            Assert.That(safeAreaObject, Is.Not.Null);
             Assert.That(joystick, Is.Not.Null);
             Assert.That(joystick.GetComponent<VirtualJoystick>(), Is.Not.Null);
-            Assert.That(attackButton, Is.Not.Null);
+            Assert.That(attackButtonObject, Is.Not.Null);
+            Assert.That(signatureButtonObject, Is.Not.Null);
+            Assert.That(utilityButtonObject, Is.Not.Null);
+            Assert.That(returnButtonObject, Is.Not.Null);
+
+            Assert.That(joystick.transform.IsChildOf(safeAreaObject.transform), Is.True);
+            Assert.That(attackButtonObject.transform.IsChildOf(safeAreaObject.transform), Is.True);
+            Assert.That(signatureButtonObject.transform.IsChildOf(safeAreaObject.transform), Is.True);
+            Assert.That(utilityButtonObject.transform.IsChildOf(safeAreaObject.transform), Is.True);
+            Assert.That(returnButtonObject.transform.IsChildOf(safeAreaObject.transform), Is.True);
+
+            var safeAreaTransform = safeAreaObject.GetComponent<RectTransform>();
+            Assert.That(Screen.width, Is.GreaterThan(0));
+            Assert.That(Screen.height, Is.GreaterThan(0));
+            var screenSafeArea = Screen.safeArea;
+            var expectedMin = new Vector2(screenSafeArea.xMin / Screen.width, screenSafeArea.yMin / Screen.height);
+            var expectedMax = new Vector2(screenSafeArea.xMax / Screen.width, screenSafeArea.yMax / Screen.height);
+            Assert.That(safeAreaTransform.anchorMin.x, Is.EqualTo(expectedMin.x).Within(0.001f));
+            Assert.That(safeAreaTransform.anchorMin.y, Is.EqualTo(expectedMin.y).Within(0.001f));
+            Assert.That(safeAreaTransform.anchorMax.x, Is.EqualTo(expectedMax.x).Within(0.001f));
+            Assert.That(safeAreaTransform.anchorMax.y, Is.EqualTo(expectedMax.y).Within(0.001f));
+
+            var returnButton = returnButtonObject.GetComponent<TouchHoldButton>();
             Assert.That(returnButton, Is.Not.Null);
 
-            returnButton.OnPointerDown(new PointerEventData(EventSystem.current));
+            var pointer = new PointerEventData(EventSystem.current) { pointerId = 31 };
+            returnButton.OnPointerDown(pointer);
             Assert.That(BattleInputRouter.Instance.IsExtractionHeld, Is.True);
 
-            returnButton.OnPointerUp(new PointerEventData(EventSystem.current));
+            returnButton.OnPointerUp(pointer);
             Assert.That(BattleInputRouter.Instance.IsExtractionHeld, Is.False);
         }
     }

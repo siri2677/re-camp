@@ -5,6 +5,7 @@ using RuntimePlayerStats = ReCamp.Player.PlayerStats;
 using RuntimePlayerAttack = ReCamp.Player.PlayerAttack;
 using ReCamp.GameFlow;
 using ReCamp.Item;
+using ReCamp.UnityAdapter;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
@@ -501,8 +502,15 @@ namespace ReCamp.UI
 
             lastSafeArea = safeArea;
             lastScreenSize = screenSize;
-            safeAreaRoot.anchorMin = new Vector2(safeArea.xMin / Screen.width, safeArea.yMin / Screen.height);
-            safeAreaRoot.anchorMax = new Vector2(safeArea.xMax / Screen.width, safeArea.yMax / Screen.height);
+            var anchors = SafeAreaLayout.Calculate(
+                Screen.width,
+                Screen.height,
+                Mathf.RoundToInt(safeArea.xMin),
+                Mathf.RoundToInt(safeArea.yMin),
+                Mathf.RoundToInt(safeArea.width),
+                Mathf.RoundToInt(safeArea.height));
+            safeAreaRoot.anchorMin = new Vector2(anchors.MinX, anchors.MinY);
+            safeAreaRoot.anchorMax = new Vector2(anchors.MaxX, anchors.MaxY);
             virtualJoystick?.ResetPointer();
             BattleInputRouter.Instance?.ResetTransientInput();
         }

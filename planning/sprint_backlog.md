@@ -22,9 +22,9 @@
 | 순서 | ID | 작업 | 상태 | 다음 완료 조건 |
 |---:|---|---|---|---|
 | 1 | DEV-0115 | Landscape·Safe Area | Review | 화면비·Cutout 자동/실기기 증거 |
-| 2 | DEV-0116 | Touch 입력·HUD | Review | Android 기기 Smoke와 입력 회귀 |
+| 2 | DEV-0116 | Touch 입력·HUD | Review | 포인터 소유권·중단/복귀 자동 회귀 추가 완료. Android 기기 Smoke |
 | 3 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity AndroidPlayer·SDK·NDK·OpenJDK 설치 |
-| 4 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | 선행 Android 작업 + 식별자 결정 + 테스트 기기 |
+| 4 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | AndroidPlayer 설치 + Re:Camp 소유 Identifier 결정 + ARM64 IL2CPP APK·실기기 Smoke |
 | 5 | ART-0103·0111 | 제작 시트 도구 실사용 검증 | Review | Import·Clone·한글·PNG/PDF Export·사람 사용성 |
 | 6 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | In Progress | 캐릭터별 통제 후보, 비교 보드, 사람 Gate A, 제작 시트 |
 | 7 | ART-1501~1504 | 5인 교차 디자인·유사성 검토 | Todo | 얼굴·실루엣·저채도·원작성 비교 증거 |
@@ -55,10 +55,10 @@
 | DEV-0111 | 테스트 Assembly | Done | 없음 |
 | DEV-0112 | Core·Unity CI | Review | Hosted Unity license 설정 후 실제 Test Runner 성공 결과 |
 | DEV-0113 | Domain 정산·스킬 Command/Event 통합 | Done | 현재 회귀 기준 유지 |
-| DEV-0114 | Android Build Support | Blocked | Module·SDK·NDK·JDK 설치 |
-| DEV-0115 | Landscape·Safe Area | Review | 실기기·화면비 증거 |
-| DEV-0116 | Touch Control | Review | Android 기기 Smoke |
-| DEV-0117 | App ID·Build Profile·첫 APK | Blocked | 선행 작업과 식별자 결정 |
+| DEV-0114 | Android Build Support | Blocked | `DEV-0114_ANDROID_TOOLCHAIN_PREFLIGHT.json` 기준 Unity AndroidPlayer·Embedded SDK/NDK/OpenJDK 설치 후 preflight PASS |
+| DEV-0115 | Landscape·Safe Area | Review | ProjectSettings Landscape preflight PASS, `SafeAreaLayout`·Battle HUD 연결, 화면비/cutout 자동 matrix 증거 추가. AndroidPlayer·실기기 검증 필요 |
+| DEV-0116 | Touch Control | Review | `TouchHoldButton` 포인터 ID 소유권과 멀티터치 Up/Exit 회귀 증거 추가. Android 기기 Smoke 필요 |
+| DEV-0117 | App ID·Build Profile·첫 APK | Blocked | `DEV-0117_ANDROID_RELEASE_PREFLIGHT.json`의 Template Identifier를 교체하고 DEV-0114 선행 조건 후 APK·Lifecycle 증거 |
 
 실제 테스트 수치는 `IMPLEMENTATION_STATUS.md`에서만 관리한다.
 

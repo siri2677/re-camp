@@ -50,6 +50,15 @@ OpenJDK 경로와 버전
 Unity가 제공하는 Embedded 도구 체인을 기본으로 사용한다. 외부 SDK·NDK·JDK를 지정해야 할 명확한
 문제가 생기기 전에는 개인 PC마다 다른 경로를 사용하지 않는다.
 
+### 현재 도구 체인 preflight (2026-08-17)
+
+`scripts/validate_android_toolchain_preflight.py`를 설치 없이 실행한 결과는 `BLOCKED`다.
+Unity `6000.5.3f1`와 외부 SDK·NDK·OpenJDK 경로는 발견되었지만, Unity가 Android 빌드에
+사용할 `Editor/Data/PlaybackEngines/AndroidPlayer` 모듈이 없다. 원본 JSON 증거는
+`planning/DEV-0114_ANDROID_TOOLCHAIN_PREFLIGHT.json`에 저장한다. Unity Hub에서 해당
+버전의 Android Build Support(Embedded SDK & NDK Tools, OpenJDK 포함)를 설치한 뒤
+동일 스크립트를 다시 실행하고, 그 다음에만 Android 빌드 검증을 시작한다.
+
 ## 4. Build Profile
 
 최소 다음 Profile을 구분한다.
@@ -65,6 +74,11 @@ Profile 설정은 개인 Editor 상태에만 두지 않고 저장소에 반영 �
 ## 5. Application Identifier
 
 현재 Unity Template Identifier는 출시용으로 사용할 수 없다.
+
+2026-08-17 ProjectSettings preflight 결과, Landscape·ARM64·IL2CPP·5개 Build Scene·Version Code는
+통과했지만 Android Identifier가 `com.UnityTechnologies.com.unity.template.urpblank`로 남아
+`DEV-0117`을 차단하고 있다. Re:Camp 소유 reverse-DNS Identifier 결정은 제품/배포 결정이므로
+임의로 변경하지 않는다. 자동 점검 원본은 `planning/DEV-0117_ANDROID_RELEASE_PREFLIGHT.json`이다.
 
 최종 Identifier는 사용자가 승인한 뒤 다음 문서와 설정을 함께 갱신한다.
 
@@ -256,11 +270,11 @@ Release Signing은 CI Secret과 보안 저장소가 준비되기 전 자동화�
 
 ## 15. 현재 차단 요소
 
-- Android Build Support 미설치
-- SDK·NDK·OpenJDK 미확인
-- Application Identifier 미결정
-- Touch HUD 미구현
-- Landscape·Cutout 실기기 검증 미완료
+- Android Build Support(AndroidPlayer) 미설치
+- Unity Embedded SDK·NDK·OpenJDK 미확인 (외부 SDK·NDK·OpenJDK 경로는 존재하지만 기본 계약은 Embedded 도구 체인)
+- Application Identifier 미결정 (ProjectSettings preflight에서 Unity Template 값 확인)
+- Touch HUD와 공통 입력 계층은 구현되어 있으며, 포인터 소유권 자동 회귀까지 추가했다. Android 실기기 Smoke는 남아 있다.
+- Landscape ProjectSettings와 SafeArea 계산기 자동 preflight는 PASS했다. Landscape·Cutout 실기기 검증은 AndroidPlayer 설치 후 진행한다.
 - Test Device Matrix 미작성
 
 위 항목이 해결되기 전 DEV-0117을 `Done`으로 변경하지 않는다.

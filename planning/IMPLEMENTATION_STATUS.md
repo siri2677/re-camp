@@ -22,6 +22,10 @@
 
 2026-08-10 세대·문서 단일화 작업에서는 Unity Editor 테스트를 다시 실행하지 않았다. 위 수치는 마지막 실제 Unity 검증 기록을 보존한 것이다.
 
+2026-08-17 Current 작업에서 `SafeAreaLayout`·Touch 포인터 소유권 변경과 순수 smoke/preflight를
+추가했다. Unity Editor 재실행은 `No valid Unity Editor license found` 반환 코드 198로 시작되지
+않아 EditMode/PlayMode 결과는 갱신하지 않았다. 재시도 로그는 `Logs/dev0114-0117-compile.log`다.
+
 ## 2. Current Generation 문서·브랜치 검증
 
 2026-08-10 확인:
@@ -72,10 +76,10 @@ Fresh Clone과 Hosted CI는 별도 항목이며 DEV-0113 완료와 동일하지 
 
 | ID | 항목 | 상태 | 증거 / 남은 것 |
 |---|---|---|---|
-| DEV-0114 | Android Build Support | Blocked | 설치 Unity에 AndroidPlayer·SDK·NDK·OpenJDK 확인 필요 |
-| DEV-0115 | Landscape·Safe Area | Review | Portrait autorotation 비활성화·`Screen.safeArea` 기반 HUD. 화면비·Cutout·실기기 필요 |
-| DEV-0116 | Touch Input·HUD | Review | `BattleInputRouter`, VirtualJoystick, TouchHoldButton, Touch HUD와 PC 입력 병행. 실기기 Smoke 필요 |
-| DEV-0117 | App ID·첫 APK | Blocked | 배포 Identifier·Build Profile·APK 설치·Lifecycle 증거 필요 |
+| DEV-0114 | Android Build Support | Blocked | `scripts/validate_android_toolchain_preflight.py` 실행 결과: Unity `6000.5.3f1`·외부 SDK/NDK/OpenJDK는 발견했지만 Unity `AndroidPlayer` 모듈이 없음. `planning/DEV-0114_ANDROID_TOOLCHAIN_PREFLIGHT.json` 참조. Unity Hub 모듈 설치 후 재실행 필요 |
+| DEV-0115 | Landscape·Safe Area | Review | Landscape 자동 회전 ProjectSettings preflight PASS, `SafeAreaLayout` 순수 계산기와 Battle HUD 연결, 1920×1080/1280×720/2340×1080 cutout matrix 테스트 추가. AndroidPlayer·실기기 증거는 남아 있다. |
+| DEV-0116 | Touch Input·HUD | Review | `BattleInputRouter`, VirtualJoystick, TouchHoldButton, Touch HUD와 PC 입력 병행. TouchHoldButton 포인터 ID 소유권·비소유 Up/Exit 멀티터치 EditMode 회귀 추가. 실기기 Smoke 필요 |
+| DEV-0117 | App ID·첫 APK | Blocked | `scripts/validate_android_release_preflight.py` 결과: Landscape·ARM64·IL2CPP·5개 Build Scene·Version Code는 PASS. Android Identifier가 Unity Template 값이라 Re:Camp 소유 ID 결정 필요. `planning/DEV-0117_ANDROID_RELEASE_PREFLIGHT.json` 참조 |
 
 현재 코드가 Touch 입력을 포함한다는 사실은 Android 제품 검증 완료를 의미하지 않는다.
 

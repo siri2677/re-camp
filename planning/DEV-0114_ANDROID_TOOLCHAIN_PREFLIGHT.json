@@ -1,0 +1,78 @@
+{
+  "task": "DEV-0114",
+  "generatedAtUtc": "2026-08-17T13:58:04.570942+00:00",
+  "host": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.5"
+  },
+  "expectedUnityVersion": "6000.5.3f1",
+  "status": "BLOCKED",
+  "checks": [
+    {
+      "name": "Unity Editor",
+      "required": true,
+      "status": "PASS",
+      "path": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Unity.exe",
+      "candidates": [
+        "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Unity.exe"
+      ]
+    },
+    {
+      "name": "Unity version",
+      "required": true,
+      "status": "PASS",
+      "expected": "6000.5.3f1",
+      "path": "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Unity.exe"
+    },
+    {
+      "name": "AndroidPlayer module",
+      "required": true,
+      "status": "MISSING",
+      "path": null,
+      "candidates": [
+        "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer"
+      ]
+    },
+    {
+      "name": "Android SDK",
+      "required": true,
+      "status": "PASS",
+      "path": "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk",
+      "candidates": [
+        "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk",
+        "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk",
+        "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\SDK"
+      ]
+    },
+    {
+      "name": "Android NDK",
+      "required": true,
+      "status": "PASS",
+      "path": "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk\\ndk",
+      "candidates": [
+        "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\NDK",
+        "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk\\ndk",
+        "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk\\ndk-bundle",
+        "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk\\ndk",
+        "C:\\Users\\shp80\\AppData\\Local\\Android\\Sdk\\ndk-bundle",
+        "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\SDK\\ndk",
+        "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\SDK\\ndk-bundle"
+      ]
+    },
+    {
+      "name": "OpenJDK",
+      "required": true,
+      "status": "PASS",
+      "path": "C:\\Program Files\\Microsoft\\jdk-17.0.15.6-hotspot",
+      "candidates": [
+        "C:\\Program Files\\Microsoft\\jdk-17.0.15.6-hotspot",
+        "C:\\Program Files\\Unity\\Hub\\Editor\\6000.5.3f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\OpenJDK"
+      ]
+    }
+  ],
+  "missing": [
+    "AndroidPlayer module"
+  ],
+  "installationAttempted": false,
+  "resumeAction": "Install Unity Android Build Support for 6000.5.3f1 (Embedded SDK & NDK Tools/OpenJDK), then rerun this script."
+}
