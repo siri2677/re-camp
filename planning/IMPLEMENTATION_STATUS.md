@@ -131,7 +131,7 @@ ReCamp.Domain
 | Food↔Rations 변환 | Done | Adapter와 Contract Test 반영 |
 | 시설 저장 왕복 | Done | Generator·Workshop·RationStorage 레벨 복원 검증 |
 | PlayerPrefs v1→v2 | Done | Legacy Key 읽기·변환·v2 재저장 구현 |
-| 탐험 Outcome 정산 | Review | Runtime에 남아 있으며 Domain 계약 미완료 |
+| 탐험 Outcome 정산 | Review | `ResolveRunCommand`·`RunSettlementPolicy`·`RunResolvedEvent`를 Domain에 추가하고 `GameManager`가 결과만 적용하도록 연결했다. Run ID/중복 정산 방지와 Scene 통합 테스트는 남아 있다. |
 | 스킬 Command/Event | Review | 역할 Gray Box는 동작하지만 Domain·Presentation 경계 미완료 |
 | 중복 수치 제거 | Review | 캠프 비용·효과의 최종 단일 소유자 정리 필요 |
 

@@ -1,6 +1,7 @@
 using System;
 using ReCamp.Camp;
 using ReCamp.Data;
+using ReCamp.Domain;
 using ReCamp.GameFlow;
 using ReCamp.Item;
 using UnityEngine;
@@ -12,12 +13,14 @@ namespace ReCamp.Runtime
         public static GameManager Instance { get; private set; }
 
         public event Action<CharacterDefinition> SelectedCharacterChanged;
+        public event Action<RunResolvedEvent> RunResolved;
 
         public RunState CurrentRunState { get; private set; } = RunState.Lobby;
         public bool HasActiveRun { get; private set; }
         public int LastRunResourceCount { get; private set; }
         public ResourceLedger CurrentRunRewards { get; private set; } = new();
         public ResourceLedger LastRunRewards { get; private set; } = new();
+        public RunResolvedEvent LastRunSettlement { get; private set; }
         public CharacterId SelectedCharacterId { get; private set; } = CharacterId.Luna;
         public CharacterDefinition SelectedCharacter => CharacterRoster.Get(SelectedCharacterId);
 
@@ -82,6 +85,7 @@ namespace ReCamp.Runtime
             HasActiveRun = true;
             LastRunResourceCount = 0;
             CurrentRunRewards = new ResourceLedger();
+            LastRunSettlement = null;
             SceneLoader.Load(GameScene.Battle);
         }
 
@@ -95,11 +99,25 @@ namespace ReCamp.Runtime
 
         public void CompleteRun()
         {
+            CompleteRun(BattleResolutionReason.ManualExtraction);
+        }
+
+        public void CompleteRun(BattleResolutionReason reason)
+        {
+            var command = new ResolveRunCommand(
+                ToRunOutcome(reason),
+                CurrentRunRewards.Scrap,
+                CurrentRunRewards.Food,
+                CurrentRunRewards.DataFragments);
+            var settlement = RunSettlementPolicy.Resolve(command);
+
             CurrentRunState = RunState.Result;
             HasActiveRun = false;
-            LastRunRewards = CurrentRunRewards.Clone();
+            LastRunSettlement = settlement;
+            LastRunRewards = ToRuntimeLedger(settlement);
             LastRunResourceCount = LastRunRewards.Total;
             CampManager.Instance?.Deposit(LastRunRewards);
+            RunResolved?.Invoke(settlement);
             SceneLoader.Load(GameScene.Result);
         }
 
@@ -107,7 +125,7 @@ namespace ReCamp.Runtime
         {
             CurrentRunRewards = new ResourceLedger();
             CurrentRunRewards.Add(ResourceType.Scrap, Mathf.Max(0, collectedResources));
-            CompleteRun();
+            CompleteRun(BattleResolutionReason.ManualExtraction);
         }
 
         public void ReturnToLobby()
@@ -121,6 +139,25 @@ namespace ReCamp.Runtime
             CurrentRunState = RunState.Title;
             HasActiveRun = false;
             SceneLoader.Load(GameScene.Title);
+        }
+
+        private static RunOutcome ToRunOutcome(BattleResolutionReason reason)
+        {
+            return reason switch
+            {
+                BattleResolutionReason.Defeat => RunOutcome.Defeated,
+                BattleResolutionReason.TimeExpired => RunOutcome.Expired,
+                _ => RunOutcome.Extracted,
+            };
+        }
+
+        private static ResourceLedger ToRuntimeLedger(RunResolvedEvent settlement)
+        {
+            var ledger = new ResourceLedger();
+            ledger.Add(ResourceType.Scrap, settlement.Scrap);
+            ledger.Add(ResourceType.Food, settlement.Rations);
+            ledger.Add(ResourceType.DataFragment, settlement.DataFragments);
+            return ledger;
         }
     }
 }
