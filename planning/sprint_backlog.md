@@ -71,7 +71,7 @@
 | DEV-0107 | GameManager·서비스 초기화 | High | Done | 지속 인스턴스와 CampManager 동작 |
 | DEV-0108 | Core 런타임 호환성 검토 | High | Done | 원격 `ReCamp.Core`와 Unity 구현의 API·의존성·규칙 차이를 감사 문서에 기록 |
 | DEV-0109 | Core 공유·Assembly·Adapter 결정 | High | Done | 원격 원본 직접 병합 대신 portable domain + Unity adapter 경계 확정 |
-| DEV-0110 | Core 상태를 Unity Presentation에 연결 | High | Review | 현재 기능 동작, 중복 규칙 정리 필요 |
+| DEV-0110 | Core 상태를 Unity Presentation에 연결 | High | Review | 캠프 저장·Run settlement View Adapter 반영. 스킬 상태와 전체 Scene 회귀 필요 |
 | DEV-0111 | EditMode·PlayMode 테스트 Assembly | High | Done | EditMode 25/25, PlayMode 18/18 통과 |
 | DEV-0112 | Core·Unity CI | Medium | Todo | 로컬 테스트 기준선 존재 |
 | DEV-0113 | 기존 비종속 Core 통합 | High | In Progress | Domain 정산·Run ID·중복 정산 차단과 `UseAbilityCommand`/`AbilityResolvedEvent` 발행 연결 완료. 효과 Domain 이전·Presentation 경계·통합 회귀 남음 |

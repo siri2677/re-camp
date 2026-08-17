@@ -143,11 +143,14 @@ Battle 종료
 → SceneLoader(Result)
 
 ResultSceneController
-→ 보상 표시
+→ RunSettlementViewAdapter
+→ 보상·Outcome 표시
 → GameManager.ReturnToLobby()
 ```
 
-현재 Runtime Ledger가 Run 보상을 직접 소유한다. `Extracted / Defeated / Expired`별 정산 차이는 DEV-0113에서 Domain 계약으로 이동해야 한다.
+현재 Runtime Ledger가 Run 보상을 직접 소유하지만, terminal 결과는 Domain `RunResolvedEvent`에서
+생성되고 `RunSettlementViewAdapter`가 Result Presentation용 snapshot으로 변환한다. `Extracted /
+Defeated / Expired`별 정산 정책은 Domain이 소유한다.
 
 ## 7. 저장 구조
 

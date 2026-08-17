@@ -111,7 +111,7 @@ Gate A `FAIL / HISTORY ONLY`이며, 신규 얼굴·전신 캘리브레이션 2�
 | DEV-0105 | Scene 5개 | Done | Bootstrap·Title·Lobby·Battle·Result와 Build Settings 등록 |
 | DEV-0106 | `SceneLoader` | Done | `GameScene` enum 기반 중앙 Scene 매핑 |
 | DEV-0107 | `GameManager` | Done | 선택 캐릭터·Run 상태·보상·Scene 흐름 유지 |
-| DEV-0110 | Domain 상태와 Presentation 연결 | Review | 캠프 저장 Adapter 반영. 탐험·스킬·정산 경계 남음 |
+| DEV-0110 | Domain 상태와 Presentation 연결 | Review | 캠프 저장 Adapter와 `RunSettlementViewAdapter` 반영. 스킬 상태·전체 Scene 통합 회귀 남음 |
 
 ## 5. DEV-0113 Core 통합
 

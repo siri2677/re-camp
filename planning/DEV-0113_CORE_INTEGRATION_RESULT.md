@@ -93,6 +93,12 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 - `BattleSceneController`는 종료 사유를 Domain Outcome으로 전달하며 `TimeExpired`가 수동 귀환으로
   잘못 정산되지 않도록 `CompleteRun(reason)`을 사용한다.
 
+### Result Presentation Adapter (2026-08-17)
+
+- `RunSettlementViewAdapter`가 Domain `RunResolvedEvent`를 Result 화면이 사용할 수 있는 불변
+  snapshot으로 변환한다. Runtime `ResourceLedger`와 Domain 결과를 UI가 직접 혼합하지 않는다.
+- `ResultSceneController.LastSettlement`가 Run ID·Outcome·보존 여부·자원별 보상을 노출한다.
+
 ### 스킬 Command·Event 경계 (2026-08-17)
 
 - `ReCamp.Domain.UseAbilityCommand`가 캐릭터 ID·능력 슬롯·능력 키·쿨타임을 Unity API 없이 표현한다.
@@ -119,11 +125,10 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 
 DEV-0113을 `Done`으로 변경하려면 다음이 필요하다.
 
-1. Domain 상태를 HUD와 Scene Presentation에 전달하는 Adapter 계약 정리
-2. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
-3. 전체 Scene 전환·보상 정산 통합 테스트 추가
-4. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
-5. Core·Unity CI에서 실제 Unity 라이선스 테스트 실행
+1. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
+2. 전체 Scene 전환·보상 정산 통합 테스트 추가
+3. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
+4. Core·Unity CI에서 실제 Unity 라이선스 테스트 실행
 
 ## 5. 금지 사항
 
