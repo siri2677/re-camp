@@ -152,7 +152,7 @@ namespace ReCamp.GameFlow
                 ResolutionReason = BattleResolutionReason.ManualExtraction;
             }
 
-            GameManager.Instance.CompleteRun();
+            GameManager.Instance.CompleteRun(ResolutionReason);
         }
 
         public void ResolveVictory()
@@ -172,7 +172,7 @@ namespace ReCamp.GameFlow
                 return;
             }
 
-            GameManager.Instance.CompleteRun(0);
+            GameManager.Instance.CompleteRun(BattleResolutionReason.Defeat);
         }
 
         public void ConfigureExplorationTimer(float durationSeconds, float warningThresholdSeconds = 60f)

@@ -1,8 +1,8 @@
 # DEV-0113 Core 통합 결과
 
-> 최종 갱신: 2026-07-27
+> 최종 갱신: 2026-08-17
 > 상태: In Progress
-> 기준 브랜치: `codex/recamp-unity-mvp`
+> 기준 브랜치: `main`
 
 ## 1. 목적
 
@@ -80,6 +80,16 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 - 잘못된 JSON은 신규 기본 저장 자료로 복구
 - v1 자료를 읽으면 v2로 변환해 다시 저장
 
+### 탐험 Outcome·정산 계약 (2026-08-17)
+
+- `ReCamp.Domain.ResolveRunCommand`가 `Extracted / Defeated / Expired`와 임시 보상 Snapshot을 소유한다.
+- `RunSettlementPolicy`가 정산 규칙을 단일 소유한다. `Extracted`와 `Expired`는 보상을 보존하고,
+  `Defeated`는 임시 보상을 0으로 만든다. 기존 Runtime 동작과 동일한 정책이다.
+- `RunResolvedEvent`를 통해 Domain 결과를 반환하며, `GameManager`는 결과를 Runtime Ledger와
+  `CampManager`에 적용하고 `RunResolved` 이벤트를 Presentation에 발행한다.
+- `BattleSceneController`는 종료 사유를 Domain Outcome으로 전달하며 `TimeExpired`가 수동 귀환으로
+  잘못 정산되지 않도록 `CompleteRun(reason)`을 사용한다.
+
 ### 검증
 
 마지막 직접 검증은 2026년 7월 19일 Unity `6000.5.3f1`에서 수행됐다.
@@ -98,14 +108,13 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
 
 DEV-0113을 `Done`으로 변경하려면 다음이 필요하다.
 
-1. 탐험 시작·종료를 Domain Command와 Result/Event로 분리
-2. `Extracted / Defeated / Expired` 정산 정책의 단일 소유자 결정
-3. Runtime의 스킬 수치·상태 변경 중 Domain으로 옮길 범위 확정
-4. Domain 상태를 HUD와 Scene Presentation에 전달하는 Adapter 계약 정리
-5. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
-6. 전체 Scene 전환·보상 정산 통합 테스트 추가
-7. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
-8. Core·Unity CI에서 동일 테스트 실행
+1. 탐험 시작 Command와 Run ID/중복 정산 방지 계약 추가
+2. Runtime의 스킬 수치·상태 변경 중 Domain으로 옮길 범위 확정
+3. Domain 상태를 HUD와 Scene Presentation에 전달하는 Adapter 계약 정리
+4. Runtime과 Domain에 중복된 캠프 비용·효과 수치 제거
+5. 전체 Scene 전환·보상 정산 통합 테스트 추가
+6. 별도 디렉터리 Fresh Clone 후 Unity Open·Compile·EditMode·PlayMode 재검증
+7. Core·Unity CI에서 실제 Unity 라이선스 테스트 실행
 
 ## 5. 금지 사항
 
