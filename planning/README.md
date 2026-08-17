@@ -26,6 +26,7 @@
 | `art_production_backlog.md` | 아트 산출물 ID·상태·완료 조건 |
 | `DEV-0113_CORE_INTEGRATION_RESULT.md` | Domain·Adapter·Runtime 통합 결과 |
 | `COPLAY_MCP_HANDOFF.md` | Unity MCP 연결·복구·회귀 절차 |
+| `ART_ROSTER_MERGE_PLAN_2026-08-17.md` | CH102 선택 통합·충돌·Gate 확인 계획 |
 
 ## 날짜형 디자인 문서
 
