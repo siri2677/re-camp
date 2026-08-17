@@ -46,11 +46,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check Unity license configuration
+        id: license
+        shell: bash
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        run: |
+          if [[ -n "${UNITY_LICENSE}" || -n "${UNITY_SERIAL}" ]]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run Unity tests
+        if: steps.license.outputs.available == 'true'
         id: unity-tests
         uses: game-ci/unity-test-runner@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
@@ -58,6 +73,10 @@ jobs:
           unityVersion: 6000.5.3f1
           testMode: all
           artifactsPath: artifacts
+
+      - name: Report skipped Unity tests
+        if: steps.license.outputs.available != 'true'
+        run: echo "Unity tests skipped: configure UNITY_LICENSE or UNITY_SERIAL (and account credentials) to enable the runner."
 
       - name: Upload Unity test artifacts
         if: always()
