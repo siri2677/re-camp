@@ -1,5 +1,6 @@
 using ReCamp.Runtime;
 using ReCamp.Item;
+using ReCamp.UnityAdapter;
 using UnityEngine;
 
 namespace ReCamp.GameFlow
@@ -22,6 +23,10 @@ namespace ReCamp.GameFlow
         public ResourceLedger LastRewards => GameManager.Instance == null
             ? new ResourceLedger()
             : GameManager.Instance.LastRunRewards;
+
+        public RunSettlementViewData LastSettlement => GameManager.Instance?.LastRunSettlement == null
+            ? null
+            : RunSettlementViewAdapter.Create(GameManager.Instance.LastRunSettlement);
 
         public void ReturnToLobby()
         {
