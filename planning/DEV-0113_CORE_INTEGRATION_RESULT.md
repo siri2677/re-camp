@@ -87,6 +87,7 @@ Runtime이 Domain 규칙을 복제하지 않도록 하는 것이 최종 목표�
   `Defeated`는 임시 보상을 0으로 만든다. 기존 Runtime 동작과 동일한 정책이다.
 - `RunResolvedEvent`를 통해 Domain 결과를 반환하며, `GameManager`는 결과를 Runtime Ledger와
   `CampManager`에 적용하고 `RunResolved` 이벤트를 Presentation에 발행한다.
+- `RunSettlementBook`이 이미 정산한 `RunId`를 기억해 동일 Command의 두 번째 적용을 거부한다.
 - `GameManager`는 탐험 시작마다 `CurrentRunId`를 증가시키고, 활성 런이 아닌 두 번째 정산 요청을
   무시해 Result 재진입·중복 버튼에 의한 중복 입금을 막는다.
 - `BattleSceneController`는 종료 사유를 Domain Outcome으로 전달하며 `TimeExpired`가 수동 귀환으로

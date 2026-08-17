@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ReCamp.Domain
 {
@@ -65,6 +66,25 @@ namespace ReCamp.Domain
                 command.Scrap,
                 command.Rations,
                 command.DataFragments);
+        }
+    }
+
+    /// <summary>Tracks settled run IDs so a repeated terminal command cannot pay rewards twice.</summary>
+    public sealed class RunSettlementBook
+    {
+        private readonly HashSet<int> settledRunIds = new HashSet<int>();
+
+        public bool TryResolve(ResolveRunCommand command, out RunResolvedEvent result)
+        {
+            if (command == null) throw new ArgumentNullException(nameof(command));
+            if (!settledRunIds.Add(command.RunId))
+            {
+                result = null;
+                return false;
+            }
+
+            result = RunSettlementPolicy.Resolve(command);
+            return true;
         }
     }
 }

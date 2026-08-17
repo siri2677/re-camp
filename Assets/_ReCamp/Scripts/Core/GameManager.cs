@@ -26,6 +26,8 @@ namespace ReCamp.Runtime
         public CharacterId SelectedCharacterId { get; private set; } = CharacterId.Luna;
         public CharacterDefinition SelectedCharacter => CharacterRoster.Get(SelectedCharacterId);
 
+        private readonly RunSettlementBook settlementBook = new();
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -118,7 +120,10 @@ namespace ReCamp.Runtime
                 CurrentRunRewards.Scrap,
                 CurrentRunRewards.Food,
                 CurrentRunRewards.DataFragments);
-            var settlement = RunSettlementPolicy.Resolve(command);
+            if (!settlementBook.TryResolve(command, out var settlement))
+            {
+                return;
+            }
 
             CurrentRunState = RunState.Result;
             HasActiveRun = false;
