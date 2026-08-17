@@ -1,6 +1,6 @@
 # Re:Camp Planning Index — Current Generation
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-17
 > 역할: 작업 선택·상태·문서 탐색 규칙
 
 전역 제품·디자인 기준은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`만 소유한다. 이 문서에서는 플랫폼·로스터·비율·아트 방향을 다시 설명하지 않는다.

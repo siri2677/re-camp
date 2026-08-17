@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Implementation Status
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-17
 > 상태: Active Evidence Snapshot
 > 기준 브랜치: `current/recamp-unified`
 > Unity: `6000.5.3f1`
@@ -27,6 +27,12 @@
 않아 EditMode/PlayMode 결과는 갱신하지 않았다. 재시도 로그는 `Logs/dev0114-0117-compile.log`다.
 
 ## 2. Current Generation 문서·브랜치 검증
+
+2026-08-17 브랜치 동기화:
+
+- `feature/android-safearea-validation` 커밋 `acb63fe`가 `origin/feature/android-safearea-validation`에 푸시되었다.
+- `current/recamp-unified`는 `7f5d967`에 유지되며 feature 브랜치는 아직 Current에 머지되지 않았다.
+- `legacy/recamp-pre-generation`은 동결 참조 브랜치로 변경하지 않았다.
 
 2026-08-10 확인:
 

@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Roadmap
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-17
 > 역할: 마일스톤·Gate·단계 Exit 조건
 
 제품·플랫폼·Current 로스터·전역 비주얼·1인 제작 예산은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`만 따른다. 실제 작업 순서와 상태는 `planning/sprint_backlog.md`가 우선한다.

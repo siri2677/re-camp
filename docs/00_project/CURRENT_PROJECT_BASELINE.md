@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Baseline
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-17
 > 상태: Active / Canonical
 > 기준 브랜치: `current/recamp-unified`
 > Legacy: `legacy/recamp-pre-generation`

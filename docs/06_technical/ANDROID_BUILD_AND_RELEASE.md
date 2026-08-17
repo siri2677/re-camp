@@ -1,6 +1,6 @@
 # Re:Camp Android Build and Release Baseline
 
-> 최종 갱신: 2026-07-27
+> 최종 갱신: 2026-08-17
 > 상태: Active Implementation Contract
 > 대상: Android Vertical Slice → External Test → Google Play Closed Test
 

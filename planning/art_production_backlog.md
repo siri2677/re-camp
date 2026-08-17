@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Art Production Backlog
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-17
 > 역할: 아트 산출물 ID·상태·선행 조건·완료 증거
 
 전역 로스터·비율·플랫폼·Production Budget은 Canonical Baseline, 캐릭터별 디자인 내용은 Character Bible/Anchor가 소유한다. 이 Backlog는 **무엇을 만들었고 어떤 증거가 필요한지**만 기록한다.

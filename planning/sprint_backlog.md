@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Sprint Backlog
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-17
 > 역할: 실제 작업 ID·실행 순서·상태·완료 조건의 단일 기준
 
 전역 제품·디자인 기준은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`를 따른다. 이 Backlog에서는 캐릭터 이름·비율·플랫폼·Production Budget을 다시 정의하지 않는다.
@@ -23,7 +23,7 @@
 |---:|---|---|---|---|
 | 1 | DEV-0115 | Landscape·Safe Area | Review | 화면비·Cutout 자동/실기기 증거 |
 | 2 | DEV-0116 | Touch 입력·HUD | Review | 포인터 소유권·중단/복귀 자동 회귀 추가 완료. Android 기기 Smoke |
-| 3 | DEV-0114 | Android Build Support·도구 체인 | Blocked | Unity AndroidPlayer·SDK·NDK·OpenJDK 설치 |
+| 3 | DEV-0114 | Android Build Support·도구 체인 | Blocked | `DEV-0114_ANDROID_TOOLCHAIN_PREFLIGHT.json` 기준 Unity AndroidPlayer 설치 후 toolchain preflight PASS |
 | 4 | DEV-0117 | App ID·첫 APK·실기기 Smoke | Blocked | AndroidPlayer 설치 + Re:Camp 소유 Identifier 결정 + ARM64 IL2CPP APK·실기기 Smoke |
 | 5 | ART-0103·0111 | 제작 시트 도구 실사용 검증 | Review | Import·Clone·한글·PNG/PDF Export·사람 사용성 |
 | 6 | ART-1001~1409 | Current 캐릭터 2D 후보·제작 시트 | In Progress | 캐릭터별 통제 후보, 비교 보드, 사람 Gate A, 제작 시트 |

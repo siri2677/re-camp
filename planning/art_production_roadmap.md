@@ -1,6 +1,6 @@
 # Re:Camp Current Generation Art Production Roadmap
 
-> 최종 갱신: 2026-08-10
+> 최종 갱신: 2026-08-17
 > 역할: 아트 제작 단계와 Gate 의존 관계
 
 전역 로스터·비율·플랫폼·Production Budget은 `docs/00_project/CURRENT_PROJECT_BASELINE.md`가 소유한다. 캐릭터별 내용은 Character Bible/Anchor, 세부 산출물 상태는 `planning/art_production_backlog.md`가 소유한다.
